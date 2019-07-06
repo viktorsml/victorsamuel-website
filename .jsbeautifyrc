@@ -9,7 +9,7 @@
   "space_in_paren": false,
   "indent_inner_html": true,
   "newline_between_rules": true,
-  "selector_separator_newline": false,
+  "selector_separator_newline": true,
   "space_around_combinator": true,
   "preserve_newlines": true,
   "end_with_newline": true,
