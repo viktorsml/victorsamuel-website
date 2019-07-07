@@ -5,10 +5,10 @@ import { CoreComponent } from './core.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '', component: CoreComponent, children: [
-    { path: '', loadChildren: './pages/home-page/home-page.module#HomePageModule' },
-    { path: 'portfolio', loadChildren: './pages/portfolio-page/portfolio-page.module#PortfolioPageModule' },
-    { path: 'contact', loadChildren: './pages/contact-page/contact-page.module#ContactPageModule' },
-    { path: '**', loadChildren: './pages/not-found-page/not-found-page.module#NotFoundPageModule' },
+    { path: '', loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule) },
+    { path: 'portfolio', loadChildren: () => import('./pages/portfolio-page/portfolio-page.module').then(m => m.PortfolioPageModule) },
+    { path: 'contact', loadChildren: () => import('./pages/contact-page/contact-page.module').then(m => m.ContactPageModule) },
+    { path: '**', loadChildren: () => import('./pages/not-found-page/not-found-page.module').then(m => m.NotFoundPageModule) }
   ]}
 ];
 
