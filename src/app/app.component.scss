@@ -1,1 +1,6 @@
 @import './../scss/mixins';
+
+:host {
+  @include coverParent;
+  display: block;
+}
