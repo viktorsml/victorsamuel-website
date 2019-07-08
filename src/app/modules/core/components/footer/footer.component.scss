@@ -1,5 +1,11 @@
+@import './../../../../../scss/mixins';
+
 :host {
   display: block;
+}
+
+.main-container {
+  @include responsiveContainer($addPadding: true);
 }
 
 p {
@@ -7,7 +13,5 @@ p {
   font-size: 0.7rem;
   letter-spacing: 0.3px;
   border-top: solid 1px var(--color-border);
-  max-width: var(--website-max-width);
-  margin: 0 auto;
-  padding: var(--website-padding)
+  padding: 25px 0;
 }
