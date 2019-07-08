@@ -8,3 +8,52 @@
 .main-container {
   @include responsiveContainer;
 }
+
+section.welcome {
+  display: grid;
+  grid-template-columns: var(--website-nav-height) 1fr var(--website-nav-height);
+  grid-template-rows: 1fr var(--website-nav-height);
+  height: 100%;
+
+  app-social-icons {
+    grid-column: 1;
+  }
+
+  .main-container {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1, p {
+    text-align: center;
+    width: 100%;
+  }
+
+  h1 {
+    @include linearGradientText(#F7B42C, #FC575E, 135deg);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5em;
+    line-height: 1.5em;
+    max-width: 680px;
+    margin-top: var(--website-padding);
+    margin-bottom: 0;
+  }
+
+  p {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    color: #ecd7ab;
+    max-width: 530px;
+    margin: var(--website-padding) 0;
+    line-height: 1.5em;
+  }
+
+  img {
+    margin-bottom: var(--website-padding);
+  }
+}
