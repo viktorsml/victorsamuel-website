@@ -47,8 +47,10 @@ nav {
     padding: var(--link-padding) 0;
 
     &:link,
-    &:visited {
+    &:visited,
+    &:focus {
       color: var(--color-white);
+      outline: none;
     }
 
     &:not(:last-child) {
@@ -71,10 +73,22 @@ nav {
       transition: max-width 0.5s;
     }
 
-    &:hover, &.active {
+    &:hover,
+    &.active,
+    &:focus {
       &::before {
         max-width: 100%;
       }
     }
+  }
+}
+
+.social-icons-wrapper {
+  width: 0;
+  overflow: hidden;
+  transition: width ease-in-out 0.3s;
+
+  &.isVisible {
+    width: 161px;
   }
 }

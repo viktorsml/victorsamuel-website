@@ -3,7 +3,7 @@
 :host {
   display: flex;
   width: fit-content;
-  
+
   &.header {
     flex-direction: row;
     margin-left: var(--website-padding);
@@ -96,8 +96,11 @@ a {
 
   // Ends Left and Right lines inital status
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: white;
+    background-color: white;
+    outline: none;
 
     &.twitter {
       color: #1da1f2;
@@ -105,6 +108,10 @@ a {
 
     &.instagram {
       color: #c32aa3;
+    }
+
+    &.github {
+      color: black;
     }
 
     &.linkedin {

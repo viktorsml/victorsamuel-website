@@ -8,5 +8,7 @@
       {{ link.title }}
     </a>
   </nav>
-  <app-social-icons class="header"></app-social-icons>
+  <div class="social-icons-wrapper" [class.isVisible]="isSocialBarVisible">
+    <app-social-icons class="header"></app-social-icons>
+  </div>
 </div>
