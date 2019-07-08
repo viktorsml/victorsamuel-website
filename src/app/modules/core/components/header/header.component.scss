@@ -8,7 +8,7 @@
 
 .main-container {
   @include responsiveContainer($addPadding: true);
-  height: 56px;
+  height: var(--website-nav-height);
 }
 
 .main-container,

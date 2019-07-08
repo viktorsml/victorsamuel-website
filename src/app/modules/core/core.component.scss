@@ -5,4 +5,9 @@
   display: block;
   background-color: var(--color-dark);
   color: var(--color-white);
+  overflow: auto;
+
+  & > * {
+    width: 100%;
+  }
 }

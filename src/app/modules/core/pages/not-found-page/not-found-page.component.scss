@@ -1,0 +1,10 @@
+@import './../../../../../scss/mixins';
+
+:host {
+  @include initializeCorePage;
+  height: calc(100% - var(--website-nav-height));
+}
+
+.main-container {
+  @include responsiveContainer;
+}

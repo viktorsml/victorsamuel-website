@@ -19,7 +19,7 @@
   @include rectangle($width: 100%, $height: 100%);
 }
 
-@mixin responsiveContainer($addPadding: false) {
+@mixin responsiveContainer($addPadding: true) {
   position: relative;
   max-width: var(--website-max-width);
   margin: 0 auto;
@@ -32,4 +32,8 @@
   text-decoration: none;
   color: transparent;
   font-size: 0;
+}
+
+@mixin initializeCorePage {
+  display: block;
 }
