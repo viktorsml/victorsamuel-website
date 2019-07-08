@@ -58,6 +58,10 @@
   @include linearGradientDual($color, darken($color, $darkenPercentage), $angle);
 }
 
+@mixin linearGradientBackground($color, $secondColor, $angle: 135deg) {
+  @include linearGradientDual($color, $secondColor, $angle);
+}
+
 @mixin linearGradientText($topColor, $bottomColor, $angle) {
   @include linearGradientDual($topColor, $bottomColor, $angle);
   color: transparent;

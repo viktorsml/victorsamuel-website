@@ -4,6 +4,7 @@
   @include coverParent;
   display: block;
   background-color: var(--color-dark);
+  @include linearGradientBackground(#192235, #151515, 135deg);
   color: var(--color-white);
   overflow: auto;
 
