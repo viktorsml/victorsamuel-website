@@ -1,6 +1,7 @@
 @import './../../../../../scss/mixins';
 
 :host {
+  --link-padding: 7px;
   display: block;
   width: 100%;
   flex-shrink: 0;
@@ -34,7 +35,6 @@ nav {
   margin-left: auto;
 
   a {
-    --link-padding: 7px;
     cursor: pointer;
     position: relative;
     font-family: 'Montserrat', var(--font-default);

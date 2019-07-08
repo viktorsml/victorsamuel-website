@@ -37,3 +37,8 @@
 @mixin initializeCorePage {
   display: block;
 }
+
+@mixin mat-icon-size($size) {
+  @include rectangle($width: $size, $height: $size);
+  font-size: $size;
+}

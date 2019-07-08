@@ -1,0 +1,5 @@
+<a matRipple *ngFor="let icon of socialIcons" [href]="icon.url" [attr.class]="icon.name" target="_blank">
+  <span>
+    <mat-icon [svgIcon]="icon.name"></mat-icon>
+  </span>
+</a>
