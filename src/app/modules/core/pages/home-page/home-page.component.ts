@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -7,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() {}
+  constructor(
+    @Inject('VanillaTilt') public vanillaTilt: any
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.vanillaTilt.init(document.querySelector(".tilt-image"), { max: 25, speed: 400 });
+    this.vanillaTilt.init(document.querySelectorAll(".titlme"), {
+      max: 4,
+      speed: 400
+    });
+  }
 
 }

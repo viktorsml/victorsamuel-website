@@ -10,6 +10,9 @@ import { SocialIconsModule } from '../../components/social-icons/social-icons.mo
     CommonModule,
     HomePageRoutingModule,
     SocialIconsModule
+  ],
+  providers: [
+    { provide: 'VanillaTilt', useValue: window['VanillaTilt'] }
   ]
 })
 export class HomePageModule {}
