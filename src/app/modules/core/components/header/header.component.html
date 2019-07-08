@@ -1,3 +1,11 @@
-<a routerLink="/">Acerca</a>
-<a routerLink="/portfolio">Portafolio</a>
-<a routerLink="/contact">Contacto</a>
+<div class="main-container">
+  <a class="logo" routerLink="/">Victor Samuel</a>
+  <nav>
+    <a *ngFor="let link of menuLinks" 
+      routerLinkActive="active" 
+      [routerLink]="link.path" 
+      [attr.data-hover]="link.title">
+      {{ link.title }}
+    </a>
+  </nav>
+</div>

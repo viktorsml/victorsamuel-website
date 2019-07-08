@@ -3,6 +3,16 @@
 @import 'scss/variables';
 @import 'scss/mixins';
 
+html {
+  @include box-sizing(border-box);
+}
+
+*, *:before, *:after {
+  @include box-sizing(inherit);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
 html, body {
   @include coverParent;
   font-family: var(--font-default);

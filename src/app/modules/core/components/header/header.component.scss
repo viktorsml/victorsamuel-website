@@ -1,0 +1,80 @@
+@import './../../../../../scss/mixins';
+
+:host {
+  display: block;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.main-container {
+  @include responsiveContainer($addPadding: true);
+  height: 56px;
+}
+
+.main-container,
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.logo {
+  @include hideText;
+  flex-shrink: 0;
+  width: 150px;
+  height: 100%;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('/assets/svg/vs-logo-dark.svg');
+}
+
+nav {
+  margin-left: auto;
+
+  a {
+    --link-padding: 7px;
+    cursor: pointer;
+    position: relative;
+    font-family: 'Montserrat', var(--font-default);
+    font-weight: 500;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: none;
+    letter-spacing: 0.05rem;
+    padding: var(--link-padding) 0;
+
+    &:link,
+    &:visited {
+      color: var(--color-white);
+    }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      padding: var(--link-padding) 0;
+      font-weight: 600;
+      max-width: 0;
+      border-bottom: 1px solid #fff;
+      color: #fff;
+      content: attr(data-hover);
+      -webkit-transition: max-width 0.5s;
+      -moz-transition: max-width 0.5s;
+      transition: max-width 0.5s;
+    }
+
+    &:hover, &.active {
+      &::before {
+        max-width: 100%;
+      }
+    }
+  }
+}

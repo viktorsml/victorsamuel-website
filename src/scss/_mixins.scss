@@ -1,3 +1,10 @@
+@mixin box-sizing($type) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+  -ms-box-sizing: $type;
+  box-sizing: $type;
+}
+
 @mixin rectangle ($width, $height) {
   width: $width;
   height: $height;
@@ -10,4 +17,19 @@
 
 @mixin coverParent {
   @include rectangle($width: 100%, $height: 100%);
+}
+
+@mixin responsiveContainer($addPadding: false) {
+  position: relative;
+  max-width: var(--website-max-width);
+  margin: 0 auto;
+  @if $addPadding {
+    padding: 0 var(--website-padding);
+  }
+}
+
+@mixin hideText {
+  text-decoration: none;
+  color: transparent;
+  font-size: 0;
 }
