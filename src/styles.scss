@@ -16,4 +16,6 @@ html {
 html, body {
   @include coverParent;
   font-family: var(--font-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
