@@ -25,6 +25,8 @@ section.welcome {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
   }
 
   h1, p {
@@ -55,5 +57,6 @@ section.welcome {
 
   img {
     margin-bottom: var(--website-padding);
+    transform: translateZ(20px)
   }
 }
