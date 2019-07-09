@@ -37,6 +37,8 @@
 
 @mixin initializeCorePage {
   display: block;
+  height: 100%;
+  min-height: fit-content;
 }
 
 @mixin mat-icon-size($size) {

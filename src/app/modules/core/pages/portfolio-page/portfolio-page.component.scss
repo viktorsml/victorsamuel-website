@@ -2,8 +2,8 @@
 
 :host {
   @include initializeCorePage;
-  height: 100%;
   padding-top: var(--website-nav-height);
+  color: var(--color-dark);
 }
 
 .main-container {
