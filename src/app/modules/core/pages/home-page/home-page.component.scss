@@ -2,7 +2,7 @@
 
 :host {
   @include initializeCorePage;
-  height: calc(100% - var(--website-nav-height));
+  height: 100%;
 }
 
 .main-container {
@@ -12,15 +12,17 @@
 section.welcome {
   display: grid;
   grid-template-columns: var(--website-nav-height) 1fr var(--website-nav-height);
-  grid-template-rows: 1fr var(--website-nav-height);
+  grid-template-rows: var(--website-nav-height) 1fr var(--website-nav-height);
   height: 100%;
 
   app-social-icons {
     grid-column: 1;
+    grid-row: 2;
   }
-
+  
   .main-container {
     grid-column: 2;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;

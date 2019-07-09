@@ -2,13 +2,34 @@
 
 :host {
   @include coverParent;
+  position: relative;
   display: block;
-  background-color: var(--color-dark);
-  @include linearGradientBackground(#192235, #151515, 135deg);
   color: var(--color-white);
   overflow: auto;
 
   & > * {
     width: 100%;
+  }
+}
+
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.flexible-background {
+  @include linearGradientBackground(#192235, #151515, 135deg);
+  position: fixed;
+  width: 100%;
+  height: var(--website-nav-height);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: height 0.3s ease-in-out;
+
+  &.isFullScreen {
+    height: 100%;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 interface MenuLink {
   title: string,
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
     { title: 'Portafolio', path: '/portfolio' },
     { title: 'Contacto', path: '/contact' },
   ];
+  private socialIconsSubscription: Subscription;
 
   constructor(
     private router: Router
@@ -26,11 +28,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isSocialBarVisible = !(this.router.url === '/about');
-    this.router.events.subscribe((event) => {
+    this.socialIconsSubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isSocialBarVisible = !(event.urlAfterRedirects === '/about');
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.socialIconsSubscription.unsubscribe();
   }
 
 }

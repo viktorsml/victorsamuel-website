@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-core',
@@ -7,8 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoreComponent implements OnInit {
 
-  constructor() {}
+  public isBgInFullScreen: boolean;
+  private backgroundStylerSubscription: Subscription;
 
-  ngOnInit() {}
+  constructor(
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.isBgInFullScreen = !(this.router.url === '/portfolio');
+    this.backgroundStylerSubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.isBgInFullScreen = !(event.urlAfterRedirects === '/portfolio');
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.backgroundStylerSubscription.unsubscribe();
+  }
 
 }

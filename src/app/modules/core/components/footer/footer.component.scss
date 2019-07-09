@@ -2,6 +2,14 @@
 
 :host {
   display: block;
+
+  &.isInLightBg {
+    p {
+      color: var(--color-dark);
+      border-top: solid 1px var(--color-white);
+      transition: color 0.3s ease-in-out;
+    }
+  }
 }
 
 .main-container {
