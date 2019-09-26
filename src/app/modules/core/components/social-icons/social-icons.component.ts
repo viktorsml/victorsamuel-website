@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 
@@ -15,6 +15,8 @@ interface SocialIcon {
   styleUrls: ['./social-icons.component.scss']
 })
 export class SocialIconsComponent implements OnInit {
+
+  @Input() tabindexValue: number = 0;
 
   public socialIcons: Array<SocialIcon> = [
     { title: 'Twitter', name: 'twitter', url: 'https://www.twitter.com/viktorsml', resource: '/assets/svg/logo-twitter.svg' },
