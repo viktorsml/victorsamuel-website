@@ -1,7 +1,6 @@
 <app-header></app-header>
 <div class="loading-screen" [class.isLoading]="isLoading">
-  <app-spinner [light]="isBgInFullScreen"></app-spinner>
+  <app-spinner></app-spinner>
 </div>
 <router-outlet></router-outlet>
-<app-footer [class.isInLightBg]="!isBgInFullScreen"></app-footer>
-<div class="flexible-background" [class.isFullScreen]="isBgInFullScreen"></div>
+<app-footer></app-footer>

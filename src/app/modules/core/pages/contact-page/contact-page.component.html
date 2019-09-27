@@ -1,3 +1,50 @@
-<div class="main-container">
-  <p>contact-page works!</p>
-</div>
+<main class="main-container">
+  <div class="title-container">
+    <h1 class="title">Contacto</h1>
+    <p class="description">
+      Puedes ponerte en contacto a través de las siguientes plataformas o enviándome
+      un
+      correo electrónico a <a
+        href="mailto:hola@victorsamuel.com">hola@victorsamuel.com</a><br>
+      <span>(El formulario de abajo también funciona)</span>.
+    </p>
+  </div>
+  <div class="contact-icons">
+    <a *ngFor="let icon of contactIcons" class="contact-link" [href]="icon.url"
+      target="_blank" rel="noopener noreferrer">
+      <mat-icon [svgIcon]="icon.name"></mat-icon>
+      <span>{{ icon.title }}</span>
+    </a>
+  </div>
+  <form class="contact-form">
+    <div class="panel-details">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text">
+        <mat-icon matSuffix>perm_identity</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email">
+        <mat-icon matSuffix>mail_outline</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Asunto</mat-label>
+        <input matInput type="text">
+        <mat-icon matSuffix>bubble_chart</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="panel-message">
+      <mat-form-field appearance="outline">
+        <mat-label>Mensaje</mat-label>
+        <textarea matInput rows="11" placeholder="Tu mensaje..."></textarea>
+      </mat-form-field>
+    </div>
+    <div class="panel-button">
+      <button mat-stroked-button color="primary">
+        <span>Enviar Mensaje</span>
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </form>
+</main>

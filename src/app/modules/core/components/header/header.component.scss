@@ -1,15 +1,17 @@
 @import './../../../../../scss/mixins';
 
+$mobile-break: 670px;
+
 :host {
   --link-padding: 7px;
+  background-color: var(--color-black);
   display: block;
   width: 100%;
   flex-shrink: 0;
-}
 
-.main-container {
-  @include responsiveContainer($addPadding: true);
-  height: var(--website-nav-height);
+  @media screen and (max-width: $mobile-break) {
+    border-bottom: solid 1px #242424;
+  }
 }
 
 .main-container,
@@ -19,20 +21,37 @@ nav {
   align-items: center;
 }
 
+.main-container {
+  @include responsiveContainer($addPadding: true);
+  height: var(--website-nav-height);
+
+  @media screen and (max-width: $mobile-break) {
+    flex-direction: column;
+  }
+}
 
 .logo {
   @include hideText;
   flex-shrink: 0;
   width: 150px;
-  height: 100%;
+  height: 56px;
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   background-image: url('/assets/svg/vs-logo-dark.svg');
+
+  @media screen and (max-width: $mobile-break) {
+    margin-top: 20px;
+  }
 }
 
 nav {
   margin-left: auto;
+  
+  @media screen and (max-width: $mobile-break) {
+    margin-left: initial;
+    margin-top: 10px;
+  }
 
   a {
     cursor: pointer;
@@ -65,12 +84,16 @@ nav {
       padding: var(--link-padding) 0;
       font-weight: 600;
       max-width: 0;
-      border-bottom: 1px solid #fff;
       color: #fff;
       content: attr(data-hover);
       -webkit-transition: max-width 0.5s;
       -moz-transition: max-width 0.5s;
       transition: max-width 0.5s;
+    }
+
+    &.active,
+    &.active::before {
+      color: var(--color-primary);
     }
 
     &:hover,
@@ -87,6 +110,10 @@ nav {
   width: 0;
   overflow: hidden;
   transition: width ease-in-out 0.3s;
+
+  @media screen and (max-width: $mobile-break) {
+    display: none;
+  }
 
   &.isVisible {
     width: 161px;

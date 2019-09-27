@@ -10,7 +10,6 @@ import { Router, Event as RouterEvent, NavigationStart, NavigationEnd, Navigatio
 export class CoreComponent implements OnInit {
 
   public isLoading: boolean = true;
-  public isBgInFullScreen: boolean;
   private backgroundStylerSubscription: Subscription;
 
   constructor(
@@ -18,7 +17,6 @@ export class CoreComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.isBgInFullScreen = !(this.router.url === '/portfolio');
     this.backgroundStylerSubscription = this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationStart) {
         this.isLoading = true;
@@ -28,7 +26,6 @@ export class CoreComponent implements OnInit {
       }
       if (event instanceof NavigationEnd) {
         this.isLoading = false;
-        this.isBgInFullScreen = !(event.urlAfterRedirects === '/portfolio');
       }
     });
   }
