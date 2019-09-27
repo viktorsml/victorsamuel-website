@@ -16,9 +16,9 @@ export class HeaderComponent implements OnInit {
 
   public isSocialBarVisible = false;
   public menuLinks: Array<MenuLink> = [
-    { title: 'Acerca', path: '/about' },
-    { title: 'Portafolio', path: '/portfolio' },
-    { title: 'Contacto', path: '/contact' },
+    { title: 'Acerca', path: '/acerca' },
+    { title: 'Proyectos', path: '/proyectos' },
+    { title: 'Contacto', path: '/contacto' },
   ];
   private socialIconsSubscription: Subscription;
 
@@ -27,10 +27,10 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.isSocialBarVisible = !(this.router.url === '/about');
+    this.isSocialBarVisible = !(this.router.url === '/acerca');
     this.socialIconsSubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isSocialBarVisible = !(event.urlAfterRedirects === '/about');
+        this.isSocialBarVisible = !(event.urlAfterRedirects === '/acerca');
       }
     });
   }
