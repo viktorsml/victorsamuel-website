@@ -1,38 +1,54 @@
 @import './../../../scss/mixins';
+@import './../../../scss/staticVariables';
 
 :host {
   @include coverParent;
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   color: var(--color-white);
   overflow: auto;
 
   & > * {
     width: 100%;
   }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    --website-nav-height: 140px;
+  }
+}
+
+app-header,
+app-footer {
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 app-header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    position: relative;
+  }
 }
 
-.flexible-background {
-  @include linearGradientBackground(#192235, #151515, 135deg);
-  position: fixed;
+:host::ng-deep router-outlet + * {
+  flex: 1 0 auto;
+  padding: 1px 0;
   width: 100%;
-  height: var(--website-nav-height);
-  top: 0;
-  left: 0;
-  z-index: 8;
-  transition: height 0.3s ease-in-out;
+  z-index: 1;
 
-  &.isFullScreen {
-    height: 100%;
-    z-index: -1;
+  @media screen and (min-width: $mobile-breakpoint) {
+    padding-top: var(--website-nav-height);
   }
+}
+
+app-footer {
+  position: relative;
+  margin-top: auto;
 }
 
 .loading-screen {

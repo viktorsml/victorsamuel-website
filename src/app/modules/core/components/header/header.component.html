@@ -1,7 +1,8 @@
 <div class="main-container">
-  <a class="logo" routerLink="/">Victor Samuel</a>
+  <a class="logo noBorder" routerLink="/">Victor Samuel</a>
   <nav>
     <a *ngFor="let link of menuLinks" 
+      class="noBorder"
       routerLinkActive="active" 
       [routerLink]="link.path" 
       [attr.data-hover]="link.title">

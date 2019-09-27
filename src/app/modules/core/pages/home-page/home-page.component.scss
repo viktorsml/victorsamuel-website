@@ -1,7 +1,11 @@
 @import './../../../../../scss/mixins';
+@import './../../../../../scss/staticVariables';
 
 :host {
-  @include initializeCorePage;
+  @media screen and (max-width: $mobile-breakpoint) {
+    position: relative;
+    top: calc(var(--website-nav-height) * -1);
+  }
 }
 
 .main-container {
@@ -37,26 +41,20 @@ section.welcome {
 
   h1 {
     @include linearGradientText(#F7B42C, #FC575E, 135deg);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2.5em;
-    line-height: 1.5em;
     max-width: 680px;
     margin-top: var(--website-padding);
     margin-bottom: 0;
   }
 
   p {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.1em;
-    font-weight: 400;
     color: #ecd7ab;
     max-width: 530px;
     margin: var(--website-padding) 0;
-    line-height: 1.5em;
   }
 
-  img {
+  app-picture {
+    width: 220px;
+    height: 233px;
     margin-bottom: var(--website-padding);
     transform: translateZ(20px)
   }

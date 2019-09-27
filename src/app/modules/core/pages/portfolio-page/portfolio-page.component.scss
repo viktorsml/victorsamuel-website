@@ -1,11 +1,5 @@
 @import './../../../../../scss/mixins';
 
-:host {
-  @include initializeCorePage;
-  padding-top: var(--website-nav-height);
-  color: var(--color-dark);
-}
-
 .main-container {
   @include responsiveContainer;
 }

@@ -1,5 +1,6 @@
 @import 'scss/normalize';
 @import 'scss/materialTheme';
+@import 'scss/staticVariables';
 @import 'scss/variables';
 @import 'scss/mixins';
 
@@ -16,6 +17,51 @@ html {
 html, body {
   @include coverParent;
   font-family: var(--font-default);
+  background-color: var(--color-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.5em;
+}
+
+p {
+  font-family: var(--font-default);
+  font-size: 1.1em;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: solid 1px;
+  border-color: transparent;
+
+  &:not(.noBorder):hover {
+    border-color: var(--color-primary);
+  }
+}
+mat-form-field,
+*[mat-stroked-button] {
+  font-family: var(--font-default) !important;
+}
+
+*[mat-stroked-button] {
+  mat-icon {
+    margin-left: 13px;
+    @include mat-icon-size(15px);
+  }
 }

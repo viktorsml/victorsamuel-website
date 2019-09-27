@@ -1,9 +1,10 @@
 <section class="welcome">
   <app-social-icons class="inFullScreenPage"></app-social-icons>
-  <div class="main-container titlme" data-tilt data-tilt-full-page-listening>
+  <div class="main-container">
     <h1>¡Hola! Soy Victor, desarrollador web full-stack.</h1>
     <p>Creo hermosos sitios y aplicaciones web con las ultimas tecnologías disponibles
       en el mercado.</p>
-    <img src="/assets/img/victor-samuel.png" alt="Victor Samuel" />
+    <app-picture data-tilt data-tilt-full-page-listening class="titlme"
+      source="victor-samuel" mode="contain" [isPng]="true"></app-picture>
   </div>
 </section>
