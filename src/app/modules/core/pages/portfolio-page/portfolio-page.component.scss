@@ -1,4 +1,5 @@
 @import './../../../../../scss/mixins';
+@import './../../../../../scss/staticVariables';
 
 .main-container {
   @include responsiveContainer;

@@ -1,14 +1,10 @@
 <main class="main-container">
-  <div class="title-container">
-    <h1 class="title">Contacto</h1>
-    <p class="description">
-      Puedes ponerte en contacto a través de las siguientes plataformas o enviándome
-      un
-      correo electrónico a <a
-        href="mailto:hola@victorsamuel.com">hola@victorsamuel.com</a><br>
-      <span>(El formulario de abajo también funciona)</span>.
-    </p>
-  </div>
+  <app-page-title title="Contacto"
+    description="Puedes ponerte en contacto a través de las siguientes plataformas o enviándome un correo electrónico a "
+    extra="(El formulario de abajo también funciona)"
+    linkText="hola@victorsamuel.com"
+    linkHref="mailto:hola@victorsamuel.com"
+  ></app-page-title>
   <div class="contact-icons">
     <a *ngFor="let icon of contactIcons" class="contact-link" [href]="icon.url"
       target="_blank" rel="noopener noreferrer">
