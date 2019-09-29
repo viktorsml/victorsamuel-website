@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PictureComponent } from './picture.component';
+import { SmartPictureComponent } from './smart-picture.component';
 
-describe('PictureComponent', () => {
-  let component: PictureComponent;
-  let fixture: ComponentFixture<PictureComponent>;
+describe('SmartPictureComponent', () => {
+  let component: SmartPictureComponent;
+  let fixture: ComponentFixture<SmartPictureComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PictureComponent ]
+      declarations: [ SmartPictureComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PictureComponent);
+    fixture = TestBed.createComponent(SmartPictureComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

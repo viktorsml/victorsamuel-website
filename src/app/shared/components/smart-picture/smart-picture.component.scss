@@ -1,0 +1,81 @@
+:host {
+  display: block;
+}
+
+:host.responsive .picture-holder {
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: var(--aspect-ratio);
+  }
+
+  .wrapper {
+    display: inline-flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+img,
+.wrapper,
+.content,
+.picture-holder {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  z-index: 1;
+}
+
+.cover {
+  object-fit: cover;
+  font-family: 'object-fit: cover;';
+}
+
+.contain {
+  object-fit: contain;
+  font-family: 'object-fit: contain;';
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  z-index: 3;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: 100% 0
+  }
+
+  100% {
+    background-position: -100% 0
+  }
+}
+
+.animated-background {
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: darkgray;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.05) 10%, rgba(255, 255, 255, 0.2) 17%, rgba(255, 255, 255, 0.05) 30%);
+  background-size: 300%;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
