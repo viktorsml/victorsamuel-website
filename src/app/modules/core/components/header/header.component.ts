@@ -18,7 +18,9 @@ export class HeaderComponent implements OnInit {
   public menuLinks: Array<MenuLink> = [
     { title: 'Acerca', path: '/acerca' },
     { title: 'Proyectos', path: '/proyectos' },
+    { title: 'Blog', path: '/blog' },
     { title: 'Contacto', path: '/contacto' },
+    { title: 'CV', path: '/cv' },
   ];
   private socialIconsSubscription: Subscription;
 

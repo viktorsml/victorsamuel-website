@@ -6,13 +6,17 @@
 }
 
 .main-container {
-  @include responsiveContainer($addPadding: true);
+  @include responsiveContainer($addPadding: false);
+  padding: 60px var(--website-padding);
+  border-top: solid 1px var(--color-border);
 }
 
 p {
   margin: 0;
+  font-family: coven, var(--font-default);
+  letter-spacing: 0.04em;
+  font-weight: 400;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.77rem;
   letter-spacing: 0.3px;
-  padding: 25px 0;
 }

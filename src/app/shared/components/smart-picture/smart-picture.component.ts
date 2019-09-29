@@ -20,6 +20,8 @@ export class SmartPictureComponent implements OnInit {
   @Input() sourceBmp: string;
   @Input() sourceGif: string;
   @Input() sourceSvg: string;
+  @Input() altText: string;
+  @Input() ariaHidden: boolean = false;
   @Input() responsive: boolean = false;
   @Input() disablePlaceholder: boolean = false;
   @Input() width: string = '100%';
