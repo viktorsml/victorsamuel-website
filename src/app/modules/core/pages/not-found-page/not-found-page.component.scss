@@ -1,5 +1,35 @@
 @import './../../../../../scss/mixins';
 
-.main-container {
-  @include responsiveContainer;
+.not-found-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('/assets/svg/not-found-robot.svg');
+  width: 150px;
+  height: 150px;
+}
+
+h1, p {
+  text-align: center;
+  width: 100%;
+  max-width: 750px;
+}
+
+h1 {
+  font-size: 1.7em;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+p {
+  line-height: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
