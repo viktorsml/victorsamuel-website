@@ -65,3 +65,23 @@ mat-form-field,
     @include mat-icon-size(15px);
   }
 }
+
+.page-container {
+  --margin: 90px;
+  margin-top: var(--margin);
+  margin-bottom: var(--margin);
+  
+  @media screen and (max-width: $mobile-breakpoint) {
+    --margin: 60px;
+  }
+
+  & > .responsive,
+  app-page-title {
+    @include responsiveContainer();
+  }
+
+  & > .responsive {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
