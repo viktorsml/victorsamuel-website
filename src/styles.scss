@@ -10,6 +10,10 @@ html {
   @media screen and (max-width: $mobile-breakpoint) {
     --website-max-width: 100%;
   }
+  
+  @media screen and (min-width: 2000px) {
+    --website-max-width: 2000px;
+  }
 }
 
 *, *:before, *:after {
@@ -21,7 +25,7 @@ html {
 html, body {
   @include coverParent;
   font-family: var(--font-default);
-  background-color: var(--color-black);
+  background-color: rgb(var(--color-black));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

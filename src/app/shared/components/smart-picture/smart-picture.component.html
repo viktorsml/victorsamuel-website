@@ -1,14 +1,14 @@
 <div class="picture-holder" [style.width]="width" [attr.data-aspect-ratio]="(aspectRatio)? aspectRatio : 0">
-  <div class="animated-background"></div>
+  <div *ngIf="!disablePlaceholder" class="animated-background"></div>
   <div class="wrapper">
     <picture *ngIf="shouldItLoad">
       <source *ngIf="sourceWebp" type="image/webp" [srcset]="sourceWebp">
+      <source *ngIf="sourceSvg" type="image/svg" [srcset]="sourceSvg">
       <source *ngIf="sourceJpg" type="image/jpg" [srcset]="sourceJpg">
       <source *ngIf="sourcePng" type="image/png" [srcset]="sourcePng">
       <source *ngIf="sourceBmp" type="image/bmp" [srcset]="sourceBmp">
       <source *ngIf="sourceGif" type="image/gif" [srcset]="sourceGif">
-      <source *ngIf="sourceSvg" type="image/svg" [srcset]="sourceSvg">
-      <img [src]="(!sourcePng)? sourceJpg : sourcePng" class="fit-image {{ size }}">
+      <img [src]="(!sourcePng)? sourceJpg : sourcePng" class="fit-image {{ size }}" [style.object-position]="objectPosition">
     </picture>
   </div>
   <div class="content">

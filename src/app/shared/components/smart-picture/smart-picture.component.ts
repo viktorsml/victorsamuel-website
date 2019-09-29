@@ -21,8 +21,10 @@ export class SmartPictureComponent implements OnInit {
   @Input() sourceGif: string;
   @Input() sourceSvg: string;
   @Input() responsive: boolean = false;
+  @Input() disablePlaceholder: boolean = false;
   @Input() width: string = '100%';
   @Input() size: 'cover' | 'contain' = 'cover';
+  @Input() objectPosition: string = 'center';
   @Input() shadow: string = '0';
   @Input() heightRatio: number = 1;
   @Input() widthRatio: number = 1;

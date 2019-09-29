@@ -4,7 +4,15 @@
     <p>Creo hermosas aplicaciones web con las ultimas tecnologías disponibles y con un
       diseño centrado en el usuario</p>
     <app-social-icons></app-social-icons>
-    <!-- <app-picture data-tilt data-tilt-full-page-listening class="titlme"
-      source="victor-samuel" mode="contain" [isPng]="true"></app-picture> -->
+    <app-smart-picture class="developer-picture"
+      sourceSvg="/assets/svg/developer.svg"
+      sourcePng="/assets/svg/developer.svg"
+      [responsive]="true"
+      [disablePlaceholder]="true"
+      size="contain"
+      objectPosition="right"
+      [heightRatio]="356"
+      [widthRatio]="457">
+    </app-smart-picture>
   </section>
 </main>

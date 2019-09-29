@@ -12,11 +12,14 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.vanillaTilt.init(document.querySelector(".tilt-image"), { max: 25, speed: 400 });
-    this.vanillaTilt.init(document.querySelectorAll(".titlme"), {
-      max: 4,
-      speed: 400
-    });
+    // const tiltedElements = document.querySelectorAll('.titlme .picture-holder');
+    // tiltedElements.forEach(e => {
+    //   e.setAttribute('data-tilt', '');
+    //   e.setAttribute('data-tilt-full-page-listening', '');
+    // })
+    // this.vanillaTilt.init(tiltedElements, { max: 1, speed: 400 });
   }
+
+  
 
 }
