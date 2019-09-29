@@ -1,3 +1,4 @@
+@import 'scss/fonts';
 @import 'scss/normalize';
 @import 'scss/materialTheme';
 @import 'scss/staticVariables';
@@ -10,19 +11,22 @@ html {
   @media screen and (max-width: $mobile-breakpoint) {
     --website-max-width: 100%;
   }
-  
+
   @media screen and (min-width: 2000px) {
     --website-max-width: 2000px;
   }
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   @include box-sizing(inherit);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
   @include coverParent;
   font-family: var(--font-default);
   background-color: rgb(var(--color-black));
@@ -37,7 +41,9 @@ h4,
 h5,
 h6 {
   font-family: var(--font-title);
-  font-weight: 700;
+  font-feature-settings: "ss01", "ss02";
+  font-weight: 500;
+  font-size: 3em;
 }
 
 h1 {
@@ -62,6 +68,7 @@ a {
     border-color: var(--color-primary);
   }
 }
+
 mat-form-field,
 *[mat-stroked-button] {
   font-family: var(--font-default) !important;
@@ -78,7 +85,7 @@ mat-form-field,
   --page-section-margin: calc(var(--page-margin) / 3);
   margin-top: var(--page-margin);
   margin-bottom: var(--page-margin);
-  
+
   @media screen and (max-width: $mobile-breakpoint) {
     --page-margin: 60px;
   }
