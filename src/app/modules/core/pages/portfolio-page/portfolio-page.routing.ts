@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PortfolioPageComponent } from './portfolio-page.component';
 
 const routes: Routes = [
-  { path: '', component: PortfolioPageComponent }
+  { path: '', pathMatch: 'full', redirectTo: 'all' },
+  { path: ':tag', component: PortfolioPageComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,34 @@
 <main class="page-container">
   <app-page-title title="Proyectos" description="He aquí una selección de algunos proyectos que utilizan el diseño como
     una puerta para traducir problemas en oportunidades"></app-page-title>
+  <section *ngIf="projects" class="projects-gallery responsive">
+
+    <div *ngFor="let project of projects" class="project">
+      <a tabindex="-1" class="project-link"
+        [routerLink]="['/proyecto', project.projectId]">
+        <app-smart-picture [sourceWebp]="project.pictureSource.webp"
+          [sourceBmp]="project.pictureSource.bmp"
+          [sourceJpg]="project.pictureSource.jpg"
+          [sourcePng]="project.pictureSource.png"
+          [sourceGif]="project.pictureSource.gif" size="cover" [responsive]="true"
+          [heightRatio]="6" [widthRatio]="5">
+        </app-smart-picture>
+        <h2 class="project-title">{{ project.title }}</h2>
+        <p class="project-description">{{ project.description }}</p>
+      </a>
+      <p class="project-tags">
+        <span *ngFor="let tag of project.tags"><a
+            [routerLink]="['/proyectos', tag.id]">{{ tag.displayText }}</a></span>
+      </p>
+      <div class="project-buttons">
+        <a mat-stroked-button color="primary" routerLink="/proyecto/personal/code">
+          Ver proyecto
+        </a>
+        <a mat-stroked-button color="primary" *ngIf="project.codeUrl"
+          [href]="project.codeUrl" target="_blank"
+          rel="noopener noreferrer">Código</a>
+      </div>
+    </div>
+
+  </section>
 </main>
