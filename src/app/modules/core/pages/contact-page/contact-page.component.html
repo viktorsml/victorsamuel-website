@@ -1,48 +1,15 @@
 <main class="page-container">
   <app-page-title title="Contacto"
-    description="Puedes ponerte en contacto a través de las siguientes plataformas o enviándome un correo electrónico a "
-    extra="(El formulario de abajo también funciona)"
-    linkText="hola@victorsamuel.com"
-    linkHref="mailto:hola@victorsamuel.com"
+    description="Puedes ponerte en contacto a través de las siguientes plataformas o enviándome un correo electrónico"
   ></app-page-title>
+  <section class="email-big responsive">
+    <h2><a href="mailto:hola@victorsamuel.com">hola@victorsamuel.com</a></h2>
+  </section>
   <section class="contact-icons responsive">
     <a *ngFor="let icon of contactIcons" class="contact-link" [href]="icon.url"
       target="_blank" rel="noopener noreferrer">
       <mat-icon [svgIcon]="icon.name"></mat-icon>
       <span>{{ icon.title }}</span>
     </a>
-  </section>
-  <section class="contact-form responsive">
-    <form>
-      <div class="panel-details">
-        <mat-form-field appearance="outline">
-          <mat-label>Nombre</mat-label>
-          <input matInput type="text">
-          <mat-icon matSuffix>perm_identity</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Correo</mat-label>
-          <input matInput type="email">
-          <mat-icon matSuffix>mail_outline</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Asunto</mat-label>
-          <input matInput type="text">
-          <mat-icon matSuffix>bubble_chart</mat-icon>
-        </mat-form-field>
-      </div>
-      <div class="panel-message">
-        <mat-form-field appearance="outline">
-          <mat-label>Mensaje</mat-label>
-          <textarea matInput rows="11" placeholder="Tu mensaje..."></textarea>
-        </mat-form-field>
-      </div>
-      <div class="panel-button">
-        <button mat-stroked-button color="primary">
-          <span>Enviar Mensaje</span>
-          <mat-icon>send</mat-icon>
-        </button>
-      </div>
-    </form>
   </section>
 </main>
