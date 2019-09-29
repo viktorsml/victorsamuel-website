@@ -22,13 +22,13 @@ app-header,
 app-footer {
   flex-shrink: 0;
   width: 100%;
-  z-index: 2;
 }
 
 app-header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
+  z-index: 2;
 
   @media screen and (max-width: $mobile-breakpoint) {
     position: relative;
@@ -40,15 +40,12 @@ app-header {
   padding: 1px 0;
   width: 100%;
   z-index: 1;
-
-  @media screen and (min-width: $mobile-breakpoint) {
-    padding-top: var(--website-nav-height);
-  }
 }
 
 app-footer {
   position: relative;
   margin-top: auto;
+  z-index: 0;
 }
 
 .loading-screen {

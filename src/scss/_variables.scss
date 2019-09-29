@@ -9,7 +9,9 @@ html {
   --font-default: "Nunito Sans", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   --font-title: 'Montserrat', var(--font-default);
   // Sizes
-  --website-max-width: 1200px;
+  // --website-max-width: 1200px;
+  --website-max-width: 95%;
   --website-padding: 25px;
-  --website-nav-height: 56px;
+  --website-nav-height: 75px;
+  --page-margin: 90px;
 }

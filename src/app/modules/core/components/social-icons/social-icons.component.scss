@@ -3,33 +3,14 @@
 :host {
   display: flex;
   width: fit-content;
+  flex-direction: row;
 
-  &.header {
-    flex-direction: row;
-    margin-left: var(--website-padding);
-
-    a {
-      padding: var(--link-padding);
-    }
-
-    mat-icon {
-      @include mat-icon-size(14px);
-    }
+  a {
+    padding: var(--link-padding);
   }
 
-  &.inFullScreenPage {
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      padding: 10px;
-    }
-
-    mat-icon {
-      @include mat-icon-size(17px);
-    }
+  mat-icon {
+    @include mat-icon-size(14px);
   }
 }
 

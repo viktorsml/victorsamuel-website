@@ -1,55 +1,54 @@
 @import './../../../../../scss/mixins';
 @import './../../../../../scss/staticVariables';
 
-:host {
+.welcome-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: calc(100vh - (30px + var(--page-margin) + var(--page-section-margin) + var(--website-nav-height)));
+  min-height: 330px;
+
   @media screen and (max-width: $mobile-breakpoint) {
-    position: relative;
-    top: calc(var(--website-nav-height) * -1);
-  }
-}
-
-.main-container {
-  @include responsiveContainer;
-}
-
-section.welcome {
-  display: grid;
-  grid-template-columns: var(--website-nav-height) 1fr var(--website-nav-height);
-  grid-template-rows: var(--website-nav-height) 1fr var(--website-nav-height);
-  height: 100%;
-
-  app-social-icons {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  
-  .main-container {
-    grid-column: 2;
-    grid-row: 2;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
+    min-height: initial;
+    height: initial;
   }
 
-  h1, p {
-    text-align: center;
+  app-social-icons {
+    --link-padding: 8px;
+  }
+
+  h1,
+  p,
+  app-social-icons {
+    margin-top: 0;
+    margin-bottom: var(--website-padding);
+  }
+
+  h1,
+  p {
+    text-align: left;
     width: 100%;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      text-align: center;
+    }
   }
 
   h1 {
     @include linearGradientText(#F7B42C, #FC575E, 135deg);
-    max-width: 680px;
-    margin-top: var(--website-padding);
-    margin-bottom: 0;
+    max-width: 880px;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      font-size: 2em;
+    }
   }
 
   p {
     color: #ecd7ab;
     max-width: 530px;
-    margin: var(--website-padding) 0;
   }
 
   app-picture {

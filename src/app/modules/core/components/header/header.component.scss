@@ -110,6 +110,7 @@ nav {
   width: 0;
   overflow: hidden;
   transition: width ease-in-out 0.3s;
+  margin-left: var(--website-padding);
 
   @media screen and (max-width: $mobile-break) {
     display: none;

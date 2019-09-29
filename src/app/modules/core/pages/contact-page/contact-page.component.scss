@@ -39,7 +39,7 @@
 
     @media screen and (max-width: $mobile-breakpoint) {
       flex-direction: column;
-      max-width: 400px;
+      max-width: initial;
       margin: 60px auto;
     }
   }
