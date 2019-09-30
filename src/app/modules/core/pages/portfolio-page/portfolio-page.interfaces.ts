@@ -6,16 +6,11 @@ export interface PictureSource {
   gif ? : string
 }
 
-export interface ProjectTag {
-  id: string,
-  displayText: string
-}
-
 export interface Project {
   projectId: string,
   title: string,
   description: string,
   pictureSource: PictureSource,
-  tags: ProjectTag[],
+  tags: string[],
   codeUrl ? : string,
 }

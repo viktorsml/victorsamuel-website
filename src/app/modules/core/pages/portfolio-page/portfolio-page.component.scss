@@ -8,7 +8,7 @@ $third-break: 490px;
 .projects-gallery {
   --project-transition: .2s cubic-bezier(.19, 1, .22, 1);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-column-gap: var(--website-padding);
   grid-row-gap: calc(var(--website-padding) * 2);
   margin-top: 60px;
@@ -48,6 +48,7 @@ $third-break: 490px;
     }
 
     @media screen and (min-width: $mobile-breakpoint) {
+
       &:focus-within,
       &:hover {
         transform: scale(1.03);
@@ -70,6 +71,13 @@ $third-break: 490px;
         }
       }
     }
+  }
+
+  app-smart-picture {
+    border-radius: 2px;
+    overflow: hidden;
+    border: inset 1px rgba(250, 250, 250, 0.1);
+    box-shadow: 0px 4px 13px 0 rgba(0, 0, 0, 0.2);
   }
 
   .project-link {
@@ -100,10 +108,6 @@ $third-break: 490px;
     span {
       position: relative;
       color: rgba(var(--color-text), 0.5);
-
-      &:hover {
-        color: var(--color-primary);
-      }
 
       &:not(:last-child) {
         margin-right: 21px;

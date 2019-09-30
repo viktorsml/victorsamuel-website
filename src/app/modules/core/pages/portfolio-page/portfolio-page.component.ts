@@ -13,130 +13,35 @@ export class PortfolioPageComponent implements OnInit {
   constructor() {
     this.projects = [
       {
-        projectId: 'hpr-website',
+        projectId: 'prosmiles',
         title: 'ProSmiles',
         description: 'Sistema de reservaciones con sincronización en tiempo real diseñado especificamente para consultorio dental',
         pictureSource: {
-          jpg: 'https://picsum.photos/500?random=27'
+          webp: 'https://firebasestorage.googleapis.com/v0/b/viktorsmlwd.appspot.com/o/project-covers%2FProject-ProSmiles.webp?alt=media&token=9e75f0d4-f6b2-4650-8b0e-cc71e043c4db',
+          jpg: 'https://firebasestorage.googleapis.com/v0/b/viktorsmlwd.appspot.com/o/project-covers%2FProject-ProSmiles.jpg?alt=media&token=0edf32bc-4a8c-497c-b0f4-e1ff8c060381'
         },
-        codeUrl: 'https://tecmm-prosmiles.web.app/auth/login',
-        tags: [
-          { id: 'react', displayText: 'React' },
-          { id: 'nodejs', displayText: 'NodeJS' },
-          { id: 'mongodb', displayText: 'MongoDB' },
-        ]
-      },
-      {
-        projectId: 'hpr-website',
-        title: 'ProSmiles',
-        description: 'Sistema de reservaciones con sincronización en tiempo real diseñado especificamente para consultorio dental',
-        pictureSource: {
-          jpg: 'https://picsum.photos/500?random=1'
-        },
-        codeUrl: 'https://tecmm-prosmiles.web.app/auth/login',
-        tags: [
-          { id: 'react', displayText: 'React' },
-          { id: 'nodejs', displayText: 'NodeJS' },
-          { id: 'mongodb', displayText: 'MongoDB' },
-        ]
-      },
-      {
-        projectId: 'hpr-website',
-        title: 'ProSmiles',
-        description: 'Sistema de reservaciones con sincronización en tiempo real diseñado especificamente para consultorio dental',
-        pictureSource: {
-          jpg: 'https://picsum.photos/500?random=28'
-        },
-        codeUrl: 'https://tecmm-prosmiles.web.app/auth/login',
-        tags: [
-          { id: 'react', displayText: 'React' },
-          { id: 'nodejs', displayText: 'NodeJS' },
-          { id: 'mongodb', displayText: 'MongoDB' },
-        ]
-      },
-      {
-        projectId: 'hpr-website',
-        title: 'ProSmiles',
-        description: 'Sistema de reservaciones con sincronización en tiempo real diseñado especificamente para consultorio dental',
-        pictureSource: {
-          jpg: 'https://picsum.photos/500?random=29'
-        },
-        codeUrl: 'https://tecmm-prosmiles.web.app/auth/login',
-        tags: [
-          { id: 'react', displayText: 'React' },
-          { id: 'nodejs', displayText: 'NodeJS' },
-          { id: 'mongodb', displayText: 'MongoDB' },
-        ]
-      },
-      {
-        projectId: 'hpr-website',
-        title: 'ProSmiles',
-        description: 'Sistema de reservaciones con sincronización en tiempo real diseñado especificamente para consultorio dental',
-        pictureSource: {
-          jpg: 'https://picsum.photos/500?random=30'
-        },
-        codeUrl: 'https://tecmm-prosmiles.web.app/auth/login',
-        tags: [
-          { id: 'react', displayText: 'React' },
-          { id: 'nodejs', displayText: 'NodeJS' },
-          { id: 'mongodb', displayText: 'MongoDB' },
-        ]
-      },
-      {
-        projectId: 'hpr-website',
-        title: 'ProSmiles',
-        description: 'Sistema de reservaciones con sincronización en tiempo real diseñado especificamente para consultorio dental',
-        pictureSource: {
-          jpg: 'https://picsum.photos/500?random=31'
-        },
-        codeUrl: 'https://tecmm-prosmiles.web.app/auth/login',
-        tags: [
-          { id: 'react', displayText: 'React' },
-          { id: 'nodejs', displayText: 'NodeJS' },
-          { id: 'mongodb', displayText: 'MongoDB' },
-        ]
-      },
-      {
-        projectId: 'hpr-website',
-        title: 'ProSmiles',
-        description: 'Sistema de reservaciones con sincronización en tiempo real diseñado especificamente para consultorio dental',
-        pictureSource: {
-          jpg: 'https://st2.depositphotos.com/6222352/9212/v/450/depositphotos_92123120-stock-illustration-cartoon-tooth-with-x-ray.jpg'
-        },
-        codeUrl: 'https://tecmm-prosmiles.web.app/auth/login',
-        tags: [
-          { id: 'react', displayText: 'React' },
-          { id: 'nodejs', displayText: 'NodeJS' },
-          { id: 'mongodb', displayText: 'MongoDB' },
-        ]
+        tags: ['React', 'NodeJS', 'MongoDB']
       },
       {
         projectId: 'hpr-website',
         title: 'Hotel Posada de Roger',
-        description: 'Rediseño del sitio web del hotel convirtiendolo en una single page application con renderizado del lado del servidor y un sistema de reservaciones personalizado',
+        description: 'Modernización del sitio web del hotel junto con un sistema de reservaciones personalizado',
         pictureSource: {
-          webp: 'https://dev.hotelposadaderoger.com/slide1.802d839c1c4514dd8687.webp',
-          jpg: 'https://dev.hotelposadaderoger.com/slide1.802d839c1c4514dd8687.jpg'
+          webp: 'https://firebasestorage.googleapis.com/v0/b/viktorsmlwd.appspot.com/o/project-covers%2FProject-HPR.webp?alt=media&token=caacde7d-fc48-4ca8-9e27-e628e2b3b72f',
+          jpg: 'https://firebasestorage.googleapis.com/v0/b/viktorsmlwd.appspot.com/o/project-covers%2FProject-HPR.jpg?alt=media&token=6b05f25e-55b1-4a5e-a77b-516c7512d9a1'
         },
-        codeUrl: 'https://github.com/viktorsml/hpr-website',
-        tags: [
-          { id: 'angular', displayText: 'Angular' },
-          { id: 'laravel', displayText: 'Laravel' },
-          { id: 'ui-ux', displayText: 'UI/UX' },
-        ]
+        tags: ['Angular', 'Lumen', 'MySQL']
       },
       {
         projectId: 'personal-website',
         title: 'Portfolio Website',
-        description: 'A minimalist single page application made to hold projects and contact information',
+        description: 'Una aplicación web progresiva minimalista hecha para alojar proyectos e información de contacto',
         pictureSource: {
-          webp: '/assets/image/victor-samuel-profile.webp',
-          jpg: '/assets/image/victor-samuel-profile.jpg'
+          webp: 'https://firebasestorage.googleapis.com/v0/b/viktorsmlwd.appspot.com/o/project-covers%2FProject-Victor-Samuels.webp?alt=media&token=3b65285d-b99f-4b63-8bb8-dc0f29995afe',
+          jpg: 'https://firebasestorage.googleapis.com/v0/b/viktorsmlwd.appspot.com/o/project-covers%2FProject-Victor-Samuels.jpg?alt=media&token=d36d56e4-11ab-4990-83b5-67b73628d2ed'
         },
-        tags: [
-          { id: 'angular', displayText: 'Angular' },
-          { id: 'branding', displayText: 'Branding' },
-        ]
+        codeUrl: 'https://github.com/viktorsml/victorsamuel-website',
+        tags: ['Angular', 'Firebase']
       },
     ];
   }

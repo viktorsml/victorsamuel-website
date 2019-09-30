@@ -17,11 +17,10 @@
         <p class="project-description">{{ project.description }}</p>
       </a>
       <p class="project-tags">
-        <span *ngFor="let tag of project.tags"><a
-            [routerLink]="['/proyectos', tag.id]">{{ tag.displayText }}</a></span>
+        <span *ngFor="let tag of project.tags">{{ tag }}</span>
       </p>
       <div class="project-buttons">
-        <a mat-stroked-button color="primary" routerLink="/proyecto/personal/code">
+        <a mat-stroked-button color="primary" [routerLink]="['/proyecto', project.projectId]">
           Ver proyecto
         </a>
         <a mat-stroked-button color="primary" *ngIf="project.codeUrl"
