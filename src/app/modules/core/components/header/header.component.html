@@ -1,14 +1,29 @@
 <div class="main-container">
-  <a class="logo" routerLink="/">Victor Samuel</a>
+  <a class="logo noBorder" routerLink="/">Victor Samuel</a>
   <nav>
-    <a *ngFor="let link of menuLinks" 
-      routerLinkActive="active" 
-      [routerLink]="link.path" 
-      [attr.data-hover]="link.title">
-      {{ link.title }}
+    <a class="noBorder" routerLinkActive="active" routerLink="/acerca"
+      data-hover="Acerca">
+      Acerca
     </a>
+    <a class="noBorder" routerLinkActive="active" routerLink="/proyectos"
+      data-hover="Proyectos">
+      Proyectos
+    </a>
+    <a class="noBorder" routerLinkActive="active" href="https://medium.com/@viktorsml"
+      target="_blank" rel="noopener noreferrer" data-hover="Blog">
+      Blog
+    </a>
+    <a class="noBorder" routerLinkActive="active" routerLink="/contacto"
+      data-hover="Contacto">
+      Contacto
+    </a>
+    <!-- <a class="noBorder" routerLinkActive="active" routerLink="/cv"
+      data-hover="CV">
+      CV
+    </a> -->
   </nav>
   <div class="social-icons-wrapper" [class.isVisible]="isSocialBarVisible">
-    <app-social-icons class="header" [tabindexValue]="isSocialBarVisible ? '0' : '-1'"></app-social-icons>
+    <app-social-icons class="header"
+      [tabindexValue]="isSocialBarVisible ? '0' : '-1'"></app-social-icons>
   </div>
 </div>

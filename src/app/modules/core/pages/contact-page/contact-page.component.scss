@@ -1,10 +1,44 @@
 @import './../../../../../scss/mixins';
+@import './../../../../../scss/staticVariables';
 
-:host {
-  @include initializeCorePage;
-  padding-top: var(--website-nav-height);
+.contact-icons,
+.contact-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.main-container {
-  @include responsiveContainer;
+.contact-icons {
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.contact-link {
+  flex-direction: column;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+
+  mat-icon {
+    @include mat-icon-size(30px);
+    margin-bottom: 10px;
+  }
+
+  span {
+    font-size: 0.8em;
+  }
+}
+
+.email-big {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 0.5rem;
+  letter-spacing: 0.04em;
+
+  a {
+    @include linearGradientText(#F7B42C, #FC575E, 135deg);
+  }
 }

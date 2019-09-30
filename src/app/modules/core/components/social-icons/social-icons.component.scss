@@ -1,46 +1,34 @@
 @import './../../../../../scss/mixins';
 
 :host {
+  --icon-size: 14px;
+  --icon-padding: 7px;
   display: flex;
   width: fit-content;
+  flex-direction: row;
 
-  &.header {
-    flex-direction: row;
-    margin-left: var(--website-padding);
-
-    a {
-      padding: var(--link-padding);
-    }
-
-    mat-icon {
-      @include mat-icon-size(14px);
-    }
+  a {
+    padding: var(--icon-padding);
   }
 
-  &.inFullScreenPage {
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      padding: 10px;
-    }
-
-    mat-icon {
-      @include mat-icon-size(17px);
-    }
+  mat-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    font-size: var(--icon-size);
   }
 }
 
 a {
   --border-size: 1px;
-  color: var(--color-white);
-  margin: 0 3px;
+  color: rgb(var(--color-text));
   position: relative;
   overflow: hidden;
   display: inline-block;
   transition: ease-out 0.3s 0.3s;
+  
+  &:not(:last-child) {
+    margin-right: 6px;
+  }
 
   // Top and Bottom lines inital status
   span {
@@ -50,7 +38,7 @@ a {
       content: "";
       width: 100%;
       height: var(--border-size);
-      background: white;
+      background-color: rgb(var(--color-text));
       position: absolute;
       transition: 0.3s;
     }
@@ -76,7 +64,7 @@ a {
     content: "";
     width: var(--border-size);
     height: 100%;
-    background: white;
+    background-color: rgb(var(--color-text));
     position: absolute;
     transition: 0.3s;
   }
@@ -96,10 +84,9 @@ a {
 
   // Ends Left and Right lines inital status
 
-  &:hover,
-  &:focus {
-    color: white;
-    background-color: white;
+  &:hover {
+    color: rgb(var(--color-text));
+    background-color: rgb(216, 219, 226);
     outline: none;
 
     &.twitter {

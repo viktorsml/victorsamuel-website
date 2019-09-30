@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { CoreComponent } from './core.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/about', pathMatch: 'full' },
+  { path: '', redirectTo: '/acerca', pathMatch: 'full' },
   { path: '', component: CoreComponent, children: [
-    { path: 'about', loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule) },
-    { path: 'portfolio', loadChildren: () => import('./pages/portfolio-page/portfolio-page.module').then(m => m.PortfolioPageModule) },
-    { path: 'contact', loadChildren: () => import('./pages/contact-page/contact-page.module').then(m => m.ContactPageModule) },
+    { path: 'acerca', loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule) },
+    { path: 'proyectos', loadChildren: () => import('./pages/portfolio-page/portfolio-page.module').then(m => m.PortfolioPageModule) },
+    { path: 'contacto', loadChildren: () => import('./pages/contact-page/contact-page.module').then(m => m.ContactPageModule) },
     { path: '**', loadChildren: () => import('./pages/not-found-page/not-found-page.module').then(m => m.NotFoundPageModule) }
   ]}
 ];

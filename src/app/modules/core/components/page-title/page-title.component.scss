@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.title,
+.description {
+  text-align: center;
+  max-width: 560px;
+  margin: 0;
+}
+
+.title {
+  margin-bottom: 25px;
+}
+
+.extra {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #878787;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
