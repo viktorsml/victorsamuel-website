@@ -54,7 +54,7 @@ $third-break: 490px;
         z-index: 3;
 
         &::after {
-          background-color: #1e1e1e;
+          background-color: rgb(var(--color-background));
           width: calc(100% + 40px);
           left: -20px;
           height: calc(100% + 40px + 52px);
@@ -99,7 +99,7 @@ $third-break: 490px;
 
     span {
       position: relative;
-      color: #909090;
+      color: rgba(var(--color-text), 0.5);
 
       &:hover {
         color: var(--color-primary);

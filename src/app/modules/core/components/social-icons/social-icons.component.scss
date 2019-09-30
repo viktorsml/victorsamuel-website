@@ -20,7 +20,7 @@
 
 a {
   --border-size: 1px;
-  color: var(--color-white);
+  color: rgb(var(--color-text));
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -38,7 +38,7 @@ a {
       content: "";
       width: 100%;
       height: var(--border-size);
-      background: white;
+      background-color: rgb(var(--color-text));
       position: absolute;
       transition: 0.3s;
     }
@@ -64,7 +64,7 @@ a {
     content: "";
     width: var(--border-size);
     height: 100%;
-    background: white;
+    background-color: rgb(var(--color-text));
     position: absolute;
     transition: 0.3s;
   }
@@ -85,8 +85,8 @@ a {
   // Ends Left and Right lines inital status
 
   &:hover {
-    color: white;
-    background-color: white;
+    color: rgb(var(--color-text));
+    background-color: rgb(216, 219, 226);
     outline: none;
 
     &.twitter {

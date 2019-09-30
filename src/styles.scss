@@ -29,7 +29,7 @@ html,
 body {
   @include coverParent;
   font-family: var(--font-default);
-  background-color: rgb(var(--color-black));
+  background-color: rgb(var(--color-background));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,6 +41,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-title);
+  color: rgb(var(--color-title));
   font-feature-settings: "ss01", "ss02";
   font-weight: 500;
   font-size: 3em;
@@ -53,19 +54,20 @@ h1 {
 
 p {
   font-family: var(--font-default);
+  color: rgb(var(--color-text));
   font-size: 1.1em;
   font-weight: 400;
   line-height: 1.5em;
 }
 
 a {
-  color: var(--color-primary);
+  color: rgb(var(--color-primary));
   text-decoration: none;
   border-bottom: solid 1px;
   border-color: transparent;
 
   &:not(.noBorder):hover {
-    border-color: var(--color-primary);
+    border-color: rgb(var(--color-primary));
   }
 }
 
@@ -84,7 +86,6 @@ mat-form-field,
 .page-container {
   --page-section-margin: calc(var(--page-margin) / 3);
   margin-top: var(--page-margin);
-  margin-bottom: var(--page-margin);
 
   @media screen and (max-width: $mobile-breakpoint) {
     --page-margin: 60px;
@@ -97,6 +98,5 @@ mat-form-field,
 
   & > .responsive {
     margin-top: var(--page-section-margin);
-    margin-bottom: var(--page-section-margin);
   }
 }

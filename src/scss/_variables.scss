@@ -1,17 +1,28 @@
 html {
-  // Colors
-  --color-primary: #e1a87a;
-  --color-white: #d8dbe2;
-  --color-black: 26, 26, 26;
-  --color-grey: #2A2E37;
-  --color-border: #2e3035;
   // Fonts
   --font-default: "Nunito Sans", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   --font-title: coven-medium, var(--font-default);
   // Sizes
-  // --website-max-width: 1200px;
   --website-max-width: 95%;
   --website-padding: 25px;
   --website-nav-height: 75px;
   --page-margin: 4em;
+}
+
+html.dark-theme {
+  --color-primary: 225, 168, 122;
+  --color-title: 232, 232, 232;
+  --color-text: 216, 219, 226;
+  --color-background: 26, 26, 26;
+  --color-grey: #2A2E37;
+  --color-border: #2e3035;
+}
+
+html.light-theme {
+  --color-primary: 254, 124, 13;
+  --color-title: 0, 0, 0;
+  --color-text: 26, 26, 26;
+  --color-background: 255, 255, 255;
+  --color-grey: #2A2E37;
+  --color-border: #2e3035;
 }

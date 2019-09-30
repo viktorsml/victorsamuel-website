@@ -7,8 +7,8 @@
 
 .main-container {
   @include responsiveContainer($addPadding: false);
-  padding: 60px var(--website-padding);
-  border-top: solid 1px var(--color-border);
+  padding: var(--page-margin) var(--website-padding);
+  // border-top: solid 1px var(--color-border);
 }
 
 p {

@@ -4,7 +4,7 @@ $mobile-break: 670px;
 
 :host {
   --link-padding: 7px;
-  background-color: rgba(var(--color-black), 0.8);
+  background-color: rgba(var(--color-background), 0.8);
   display: block;
   width: 100%;
   flex-shrink: 0;
@@ -57,6 +57,7 @@ nav {
     cursor: pointer;
     position: relative;
     font-family: coven, var(--font-default);
+    color: rgb(var(--color-text));
     font-weight: 500;
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -68,7 +69,7 @@ nav {
     &:link,
     &:visited,
     &:focus {
-      color: var(--color-white);
+      color: rgb(var(--color-title));
       outline: none;
     }
 
@@ -84,7 +85,7 @@ nav {
       padding: var(--link-padding) 0;
       font-weight: 600;
       max-width: 0;
-      color: #fff;
+      color: rgb(var(--color-title));
       content: attr(data-hover);
       -webkit-transition: max-width 0.5s;
       -moz-transition: max-width 0.5s;
@@ -93,7 +94,7 @@ nav {
 
     &.active,
     &.active::before {
-      color: var(--color-primary);
+      color: rgb(var(--color-primary));
     }
 
     &:hover,

@@ -20,23 +20,7 @@
     align-items: center;
     min-height: initial;
     height: initial;
-  }
-
-  app-social-icons {
-    --icon-size: 18px;
-    --icon-padding: 9px;
-  }
-
-  .developer-icon {
-    display: none;
-    width: 200px;
-    margin-bottom: 25px;
-    margin-left: auto;
-    margin-right: auto;
-
-    @media screen and (max-width: $mobile-breakpoint) {
-      display: block;
-    }
+    padding-bottom: 0;
   }
 
   h1,
@@ -53,6 +37,27 @@
 
     @media screen and (max-width: $mobile-breakpoint) {
       text-align: center;
+    }
+  }
+
+  app-social-icons {
+    --icon-size: 18px;
+    --icon-padding: 9px;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      margin-bottom: 0;
+    }
+  }
+
+  .developer-icon {
+    display: none;
+    width: 200px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      display: block;
     }
   }
 
@@ -76,7 +81,7 @@
   }
 
   p {
-    color: #ecd7ab;
+    color: rgb(var(--color-primary));
     max-width: 45vw;
     font-size: 1.3vw;
     

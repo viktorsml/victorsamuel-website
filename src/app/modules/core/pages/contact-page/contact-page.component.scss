@@ -10,6 +10,8 @@
 
 .contact-icons {
   flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0;
 }
 
 .contact-link {
@@ -17,6 +19,7 @@
   padding: 5px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 25px;
 
   mat-icon {
     @include mat-icon-size(30px);
