@@ -13,16 +13,18 @@ html.dark-theme {
   --color-primary: 225, 168, 122;
   --color-title: 232, 232, 232;
   --color-text: 216, 219, 226;
-  --color-background: 26, 26, 26;
+  --color-background: 32, 33, 37;
   --color-grey: #2A2E37;
   --color-border: #2e3035;
+  --color-shadow-prominent: black;
 }
 
 html.light-theme {
   --color-primary: 254, 124, 13;
-  --color-title: 0, 0, 0;
+  --color-title: 26, 26, 26;
   --color-text: 26, 26, 26;
-  --color-background: 255, 255, 255;
+  --color-background: 243, 243, 243;
   --color-grey: #2A2E37;
   --color-border: #2e3035;
+  --color-shadow-prominent: rgba(0, 0, 0, 0.2);
 }
