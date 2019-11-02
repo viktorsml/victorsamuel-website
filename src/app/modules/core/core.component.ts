@@ -20,6 +20,7 @@ export class CoreComponent implements OnInit {
     this.backgroundStylerSubscription = this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationStart) {
         this.isLoading = true;
+        window.scrollTo({top: 0, behavior: 'smooth'});
       }
       if (event instanceof NavigationCancel || event instanceof NavigationError) {
         this.isLoading = false;
