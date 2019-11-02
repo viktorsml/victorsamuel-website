@@ -50,11 +50,45 @@ h6 {
   font-feature-settings: "ss01", "ss02";
   font-weight: 500;
   font-size: 3em;
+  margin-bottom: 0.85em;
 }
 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1.5em;
+}
 h1 {
-  font-size: 2.5em;
+  font-size: 2.8em;
+  line-height: 1.6em;
+  margin-top: 0.85em;
+}
+
+h2 {
+  font-size: 2.4em;
   line-height: 1.5em;
+}
+
+h3 {
+  font-size: 2em;
+  line-height: 1.4em;
+}
+
+h4 {
+  font-size: 1.8em;
+  line-height: 1.3em;
+}
+
+h5 {
+  font-size: 1.6em;
+  line-height: 1.3em;
+}
+
+h6 {
+  font-size: 1.4em;
+  line-height: 1.3em;
 }
 
 p {
