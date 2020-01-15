@@ -1,0 +1,53 @@
+<main class="page-container">
+  <app-page-title [title]="project.title" [description]="project.description">
+  </app-page-title>
+  <section class="responsive action-buttons">
+    <a mat-stroked-button color="primary" *ngIf="project.website"
+      [href]="project.website" target="_blank" rel="noopener noreferrer">
+      Visitar sitio
+    </a>
+    <a mat-stroked-button color="primary" *ngIf="project.code" [href]="project.code"
+      target="_blank" rel="noopener noreferrer">
+      Ver código
+    </a>
+  </section>
+  <app-smart-picture class="header-picture" [responsive]="true" widthRatio="16"
+    heightRatio="9" [sourceWebp]="project.headerImage.webp"
+    [sourceJpg]="project.headerImage.jpg">
+  </app-smart-picture>
+  <section class="responsive">
+    <div class="info-about">
+      <h2>Acerca del proyecto</h2>
+      <p *ngFor="let text of project.information.about">{{ text }}</p>
+    </div>
+    <div *ngIf="project.information.challenges" class="info-challenges">
+      <h3>Los desafíos</h3>
+      <p *ngFor="let text of project.information.challenges">{{ text }}</p>
+    </div>
+    <div *ngIf="project.information.technology" class="info-technology">
+      <h3>La tecnología</h3>
+      <p *ngFor="let text of project.information.technology">{{ text }}</p>
+      <div class="columns">
+        <div *ngIf="project.information.frontEnd" class="info-front-end">
+          <h4>Front-End</h4>
+          <ul>
+            <li *ngFor="let text of project.information.technology">{{ text }}</li>
+          </ul>
+        </div>
+        <div *ngIf="project.information.backEnd" class="info-back-end">
+          <h4>Back-End</h4>
+          <ul>
+            <li *ngFor="let text of project.information.backEnd">{{ text }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="project.information.result" class="info-result">
+      <h2>El resultado</h2>
+      <p *ngFor="let text of project.information.result">{{ text }}</p>
+    </div>
+  </section>
+  <app-smart-picture *ngFor="let image of project.gallery" [responsive]="true"
+    widthRatio="16" heightRatio="9" [sourceWebp]="image.webp" [sourceJpg]="image.jpg">
+  </app-smart-picture>
+</main>

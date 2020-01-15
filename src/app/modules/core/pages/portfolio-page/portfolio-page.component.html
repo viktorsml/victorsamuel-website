@@ -20,10 +20,9 @@
         <span *ngFor="let tag of project.tags">{{ tag }}</span>
       </p>
       <div class="project-buttons">
-        <!-- Temporalmente deshabilitado debido a que aún está en construcción y se incorporará en la siguiente versión del sitio -->
-        <!-- <a mat-stroked-button color="primary" [routerLink]="['/proyecto', project.projectId]">
-          Ver proyecto
-        </a> -->
+        <a mat-stroked-button color="primary" [routerLink]="['/proyecto', project.projectId]">
+          Más Información
+        </a>
         <a mat-stroked-button color="primary" *ngIf="project.codeUrl"
           [href]="project.codeUrl" target="_blank"
           rel="noopener noreferrer">Código</a>
