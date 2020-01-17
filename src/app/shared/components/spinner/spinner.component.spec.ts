@@ -22,4 +22,8 @@ describe('SpinnerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a theme', () => {
+    expect(component.isLight).toBeDefined();
+  });
 });

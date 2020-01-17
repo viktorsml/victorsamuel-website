@@ -9,4 +9,4 @@ import { SmartPictureComponent } from './smart-picture.component';
   imports: [CommonModule],
   exports: [SmartPictureComponent]
 })
-export class SmartPictureModule { }
+export class SmartPictureModule {}
