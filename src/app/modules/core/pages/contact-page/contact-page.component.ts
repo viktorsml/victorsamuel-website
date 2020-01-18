@@ -20,7 +20,7 @@ export class ContactPageComponent implements OnInit {
     { title: 'LinkedIn', name: 'linkedin', url: 'https://www.linkedin.com/in/viktorsml', resource: '/assets/svg/logo-colored-linkedin.svg' },
     { title: 'Twitter', name: 'twitter', url: 'https://twitter.com/messages/compose?recipient_id=1071842136079781888', resource: '/assets/svg/logo-colored-twitter.svg' },
     { title: 'Telegram', name: 'telegram', url: 'https://t.me/viktorsml', resource: '/assets/svg/logo-colored-telegram.svg' },
-    { title: 'Messenger', name: 'messenger', url: 'https://m.me/victorsamuel.wd', resource: '/assets/svg/logo-colored-messenger.svg' },
+    { title: 'Messenger', name: 'messenger', url: 'https://m.me/viktorsml.raw', resource: '/assets/svg/logo-colored-messenger.svg' },
     { title: 'WhatsApp', name: 'whatsapp', url: 'https://wa.me/5213221257546', resource: '/assets/svg/logo-colored-whatsapp.svg' },
   ];
 

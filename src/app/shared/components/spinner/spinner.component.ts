@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SpinnerComponent implements OnInit {
 
-  @Input() light: boolean = true;
+  @Input() isLight: boolean = true;
 
   constructor() {}
 

@@ -1,0 +1,46 @@
+:host {
+  --website-max-width: 1140px;
+  --section-spacing: 5.5vw;
+  
+  @media screen and (min-width: 1240px) {
+    --section-spacing: 4.5em;
+  }
+}
+
+section,
+app-smart-picture {
+  margin-top: var(--section-spacing) !important;
+}
+
+.header-picture {
+  padding: 0;
+}
+
+.page-container > section.responsive {
+  padding-left: var(--section-spacing);
+  padding-right: var(--section-spacing);
+}
+
+h2,
+h3 {
+  border-bottom: solid 3px #525252;
+  padding-bottom: 0.3em;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+
+  a {
+    margin: 0 10px;
+  }
+}
+
+app-smart-picture {
+  border-radius: 5px;
+  overflow: hidden;
+}

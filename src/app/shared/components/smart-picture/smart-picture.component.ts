@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ElementRef, HostBinding } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-smart-picture',
@@ -8,11 +9,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class SmartPictureComponent implements OnInit {
 
-  @HostBinding('class.responsive') isResponsive: boolean = false;
-  @HostBinding('attr.style')
-  public get valueAsStyle(): any {
-    return this.sanitizer.bypassSecurityTrustStyle(`--aspect-ratio: ${this.aspectRatio}`);
-  }
 
   @Input() sourceWebp: string;
   @Input() sourceJpg: string;
@@ -22,14 +18,19 @@ export class SmartPictureComponent implements OnInit {
   @Input() sourceSvg: string;
   @Input() altText: string;
   @Input() ariaHidden: boolean = false;
-  @Input() responsive: boolean = false;
   @Input() disablePlaceholder: boolean = false;
   @Input() width: string = '100%';
   @Input() size: 'cover' | 'contain' = 'cover';
   @Input() objectPosition: string = 'center';
   @Input() shadow: string = '0';
+
   @Input() heightRatio: number = 1;
   @Input() widthRatio: number = 1;
+
+  @HostBinding('class.responsive') @Input() responsive: boolean = false;
+  @HostBinding('attr.style') private get valueAsStyle(): SafeStyle {
+    return this.sanitizer.bypassSecurityTrustStyle(`--aspect-ratio: ${this.aspectRatio}`);
+  }
 
   public sourceUrl: string;
   public shouldItLoad: boolean = false;
@@ -41,15 +42,23 @@ export class SmartPictureComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (this.responsive) {
-      this.isResponsive = this.responsive;
-      this.aspectRatio = `${(this.heightRatio / (this.widthRatio / 100))}%`;
+    // validate inputs
+    if (!this.sourceJpg && !this.sourcePng) {
+      throw Error('You must provide a .jpg or .png version of the picture');
     }
+    if (this.size !== 'cover' && this.size !== 'contain') {
+      throw Error('size must be cover or contain');
+    }
+    if (this.heightRatio <= 0 || this.widthRatio <= 0) {
+      throw Error('heightRatio and widthRatio must be greater than 0');
+    }
+    // set aspect ratio
+    this.aspectRatio = `${(this.heightRatio / (this.widthRatio / 100))}%`;
     if (!this.canLazyLoad()) {
       this.shouldItLoad = true;
-      return;
+    } else {
+      this.lazyLoadImage();
     }
-    this.lazyLoadImage();
   }
   
   private canLazyLoad() {
@@ -67,5 +76,4 @@ export class SmartPictureComponent implements OnInit {
     });
     observer.observe(this.el.nativeElement);
   }
-
 }

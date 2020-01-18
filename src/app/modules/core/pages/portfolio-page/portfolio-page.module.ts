@@ -6,11 +6,13 @@ import { PageTitleModule } from '../../components/page-title/page-title.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { SmartPictureModule } from 'src/app/shared/components/smart-picture/smart-picture.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [PortfolioPageComponent],
   imports: [
     CommonModule,
+    RouterModule,
     PortfolioPageRoutingModule,
     PageTitleModule,
     SmartPictureModule,

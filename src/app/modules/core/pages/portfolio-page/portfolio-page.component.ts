@@ -13,16 +13,6 @@ export class PortfolioPageComponent implements OnInit {
   constructor() {
     this.projects = [
       {
-        projectId: 'prosmiles',
-        title: 'ProSmiles',
-        description: 'Sistema de reservaciones con sincronización en tiempo real diseñado especificamente para consultorio dental',
-        pictureSource: {
-          webp: 'https://firebasestorage.googleapis.com/v0/b/viktorsmlwd.appspot.com/o/project-covers%2FProject-ProSmiles.webp?alt=media&token=9e75f0d4-f6b2-4650-8b0e-cc71e043c4db',
-          jpg: 'https://firebasestorage.googleapis.com/v0/b/viktorsmlwd.appspot.com/o/project-covers%2FProject-ProSmiles.jpg?alt=media&token=0edf32bc-4a8c-497c-b0f4-e1ff8c060381'
-        },
-        tags: ['React', 'NodeJS', 'MongoDB']
-      },
-      {
         projectId: 'hpr-website',
         title: 'Hotel Posada de Roger',
         description: 'Modernización del sitio web del hotel junto con un sistema de reservaciones personalizado',

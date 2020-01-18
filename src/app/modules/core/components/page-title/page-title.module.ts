@@ -9,4 +9,4 @@ import { PageTitleComponent } from './page-title.component';
   ],
   exports: [PageTitleComponent]
 })
-export class PageTitleModule { }
+export class PageTitleModule {}
