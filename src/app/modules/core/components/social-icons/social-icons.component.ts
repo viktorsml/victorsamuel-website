@@ -13,10 +13,10 @@ export class SocialIconsComponent implements OnInit {
   @Input() tabindexValue: number = 0;
 
   public socialIcons: Array<SocialIcon> = [
-    { title: 'Twitter', name: 'twitter', url: 'https://www.twitter.com/viktorsml', resource: '/assets/svg/logo-twitter.svg' },
-    { title: 'Instagram', name: 'instagram', url: 'https://www.instagram.com/viktorsml', resource: '/assets/svg/logo-instagram.svg' },
-    { title: 'GitHub', name: 'github', url: 'https://github.com/viktorsml', resource: '/assets/svg/logo-github.svg' },
-    { title: 'LinkedIn', name: 'linkedin', url: 'https://www.linkedin.com/in/viktorsml', resource: '/assets/svg/logo-linkedin.svg' },
+    { title: 'Twitter', name: 'twitter', url: 'https://go.victorsamuel.com/twitter', resource: '/assets/svg/logo-twitter.svg' },
+    { title: 'Instagram', name: 'instagram', url: 'https://go.victorsamuel.com/instagram', resource: '/assets/svg/logo-instagram.svg' },
+    { title: 'GitHub', name: 'github', url: 'https://go.victorsamuel.com/github', resource: '/assets/svg/logo-github.svg' },
+    { title: 'LinkedIn', name: 'linkedin', url: 'https://go.victorsamuel.com/linkedin', resource: '/assets/svg/logo-linkedin.svg' },
   ];
 
   constructor(
