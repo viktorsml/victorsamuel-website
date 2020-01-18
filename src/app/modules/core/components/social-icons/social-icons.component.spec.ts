@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { By } from '@angular/platform-browser';
 
 describe('SocialIconsComponent', () => {
   let component: SocialIconsComponent;
@@ -29,7 +30,8 @@ describe('SocialIconsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create 4 icons in template', () => {
+    const iconsInTemplate = fixture.debugElement.queryAllNodes(By.css('a'));
+    expect(iconsInTemplate.length).toBe(4);
   });
 });

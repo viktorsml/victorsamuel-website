@@ -1,13 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
-
-interface SocialIcon {
-  title: string,
-  name: string,
-  url: string,
-  resource: string
-}
+import { SocialIcon } from './social-icons.interfaces';
 
 @Component({
   selector: 'app-social-icons',
@@ -35,5 +29,4 @@ export class SocialIconsComponent implements OnInit {
       this.matIconRegistry.addSvgIcon(icon.name, this.domSanitizer.bypassSecurityTrustResourceUrl(icon.resource));
     });
   }
-
 }
