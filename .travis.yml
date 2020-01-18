@@ -21,6 +21,7 @@ install:
 
 script:
   - ng test --watch false --browsers ChromeHeadless
+  - ng build --prod
 
 deploy:
   provider: firebase
