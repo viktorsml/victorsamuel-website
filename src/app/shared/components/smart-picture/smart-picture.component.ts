@@ -37,15 +37,17 @@ export class SmartPictureComponent implements OnInit {
   }
 
   private areValidateSettings(s: SmartPictureSettings): boolean {
-    if (s) {
+    if (typeof s !== 'undefined') {
       if (validator.isObject(s)) throw Error('No settings provided for smart-picture');
       if (!validator.isValidString(s.source.main.url)) throw Error('No main image url provided for smart-picture');
       if (!validator.isValidString(s.source.main.type)) throw Error('No main image type provided for smart-picture');
       if (s.source.fallback && !validator.isValidString(s.source.fallback.url)) throw Error('No fallback image url provided for smart-picture');
       if (s.source.fallback && !validator.isValidString(s.source.fallback.type)) throw Error('No fallback image type provided for smart-picture');
-      if (validator.isBoolean(s.isResponsive) && (!validator.isValidPositive(s.heightRatio) || !validator.isValidPositive(s.widthRatio)))
+      if (!validator.isBoolean(s.isResponsive) && (!validator.isValidPositive(s.heightRatio) || !validator.isValidPositive(s.widthRatio)))
         throw Error('If isResponsive is true you must provide heightRatio widthRatio');
       return true;
+    } else {
+      throw Error('You must provide settings for SmartPicture');
     }
   }
 
