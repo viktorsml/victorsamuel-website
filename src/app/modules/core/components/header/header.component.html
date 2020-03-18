@@ -1,20 +1,17 @@
 <div class="main-container">
   <a class="logo noBorder" routerLink="/">Victor Samuel</a>
   <nav>
-    <a class="noBorder" routerLinkActive="active" routerLink="/acerca"
-      data-hover="Acerca">
+    <a class="noBorder" routerLinkActive="active" routerLink="/acerca" data-hover="Acerca">
       Acerca
     </a>
-    <a class="noBorder" routerLinkActive="active" routerLink="/proyectos"
+    <!-- <a class="noBorder" routerLinkActive="active" routerLink="/proyectos"
       data-hover="Proyectos">
       Proyectos
-    </a>
-    <a class="noBorder" routerLinkActive="active" href="https://go.victorsamuel.com/blog"
-      target="_blank" rel="noopener noreferrer" data-hover="Blog">
+    </a> -->
+    <a class="noBorder" routerLinkActive="active" href="https://go.victorsamuel.com/blog" target="_blank" rel="noopener noreferrer" data-hover="Blog">
       Blog
     </a>
-    <a class="noBorder" routerLinkActive="active" routerLink="/contacto"
-      data-hover="Contacto">
+    <a class="noBorder" routerLinkActive="active" routerLink="/contacto" data-hover="Contacto">
       Contacto
     </a>
     <!-- <a class="noBorder" routerLinkActive="active" routerLink="/cv"
@@ -23,7 +20,6 @@
     </a> -->
   </nav>
   <div class="social-icons-wrapper" [class.isVisible]="isSocialBarVisible">
-    <app-social-icons class="header"
-      [tabindexValue]="isSocialBarVisible ? '0' : '-1'"></app-social-icons>
+    <app-social-icons class="header" [tabindexValue]="isSocialBarVisible ? '0' : '-1'"></app-social-icons>
   </div>
 </div>
