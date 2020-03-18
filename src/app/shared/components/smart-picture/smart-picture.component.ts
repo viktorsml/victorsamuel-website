@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ElementRef, HostBinding } from '@angular/core';
 import { SmartPictureSettings } from './smart-picture.interfaces';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { SmartPictureService } from './smart-picture.service';
 import { validator } from './smart-picture.functions';
 
@@ -12,56 +11,50 @@ import { validator } from './smart-picture.functions';
 export class SmartPictureComponent implements OnInit {
 
   public shouldPictureLoad: boolean;
-  public aspectRatio: string;
+  private defaultSettings: SmartPictureSettings;
   @Input() settings: SmartPictureSettings;
-  @HostBinding('attr.style') private get valueAsStyle(): SafeStyle {
-    return this.sanitizer.bypassSecurityTrustStyle(`--aspect-ratio: ${this.aspectRatio}`);
-  }
+  @HostBinding('style.--aspect-ratio') aspectRatio: string;
+  @HostBinding('class.isResponsive') responsiveStatus: boolean;
 
   constructor(
     private sps: SmartPictureService,
-    private el: ElementRef,
-    private sanitizer: DomSanitizer
-  ) { }
-
-  ngOnInit() {
-    this.sps.initializeSmartPictureService();
-    if (this.areValidateSettings(this.settings)) {
-      if (this.settings.isResponsive) {
-        this.aspectRatio = `${(this.settings.heightRatio / (this.settings.widthRatio / 100))}%`;
-      }
-      this.lazyLoadImage((wasLazyLoaded: boolean) => {
-        // console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
-      });
+    private el: ElementRef
+  ) {
+    this.shouldPictureLoad = false;
+    this.defaultSettings = {
+      source: {
+        main: { url: '', type: 'jpg' }
+      },
+      isResponsive: false,
+      size: 'initial',
+      disableLazyLoad: false,
+      disablePlaceholder: true,
     }
   }
 
-  private areValidateSettings(s: SmartPictureSettings): boolean {
-    if (typeof s !== 'undefined') {
-      if (validator.isObject(s)) throw Error('No settings provided for smart-picture');
-      if (!validator.isValidString(s.source.main.url)) throw Error('No main image url provided for smart-picture');
-      if (!validator.isValidString(s.source.main.type)) throw Error('No main image type provided for smart-picture');
-      if (s.source.fallback && !validator.isValidString(s.source.fallback.url)) throw Error('No fallback image url provided for smart-picture');
-      if (s.source.fallback && !validator.isValidString(s.source.fallback.type)) throw Error('No fallback image type provided for smart-picture');
-      if (!validator.isBoolean(s.isResponsive) && (!validator.isValidPositive(s.heightRatio) || !validator.isValidPositive(s.widthRatio)))
-        throw Error('If isResponsive is true you must provide heightRatio widthRatio');
-      return true;
-    } else {
-      throw Error('You must provide settings for SmartPicture');
+  ngOnInit() {
+    this.sps.initializeSmartPictureService();
+    this.settings = Object.assign(this.defaultSettings, this.settings);
+    this.responsiveStatus = this.settings.isResponsive;
+    if (this.settings.isResponsive) {
+      this.aspectRatio = `${(this.settings.heightRatio / (this.settings.widthRatio / 100))}%`;
     }
+    this.lazyLoadImage((wasLazyLoaded: boolean) => {
+      // console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
+    });
   }
 
   private lazyLoadImage(whenDone: Function) {
     const canLazyLoad = (window && 'IntersectionObserver' in window) && !validator.isBoolean(this.settings.disableLazyLoad);
     if (!canLazyLoad) {
-      this.shouldPictureLoad = true;
+      this.loadImage();
       if (typeof whenDone === 'function') whenDone(canLazyLoad);
       return;
     }
     const observer = new IntersectionObserver(entries => {
       entries.forEach(({ isIntersecting }) => {
         if (isIntersecting) {
-          this.shouldPictureLoad = true;
+          this.loadImage();
           if (typeof whenDone === 'function') whenDone(canLazyLoad);
           observer.unobserve(this.el.nativeElement);
         }
@@ -70,8 +63,12 @@ export class SmartPictureComponent implements OnInit {
     observer.observe(this.el.nativeElement);
   }
 
+  private loadImage(): void {
+    this.shouldPictureLoad = true;
+    this.settings.disablePlaceholder = true;
+  }
+
   public reformatType(type: string): string {
     return `image/${type}`;
   }
-
 }
