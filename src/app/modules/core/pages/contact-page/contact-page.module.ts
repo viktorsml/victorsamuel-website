@@ -16,4 +16,4 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
   ]
 })
-export class ContactPageModule {}
+export class ContactPageModule { }

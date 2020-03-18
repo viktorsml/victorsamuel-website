@@ -15,7 +15,7 @@ describe('PortfolioPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PortfolioPageComponent ],
+      declarations: [PortfolioPageComponent],
       imports: [
         RouterModule,
         RouterTestingModule,
@@ -26,7 +26,7 @@ describe('PortfolioPageComponent', () => {
         MatIconModule,
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

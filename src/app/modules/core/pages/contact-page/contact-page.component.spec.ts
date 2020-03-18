@@ -12,7 +12,7 @@ describe('ContactPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactPageComponent ],
+      declarations: [ContactPageComponent],
       imports: [
         ContactPageRoutingModule,
         HttpClientModule,
@@ -20,7 +20,7 @@ describe('ContactPageComponent', () => {
         MatIconModule,
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

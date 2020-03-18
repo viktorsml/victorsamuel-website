@@ -1,28 +1,9 @@
 <main class="page-container">
   <section class="welcome-area responsive">
-      <app-smart-picture class="developer-icon"
-      [ariaHidden]="true"
-      sourceSvg="/assets/svg/laptop-code.svg"
-      sourcePng="/assets/svg/laptop-code.svg"
-      [responsive]="false"
-      [disablePlaceholder]="true"
-      size="contain"
-      objectPosition="center">
-    </app-smart-picture>
+    <app-smart-picture class="developer-icon" [settings]="developerIcon"></app-smart-picture>
     <h1>Desarrollador web full-stack actualmente en el área de Puerto Vallarta</h1>
-    <p>Creo hermosas aplicaciones web con las ultimas tecnologías disponibles y con un
-      diseño centrado en el usuario</p>
+    <p>Creo hermosas aplicaciones web con las ultimas tecnologías disponibles y con un diseño centrado en el usuario</p>
     <app-social-icons></app-social-icons>
-    <app-smart-picture class="developer-picture"
-      [ariaHidden]="true"
-      sourceSvg="/assets/svg/developer.svg"
-      sourcePng="/assets/svg/developer.svg"
-      [responsive]="true"
-      [disablePlaceholder]="true"
-      size="contain"
-      objectPosition="right"
-      [heightRatio]="356"
-      [widthRatio]="457">
-    </app-smart-picture>
+    <app-smart-picture class="developer-picture" [settings]="developerImage"></app-smart-picture>
   </section>
 </main>

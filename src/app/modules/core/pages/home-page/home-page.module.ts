@@ -17,4 +17,4 @@ import { SmartPictureModule } from 'src/app/shared/components/smart-picture/smar
     { provide: 'VanillaTilt', useValue: window['VanillaTilt'] }
   ]
 })
-export class HomePageModule {}
+export class HomePageModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ElementRef, HostBinding } from '@angular/core';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { throwError } from 'rxjs';
+import { SmartPictureSettings } from './smart-picture.interfaces';
+import { SmartPictureService } from './smart-picture.service';
+import { validator } from './smart-picture.functions';
 
 @Component({
   selector: 'app-smart-picture',
@@ -9,71 +10,64 @@ import { throwError } from 'rxjs';
 })
 export class SmartPictureComponent implements OnInit {
 
-
-  @Input() sourceWebp: string;
-  @Input() sourceJpg: string;
-  @Input() sourcePng: string;
-  @Input() sourceBmp: string;
-  @Input() sourceGif: string;
-  @Input() sourceSvg: string;
-  @Input() altText: string;
-  @Input() ariaHidden: boolean = false;
-  @Input() disablePlaceholder: boolean = false;
-  @Input() width: string = '100%';
-  @Input() size: 'cover' | 'contain' = 'cover';
-  @Input() objectPosition: string = 'center';
-  @Input() shadow: string = '0';
-
-  @Input() heightRatio: number = 1;
-  @Input() widthRatio: number = 1;
-
-  @HostBinding('class.responsive') @Input() responsive: boolean = false;
-  @HostBinding('attr.style') private get valueAsStyle(): SafeStyle {
-    return this.sanitizer.bypassSecurityTrustStyle(`--aspect-ratio: ${this.aspectRatio}`);
-  }
-
-  public sourceUrl: string;
-  public shouldItLoad: boolean = false;
-  public aspectRatio: string;
+  public shouldPictureLoad: boolean;
+  private defaultSettings: SmartPictureSettings;
+  @Input() settings: SmartPictureSettings;
+  @HostBinding('style.--aspect-ratio') aspectRatio: string;
+  @HostBinding('class.isResponsive') responsiveStatus: boolean;
 
   constructor(
-    private el: ElementRef,
-    private sanitizer: DomSanitizer
-  ) {}
+    private sps: SmartPictureService,
+    private el: ElementRef
+  ) {
+    this.shouldPictureLoad = false;
+    this.defaultSettings = {
+      source: {
+        main: { url: '', type: 'jpg' }
+      },
+      isResponsive: false,
+      size: 'initial',
+      disableLazyLoad: false,
+      disablePlaceholder: false,
+    }
+  }
 
   ngOnInit() {
-    // validate inputs
-    if (!this.sourceJpg && !this.sourcePng) {
-      throw Error('You must provide a .jpg or .png version of the picture');
+    this.sps.initializeSmartPictureService();
+    this.settings = Object.assign(this.defaultSettings, this.settings);
+    this.responsiveStatus = this.settings.isResponsive;
+    if (this.settings.isResponsive) {
+      this.aspectRatio = `${(this.settings.heightRatio / (this.settings.widthRatio / 100))}%`;
     }
-    if (this.size !== 'cover' && this.size !== 'contain') {
-      throw Error('size must be cover or contain');
-    }
-    if (this.heightRatio <= 0 || this.widthRatio <= 0) {
-      throw Error('heightRatio and widthRatio must be greater than 0');
-    }
-    // set aspect ratio
-    this.aspectRatio = `${(this.heightRatio / (this.widthRatio / 100))}%`;
-    if (!this.canLazyLoad()) {
-      this.shouldItLoad = true;
-    } else {
-      this.lazyLoadImage();
-    }
-  }
-  
-  private canLazyLoad() {
-    return window && 'IntersectionObserver' in window;
+    this.lazyLoadImage((wasLazyLoaded: boolean) => {
+      // console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
+    });
   }
 
-  private lazyLoadImage() {
+  private lazyLoadImage(whenDone: Function) {
+    const canLazyLoad = (window && 'IntersectionObserver' in window) && !validator.isBoolean(this.settings.disableLazyLoad);
+    if (!canLazyLoad) {
+      this.loadImage();
+      if (typeof whenDone === 'function') whenDone(canLazyLoad);
+      return;
+    }
     const observer = new IntersectionObserver(entries => {
       entries.forEach(({ isIntersecting }) => {
         if (isIntersecting) {
-          this.shouldItLoad = true;
+          this.loadImage();
+          if (typeof whenDone === 'function') whenDone(canLazyLoad);
           observer.unobserve(this.el.nativeElement);
         }
       });
     });
     observer.observe(this.el.nativeElement);
+  }
+
+  private loadImage(): void {
+    this.shouldPictureLoad = true;
+  }
+
+  public reformatType(type: string): string {
+    return `image/${type}`;
   }
 }

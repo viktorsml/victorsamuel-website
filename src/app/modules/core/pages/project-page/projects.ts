@@ -1,7 +1,4 @@
-interface SmartImageReference {
-  webp: string,
-  jpg: string,
-}
+import { SmartPictureSettings } from 'src/app/shared/components/smart-picture/smart-picture.interfaces';
 
 interface ProjectInformation {
   about: string[],
@@ -17,9 +14,9 @@ interface Project {
   description: string,
   website?: string,
   code?: string,
-  headerImage: SmartImageReference,
+  headerImage: SmartPictureSettings,
   information: ProjectInformation,
-  gallery?: SmartImageReference[]
+  gallery?: SmartPictureSettings[]
 }
 
 export const projects: Project[] = [
@@ -29,37 +26,66 @@ export const projects: Project[] = [
     website: 'https://dev.hotelposadaderoger.com',
     code: 'https://github.com/viktorsml/hpr-website',
     headerImage: {
-      jpg: 'https://picsum.photos/1140/647?random=1',
-      webp: 'https://picsum.photos/1140/647?random=1'
+      size: 'cover',
+      isResponsive: true,
+      widthRatio: 16,
+      heightRatio: 9,
+      source: {
+        main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=1.webp' },
+        fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=1.jpg' }
+      }
     },
     information: {
       about: [
-        `Project developed as a contractor with the SKY GO (UK) Desktop team. The Sky Go
-        Desktop app is a React web application build on top of the Electron framework.`,
-        `At this project I acted as the lead UI/UX developer specialist being the bridge
-        between UI/UX Design, PO and the UI development team. The main challenge was to
-        reorganize the UI structure from a react-virtualized grid into a pure CSS one.
-        Which improved drastically the scalability and maintainability of the project.`
+        `Project developed as a contractor with the SKY GO (UK) Desktop team. The Sky Go Desktop app is a React web application build on top of the
+        Electron framework.`,
+        `At this project I acted as the lead UI/UX developer specialist being the bridge between UI/UX Design, PO and the UI development team.
+        The main challenge was to reorganize the UI structure from a react-virtualized grid into a pure CSS one. Which improved drastically
+        the scalability and maintainability of the project.`
       ],
-      
+
     },
     gallery: [
       {
-        jpg: 'https://picsum.photos/1140/647?random=2',
-        webp: 'https://picsum.photos/1140/647?random=2'
+        size: 'cover',
+        isResponsive: true,
+        widthRatio: 16,
+        heightRatio: 9,
+        source: {
+          main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=2.webp' },
+          fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=2.jpg' }
+        }
       },
       {
-        jpg: 'https://picsum.photos/1140/647?random=3',
-        webp: 'https://picsum.photos/1140/647?random=3'
+        size: 'cover',
+        isResponsive: true,
+        widthRatio: 16,
+        heightRatio: 9,
+        source: {
+          main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=3.webp' },
+          fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=3.jpg' }
+        }
       },
       {
-        jpg: 'https://picsum.photos/1140/647?random=4',
-        webp: 'https://picsum.photos/1140/647?random=4'
+        size: 'cover',
+        isResponsive: true,
+        widthRatio: 16,
+        heightRatio: 9,
+        source: {
+          main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=4.webp' },
+          fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=4.jpg' }
+        }
       },
       {
-        jpg: 'https://picsum.photos/1140/647?random=5',
-        webp: 'https://picsum.photos/1140/647?random=5'
-      },
+        size: 'cover',
+        isResponsive: true,
+        widthRatio: 16,
+        heightRatio: 9,
+        source: {
+          main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=5.webp' },
+          fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=5.jpg' }
+        }
+      }
     ]
   }
 ];

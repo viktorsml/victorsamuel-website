@@ -2,19 +2,14 @@
   <app-page-title [title]="project.title" [description]="project.description">
   </app-page-title>
   <section class="responsive action-buttons">
-    <a mat-stroked-button color="primary" *ngIf="project.website"
-      [href]="project.website" target="_blank" rel="noopener noreferrer">
+    <a mat-stroked-button color="primary" *ngIf="project.website" [href]="project.website" target="_blank" rel="noopener noreferrer">
       Visitar sitio
     </a>
-    <a mat-stroked-button color="primary" *ngIf="project.code" [href]="project.code"
-      target="_blank" rel="noopener noreferrer">
+    <a mat-stroked-button color="primary" *ngIf="project.code" [href]="project.code" target="_blank" rel="noopener noreferrer">
       Ver código
     </a>
   </section>
-  <app-smart-picture class="header-picture" [responsive]="true" widthRatio="16"
-    heightRatio="9" [sourceWebp]="project.headerImage.webp"
-    [sourceJpg]="project.headerImage.jpg">
-  </app-smart-picture>
+  <app-smart-picture class="header-picture" [settings]="project.headerImage"></app-smart-picture>
   <section class="responsive">
     <div class="info-about">
       <h2>Acerca del proyecto</h2>
@@ -47,7 +42,7 @@
       <p *ngFor="let text of project.information.result">{{ text }}</p>
     </div>
   </section>
-  <app-smart-picture *ngFor="let image of project.gallery" [responsive]="true"
-    widthRatio="16" heightRatio="9" [sourceWebp]="image.webp" [sourceJpg]="image.jpg">
-  </app-smart-picture>
+  <section class="responsive screenshots">
+    <app-smart-picture *ngFor="let image of project.gallery" [settings]="image"></app-smart-picture>
+  </section>
 </main>

@@ -28,7 +28,7 @@ describe('CoreComponent', () => {
       ],
       providers: [RouterModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

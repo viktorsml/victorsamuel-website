@@ -17,4 +17,4 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   exports: [ProjectPageComponent]
 })
-export class ProyectPageModule {}
+export class ProyectPageModule { }

@@ -1,7 +1,7 @@
 :host {
   --website-max-width: 1140px;
   --section-spacing: 5.5vw;
-  
+
   @media screen and (min-width: 1240px) {
     --section-spacing: 4.5em;
   }
@@ -43,4 +43,9 @@ h3 {
 app-smart-picture {
   border-radius: 5px;
   overflow: hidden;
+}
+
+section.screenshots {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }

@@ -14,5 +14,5 @@
   "preserve_newlines": true,
   "end_with_newline": true,
   "brace_style": "collapse,preserve-inline",
-  "wrap_line_length": 86
+  "wrap_line_length": 150
 }
