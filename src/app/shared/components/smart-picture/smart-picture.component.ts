@@ -31,7 +31,7 @@ export class SmartPictureComponent implements OnInit {
         this.aspectRatio = `${(this.settings.heightRatio / (this.settings.widthRatio / 100))}%`;
       }
       this.lazyLoadImage((wasLazyLoaded: boolean) => {
-        console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
+        // console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
       });
     }
   }
