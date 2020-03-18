@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SmartPictureComponent } from './smart-picture.component';
-
-// this module requires https://github.com/fregante/object-fit-images
+import { SmartPictureService } from './smart-picture.service';
 
 @NgModule({
   declarations: [SmartPictureComponent],
-  imports: [CommonModule],
+  imports: [
+    CommonModule
+  ],
+  providers: [SmartPictureService],
   exports: [SmartPictureComponent]
 })
-export class SmartPictureModule {}
+export class SmartPictureModule { }

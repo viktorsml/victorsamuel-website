@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, ElementRef, HostBinding } from '@angular/core';
+import { SmartPictureSettings } from './smart-picture.interfaces';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { throwError } from 'rxjs';
+import { SmartPictureService } from './smart-picture.service';
+import { validator } from './smart-picture.functions';
 
 @Component({
   selector: 'app-smart-picture',
@@ -9,71 +11,65 @@ import { throwError } from 'rxjs';
 })
 export class SmartPictureComponent implements OnInit {
 
-
-  @Input() sourceWebp: string;
-  @Input() sourceJpg: string;
-  @Input() sourcePng: string;
-  @Input() sourceBmp: string;
-  @Input() sourceGif: string;
-  @Input() sourceSvg: string;
-  @Input() altText: string;
-  @Input() ariaHidden: boolean = false;
-  @Input() disablePlaceholder: boolean = false;
-  @Input() width: string = '100%';
-  @Input() size: 'cover' | 'contain' = 'cover';
-  @Input() objectPosition: string = 'center';
-  @Input() shadow: string = '0';
-
-  @Input() heightRatio: number = 1;
-  @Input() widthRatio: number = 1;
-
-  @HostBinding('class.responsive') @Input() responsive: boolean = false;
+  public shouldPictureLoad: boolean;
+  public aspectRatio: string;
+  @Input() settings: SmartPictureSettings;
   @HostBinding('attr.style') private get valueAsStyle(): SafeStyle {
     return this.sanitizer.bypassSecurityTrustStyle(`--aspect-ratio: ${this.aspectRatio}`);
   }
 
-  public sourceUrl: string;
-  public shouldItLoad: boolean = false;
-  public aspectRatio: string;
-
   constructor(
+    private sps: SmartPictureService,
     private el: ElementRef,
     private sanitizer: DomSanitizer
-  ) {}
+  ) { }
 
   ngOnInit() {
-    // validate inputs
-    if (!this.sourceJpg && !this.sourcePng) {
-      throw Error('You must provide a .jpg or .png version of the picture');
+    this.sps.initializeSmartPictureService();
+    if (this.areValidateSettings(this.settings)) {
+      if (this.settings.isResponsive) {
+        this.aspectRatio = `${(this.settings.heightRatio / (this.settings.widthRatio / 100))}%`;
+      }
+      this.lazyLoadImage((wasLazyLoaded: boolean) => {
+        console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
+      });
     }
-    if (this.size !== 'cover' && this.size !== 'contain') {
-      throw Error('size must be cover or contain');
-    }
-    if (this.heightRatio <= 0 || this.widthRatio <= 0) {
-      throw Error('heightRatio and widthRatio must be greater than 0');
-    }
-    // set aspect ratio
-    this.aspectRatio = `${(this.heightRatio / (this.widthRatio / 100))}%`;
-    if (!this.canLazyLoad()) {
-      this.shouldItLoad = true;
-    } else {
-      this.lazyLoadImage();
-    }
-  }
-  
-  private canLazyLoad() {
-    return window && 'IntersectionObserver' in window;
   }
 
-  private lazyLoadImage() {
+  private areValidateSettings(s: SmartPictureSettings): boolean {
+    if (s) {
+      if (validator.isObject(s)) throw Error('No settings provided for smart-picture');
+      if (!validator.isValidString(s.source.main.url)) throw Error('No main image url provided for smart-picture');
+      if (!validator.isValidString(s.source.main.type)) throw Error('No main image type provided for smart-picture');
+      if (s.source.fallback && !validator.isValidString(s.source.fallback.url)) throw Error('No fallback image url provided for smart-picture');
+      if (s.source.fallback && !validator.isValidString(s.source.fallback.type)) throw Error('No fallback image type provided for smart-picture');
+      if (validator.isBoolean(s.isResponsive) && (!validator.isValidPositive(s.heightRatio) || !validator.isValidPositive(s.widthRatio)))
+        throw Error('If isResponsive is true you must provide heightRatio widthRatio');
+      return true;
+    }
+  }
+
+  private lazyLoadImage(whenDone: Function) {
+    const canLazyLoad = (window && 'IntersectionObserver' in window) && !validator.isBoolean(this.settings.disableLazyLoad);
+    if (!canLazyLoad) {
+      this.shouldPictureLoad = true;
+      if (typeof whenDone === 'function') whenDone(canLazyLoad);
+      return;
+    }
     const observer = new IntersectionObserver(entries => {
       entries.forEach(({ isIntersecting }) => {
         if (isIntersecting) {
-          this.shouldItLoad = true;
+          this.shouldPictureLoad = true;
+          if (typeof whenDone === 'function') whenDone(canLazyLoad);
           observer.unobserve(this.el.nativeElement);
         }
       });
     });
     observer.observe(this.el.nativeElement);
   }
+
+  public reformatType(type: string): string {
+    return `image/${type}`;
+  }
+
 }

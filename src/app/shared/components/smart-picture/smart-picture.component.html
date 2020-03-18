@@ -1,19 +1,12 @@
-<div class="picture-holder" [style.width]="width"
-  [attr.data-aspect-ratio]="(aspectRatio)? aspectRatio : 0">
-  <div *ngIf="!disablePlaceholder" class="animated-background"></div>
-  <div class="wrapper">
-    <picture *ngIf="shouldItLoad">
-      <source *ngIf="sourceWebp" type="image/webp" [srcset]="sourceWebp">
-      <source *ngIf="sourceSvg" type="image/svg" [srcset]="sourceSvg">
-      <source *ngIf="sourceJpg" type="image/jpg" [srcset]="sourceJpg">
-      <source *ngIf="sourcePng" type="image/png" [srcset]="sourcePng">
-      <source *ngIf="sourceBmp" type="image/bmp" [srcset]="sourceBmp">
-      <source *ngIf="sourceGif" type="image/gif" [srcset]="sourceGif">
-      <img [src]="(!sourcePng)? sourceJpg : sourcePng" class="fit-image {{ size }}"
-        [style.object-position]="objectPosition" [alt]="altText" [attr.aria-hidden]="ariaHidden">
-    </picture>
-  </div>
-  <div class="content">
-    <ng-content></ng-content>
-  </div>
+<div class="picture-holder" [class.isResponsive]="settings.isResponsive">
+
+  <picture *ngIf="shouldPictureLoad">
+    <source [type]="reformatType(settings.source.main.type)" [srcset]="settings.source.main.url">
+    <source *ngIf="settings.source.fallback" [type]="reformatType(settings.source.fallback.type)" [srcset]="settings.source.fallback.url">
+    <img class="fit-image {{ settings.size ? settings.size : 'cover'}}"
+      [src]="settings.source.fallback ? settings.source.fallback.url : settings.source.main.url" [alt]="settings.alt ? settings.alt : ''"
+      [attr.aria-hidden]="settings.ariaHidden" [style.object-position]="settings.objectPosition ? settings.objectPosition : 'center'"
+      [style.width]="settings.isResponsive ? '100%' : 'inherit'" [style.height]="settings.isResponsive ? '100%' : 'inherit'">
+  </picture>
+
 </div>

@@ -8,7 +8,7 @@ describe('SmartPictureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SmartPictureComponent]
+      declarations: [ SmartPictureComponent ]
     })
     .compileComponents();
   }));
@@ -16,7 +16,6 @@ describe('SmartPictureComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SmartPictureComponent);
     component = fixture.componentInstance;
-    component.sourceJpg = 'fake.jpg';
     fixture.detectChanges();
   });
 

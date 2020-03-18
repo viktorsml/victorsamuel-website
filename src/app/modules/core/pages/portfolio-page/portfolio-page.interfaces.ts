@@ -1,16 +1,10 @@
-export interface PictureSource {
-  webp ? : string,
-  bmp ? : string,
-  jpg ? : string,
-  png ? : string,
-  gif ? : string
-}
+import { SmartPictureSettings } from 'src/app/shared/components/smart-picture/smart-picture.interfaces';
 
 export interface Project {
   projectId: string,
   title: string,
   description: string,
-  pictureSource: PictureSource,
+  pictureSource: SmartPictureSettings,
   tags: string[],
   codeUrl ? : string,
 }
