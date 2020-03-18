@@ -18,4 +18,4 @@ import { SpinnerModule } from 'src/app/shared/components/spinner/spinner.module'
     SpinnerModule
   ]
 })
-export class CoreModule {}
+export class CoreModule { }

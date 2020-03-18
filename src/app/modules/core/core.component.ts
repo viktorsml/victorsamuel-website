@@ -14,13 +14,13 @@ export class CoreComponent implements OnInit {
 
   constructor(
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.backgroundStylerSubscription = this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationStart) {
         this.isLoading = true;
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       if (event instanceof NavigationCancel || event instanceof NavigationError) {
         this.isLoading = false;
@@ -30,7 +30,7 @@ export class CoreComponent implements OnInit {
       }
     });
   }
-  
+
   ngAfterContentInit() {
     this.isLoading = false;
   }

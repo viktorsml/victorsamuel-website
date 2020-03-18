@@ -22,7 +22,7 @@ export class SocialIconsComponent implements OnInit {
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.socialIcons.forEach(icon => {

@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.isSocialBarVisible = !(this.router.url === '/acerca');

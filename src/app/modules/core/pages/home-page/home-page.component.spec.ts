@@ -11,7 +11,7 @@ describe('HomePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ],
+      declarations: [HomePageComponent],
       imports: [
         HomePageRoutingModule,
         SocialIconsModule,
@@ -21,7 +21,7 @@ describe('HomePageComponent', () => {
         { provide: 'VanillaTilt', useValue: window['VanillaTilt'] }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

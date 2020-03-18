@@ -13,7 +13,7 @@ describe('SocialIconsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SocialIconsComponent ],
+      declarations: [SocialIconsComponent],
       imports: [
         CommonModule,
         MatIconModule,
@@ -21,7 +21,7 @@ describe('SocialIconsComponent', () => {
         HttpClientModule
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

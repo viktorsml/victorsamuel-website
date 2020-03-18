@@ -7,4 +7,4 @@ import { SpinnerComponent } from './spinner.component';
   imports: [CommonModule],
   exports: [SpinnerComponent]
 })
-export class SpinnerModule {}
+export class SpinnerModule { }

@@ -13,8 +13,8 @@ export class PageTitleComponent implements OnInit {
   @Input() linkText: string;
   @Input() linkHref: string;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

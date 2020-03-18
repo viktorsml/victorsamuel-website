@@ -10,8 +10,8 @@ export class ProjectPageComponent implements OnInit {
 
   public project = projects[0]
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

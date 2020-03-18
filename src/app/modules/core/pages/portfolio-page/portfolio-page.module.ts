@@ -20,4 +20,4 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
   ]
 })
-export class PortfolioPageModule {}
+export class PortfolioPageModule { }

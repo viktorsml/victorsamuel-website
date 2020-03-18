@@ -12,7 +12,7 @@ describe('ProjectPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectPageComponent ],
+      declarations: [ProjectPageComponent],
       imports: [
         ProjectPageRoutingModule,
         PageTitleModule,
@@ -20,7 +20,7 @@ describe('ProjectPageComponent', () => {
         MatButtonModule
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
