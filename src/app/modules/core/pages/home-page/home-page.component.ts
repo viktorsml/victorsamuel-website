@@ -15,7 +15,8 @@ export class HomePageComponent implements OnInit {
     size: 'contain',
     isResponsive: true,
     heightRatio: 4,
-    widthRatio: 5
+    widthRatio: 5,
+    disablePlaceholder: true
   };
   public developerImage: SmartPictureSettings = {
     source: {
@@ -26,6 +27,7 @@ export class HomePageComponent implements OnInit {
     heightRatio: 356,
     widthRatio: 457,
     objectPosition: 'right',
+    disablePlaceholder: true
   };
 
   constructor(

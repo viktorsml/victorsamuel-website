@@ -42,5 +42,7 @@
       <p *ngFor="let text of project.information.result">{{ text }}</p>
     </div>
   </section>
-  <app-smart-picture *ngFor="let image of project.gallery" [settings]="image"></app-smart-picture>
+  <section class="responsive screenshots">
+    <app-smart-picture *ngFor="let image of project.gallery" [settings]="image"></app-smart-picture>
+  </section>
 </main>

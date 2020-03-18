@@ -1,6 +1,6 @@
 <main class="page-container">
   <app-page-title title="Proyectos"
-    description="He aquí una selección de algunos proyectos que utilizan el diseño como una puerta para traducir problemas en oportunidades">
+    description="He aquí una selección de algunos proyectos que utilizan el diseño como una puerta para traducir problemas enoportunidades">
   </app-page-title>
   <section *ngIf="projects" class="projects-gallery responsive">
 
@@ -15,7 +15,9 @@
       </p>
       <div class="project-buttons">
         <a mat-stroked-button color="primary" [routerLink]="['/proyecto', project.projectId]">Más Información</a>
-        <a mat-stroked-button color="primary" *ngIf="project.codeUrl" [href]="project.codeUrl" target="_blank" rel="noopener noreferrer">Código</a>
+        <a mat-stroked-button color="primary" *ngIf="project.codeUrl" [href]="project.codeUrl" target="_blank" rel="noopener noreferrer">
+          Código
+        </a>
       </div>
     </div>
 

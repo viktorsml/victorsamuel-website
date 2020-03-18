@@ -28,7 +28,7 @@ export class SmartPictureComponent implements OnInit {
       isResponsive: false,
       size: 'initial',
       disableLazyLoad: false,
-      disablePlaceholder: true,
+      disablePlaceholder: false,
     }
   }
 
@@ -65,7 +65,6 @@ export class SmartPictureComponent implements OnInit {
 
   private loadImage(): void {
     this.shouldPictureLoad = true;
-    this.settings.disablePlaceholder = true;
   }
 
   public reformatType(type: string): string {

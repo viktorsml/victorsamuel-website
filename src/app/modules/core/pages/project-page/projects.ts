@@ -26,18 +26,13 @@ export const projects: Project[] = [
     website: 'https://dev.hotelposadaderoger.com',
     code: 'https://github.com/viktorsml/hpr-website',
     headerImage: {
+      size: 'cover',
       isResponsive: true,
       widthRatio: 16,
       heightRatio: 9,
       source: {
-        main: {
-          type: 'webp',
-          url: 'https://picsum.photos/1140/647?random=1.webp'
-        },
-        fallback: {
-          type: 'jpg',
-          url: 'https://picsum.photos/1140/647?random=1.jpg'
-        }
+        main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=1.webp' },
+        fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=1.jpg' }
       }
     },
     information: {
@@ -52,63 +47,43 @@ export const projects: Project[] = [
     },
     gallery: [
       {
+        size: 'cover',
         isResponsive: true,
         widthRatio: 16,
         heightRatio: 9,
         source: {
-          main: {
-            type: 'webp',
-            url: 'https://picsum.photos/1140/647?random=2.webp'
-          },
-          fallback: {
-            type: 'jpg',
-            url: 'https://picsum.photos/1140/647?random=2.jpg'
-          }
+          main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=2.webp' },
+          fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=2.jpg' }
         }
       },
       {
+        size: 'cover',
         isResponsive: true,
         widthRatio: 16,
         heightRatio: 9,
         source: {
-          main: {
-            type: 'webp',
-            url: 'https://picsum.photos/1140/647?random=3.webp'
-          },
-          fallback: {
-            type: 'jpg',
-            url: 'https://picsum.photos/1140/647?random=3.jpg'
-          }
+          main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=3.webp' },
+          fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=3.jpg' }
         }
       },
       {
+        size: 'cover',
         isResponsive: true,
         widthRatio: 16,
         heightRatio: 9,
         source: {
-          main: {
-            type: 'webp',
-            url: 'https://picsum.photos/1140/647?random=4.webp'
-          },
-          fallback: {
-            type: 'jpg',
-            url: 'https://picsum.photos/1140/647?random=4.jpg'
-          }
+          main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=4.webp' },
+          fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=4.jpg' }
         }
       },
       {
+        size: 'cover',
         isResponsive: true,
         widthRatio: 16,
         heightRatio: 9,
         source: {
-          main: {
-            type: 'webp',
-            url: 'https://picsum.photos/1140/647?random=5.webp'
-          },
-          fallback: {
-            type: 'jpg',
-            url: 'https://picsum.photos/1140/647?random=5.jpg'
-          }
+          main: { type: 'webp', url: 'https://picsum.photos/1140/647?random=5.webp' },
+          fallback: { type: 'jpg', url: 'https://picsum.photos/1140/647?random=5.jpg' }
         }
       }
     ]

@@ -101,13 +101,13 @@
   }
 
   .developer-picture {
-    --postion-bottom: calc((var(--page-section-margin) * -1) - 5vh);
+    --postion-bottom: calc((var(--page-section-margin) * -1) - 14vh);
     position: absolute;
     width: 100vw;
     max-width: calc(2000px + 15vw);
     height: 117vh;
     max-height: calc(900px - var(--postion-bottom));
-    right: -7vw;
+    right: -11vw;
     bottom: var(--postion-bottom);
     z-index: -1;
     transform-style: preserve-3d;
