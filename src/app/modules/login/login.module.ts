@@ -7,6 +7,7 @@ import { LoginRoutingModule } from './login.routing';
 import { LoginComponent } from './login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { SpinnerModule } from 'src/app/shared/components/spinner/spinner.module';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -19,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatButtonModule,
     LoginRoutingModule,
+    SpinnerModule
   ],
   exports: [LoginComponent]
 })

@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm: FormGroup;
   public error: any;
+  public loginForm: FormGroup;
+  public isLoading: boolean = false;
 
   constructor(
     private router: Router,
@@ -28,18 +29,18 @@ export class LoginComponent implements OnInit {
 
   public login(): void {
     if (this.loginForm.valid) {
+      this.isLoading = true;
       const email = this.loginForm.get('email').value;
       const password = this.loginForm.get('password').value;
       this.loginForm.disable();
       this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-          console.log(userCredential);
           this.router.navigateByUrl('/admin');
         })
         .catch((error) => {
           this.loginForm.enable();
           this.error = error;
-          console.log(error);
+          this.isLoading = false;
         });
     }
   }

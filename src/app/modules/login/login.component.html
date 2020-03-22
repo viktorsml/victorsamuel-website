@@ -1,4 +1,5 @@
 <form [formGroup]="loginForm" (ngSubmit)="login()">
+  <a class="logo noBorder" routerLink="/">Victor Samuel</a>
   <mat-form-field appearance="outline">
     <mat-label>Email</mat-label>
     <input matInput formControlName="email" name="email" type="email" placeholder="email@example.com">
@@ -13,5 +14,10 @@
   <p *ngIf="error && error.code === 'auth/user-disabled'" class="error">Este usuario está deshabilitado.</p>
   <p *ngIf="error && error.code === 'auth/too-many-requests'" class="error">Demasiados intentos fallidos de acceso. Por favor, inténtelo de nuevo más
     tarde</p>
-  <button mat-button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+  <button mat-stroked-button type="submit" color="primary" [disabled]="loginForm.invalid">
+    <div class="inside-button">
+      <app-spinner size="19px" *ngIf="isLoading"></app-spinner>
+      <span *ngIf="!isLoading">Iniciar sesión</span>
+    </div>
+  </button>
 </form>
