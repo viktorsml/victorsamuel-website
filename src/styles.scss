@@ -40,19 +40,6 @@ body {
   overflow-x: hidden;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-text-fill-color: rgb(var(--color-text));
-  transition: background-color 5000s ease-in-out 0s;
-}
-
 h1,
 h2,
 h3,
@@ -123,6 +110,19 @@ a {
   &:not(.noBorder):hover {
     border-color: rgb(var(--color-primary));
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(var(--color-text));
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 mat-form-field,
