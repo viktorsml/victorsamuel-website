@@ -1,0 +1,17 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" name="email" type="email" placeholder="email@example.com">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" name="password" type="password">
+  </mat-form-field>
+  <p *ngIf="error && error.code === 'auth/invalid-email'" class="error">El correo electronico no es válido.</p>
+  <p *ngIf="error && error.code === 'auth/user-not-found'" class="error">Usuario no encontrado.</p>
+  <p *ngIf="error && error.code === 'auth/wrong-password'" class="error">Contraseña incorrecta.</p>
+  <p *ngIf="error && error.code === 'auth/user-disabled'" class="error">Este usuario está deshabilitado.</p>
+  <p *ngIf="error && error.code === 'auth/too-many-requests'" class="error">Demasiados intentos fallidos de acceso. Por favor, inténtelo de nuevo más
+    tarde</p>
+  <button mat-button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+</form>
