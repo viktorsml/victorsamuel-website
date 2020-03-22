@@ -30,6 +30,7 @@ body {
   @include coverParent;
   font-family: var(--font-default);
   background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -37,6 +38,19 @@ body {
 body {
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(var(--color-text));
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 h1,
@@ -116,11 +130,24 @@ mat-form-field,
   font-family: var(--font-default) !important;
 }
 
+mat-form-field {
+  font-size: 0.95em !important;
+}
+
 *[mat-stroked-button] {
   mat-icon {
     margin-left: 13px;
     @include mat-icon-size(15px);
   }
+}
+
+.logo {
+  @include hideText;
+  flex-shrink: 0;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('/assets/svg/vs-logo-dark.svg');
 }
 
 .page-container {
@@ -139,14 +166,4 @@ mat-form-field,
   & > .responsive {
     margin-top: var(--page-section-margin);
   }
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
