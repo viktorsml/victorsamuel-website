@@ -1,9 +1,10 @@
 <main class="page-container">
-  <app-page-title title="Proyectos"
-    description="He aquí una selección de algunos proyectos que utilizan el diseño como una puerta para traducir problemas enoportunidades">
+  <app-page-title
+    title="Proyectos"
+    description="He aquí una selección de algunos proyectos que utilizan el diseño como una puerta para traducir problemas enoportunidades"
+  >
   </app-page-title>
   <section *ngIf="projects" class="projects-gallery responsive">
-
     <div *ngFor="let project of projects" class="project">
       <a tabindex="-1" class="project-link" [routerLink]="['/proyecto', project.projectId]">
         <app-smart-picture [settings]="project.pictureSource"></app-smart-picture>
@@ -20,6 +21,5 @@
         </a>
       </div>
     </div>
-
   </section>
 </main>

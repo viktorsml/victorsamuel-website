@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
 import { CoreComponent } from './core.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/acerca', pathMatch: 'full' },
   {
-    path: '', component: CoreComponent, children: [
+    path: '',
+    component: CoreComponent,
+    children: [
       { path: 'acerca', loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule) },
       { path: 'proyecto', loadChildren: () => import('./pages/project-page/project-page.module').then(m => m.ProyectPageModule) },
       { path: 'proyectos', loadChildren: () => import('./pages/portfolio-page/portfolio-page.module').then(m => m.PortfolioPageModule) },
@@ -19,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CoreRoutingModule { }
+export class CoreRoutingModule {}

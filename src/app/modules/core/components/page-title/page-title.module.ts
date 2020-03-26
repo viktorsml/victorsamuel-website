@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
 import { PageTitleComponent } from './page-title.component';
 
 @NgModule({
   declarations: [PageTitleComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [PageTitleComponent]
 })
-export class PageTitleModule { }
+export class PageTitleModule {}

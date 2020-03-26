@@ -9,8 +9,7 @@ describe('SmartPictureComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SmartPictureComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -28,7 +27,7 @@ describe('SmartPictureComponent', () => {
           url: 'https://picsum.photos/1140/647?random=5.webp'
         }
       }
-    }
+    };
     fixture.detectChanges();
   });
 

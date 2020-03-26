@@ -32,10 +32,9 @@ a {
 
   // Top and Bottom lines inital status
   span {
-
     &::before,
     &::after {
-      content: "";
+      content: '';
       width: 100%;
       height: var(--border-size);
       background-color: rgb(var(--color-text));
@@ -61,7 +60,7 @@ a {
   // Left and Right lines inital status
   &::before,
   &::after {
-    content: "";
+    content: '';
     width: var(--border-size);
     height: 100%;
     background-color: rgb(var(--color-text));
@@ -111,7 +110,6 @@ a {
     }
 
     span {
-
       &::before,
       &::after {
         transform: translateX(0);

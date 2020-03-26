@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
 import objectFitImages from 'object-fit-images';
+
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SmartPictureService {
-
   private _isInitialized: boolean = false;
 
   public initializeSmartPictureService() {

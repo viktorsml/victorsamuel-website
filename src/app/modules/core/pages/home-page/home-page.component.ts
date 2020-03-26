@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { SmartPictureSettings } from 'src/app/shared/components/smart-picture/smart-picture.interfaces';
+import { Component, Inject, OnInit } from '@angular/core';
+
+import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
 
 @Component({
   selector: 'app-home-page',
@@ -7,7 +8,6 @@ import { SmartPictureSettings } from 'src/app/shared/components/smart-picture/sm
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
   public developerIcon: SmartPictureSettings = {
     source: {
       main: { url: '/assets/svg/laptop-code.svg', type: 'svg' }
@@ -30,9 +30,7 @@ export class HomePageComponent implements OnInit {
     disablePlaceholder: true
   };
 
-  constructor(
-    @Inject('VanillaTilt') public vanillaTilt: any
-  ) { }
+  constructor(@Inject('VanillaTilt') public vanillaTilt: any) {}
 
   ngOnInit() {
     // const tiltedElements = document.querySelectorAll('.titlme .picture-holder');
@@ -42,7 +40,4 @@ export class HomePageComponent implements OnInit {
     // })
     // this.vanillaTilt.init(tiltedElements, { max: 1, speed: 400 });
   }
-
-
-
 }

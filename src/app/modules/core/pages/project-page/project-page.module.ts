@@ -1,20 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectPageRoutingModule } from './project-page.routing';
-import { ProjectPageComponent } from './project-page.component';
-import { PageTitleModule } from '../../components/page-title/page-title.module';
-import { SmartPictureModule } from 'src/app/shared/components/smart-picture/smart-picture.module';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+
+import { SmartPictureModule } from '../../../../shared/components/smart-picture/smart-picture.module';
+import { PageTitleModule } from '../../components/page-title/page-title.module';
+import { ProjectPageComponent } from './project-page.component';
+import { ProjectPageRoutingModule } from './project-page.routing';
 
 @NgModule({
   declarations: [ProjectPageComponent],
-  imports: [
-    CommonModule,
-    ProjectPageRoutingModule,
-    PageTitleModule,
-    SmartPictureModule,
-    MatButtonModule
-  ],
+  imports: [CommonModule, ProjectPageRoutingModule, PageTitleModule, SmartPictureModule, MatButtonModule],
   exports: [ProjectPageComponent]
 })
-export class ProyectPageModule { }
+export class ProyectPageModule {}

@@ -1,10 +1,10 @@
-import { SmartPictureSettings } from 'src/app/shared/components/smart-picture/smart-picture.interfaces';
+import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
 
 export interface Project {
-  projectId: string,
-  title: string,
-  description: string,
-  pictureSource: SmartPictureSettings,
-  tags: string[],
-  codeUrl ? : string,
+  projectId: string;
+  title: string;
+  description: string;
+  pictureSource: SmartPictureSettings;
+  tags: string[];
+  codeUrl?: string;
 }

@@ -76,9 +76,7 @@
   }
 }
 
-
 @-webkit-keyframes sk-foldCubeAngle {
-
   0%,
   10% {
     -webkit-transform: perspective(140px) rotateX(-180deg);
@@ -102,7 +100,6 @@
 }
 
 @keyframes sk-foldCubeAngle {
-
   0%,
   10% {
     -webkit-transform: perspective(140px) rotateX(-180deg);

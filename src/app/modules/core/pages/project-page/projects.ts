@@ -1,22 +1,22 @@
-import { SmartPictureSettings } from 'src/app/shared/components/smart-picture/smart-picture.interfaces';
+import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
 
 interface ProjectInformation {
-  about: string[],
-  challenges?: string[],
-  technology?: string[],
-  frontEnd?: string[],
-  backEnd?: string[],
-  result?: string[],
+  about: string[];
+  challenges?: string[];
+  technology?: string[];
+  frontEnd?: string[];
+  backEnd?: string[];
+  result?: string[];
 }
 
 interface Project {
-  title: string,
-  description: string,
-  website?: string,
-  code?: string,
-  headerImage: SmartPictureSettings,
-  information: ProjectInformation,
-  gallery?: SmartPictureSettings[]
+  title: string;
+  description: string;
+  website?: string;
+  code?: string;
+  headerImage: SmartPictureSettings;
+  information: ProjectInformation;
+  gallery?: SmartPictureSettings[];
 }
 
 export const projects: Project[] = [
@@ -37,13 +37,12 @@ export const projects: Project[] = [
     },
     information: {
       about: [
-        `Project developed as a contractor with the SKY GO (UK) Desktop team. The Sky Go Desktop app is a React web application build on top of the
-        Electron framework.`,
-        `At this project I acted as the lead UI/UX developer specialist being the bridge between UI/UX Design, PO and the UI development team.
-        The main challenge was to reorganize the UI structure from a react-virtualized grid into a pure CSS one. Which improved drastically
-        the scalability and maintainability of the project.`
-      ],
-
+        `Project developed as a contractor with the SKY GO (UK) Desktop team. The Sky Go Desktop app is a React web application build on
+        top of the Electron framework.`,
+        `At this project I acted as the lead UI/UX developer specialist being the bridge between UI/UX Design, PO and the UI development
+        team. The main challenge was to reorganize the UI structure from a react-virtualized grid into a pure CSS one. Which improved
+        drastically the scalability and maintainability of the project.`
+      ]
     },
     gallery: [
       {

@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Router, Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+
+import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Event as RouterEvent, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-core',
   templateUrl: './core.component.html',
   styleUrls: ['./core.component.scss']
 })
-export class CoreComponent implements OnInit {
-
+export class CoreComponent implements OnInit, AfterContentInit, OnDestroy {
   public isLoading: boolean = true;
   private backgroundStylerSubscription: Subscription;
 
-  constructor(
-    private router: Router
-  ) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.backgroundStylerSubscription = this.router.events.subscribe((event: RouterEvent) => {
@@ -38,5 +36,4 @@ export class CoreComponent implements OnInit {
   ngOnDestroy() {
     this.backgroundStylerSubscription.unsubscribe();
   }
-
 }

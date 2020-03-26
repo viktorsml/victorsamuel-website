@@ -62,7 +62,7 @@
   }
 
   h1 {
-    @include linearGradientText(#F7B42C, #FC575E, 135deg);
+    @include linearGradientText(#f7b42c, #fc575e, 135deg);
     max-width: 60vw;
     font-size: 4vw;
 

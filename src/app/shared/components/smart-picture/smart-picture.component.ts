@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, ElementRef, HostBinding } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
+
+import { validator } from './smart-picture.functions';
 import { SmartPictureSettings } from './smart-picture.interfaces';
 import { SmartPictureService } from './smart-picture.service';
-import { validator } from './smart-picture.functions';
 
 @Component({
   selector: 'app-smart-picture',
@@ -9,17 +10,13 @@ import { validator } from './smart-picture.functions';
   styleUrls: ['./smart-picture.component.scss']
 })
 export class SmartPictureComponent implements OnInit {
-
   public shouldPictureLoad: boolean;
   private defaultSettings: SmartPictureSettings;
   @Input() settings: SmartPictureSettings;
   @HostBinding('style.--aspect-ratio') aspectRatio: string;
   @HostBinding('class.isResponsive') responsiveStatus: boolean;
 
-  constructor(
-    private sps: SmartPictureService,
-    private el: ElementRef
-  ) {
+  constructor(private sps: SmartPictureService, private el: ElementRef) {
     this.shouldPictureLoad = false;
     this.defaultSettings = {
       source: {
@@ -28,34 +25,38 @@ export class SmartPictureComponent implements OnInit {
       isResponsive: false,
       size: 'initial',
       disableLazyLoad: false,
-      disablePlaceholder: false,
-    }
+      disablePlaceholder: false
+    };
   }
 
   ngOnInit() {
     this.sps.initializeSmartPictureService();
-    this.settings = Object.assign(this.defaultSettings, this.settings);
+    this.settings = { ...this.defaultSettings, ...this.settings };
     this.responsiveStatus = this.settings.isResponsive;
     if (this.settings.isResponsive) {
-      this.aspectRatio = `${(this.settings.heightRatio / (this.settings.widthRatio / 100))}%`;
+      this.aspectRatio = `${this.settings.heightRatio / (this.settings.widthRatio / 100)}%`;
     }
     this.lazyLoadImage((wasLazyLoaded: boolean) => {
       // console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
     });
   }
 
-  private lazyLoadImage(whenDone: Function) {
-    const canLazyLoad = (window && 'IntersectionObserver' in window) && !validator.isBoolean(this.settings.disableLazyLoad);
+  private lazyLoadImage(whenDone: (canLazyLoad: boolean) => void) {
+    const canLazyLoad = window && 'IntersectionObserver' in window && !validator.isBoolean(this.settings.disableLazyLoad);
     if (!canLazyLoad) {
       this.loadImage();
-      if (typeof whenDone === 'function') whenDone(canLazyLoad);
+      if (typeof whenDone === 'function') {
+        whenDone(canLazyLoad);
+      }
       return;
     }
     const observer = new IntersectionObserver(entries => {
       entries.forEach(({ isIntersecting }) => {
         if (isIntersecting) {
           this.loadImage();
-          if (typeof whenDone === 'function') whenDone(canLazyLoad);
+          if (typeof whenDone === 'function') {
+            whenDone(canLazyLoad);
+          }
           observer.unobserve(this.el.nativeElement);
         }
       });
