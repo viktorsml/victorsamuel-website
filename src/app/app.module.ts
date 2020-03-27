@@ -2,7 +2,6 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,7 +14,6 @@ import { AppRoutingModule } from './app.routing';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule
