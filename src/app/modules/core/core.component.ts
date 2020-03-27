@@ -1,7 +1,7 @@
 import { Subscription } from 'rxjs';
 
 import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { Event as RouterEvent, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-core',
@@ -20,10 +20,7 @@ export class CoreComponent implements OnInit, AfterContentInit, OnDestroy {
         this.isLoading = true;
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-      if (event instanceof NavigationCancel || event instanceof NavigationError) {
-        this.isLoading = false;
-      }
-      if (event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
         this.isLoading = false;
       }
     });
