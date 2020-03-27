@@ -92,7 +92,7 @@
     "no-unsafe-finally": true,
     "only-arrow-functions": true,
     "no-parameter-reassignment": true,
-    "prefer-function-over-method": [true, "allow-public", "allow-protected"],
+    "prefer-function-over-method": false,
     "no-default-export": true
   },
   "extends": ["tslint:latest", "tslint-config-prettier"]
