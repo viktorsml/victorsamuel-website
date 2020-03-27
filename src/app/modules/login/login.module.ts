@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,6 +15,7 @@ import { LoginRoutingModule } from './login.routing';
   declarations: [LoginComponent],
   imports: [
     CommonModule,
+    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
