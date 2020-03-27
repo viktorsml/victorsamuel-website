@@ -25,6 +25,12 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+*::selection,
+*::-moz-selection {
+  background-color: rgba(13, 0, 255, 0.45);
+  color: white;
+}
+
 html,
 body {
   @include coverParent;
@@ -47,9 +53,10 @@ h4,
 h5,
 h6 {
   font-family: var(--font-title);
+  text-transform: var(--font-title-transform);
   color: rgb(var(--color-title));
   font-feature-settings: 'ss01', 'ss02';
-  font-weight: 500;
+  font-weight: var(--font-title-wight);
   font-size: 3em;
   margin-bottom: 0.85em;
 }
@@ -96,9 +103,9 @@ h6 {
 p {
   font-family: var(--font-default);
   color: rgb(var(--color-text));
+  line-height: var(--font-default-line-height);
   font-size: 1.1em;
   font-weight: 400;
-  line-height: 1.5em;
 }
 
 a {
@@ -166,4 +173,8 @@ mat-form-field {
   & > .responsive {
     margin-top: var(--page-section-margin);
   }
+}
+
+.hidden {
+  display: none;
 }
