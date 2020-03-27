@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
@@ -11,6 +12,15 @@ import { PortfolioPageRoutingModule } from './portfolio-page.routing';
 
 @NgModule({
   declarations: [PortfolioPageComponent],
-  imports: [CommonModule, RouterModule, PortfolioPageRoutingModule, PageTitleModule, SmartPictureModule, MatButtonModule, MatIconModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    AngularFirestoreModule,
+    PortfolioPageRoutingModule,
+    PageTitleModule,
+    SmartPictureModule,
+    MatButtonModule,
+    MatIconModule
+  ]
 })
 export class PortfolioPageModule {}

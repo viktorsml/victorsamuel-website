@@ -6,17 +6,17 @@
   </app-page-title>
   <section *ngIf="projects" class="projects-gallery responsive">
     <div *ngFor="let project of projects" class="project">
-      <a tabindex="-1" class="project-link" [routerLink]="['/proyecto', project.projectId]">
-        <app-smart-picture [settings]="project.pictureSource"></app-smart-picture>
+      <a tabindex="-1" class="project-link" [routerLink]="['/proyecto', project.propertyId]">
+        <app-smart-picture [settings]="bindPicture(project.coverImage)"></app-smart-picture>
         <h2 class="project-title">{{ project.title }}</h2>
         <p class="project-description">{{ project.description }}</p>
       </a>
       <p class="project-tags">
-        <span *ngFor="let tag of project.tags">{{ tag }}</span>
+        <span *ngFor="let tag of project.specs.tech">{{ tag }}</span>
       </p>
       <div class="project-buttons">
-        <a mat-stroked-button color="primary" [routerLink]="['/proyecto', project.projectId]">Más Información</a>
-        <a mat-stroked-button color="primary" *ngIf="project.codeUrl" [href]="project.codeUrl" target="_blank" rel="noopener noreferrer">
+        <a mat-stroked-button color="primary" [routerLink]="['/proyecto', project.propertyId]">Más Información</a>
+        <a mat-stroked-button color="primary" *ngIf="project.code" [href]="project.code" target="_blank" rel="noopener noreferrer">
           Código
         </a>
       </div>
