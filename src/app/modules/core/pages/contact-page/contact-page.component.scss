@@ -1,6 +1,15 @@
 @import './../../../../../scss/mixins';
 @import './../../../../../scss/staticVariables';
 
+app-page-title {
+  --font-default: 'JetBrains Mono', var(--font-fallback);
+  --font-title: 'JetBrains Mono', var(--font-default);
+  --font-title-wight: 600;
+  --font-title-transform: uppercase;
+  --font-default-line-height: 1.8em;
+  font-size: 90%;
+}
+
 .contact-icons,
 .contact-link {
   display: flex;
