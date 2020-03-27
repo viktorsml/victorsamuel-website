@@ -12,9 +12,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public isSocialBarVisible = false;
   private socialIconsSubscription: Subscription;
 
-  constructor(private router: Router) {}
+  constructor(private readonly router: Router) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.isSocialBarVisible = !(this.router.url === '/acerca');
     this.socialIconsSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.socialIconsSubscription.unsubscribe();
   }
 }

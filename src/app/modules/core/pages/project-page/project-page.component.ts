@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { projects } from './projects';
 
@@ -7,10 +7,8 @@ import { projects } from './projects';
   templateUrl: './project-page.component.html',
   styleUrls: ['./project-page.component.scss']
 })
-export class ProjectPageComponent implements OnInit {
+export class ProjectPageComponent {
   public project = projects[0];
 
   constructor() {}
-
-  ngOnInit() {}
 }

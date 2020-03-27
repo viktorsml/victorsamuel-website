@@ -48,9 +48,9 @@ export class ContactPageComponent implements OnInit {
     }
   ];
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {}
+  constructor(private readonly matIconRegistry: MatIconRegistry, private readonly domSanitizer: DomSanitizer) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.contactIcons.forEach(icon => {
       this.matIconRegistry.addSvgIcon(icon.name, this.domSanitizer.bypassSecurityTrustResourceUrl(icon.resource));
     });

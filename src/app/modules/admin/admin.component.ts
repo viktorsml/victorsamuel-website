@@ -8,9 +8,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  constructor(private router: Router, private route: ActivatedRoute, public angularFireAuth: AngularFireAuth) {}
+  constructor(private readonly router: Router, private readonly route: ActivatedRoute, public angularFireAuth: AngularFireAuth) {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {}
 
   public logout(): void {
     this.angularFireAuth.auth

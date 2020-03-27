@@ -12,9 +12,9 @@ export class CoreComponent implements OnInit, AfterContentInit, OnDestroy {
   public isLoading: boolean = true;
   private backgroundStylerSubscription: Subscription;
 
-  constructor(private router: Router) {}
+  constructor(private readonly router: Router) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.backgroundStylerSubscription = this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationStart) {
         this.isLoading = true;
@@ -29,11 +29,11 @@ export class CoreComponent implements OnInit, AfterContentInit, OnDestroy {
     });
   }
 
-  ngAfterContentInit() {
+  public ngAfterContentInit(): void {
     this.isLoading = false;
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.backgroundStylerSubscription.unsubscribe();
   }
 }

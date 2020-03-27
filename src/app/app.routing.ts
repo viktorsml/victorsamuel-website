@@ -18,7 +18,10 @@ const routes: Routes = [
     data: { authGuardPipe: redirectUnauthorizedToLogin },
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
   },
-  { path: '', loadChildren: () => import('./modules/core/core.module').then(m => m.CoreModule) }
+  {
+    path: '',
+    loadChildren: () => import('./modules/core/core.module').then(m => m.CoreModule)
+  }
 ];
 
 @NgModule({

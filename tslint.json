@@ -1,12 +1,11 @@
 {
   "rulesDirectory": ["codelyzer"],
-  "extends": ["tslint:latest", "tslint-config-prettier"],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
     "comment-format": [true, "check-space"],
-    "curly": true,
+    "curly": [true, "ignore-same-line"],
     "deprecation": {
       "severity": "warn"
     },
@@ -18,7 +17,7 @@
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [true, 140],
-    "member-access": false,
+    "member-access": true,
     "member-ordering": [
       true,
       {
@@ -66,7 +65,7 @@
       }
     ],
     "unified-signatures": true,
-    "variable-name": false,
+    "variable-name": [true, "ban-keywords"],
     "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"],
     "no-output-on-prefix": true,
     "no-inputs-metadata-property": true,
@@ -79,6 +78,22 @@
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "interface-name": false,
-    "no-implicit-dependencies": [true, "dev"]
-  }
+    "no-implicit-dependencies": [true, "dev"],
+    "no-conditional-assignment": true,
+    "no-duplicate-switch-case": true,
+    "no-invalid-template-strings": true,
+    "no-sparse-arrays": true,
+    "prefer-readonly": true,
+    "typedef": [true, "call-signature"],
+    "await-promise": true,
+    "ban-comma-operator": true,
+    "no-invalid-this": true,
+    "no-this-assignment": true,
+    "no-unsafe-finally": true,
+    "only-arrow-functions": true,
+    "no-parameter-reassignment": true,
+    "prefer-function-over-method": [true, "allow-public", "allow-protected"],
+    "no-default-export": true
+  },
+  "extends": ["tslint:latest", "tslint-config-prettier"]
 }

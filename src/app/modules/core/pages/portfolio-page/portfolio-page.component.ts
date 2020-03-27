@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Project } from './portfolio-page.interfaces';
 
@@ -7,7 +7,7 @@ import { Project } from './portfolio-page.interfaces';
   templateUrl: './portfolio-page.component.html',
   styleUrls: ['./portfolio-page.component.scss']
 })
-export class PortfolioPageComponent implements OnInit {
+export class PortfolioPageComponent {
   public projects: Project[];
 
   constructor() {
@@ -67,6 +67,4 @@ export class PortfolioPageComponent implements OnInit {
       }
     ];
   }
-
-  ngOnInit() {}
 }

@@ -1,6 +1,5 @@
 import { Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
 
-import { validator } from './smart-picture.functions';
 import { SmartPictureSettings } from './smart-picture.interfaces';
 import { SmartPictureService } from './smart-picture.service';
 
@@ -11,12 +10,12 @@ import { SmartPictureService } from './smart-picture.service';
 })
 export class SmartPictureComponent implements OnInit {
   public shouldPictureLoad: boolean;
-  private defaultSettings: SmartPictureSettings;
-  @Input() settings: SmartPictureSettings;
-  @HostBinding('style.--aspect-ratio') aspectRatio: string;
-  @HostBinding('class.isResponsive') responsiveStatus: boolean;
+  private readonly defaultSettings: SmartPictureSettings;
+  @Input() public settings: SmartPictureSettings;
+  @HostBinding('style.--aspect-ratio') public aspectRatio: string;
+  @HostBinding('class.isResponsive') public responsiveStatus: boolean;
 
-  constructor(private sps: SmartPictureService, private el: ElementRef) {
+  constructor(private readonly sps: SmartPictureService, private readonly el: ElementRef) {
     this.shouldPictureLoad = false;
     this.defaultSettings = {
       source: {
@@ -29,7 +28,7 @@ export class SmartPictureComponent implements OnInit {
     };
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.sps.initializeSmartPictureService();
     this.settings = { ...this.defaultSettings, ...this.settings };
     this.responsiveStatus = this.settings.isResponsive;
@@ -37,12 +36,12 @@ export class SmartPictureComponent implements OnInit {
       this.aspectRatio = `${this.settings.heightRatio / (this.settings.widthRatio / 100)}%`;
     }
     this.lazyLoadImage((wasLazyLoaded: boolean) => {
-      // console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
+      console.log(`${this.settings.source.main.url}: Was lazy loaded?: ${wasLazyLoaded}`);
     });
   }
 
-  private lazyLoadImage(whenDone: (canLazyLoad: boolean) => void) {
-    const canLazyLoad = window && 'IntersectionObserver' in window && !validator.isBoolean(this.settings.disableLazyLoad);
+  private lazyLoadImage(whenDone: (canLazyLoad: boolean) => void): void {
+    const canLazyLoad = window && 'IntersectionObserver' in window && !this.settings.disableLazyLoad;
     if (!canLazyLoad) {
       this.loadImage();
       if (typeof whenDone === 'function') {

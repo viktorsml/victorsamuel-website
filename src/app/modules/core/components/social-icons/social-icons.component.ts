@@ -10,7 +10,7 @@ import { SocialIcon } from './social-icons.interfaces';
   styleUrls: ['./social-icons.component.scss']
 })
 export class SocialIconsComponent implements OnInit {
-  @Input() tabindexValue: number = 0;
+  @Input() public tabindexValue: number = 0;
 
   public socialIcons: SocialIcon[] = [
     { title: 'Twitter', name: 'twitter', url: 'https://go.victorsamuel.com/twitter', resource: '/assets/svg/logo-twitter.svg' },
@@ -19,9 +19,9 @@ export class SocialIconsComponent implements OnInit {
     { title: 'LinkedIn', name: 'linkedin', url: 'https://go.victorsamuel.com/linkedin', resource: '/assets/svg/logo-linkedin.svg' }
   ];
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {}
+  constructor(private readonly matIconRegistry: MatIconRegistry, private readonly domSanitizer: DomSanitizer) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.socialIcons.forEach(icon => {
       this.matIconRegistry.addSvgIcon(icon.name, this.domSanitizer.bypassSecurityTrustResourceUrl(icon.resource));
     });

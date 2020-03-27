@@ -9,13 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public error: any;
+  public error: {};
   public loginForm: FormGroup;
   public isLoading: boolean = false;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, public angularFireAuth: AngularFireAuth) {}
+  constructor(
+    private readonly router: Router,
+    private readonly formBuilder: FormBuilder,
+    public readonly angularFireAuth: AngularFireAuth
+  ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['']
