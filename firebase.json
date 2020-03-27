@@ -1,16 +1,6 @@
 {
   "hosting": [
     {
-      "public": "dist/victorsamuel-website",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
       "target": "victorsamuel-website",
       "public": "dist/victorsamuel-website",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
