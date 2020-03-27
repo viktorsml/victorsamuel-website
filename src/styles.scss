@@ -25,11 +25,18 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+*::selection,
+*::-moz-selection {
+  background-color: rgba(13, 0, 255, 0.45);
+  color: white;
+}
+
 html,
 body {
   @include coverParent;
   font-family: var(--font-default);
   background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -46,9 +53,10 @@ h4,
 h5,
 h6 {
   font-family: var(--font-title);
+  text-transform: var(--font-title-transform);
   color: rgb(var(--color-title));
-  font-feature-settings: "ss01", "ss02";
-  font-weight: 500;
+  font-feature-settings: 'ss01', 'ss02';
+  font-weight: var(--font-title-wight);
   font-size: 3em;
   margin-bottom: 0.85em;
 }
@@ -95,9 +103,9 @@ h6 {
 p {
   font-family: var(--font-default);
   color: rgb(var(--color-text));
+  line-height: var(--font-default-line-height);
   font-size: 1.1em;
   font-weight: 400;
-  line-height: 1.5em;
 }
 
 a {
@@ -111,9 +119,26 @@ a {
   }
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(var(--color-text));
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 mat-form-field,
 *[mat-stroked-button] {
   font-family: var(--font-default) !important;
+}
+
+mat-form-field {
+  font-size: 0.95em !important;
 }
 
 *[mat-stroked-button] {
@@ -121,6 +146,15 @@ mat-form-field,
     margin-left: 13px;
     @include mat-icon-size(15px);
   }
+}
+
+.logo {
+  @include hideText;
+  flex-shrink: 0;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('/assets/svg/vs-logo-dark.svg');
 }
 
 .page-container {
@@ -139,4 +173,8 @@ mat-form-field,
   & > .responsive {
     margin-top: var(--page-section-margin);
   }
+}
+
+.hidden {
+  display: none;
 }

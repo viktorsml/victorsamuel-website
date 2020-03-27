@@ -9,12 +9,12 @@
   box-sizing: $type;
 }
 
-@mixin rectangle ($width, $height) {
+@mixin rectangle($width, $height) {
   width: $width;
   height: $height;
 }
 
-@mixin circle ($size) {
+@mixin circle($size) {
   @include rectangle($width: $size, $height: $size);
   border-radius: 100%;
 }
@@ -71,13 +71,12 @@
   background-clip: text;
 }
 
-
 @mixin responsiveRectangle($aspect-ratio: aspectRatio(1, 1), $width: 100%) {
   position: relative;
   width: $width;
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     padding-bottom: $aspect-ratio;
   }

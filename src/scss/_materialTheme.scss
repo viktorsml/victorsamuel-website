@@ -8,41 +8,42 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-$md-victorsamuel: (
-    50 : #fbf5ef,
-    100 : #f6e5d7,
-    200 : #f0d4bd,
-    300 : #eac2a2,
-    400 : #e6b58e,
-    500 : #e1a87a,
-    600 : #dda072,
-    700 : #d99767,
-    800 : #d58d5d,
-    900 : #cd7d4a,
-    A100 : #ffffff,
-    A200 : #fff7f3,
-    A400 : #ffd7c0,
-    A700 : #ffc7a7,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
+$md-victorsamuel: (
+  50: #fbf5ef,
+  100: #f6e5d7,
+  200: #f0d4bd,
+  300: #eac2a2,
+  400: #e6b58e,
+  500: #e1a87a,
+  600: #dda072,
+  700: #d99767,
+  800: #d58d5d,
+  900: #cd7d4a,
+  A100: #ffffff,
+  A200: #fff7f3,
+  A400: #ffd7c0,
+  A700: #ffc7a7,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
 $victorsamuel-website-primary: mat-palette($md-victorsamuel);
 $victorsamuel-website-accent: mat-palette($md-victorsamuel, A200, A100, A400);
 
@@ -50,7 +51,11 @@ $victorsamuel-website-accent: mat-palette($md-victorsamuel, A200, A100, A400);
 $victorsamuel-website-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$victorsamuel-website-theme: mat-dark-theme($victorsamuel-website-primary, $victorsamuel-website-accent, $victorsamuel-website-warn);
+$victorsamuel-website-theme: mat-dark-theme(
+  $victorsamuel-website-primary,
+  $victorsamuel-website-accent,
+  $victorsamuel-website-warn
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

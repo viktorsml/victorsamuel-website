@@ -1,20 +1,87 @@
 @font-face {
   font-family: coven-medium;
-  src: url('/assets/fonts/coven-medium.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven-medium.woff') format('woff'), url('/assets/fonts/coven-medium.ttf') format('truetype'), url('/assets/fonts/coven-medium.svg#coven-medium') format('svg');
+  src: url('/assets/fonts/coven-medium.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven-medium.woff') format('woff'),
+    url('/assets/fonts/coven-medium.ttf') format('truetype'), url('/assets/fonts/coven-medium.svg#coven-medium') format('svg');
   font-weight: 400;
-  font-style: normal
+  font-style: normal;
 }
 
 @font-face {
   font-family: coven;
-  src: url('/assets/fonts/coven.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven.otf') format('opentype'), url('/assets/fonts/coven.woff') format('woff'), url('/assets/fonts/coven.ttf') format('truetype'), url('/assets/fonts/coven.svg#coven') format('svg');
+  src: url('/assets/fonts/coven.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven.otf') format('opentype'),
+    url('/assets/fonts/coven.woff') format('woff'), url('/assets/fonts/coven.ttf') format('truetype'),
+    url('/assets/fonts/coven.svg#coven') format('svg');
   font-weight: 400;
-  font-style: normal
+  font-style: normal;
 }
 
 @font-face {
   font-family: coven-light;
-  src: url('/assets/fonts/coven-light.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven-light.woff') format('woff'), url('/assets/fonts/coven-light.ttf') format('truetype'), url('/assets/fonts/coven-light.svg#coven-light') format('svg');
+  src: url('/assets/fonts/coven-light.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven-light.woff') format('woff'),
+    url('/assets/fonts/coven-light.ttf') format('truetype'), url('/assets/fonts/coven-light.svg#coven-light') format('svg');
   font-weight: 400;
-  font-style: normal
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono/eot/JetBrainsMono-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/JetBrainsMono/woff/JetBrainsMono-Regular.woff') format('woff'),
+    url('/assets/fonts/JetBrainsMono/woff2/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono/eot/JetBrainsMono-Medium.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/JetBrainsMono/woff/JetBrainsMono-Medium.woff') format('woff'),
+    url('/assets/fonts/JetBrainsMono/woff2/JetBrainsMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono/eot/JetBrainsMono-Medium-Italic.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/JetBrainsMono/woff/JetBrainsMono-Medium-Italic.woff') format('woff'),
+    url('/assets/fonts/JetBrainsMono/woff2/JetBrainsMono-Medium-Italic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono/eot/JetBrainsMono-Bold.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/JetBrainsMono/woff/JetBrainsMono-Bold.woff') format('woff'),
+    url('/assets/fonts/JetBrainsMono/woff2/JetBrainsMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono/eot/JetBrainsMono-Bold-Italic.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/JetBrainsMono/woff/JetBrainsMono-Bold-Italic.woff') format('woff'),
+    url('/assets/fonts/JetBrainsMono/woff2/JetBrainsMono-Bold-Italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono/eot/JetBrainsMono-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/JetBrainsMono/woff/JetBrainsMono-ExtraBold.woff') format('woff'),
+    url('/assets/fonts/JetBrainsMono/woff2/JetBrainsMono-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono/eot/JetBrainsMono-ExtraBold-Italic.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/JetBrainsMono/woff/JetBrainsMono-ExtraBold-Italic.woff') format('woff'),
+    url('/assets/fonts/JetBrainsMono/woff2/JetBrainsMono-ExtraBold-Italic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
 }

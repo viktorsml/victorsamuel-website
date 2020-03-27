@@ -8,7 +8,10 @@
 .main-container {
   @include responsiveContainer($addPadding: false);
   padding: var(--page-margin) var(--website-padding);
-  // border-top: solid 1px var(--color-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 p {
@@ -19,4 +22,20 @@ p {
   text-align: center;
   font-size: 0.77rem;
   letter-spacing: 0.3px;
+}
+
+.back-to-top {
+  margin-bottom: var(--page-margin);
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', var(--font-default);
+  letter-spacing: 0.1em;
+  font-weight: 800;
+
+  span {
+    margin-right: 10px;
+  }
+
+  mat-icon {
+    @include mat-icon-size(20px);
+  }
 }

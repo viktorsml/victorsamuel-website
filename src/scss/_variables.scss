@@ -1,7 +1,12 @@
 html {
   // Fonts
-  --font-default: "Nunito Sans", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-default: 'Nunito Sans', var(--font-fallback);
+  --font-default-line-height: 1.5em;
   --font-title: coven-medium, var(--font-default);
+  --font-title-wight: 500;
+  --font-title-transform: none;
   // Sizes
   --website-max-width: 95%;
   --website-padding: 25px;
@@ -14,7 +19,7 @@ html.dark-theme {
   --color-title: 232, 232, 232;
   --color-text: 216, 219, 226;
   --color-background: 32, 33, 37;
-  --color-grey: #2A2E37;
+  --color-grey: #2a2e37;
   --color-border: #2e3035;
   --color-shadow-prominent: black;
 }
@@ -24,7 +29,7 @@ html.light-theme {
   --color-title: 26, 26, 26;
   --color-text: 26, 26, 26;
   --color-background: 243, 243, 243;
-  --color-grey: #2A2E37;
+  --color-grey: #2a2e37;
   --color-border: #2e3035;
   --color-shadow-prominent: rgba(0, 0, 0, 0.2);
 }

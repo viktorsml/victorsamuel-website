@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "viktorsmlwd"
+  },
+  "targets": {
+    "viktorsmlwd": {
+      "hosting": {
+        "victorsamuel-website": [
+          "viktorsmlwd"
+        ]
+      }
+    }
   }
 }

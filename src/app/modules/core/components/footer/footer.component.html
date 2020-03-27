@@ -1,3 +1,7 @@
-<div class="main-container">
+<div class="main-container" (window:scroll)="shouldRenderScrollToTop()">
+  <button mat-button *ngIf="canRenderScrollToTop" (click)="scrollToTop()" class="back-to-top">
+    <span>Volver arriba</span>
+    <mat-icon>vertical_align_top</mat-icon>
+  </button>
   <p>Handcrafted with ❤️ and ☕ by me.</p>
 </div>
