@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
 import { SmartPictureModule } from '../../../../shared/components/smart-picture/smart-picture.module';
+import { SpinnerModule } from '../../../../shared/components/spinner/spinner.module';
 import { PageTitleModule } from '../../components/page-title/page-title.module';
 import { PortfolioPageComponent } from './portfolio-page.component';
 import { PortfolioPageRoutingModule } from './portfolio-page.routing';
@@ -16,6 +17,7 @@ import { PortfolioPageRoutingModule } from './portfolio-page.routing';
     CommonModule,
     RouterModule,
     AngularFirestoreModule,
+    SpinnerModule,
     PortfolioPageRoutingModule,
     PageTitleModule,
     SmartPictureModule,

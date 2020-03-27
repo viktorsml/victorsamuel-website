@@ -14,6 +14,13 @@ $third-break: 490px;
   font-size: 90%;
 }
 
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--website-padding);
+}
+
 .projects-gallery {
   --project-transition: 0.2s cubic-bezier(0.19, 1, 0.22, 1);
   display: grid;

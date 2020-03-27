@@ -17,6 +17,7 @@ export interface ProjectSpecs {
 }
 
 export interface Project {
+  propertyId?: string;
   title: string;
   description: string;
   website?: string;

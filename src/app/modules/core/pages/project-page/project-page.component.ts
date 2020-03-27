@@ -54,15 +54,4 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
     this.routeSub.unsubscribe();
     this.storedProject.unsubscribe();
   }
-
-  // private itemDoc: AngularFirestoreDocument<Item>;
-  // item: Observable<Item>;
-
-  // constructor(private afs: AngularFirestore) {
-  //   this.itemDoc = afs.doc<Item>('items/1');
-  //   this.item = this.itemDoc.valueChanges();
-  // }
-  // update(item: Item) {
-  //   this.itemDoc.update(item);
-  // }
 }

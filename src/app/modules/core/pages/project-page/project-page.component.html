@@ -1,3 +1,6 @@
+<section *ngIf="!project" class="spinner-wrapper">
+  <app-spinner></app-spinner>
+</section>
 <main *ngIf="project" class="page-container">
   <app-page-title [title]="project.title" [description]="project.description"></app-page-title>
   <app-smart-picture class="header-picture" [settings]="headerImage"></app-smart-picture>

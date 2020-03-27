@@ -4,6 +4,9 @@
     description="He aquí una selección de algunos proyectos que utilizan el diseño como una puerta para traducir problemas enoportunidades"
   >
   </app-page-title>
+  <section *ngIf="!projects" class="spinner-wrapper">
+    <app-spinner></app-spinner>
+  </section>
   <section *ngIf="projects" class="projects-gallery responsive">
     <div *ngFor="let project of projects" class="project">
       <a tabindex="-1" class="project-link" [routerLink]="['/proyecto', project.propertyId]">
