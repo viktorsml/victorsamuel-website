@@ -1,8 +1,12 @@
 html {
   // Fonts
-  --font-default: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-default: 'Nunito Sans', var(--font-fallback);
+  --font-default-line-height: 1.5em;
   --font-title: coven-medium, var(--font-default);
+  --font-title-wight: 500;
+  --font-title-transform: none;
   // Sizes
   --website-max-width: 95%;
   --website-padding: 25px;
