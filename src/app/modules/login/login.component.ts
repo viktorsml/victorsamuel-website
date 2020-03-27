@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public error: {};
+  public error: any;
   public loginForm: FormGroup;
   public isLoading: boolean = false;
 
