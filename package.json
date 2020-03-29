@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start:es": "ng serve --configuration=es",
-    "build": "npm run build:en && npm run build:es && cp -r dist/victorsamuel-website/en/assets/ dist/victorsamuel-website/",
+    "build": "npm run build:en && npm run build:es && cp -r dist/victorsamuel-website/en/assets/ dist/victorsamuel-website/ && cp src/redirectFirebase.html dist/victorsamuel-website/index.html",
     "build:en": "ng build --output-path=dist/victorsamuel-website/en/ --base-href=/en/ --deploy-url=/en/",
     "build:es": "ng build --configuration=es --output-path=dist/victorsamuel-website/es/ --base-href=/es/ --deploy-url=/es/",
     "test": "ng test",
