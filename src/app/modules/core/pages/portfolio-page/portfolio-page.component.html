@@ -10,7 +10,7 @@
   </section>
   <section *ngIf="projects" class="projects-gallery responsive">
     <div *ngFor="let project of projects" class="project">
-      <a tabindex="-1" class="project-link" [routerLink]="['/proyecto', project.propertyId]">
+      <a tabindex="-1" class="project-link" [routerLink]="['/project', project.propertyId]">
         <app-smart-picture [settings]="bindPicture(project.coverImage)"></app-smart-picture>
         <h2 class="project-title">{{ project.title }}</h2>
         <p class="project-description">{{ project.description }}</p>
@@ -22,7 +22,7 @@
         <a
           mat-stroked-button
           color="primary"
-          [routerLink]="['/proyecto', project.propertyId]"
+          [routerLink]="['/project', project.propertyId]"
           i18n="See more button|Text for the see more button@@seeMoreButton"
         >
           More information
