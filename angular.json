@@ -50,6 +50,14 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "es": {
+              "aot": true,
+              "outputPath": "dist/victorsamuel-website-fr/",
+              "i18nFile": "src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "i18nMissingTranslation": "warning"
             }
           }
         },
@@ -61,6 +69,9 @@
           "configurations": {
             "production": {
               "browserTarget": "victorsamuel-website:build:production"
+            },
+            "es": {
+              "browserTarget": "victorsamuel-website:build:es"
             }
           }
         },
