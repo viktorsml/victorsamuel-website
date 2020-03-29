@@ -100,11 +100,37 @@ nav {
   }
 }
 
+.social-icons-wrapper,
+.language-switcher {
+  margin-left: var(--website-padding);
+}
+
+.language-switcher {
+  cursor: pointer;
+  width: 21px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  &.en {
+    background-image: url('/assets/svg/mex-flag.svg');
+  }
+
+  &.es {
+    background-image: url('/assets/svg/usa-flag.svg');
+  }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    margin-top: var(--website-padding);
+    margin-left: 0;
+  }
+}
+
 .social-icons-wrapper {
   width: 0;
   overflow: hidden;
   transition: width ease-in-out 0.3s;
-  margin-left: var(--website-padding);
 
   @media screen and (max-width: $mobile-breakpoint) {
     display: none;

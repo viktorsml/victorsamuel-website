@@ -34,7 +34,7 @@
     <meta name="apple-mobile-web-app-title" content="Victor Samuel" />
     <meta name="application-name" content="Victor Samuel" />
     <meta name="msapplication-TileColor" content="#202125" />
-    <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml" />
+    <meta name="msapplication-config" content="assets/favicons/browserconfig.xml" />
     <meta name="theme-color" content="#202125" />
     <link
       rel="stylesheet"
@@ -54,6 +54,15 @@
       ></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <script>
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        var expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+      }
+      setCookie('lang', window.location.pathname.substr(1, 2), 365);
+    </script>
   </body>
 </html>
-<!-- v1.1.1 -->
+<!-- v1.2.0 -->

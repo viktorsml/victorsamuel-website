@@ -50,6 +50,44 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "es": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "outputPath": "dist/victorsamuel-website/es/",
+              "i18nFile": "src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "i18nMissingTranslation": "warning",
+              "assets": ["src/manifest.json"]
+            },
+            "es-with-assets": {
+              "aot": true,
+              "outputPath": "dist/victorsamuel-website/es/",
+              "i18nFile": "src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "i18nMissingTranslation": "warning"
             }
           }
         },
@@ -61,6 +99,9 @@
           "configurations": {
             "production": {
               "browserTarget": "victorsamuel-website:build:production"
+            },
+            "es": {
+              "browserTarget": "victorsamuel-website:build:es-with-assets"
             }
           }
         },

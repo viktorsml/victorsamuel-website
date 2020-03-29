@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Victor Samuel</title>
+    <script>
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        var expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+      }
+      function getCookie(cname) {
+        var name = cname + '=';
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return '';
+      }
+      var sl = getCookie('lang');
+      if (sl) {
+        console.log('Redirect via cookie: ' + sl);
+        window.location.replace('https://www.victorsamuel.com/' + sl);
+      } else {
+        var ul = window.navigator.userLanguage || window.navigator.language;
+        if (ul) {
+          var ul2 = ul.substr(0, 2);
+          if (ul2 === 'es') {
+            console.log('Redirect via default browser language: ' + sl);
+            setCookie('lang', 'es', 365);
+            window.location.replace('https://www.victorsamuel.com/es');
+          }
+          if (ul2 === 'en') {
+            console.log('Redirect via default browser language: ' + sl);
+            setCookie('lang', 'en', 365);
+            window.location.replace('https://www.victorsamuel.com/en');
+          }
+        } else {
+          console.log('Redirect via default (no-cookie, no-browser-lang): en');
+          window.location.replace('https://www.victorsamuel.com/en');
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
