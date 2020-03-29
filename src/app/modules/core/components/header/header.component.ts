@@ -16,11 +16,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(@Inject(LOCALE_ID) public locale: string, private readonly router: Router) {}
 
   public ngOnInit(): void {
+    const initialPage = '/about';
     this.language = this.locale.substr(0, 2);
-    this.isSocialBarVisible = !(this.router.url === '/acerca');
+    this.isSocialBarVisible = !(this.router.url === initialPage);
     this.socialIconsSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isSocialBarVisible = !(event.urlAfterRedirects === '/acerca');
+        this.isSocialBarVisible = !(event.urlAfterRedirects === initialPage);
       }
     });
   }
