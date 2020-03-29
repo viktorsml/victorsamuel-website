@@ -59,6 +59,14 @@
               "i18nLocale": "es",
               "i18nMissingTranslation": "warning",
               "assets": []
+            },
+            "es-with-assets": {
+              "aot": true,
+              "outputPath": "dist/victorsamuel-website/es/",
+              "i18nFile": "src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "i18nMissingTranslation": "warning"
             }
           }
         },
@@ -72,7 +80,7 @@
               "browserTarget": "victorsamuel-website:build:production"
             },
             "es": {
-              "browserTarget": "victorsamuel-website:build:es"
+              "browserTarget": "victorsamuel-website:build:es-with-assets"
             }
           }
         },
