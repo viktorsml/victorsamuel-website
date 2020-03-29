@@ -53,7 +53,7 @@
             },
             "es": {
               "aot": true,
-              "outputPath": "dist/victorsamuel-website-fr/",
+              "outputPath": "dist/victorsamuel-website-es/",
               "i18nFile": "src/locale/messages.es.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "es",
