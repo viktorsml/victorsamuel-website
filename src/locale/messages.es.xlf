@@ -9,10 +9,14 @@
         <target>Acerca</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">11</context>
         </context-group>
         <note from="description" priority="1">A text for the link to the about page in navigation bar</note>
         <note from="meaning" priority="1">About page link</note>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="portfolioNav">
         <source>
@@ -21,10 +25,14 @@
         <target>Proyectos</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">21</context>
         </context-group>
         <note from="description" priority="1">A text for the link to the portfolio page in navigation bar</note>
         <note from="meaning" priority="1">Portfolio page link</note>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="contactNav">
         <source>
@@ -33,10 +41,14 @@
         <target>Contacto</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <note from="description" priority="1">A text for the link to the contact page in navigation bar</note>
         <note from="meaning" priority="1">Contact page link</note>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="backToTop">
         <source>Back to top</source>
@@ -277,6 +289,16 @@
         </context-group>
         <note from="description" priority="1">A description for the contact page to say where can they contact me</note>
         <note from="meaning" priority="1">Contact description</note>
+      </trans-unit>
+      <trans-unit datatype="html" id="switchLanguage">
+        <source>Cambiar a Español</source>
+        <target>Switch to English</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note from="description" priority="1">Text for language switcher tooltip</note>
+        <note from="meaning" priority="1">Tooltip for language switcher</note>
       </trans-unit>
     </body>
   </file>
