@@ -26,6 +26,13 @@
       Contact
     </a>
   </nav>
+  <div
+    class="language-switcher"
+    [class]="language"
+    i18n-matTooltip="Tooltip for language switcher|Text for language switcher tooltip@@switchLanguage"
+    matTooltip="Cambiar a Español"
+    (click)="switchLanguage()"
+  ></div>
   <div class="social-icons-wrapper" [class.isVisible]="isSocialBarVisible">
     <app-social-icons class="header" [tabindexValue]="isSocialBarVisible ? '0' : '-1'"></app-social-icons>
   </div>
