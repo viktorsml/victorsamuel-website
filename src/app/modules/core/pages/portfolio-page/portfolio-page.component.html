@@ -1,15 +1,16 @@
 <main class="page-container">
-  <app-page-title
-    title="Proyectos"
-    description="He aquí una selección de algunos proyectos que utilizan el diseño como una puerta para traducir problemas enoportunidades"
-  >
+  <app-page-title>
+    <h1 i18n="Portfolio title|A title for the portfolio page@@portfolioTitle">Projects</h1>
+    <p i18n="Portfolio description|A description for the porfolio page@@portfolioDescription">
+      Here is a selection of some projects that use design as a gateway to translate problems into opportunities
+    </p>
   </app-page-title>
   <section *ngIf="!projects" class="spinner-wrapper">
     <app-spinner></app-spinner>
   </section>
   <section *ngIf="projects" class="projects-gallery responsive">
     <div *ngFor="let project of projects" class="project">
-      <a tabindex="-1" class="project-link" [routerLink]="['/proyecto', project.propertyId]">
+      <a tabindex="-1" class="project-link" [routerLink]="['/project', project.propertyId]">
         <app-smart-picture [settings]="bindPicture(project.coverImage)"></app-smart-picture>
         <h2 class="project-title">{{ project.title }}</h2>
         <p class="project-description">{{ project.description }}</p>
@@ -18,9 +19,24 @@
         <span *ngFor="let tag of project.specs.tech">{{ tag }}</span>
       </p>
       <div class="project-buttons">
-        <a mat-stroked-button color="primary" [routerLink]="['/proyecto', project.propertyId]">Más Información</a>
-        <a mat-stroked-button color="primary" *ngIf="project.code" [href]="project.code" target="_blank" rel="noopener noreferrer">
-          Código
+        <a
+          mat-stroked-button
+          color="primary"
+          [routerLink]="['/project', project.propertyId]"
+          i18n="See more button|Text for the see more button@@seeMoreButton"
+        >
+          More information
+        </a>
+        <a
+          mat-stroked-button
+          color="primary"
+          *ngIf="project.code"
+          [href]="project.code"
+          target="_blank"
+          rel="noopener noreferrer"
+          i18n="See code button|Text for the see code button@@seeCodeButton"
+        >
+          See code
         </a>
       </div>
     </div>

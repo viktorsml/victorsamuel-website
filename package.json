@@ -4,10 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "start:es": "ng serve --configuration=es --port 4201",
+    "build": "npm run build:en && npm run build:es && cp -r dist/victorsamuel-website/en/assets/ dist/victorsamuel-website/ && cp src/redirectFirebase.html dist/victorsamuel-website/index.html",
+    "build:en": "ng build --output-path=dist/victorsamuel-website/en/ --base-href=/en/ --deploy-url=/en/",
+    "build:es": "ng build --configuration=es --output-path=dist/victorsamuel-website/es/ --base-href=/es/ --deploy-url=/es/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "i18n:extract": "ng xi18n --output-path locale",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "importSort": {
@@ -26,6 +30,7 @@
     "@angular/core": "~9.1.0",
     "@angular/fire": "^5.4.2",
     "@angular/forms": "~9.1.0",
+    "@angular/localize": "^9.1.0",
     "@angular/material": "^9.2.0",
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",

@@ -1,8 +1,12 @@
 <main class="page-container">
   <section class="welcome-area responsive">
     <app-smart-picture class="developer-icon" [settings]="developerIcon"></app-smart-picture>
-    <h1>Desarrollador web full-stack actualmente en el área de Puerto Vallarta</h1>
-    <p>Creo hermosas aplicaciones web con las ultimas tecnologías disponibles y con un diseño centrado en el usuario</p>
+    <h1 i18n="Welcome Title|A title that describes who am I@@whoAmITitle">
+      Full-stack web developer currently in the Puerto Vallarta area
+    </h1>
+    <p i18n="Welcome Description|Text that shows what i do@@whoAmIDescription">
+      I create beautiful web applications with the latest technologies available and with a user-centered design
+    </p>
     <app-social-icons></app-social-icons>
     <app-smart-picture class="developer-picture" [settings]="developerImage"></app-smart-picture>
   </section>
