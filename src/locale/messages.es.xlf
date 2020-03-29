@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file datatype="plaintext" original="ng2.template" source-language="en-US" target-language="es">
     <body>
@@ -246,14 +246,37 @@
       Sorry, but the page you are looking for has not been found. Try checking the URL for errors and then clicking the refresh button on
       your browser.
     </source>
-        <target
-        >Lo sentimos, pero la página que buscas no ha sido encontrada. Prueba comprobar errores en la URL y luego pulsa el botón de actualizar en tu navegador.</target>
+        <target>Lo sentimos, pero la página que buscas no ha sido encontrada. Prueba comprobar errores en la URL y luego pulsa el botón de actualizar en tu navegador.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/not-found-page/not-found-page.component.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
         <note from="description" priority="1">A apologize for the not found content</note>
         <note from="meaning" priority="1">Not Found apologize</note>
+      </trans-unit>
+      <trans-unit datatype="html" id="portfolioDescription">
+        <source>
+      Here is a selection of some projects that use design as a gateway to translate problems into opportunities
+    </source>
+        <target>He aquí una selección de algunos proyectos que utilizan el diseño como una puerta para traducir problemas en oportunidades</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/pages/portfolio-page/portfolio-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note from="description" priority="1">A description for the porfolio page</note>
+        <note from="meaning" priority="1">Portfolio description</note>
+      </trans-unit>
+      <trans-unit datatype="html" id="contactDescription">
+        <source>
+      Get in touch though any of the following platforms or by sending me an email
+    </source>
+        <target>Puedes ponerte en contacto a través de las siguientes plataformas o enviándome un correo electrónico</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/pages/contact-page/contact-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note from="description" priority="1">A description for the contact page to say where can they contact me</note>
+        <note from="meaning" priority="1">Contact description</note>
       </trans-unit>
     </body>
   </file>
