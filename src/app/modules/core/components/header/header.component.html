@@ -1,22 +1,30 @@
 <div class="main-container">
   <a class="logo noBorder" routerLink="/">Victor Samuel</a>
   <nav>
-    <a class="noBorder" routerLinkActive="active" routerLink="/acerca" data-hover="Acerca">
-      Acerca
+    <a
+      class="noBorder"
+      routerLinkActive="active"
+      routerLink="/acerca"
+      i18n="About page link|A text for the link to the about page in navigation bar@@aboutNav"
+    >
+      About me
     </a>
-    <a class="noBorder" routerLinkActive="active" routerLink="/proyectos" data-hover="Proyectos">
-      Proyectos
+    <a
+      class="noBorder"
+      routerLinkActive="active"
+      routerLink="/proyectos"
+      i18n="Portfolio page link|A text for the link to the portfolio page in navigation bar@@portfolioNav"
+    >
+      Projects
     </a>
-    <!-- <a class="noBorder" routerLinkActive="active" routerLink="/dev-notes" data-hover="Dev&nbsp;Notes">
-      Dev&nbsp;Notes
-    </a> -->
-    <a class="noBorder" routerLinkActive="active" routerLink="/contacto" data-hover="Contacto">
-      Contacto
+    <a
+      class="noBorder"
+      routerLinkActive="active"
+      routerLink="/contacto"
+      i18n="Contact page link|A text for the link to the contact page in navigation bar@@contactNav"
+    >
+      Contact
     </a>
-    <!-- <a class="noBorder" routerLinkActive="active" routerLink="/cv"
-      data-hover="CV">
-      CV
-    </a> -->
   </nav>
   <div class="social-icons-wrapper" [class.isVisible]="isSocialBarVisible">
     <app-social-icons class="header" [tabindexValue]="isSocialBarVisible ? '0' : '-1'"></app-social-icons>
