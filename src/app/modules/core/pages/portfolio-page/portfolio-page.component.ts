@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs';
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
@@ -21,10 +21,10 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
   public projects: Project[];
   private storedProjects: Subscription;
 
-  constructor(private readonly angularFirestore: AngularFirestore) {}
+  constructor(@Inject(LOCALE_ID) public locale: string, private readonly angularFirestore: AngularFirestore) {}
 
   public ngOnInit(): void {
-    const docs = this.angularFirestore.collection<Project>('projects', ref => ref.orderBy('publishDate', 'desc'));
+    const docs = this.angularFirestore.collection<Project>(this.resolveCollection(), ref => ref.orderBy('publishDate', 'desc'));
     this.storedProjects = docs.valueChanges({ idField: 'propertyId' }).subscribe(
       projects => {
         if (projects) {
@@ -38,6 +38,10 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
 
   public bindPicture(image: SmartPictureSettings): SmartPictureSettings {
     return { ...image, ...this.imageSettings };
+  }
+
+  public resolveCollection(): string {
+    return this.locale.substr(0, 2) === 'es' ? 'es_projects' : 'projects';
   }
 
   public ngOnDestroy(): void {
