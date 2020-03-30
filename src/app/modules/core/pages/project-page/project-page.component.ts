@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs';
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -20,14 +20,16 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
   private routeSub: Subscription;
 
   constructor(
+    @Inject(LOCALE_ID) public locale: string,
     private readonly angularFirestore: AngularFirestore,
     private readonly route: ActivatedRoute,
     private readonly router: Router
   ) {}
 
   public ngOnInit(): void {
+    console.log(this.locale);
     this.routeSub = this.route.params.subscribe(params => {
-      const doc = this.angularFirestore.collection('projects').doc<Project>(params['projectId']);
+      const doc = this.angularFirestore.collection(this.resolveCollection()).doc<Project>(params['projectId']);
       this.storedProject = doc.valueChanges().subscribe(
         project => {
           if (project) {
@@ -48,6 +50,10 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
         }
       );
     });
+  }
+
+  public resolveCollection(): string {
+    return this.locale.substr(0, 2) === 'es' ? 'es_projects' : 'projects';
   }
 
   public ngOnDestroy(): void {
