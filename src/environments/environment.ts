@@ -11,7 +11,9 @@ export const environment = {
     projectId: 'viktorsmlwd',
     storageBucket: 'viktorsmlwd.appspot.com',
     messagingSenderId: '1038124902814',
-    appId: '1:1038124902814:web:c9cc1cb760fd32459a0e8f'
+    appId: '1:1038124902814:web:c9cc1cb760fd32459a0e8f',
+    locationId: 'us-central',
+    measurementId: 'G-KJ867XYKXL'
   }
 };
 
