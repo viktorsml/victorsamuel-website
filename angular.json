@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/victorsamuel-website",
+            "outputPath": "dist/browser/en",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,7 +27,7 @@
             "scripts": ["node_modules/vanilla-tilt/dist/vanilla-tilt.min.js"]
           },
           "configurations": {
-            "production": {
+            "en": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -74,7 +74,7 @@
                   "maximumError": "5mb"
                 }
               ],
-              "outputPath": "dist/victorsamuel-website/es/",
+              "outputPath": "dist/browser/es/",
               "i18nFile": "src/locale/messages.es.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "es",
@@ -82,8 +82,29 @@
               "assets": ["src/manifest.json"]
             },
             "es-with-assets": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
               "aot": true,
-              "outputPath": "dist/victorsamuel-website/es/",
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "outputPath": "dist/browser/es/",
               "i18nFile": "src/locale/messages.es.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "es",
@@ -97,8 +118,8 @@
             "browserTarget": "victorsamuel-website:build"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "victorsamuel-website:build:production"
+            "en": {
+              "browserTarget": "victorsamuel-website:build:en"
             },
             "es": {
               "browserTarget": "victorsamuel-website:build:es-with-assets"
@@ -133,6 +154,55 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {}
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "victorsamuel-website:build",
+            "serverTarget": "victorsamuel-website:server"
+          },
+          "configurations": {
+            "en": {
+              "browserTarget": "victorsamuel-website:build:en",
+              "serverTarget": "victorsamuel-website:server:production"
+            },
+            "es": {
+              "browserTarget": "victorsamuel-website:build:es-with-assets",
+              "serverTarget": "victorsamuel-website:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "victorsamuel-website:build:en",
+            "serverTarget": "victorsamuel-website:server:production",
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {}
+          }
         }
       }
     },
