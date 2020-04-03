@@ -7,7 +7,7 @@
     <p i18n="Welcome Description|Text that shows what i do@@whoAmIDescription">
       I create beautiful web applications with the latest technologies available and with a user-centered design
     </p>
-    <app-social-icons></app-social-icons>
+    <app-social-icons *ngIf="this.isBrowser"></app-social-icons>
     <app-smart-picture class="developer-picture" [settings]="developerImage"></app-smart-picture>
   </section>
 </main>

@@ -1,6 +1,7 @@
 import { Subscription } from 'rxjs';
 
-import { Component, HostBinding, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, LOCALE_ID, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -11,11 +12,17 @@ import { NavigationEnd, Router } from '@angular/router';
 export class HeaderComponent implements OnInit, OnDestroy {
   public isSocialBarVisible = false;
   public language: string;
+  public isBrowser: boolean;
   private socialIconsSubscription: Subscription;
 
-  constructor(@Inject(LOCALE_ID) public locale: string, private readonly router: Router) {}
+  constructor(
+    @Inject(LOCALE_ID) public locale: string,
+    @Inject(PLATFORM_ID) private readonly platformId: object,
+    private readonly router: Router
+  ) {}
 
   public ngOnInit(): void {
+    this.isBrowser = isPlatformBrowser(this.platformId);
     const initialPage = '/about';
     this.language = this.locale.substr(0, 2);
     this.isSocialBarVisible = !(this.router.url === initialPage);
@@ -27,9 +34,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public switchLanguage(): void {
-    const currentLanguage = window.location.pathname.substr(1, 2);
-    const targetLanguage = currentLanguage === 'es' ? 'en' : 'es';
-    window.location.replace(`${window.location.origin}/${window.location.pathname.replace(/^.{3}/g, targetLanguage)}`);
+    if (this.isBrowser) {
+      const currentLanguage = window.location.pathname.substr(1, 2);
+      const targetLanguage = currentLanguage === 'es' ? 'en' : 'es';
+      window.location.replace(`${window.location.origin}/${window.location.pathname.replace(/^.{3}/g, targetLanguage)}`);
+    }
   }
 
   public ngOnDestroy(): void {

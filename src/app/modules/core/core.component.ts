@@ -1,6 +1,7 @@
 import { Subscription } from 'rxjs';
 
-import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { AfterContentInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
 
 @Component({
@@ -11,14 +12,16 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 export class CoreComponent implements OnInit, AfterContentInit, OnDestroy {
   public isLoading: boolean = true;
   private backgroundStylerSubscription: Subscription;
+  private isBrowser: boolean;
 
-  constructor(private readonly router: Router) {}
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: object, private readonly router: Router) {}
 
   public ngOnInit(): void {
+    this.isBrowser = isPlatformBrowser(this.platformId);
     this.backgroundStylerSubscription = this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationStart) {
         this.isLoading = true;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (this.isBrowser) window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
         this.isLoading = false;
