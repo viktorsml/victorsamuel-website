@@ -4,16 +4,11 @@ import * as functions from 'firebase-functions';
 import { universalEnglishApp } from '../dist/server/en/main.js';
 // @ts-ignore
 import { universalSpanishApp } from '../dist/server/es/main.js';
+import { languageManagerApp } from './languageManager';
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+// Firebase Cloud Functions documentation
+// https://firebase.google.com/docs/functions/typescript
 
 export const ssrEn = functions.https.onRequest(universalEnglishApp());
 export const ssrEs = functions.https.onRequest(universalSpanishApp());
-export const languageManager = functions.https.onRequest((request, response) => {
-  response.send('Hello from Firebase!');
-});
+export const languageManager = functions.https.onRequest(languageManagerApp());
