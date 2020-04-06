@@ -23,7 +23,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/assets", "src/manifest.json"],
             "styles": ["src/styles.scss"],
-            "scripts": ["node_modules/vanilla-tilt/dist/vanilla-tilt.min.js"]
+            "scripts": ["node_modules/vanilla-tilt/dist/vanilla-tilt.min.js"],
+            "outputPath": "dist/browser/en/"
           },
           "configurations": {
             "en": {
@@ -82,28 +83,6 @@
               "assets": ["src/manifest.json"]
             },
             "es-with-assets": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ],
               "outputPath": "dist/browser/es/",
               "i18nFile": "src/locale/messages.es.xlf",
               "i18nFormat": "xlf",
@@ -119,7 +98,7 @@
           },
           "configurations": {
             "en": {
-              "browserTarget": "victorsamuel-website:build:en"
+              "browserTarget": "victorsamuel-website:build"
             },
             "es": {
               "browserTarget": "victorsamuel-website:build:es-with-assets"
@@ -204,12 +183,12 @@
           },
           "configurations": {
             "en": {
-              "browserTarget": "victorsamuel-website:build:en",
-              "serverTarget": "victorsamuel-website:server:production"
+              "browserTarget": "victorsamuel-website:build",
+              "serverTarget": "victorsamuel-website:server:en"
             },
             "es": {
               "browserTarget": "victorsamuel-website:build:es-with-assets",
-              "serverTarget": "victorsamuel-website:server:production"
+              "serverTarget": "victorsamuel-website:server:es"
             }
           }
         },
