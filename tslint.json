@@ -90,7 +90,7 @@
     "no-invalid-this": true,
     "no-this-assignment": true,
     "no-unsafe-finally": true,
-    "only-arrow-functions": true,
+    "only-arrow-functions": false,
     "no-parameter-reassignment": true,
     "prefer-function-over-method": false,
     "no-default-export": true

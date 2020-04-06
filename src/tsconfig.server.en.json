@@ -5,7 +5,7 @@
     "module": "commonjs",
     "types": ["node"]
   },
-  "files": ["main.server.ts", "../server.ts"],
+  "files": ["main.server.ts", "../server.en.ts"],
   "angularCompilerOptions": {
     "entryModule": "./app/app.server.module#AppServerModule"
   }

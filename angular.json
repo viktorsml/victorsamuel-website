@@ -17,7 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/browser/en",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -49,7 +48,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "outputPath": "dist/browser/en/"
             },
             "es": {
               "fileReplacements": [
@@ -158,12 +158,13 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/server",
-            "main": "server.ts",
-            "tsConfig": "src/tsconfig.server.json"
+            "outputPath": "dist/server"
           },
           "configurations": {
-            "production": {
+            "en": {
+              "outputPath": "dist/server/en",
+              "main": "server.en.ts",
+              "tsConfig": "src/tsconfig.server.en.json",
               "outputHashing": "media",
               "fileReplacements": [
                 {
@@ -172,7 +173,26 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": true
+              "optimization": true,
+              "i18nLocale": "en"
+            },
+            "es": {
+              "outputPath": "dist/server/es",
+              "main": "server.es.ts",
+              "tsConfig": "src/tsconfig.server.es.json",
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true,
+              "i18nFile": "src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "i18nMissingTranslation": "warning"
             }
           }
         },
