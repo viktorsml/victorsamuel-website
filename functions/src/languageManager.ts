@@ -17,16 +17,16 @@ export function languageManagerApp() {
     const isRequestedLangSupported = supportedLangs.includes(requestedLang);
     const isStoredLangSupported = supportedLangs.includes(storedLang);
     if (isStoredLangSupported) {
-      res.redirect(`/${storedLang}${req.url}`);
+      res.redirect(`/${storedLang}${req.url}/about`);
       res.end();
       return;
     }
     if (isRequestedLangSupported) {
-      res.redirect(`/${requestedLang}${req.url}`);
+      res.redirect(`/${requestedLang}${req.url}/about`);
       res.end();
       return;
     }
-    res.redirect(`/${defaultLang}${req.url}`);
+    res.redirect(`/${defaultLang}${req.url}/about`);
     res.end();
     return;
   });

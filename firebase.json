@@ -6,11 +6,11 @@
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
-          "source": "es**",
+          "source": "es/**",
           "function": "ssrEs"
         },
         {
-          "source": "en**",
+          "source": "en/**",
           "function": "ssrEn"
         },
         {
