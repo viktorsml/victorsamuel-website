@@ -2,6 +2,7 @@ import { Subscription } from 'rxjs';
 
 import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { SmartPictureSettings } from '../../../../../app/shared/components/smart-picture/smart-picture.interfaces';
@@ -10,7 +11,7 @@ import { Project } from './project-page.interfaces';
 @Component({
   selector: 'app-project-page',
   templateUrl: './project-page.component.html',
-  styleUrls: ['./project-page.component.scss']
+  styleUrls: ['./project-page.component.scss'],
 })
 export class ProjectPageComponent implements OnInit, OnDestroy {
   public project: Project;
@@ -23,29 +24,30 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
     @Inject(LOCALE_ID) public locale: string,
     private readonly angularFirestore: AngularFirestore,
     private readonly route: ActivatedRoute,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly titleService: Title
   ) {}
 
   public ngOnInit(): void {
-    console.log(this.locale);
-    this.routeSub = this.route.params.subscribe(params => {
+    this.routeSub = this.route.params.subscribe((params) => {
       const doc = this.angularFirestore.collection(this.resolveCollection()).doc<Project>(params['projectId']);
       this.storedProject = doc.valueChanges().subscribe(
-        project => {
+        (project) => {
           if (project) {
+            this.titleService.setTitle(`${project.title} | Victor Samuel`);
             this.project = project;
             this.headerImage = {
               size: 'cover',
               isResponsive: true,
               widthRatio: 16,
               heightRatio: 7,
-              ...project.headerImage
+              ...project.headerImage,
             };
           } else {
             this.router.navigateByUrl('/not-found', { skipLocationChange: true });
           }
         },
-        error => {
+        (error) => {
           console.warn(error);
         }
       );
