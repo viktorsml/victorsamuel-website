@@ -58,6 +58,7 @@ nav {
     text-shadow: none;
     letter-spacing: 0.1rem;
     padding: var(--link-padding) 0;
+    white-space: nowrap;
 
     &:link,
     &:visited,
@@ -83,6 +84,7 @@ nav {
       -webkit-transition: max-width 0.5s;
       -moz-transition: max-width 0.5s;
       transition: max-width 0.5s;
+      white-space: nowrap;
     }
 
     &.active,
