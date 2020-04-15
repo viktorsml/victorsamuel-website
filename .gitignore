@@ -3,6 +3,7 @@
 /.firebase
 .firebase/*
 
+firebase-debug.log
 
 # compiled output
 /dist

@@ -1,4 +1,5 @@
-import { Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, HostBinding, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 
 import { SmartPictureSettings } from './smart-picture.interfaces';
 import { SmartPictureService } from './smart-picture.service';
@@ -10,12 +11,17 @@ import { SmartPictureService } from './smart-picture.service';
 })
 export class SmartPictureComponent implements OnInit {
   public shouldPictureLoad: boolean;
+  private isBrowser: boolean;
   private readonly defaultSettings: SmartPictureSettings;
   @Input() public settings: SmartPictureSettings;
   @HostBinding('style.--aspect-ratio') public aspectRatio: string;
   @HostBinding('class.isResponsive') public responsiveStatus: boolean;
 
-  constructor(private readonly sps: SmartPictureService, private readonly el: ElementRef) {
+  constructor(
+    @Inject(PLATFORM_ID) private readonly platformId: object,
+    private readonly sps: SmartPictureService,
+    private readonly el: ElementRef
+  ) {
     this.shouldPictureLoad = false;
     this.defaultSettings = {
       source: {
@@ -29,6 +35,7 @@ export class SmartPictureComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.isBrowser = isPlatformBrowser(this.platformId);
     this.sps.initializeSmartPictureService();
     this.settings = { ...this.defaultSettings, ...this.settings };
     this.responsiveStatus = this.settings.isResponsive;
@@ -41,7 +48,7 @@ export class SmartPictureComponent implements OnInit {
   }
 
   private lazyLoadImage(whenDone: (canLazyLoad: boolean) => void): void {
-    const canLazyLoad = window && 'IntersectionObserver' in window && !this.settings.disableLazyLoad;
+    const canLazyLoad = this.isBrowser ? window && 'IntersectionObserver' in window && !this.settings.disableLazyLoad : false;
     if (!canLazyLoad) {
       this.loadImage();
       if (typeof whenDone === 'function') {
