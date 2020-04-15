@@ -16,17 +16,18 @@ export function languageManagerApp() {
     const storedLang = req.cookies.lang ? req.cookies.lang : 'NA';
     const isRequestedLangSupported = supportedLangs.includes(requestedLang);
     const isStoredLangSupported = supportedLangs.includes(storedLang);
+    const requestedUrl = req.url.length > 1 ? req.url : '/about';
     if (isStoredLangSupported) {
-      res.redirect(`/${storedLang}${req.url}/about`);
+      res.redirect(`/${storedLang}${requestedUrl}`);
       res.end();
       return;
     }
     if (isRequestedLangSupported) {
-      res.redirect(`/${requestedLang}${req.url}/about`);
+      res.redirect(`/${requestedLang}${requestedUrl}`);
       res.end();
       return;
     }
-    res.redirect(`/${defaultLang}${req.url}/about`);
+    res.redirect(`/${defaultLang}${requestedUrl}`);
     res.end();
     return;
   });
