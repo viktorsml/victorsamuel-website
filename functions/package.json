@@ -9,7 +9,7 @@
     "lint": "tslint --project tsconfig.json",
     "logs": "firebase functions:log",
     "deploy": "firebase deploy --only functions",
-    "resolve-server": "rm -r ./dist/ && cp -r ./../dist/ ./dist/"
+    "resolve-server": "rm -rf ./dist/ && cp -r ./../dist/ ./dist/"
   },
   "engines": {
     "node": "10"
