@@ -38,7 +38,6 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
       (projects) => {
         if (projects) {
           this.projects = projects;
-          console.log(projects);
         }
       },
       (error) => console.warn(error)
