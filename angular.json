@@ -137,7 +137,8 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/server"
+            "outputPath": "dist/server",
+            "externalDependencies": ["@firebase/firestore"]
           },
           "configurations": {
             "en": {
