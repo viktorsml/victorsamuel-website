@@ -2,9 +2,9 @@ import { Subscription } from 'rxjs';
 
 import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Title } from '@angular/platform-browser';
 
 import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
+import { SeoService } from '../../../../shared/services/seo.service';
 import { Project } from '../project-page/project-page.interfaces';
 
 @Component({
@@ -25,11 +25,14 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(LOCALE_ID) public locale: string,
     private readonly angularFirestore: AngularFirestore,
-    private readonly titleService: Title
+    private readonly seo: SeoService
   ) {}
 
   public ngOnInit(): void {
-    this.titleService.setTitle('Victor Samuel | Projects');
+    this.seo.setTitle({
+      en: 'Victor Samuel | Projects',
+      es: 'Victor Samuel | Proyectos',
+    });
     const docs = this.angularFirestore.collection<Project>(this.resolveCollection(), (ref) => ref.orderBy('publishDate', 'desc'));
     this.storedProjects = docs.valueChanges({ idField: 'propertyId' }).subscribe(
       (projects) => {

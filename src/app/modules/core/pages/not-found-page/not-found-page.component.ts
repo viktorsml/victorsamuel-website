@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+
+import { SeoService } from '../../../../shared/services/seo.service';
 
 @Component({
   selector: 'app-not-found-page',
@@ -7,9 +8,12 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./not-found-page.component.scss'],
 })
 export class NotFoundPageComponent implements OnInit {
-  constructor(private readonly titleService: Title) {}
+  constructor(private readonly seo: SeoService) {}
 
   public ngOnInit(): void {
-    this.titleService.setTitle('Victor Samuel | Not Found');
+    this.seo.setTitle({
+      en: 'Victor Samuel | Not Found',
+      es: 'Victor Samuel | No Encontrado',
+    });
   }
 }

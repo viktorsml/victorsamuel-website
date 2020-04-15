@@ -1,8 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 
 import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
+import { SeoService } from '../../../../shared/services/seo.service';
 
 @Component({
   selector: 'app-home-page',
@@ -14,11 +14,7 @@ export class HomePageComponent implements OnInit {
   public developerImage: SmartPictureSettings;
   public isBrowser: boolean;
 
-  constructor(
-    @Inject(PLATFORM_ID) private readonly platformId: object,
-    private readonly titleService: Title,
-    private readonly metaTagService: Meta
-  ) {
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: object, private readonly seo: SeoService) {
     this.developerIcon = {
       source: {
         main: { url: '/assets/svg/laptop-code.svg', type: 'svg' },
@@ -44,6 +40,9 @@ export class HomePageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.titleService.setTitle('Victor Samuel | Full-Stack Web Developer');
+    this.seo.setTitle({
+      en: 'Victor Samuel | Full-Stack Web Developer',
+      es: 'Victor Samuel | Desarrollador Web Full-Stack',
+    });
   }
 }

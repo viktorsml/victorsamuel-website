@@ -1,7 +1,9 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer, Title } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
+
+import { SeoService } from '../../../../shared/services/seo.service';
 
 interface SocialIcon {
   title: string;
@@ -23,7 +25,7 @@ export class ContactPageComponent implements OnInit {
     @Inject(PLATFORM_ID) private readonly platformId: object,
     private readonly matIconRegistry: MatIconRegistry,
     private readonly domSanitizer: DomSanitizer,
-    private readonly titleService: Title
+    private readonly seo: SeoService
   ) {
     this.contactIcons = [
       {
@@ -61,7 +63,10 @@ export class ContactPageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.titleService.setTitle('Victor Samuel | Contact');
+    this.seo.setTitle({
+      en: 'Victor Samuel | Contact',
+      es: 'Victor Samuel | Contacto',
+    });
     this.contactIcons.forEach((icon) => {
       this.matIconRegistry.addSvgIcon(icon.name, this.domSanitizer.bypassSecurityTrustResourceUrl(icon.resource));
     });
