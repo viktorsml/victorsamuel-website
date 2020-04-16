@@ -2,6 +2,7 @@ import { Subscription } from 'rxjs';
 
 import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
 import { SeoService } from '../../../../shared/services/seo.service';
@@ -25,13 +26,23 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(LOCALE_ID) public locale: string,
     private readonly angularFirestore: AngularFirestore,
+    private readonly router: Router,
     private readonly seo: SeoService
   ) {}
 
   public ngOnInit(): void {
-    this.seo.setTitle({
-      en: 'Victor Samuel | Projects',
-      es: 'Victor Samuel | Proyectos',
+    this.seo.setMetaTags({
+      title: {
+        en: 'Victor Samuel | Projects',
+        es: 'Victor Samuel | Proyectos',
+      },
+      description: {
+        en: `Full-stack web developer currently in the ${this.seo.currentLocation.city} area.`,
+        es: `Desarrollador web full-stack actualmente en el área de ${this.seo.currentLocation.city}.`,
+      },
+      type: 'profile',
+      image: this.seo.profilePic,
+      url: `https://www.victorsamuel.com/${this.seo.currentLocale}${this.router.url}`,
     });
     const docs = this.angularFirestore.collection<Project>(this.resolveCollection(), (ref) => ref.orderBy('publishDate', 'desc'));
     this.storedProjects = docs.valueChanges({ idField: 'propertyId' }).subscribe(

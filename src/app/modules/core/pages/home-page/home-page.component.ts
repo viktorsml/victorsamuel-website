@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
 import { SeoService } from '../../../../shared/services/seo.service';
@@ -14,7 +15,7 @@ export class HomePageComponent implements OnInit {
   public developerImage: SmartPictureSettings;
   public isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) private readonly platformId: object, private readonly seo: SeoService) {
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: object, private readonly router: Router, private readonly seo: SeoService) {
     this.developerIcon = {
       source: {
         main: { url: '/assets/svg/laptop-code.svg', type: 'svg' },
@@ -40,9 +41,18 @@ export class HomePageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.seo.setTitle({
-      en: 'Victor Samuel | Full-Stack Web Developer',
-      es: 'Victor Samuel | Desarrollador Web Full-Stack',
+    this.seo.setMetaTags({
+      title: {
+        en: 'Victor Samuel | Full-Stack Web Developer',
+        es: 'Victor Samuel | Desarrollador Web Full-Stack',
+      },
+      description: {
+        en: `Full-stack web developer currently in the ${this.seo.currentLocation.city} area.`,
+        es: `Desarrollador web full-stack actualmente en el área de ${this.seo.currentLocation.city}.`,
+      },
+      type: 'profile',
+      image: this.seo.profilePic,
+      url: `https://www.victorsamuel.com/${this.seo.currentLocale}${this.router.url}`,
     });
   }
 }

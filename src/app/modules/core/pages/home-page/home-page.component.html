@@ -11,3 +11,17 @@
     <app-smart-picture class="developer-picture" [settings]="developerImage"></app-smart-picture>
   </section>
 </main>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Person",
+    "name": "Victor Samuel",
+    "jobTitle": "{{ seo.myTitle[seo.currentLocale] }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ seo.currentLocation.city }}",
+      "addressRegion": "{{ seo.currentLocation.state }}",
+      "addressCountry": "{{ seo.currentLocation.country }}"
+    }
+  }
+</script>

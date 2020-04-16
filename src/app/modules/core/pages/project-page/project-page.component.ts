@@ -2,10 +2,10 @@ import { Subscription } from 'rxjs';
 
 import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { SmartPictureSettings } from '../../../../../app/shared/components/smart-picture/smart-picture.interfaces';
+import { SmartPictureSettings } from '../../../../shared/components/smart-picture/smart-picture.interfaces';
+import { SeoService } from '../../../../shared/services/seo.service';
 import { Project } from './project-page.interfaces';
 
 @Component({
@@ -25,7 +25,7 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
     private readonly angularFirestore: AngularFirestore,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly titleService: Title
+    private readonly seo: SeoService
   ) {}
 
   public ngOnInit(): void {
@@ -34,7 +34,19 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
       this.storedProject = doc.valueChanges().subscribe(
         (project) => {
           if (project) {
-            this.titleService.setTitle(`${project.title} | Victor Samuel`);
+            this.seo.setMetaTags({
+              title: {
+                en: `${project.title} | Victor Samuel`,
+                es: `${project.title} | Victor Samuel`,
+              },
+              description: {
+                en: project.description,
+                es: project.description,
+              },
+              type: 'profile',
+              image: this.seo.profilePic,
+              url: `https://www.victorsamuel.com/${this.seo.currentLocale}${this.router.url}`,
+            });
             this.project = project;
             this.headerImage = {
               size: 'cover',

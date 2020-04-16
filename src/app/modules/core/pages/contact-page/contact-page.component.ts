@@ -2,6 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 import { SeoService } from '../../../../shared/services/seo.service';
 
@@ -25,6 +26,7 @@ export class ContactPageComponent implements OnInit {
     @Inject(PLATFORM_ID) private readonly platformId: object,
     private readonly matIconRegistry: MatIconRegistry,
     private readonly domSanitizer: DomSanitizer,
+    private readonly router: Router,
     private readonly seo: SeoService
   ) {
     this.contactIcons = [
@@ -63,9 +65,18 @@ export class ContactPageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.seo.setTitle({
-      en: 'Victor Samuel | Contact',
-      es: 'Victor Samuel | Contacto',
+    this.seo.setMetaTags({
+      title: {
+        en: 'Victor Samuel | Contact',
+        es: 'Victor Samuel | Contacto',
+      },
+      description: {
+        en: `Full-stack web developer currently in the ${this.seo.currentLocation.city} area.`,
+        es: `Desarrollador web full-stack actualmente en el área de ${this.seo.currentLocation.city}.`,
+      },
+      type: 'profile',
+      image: this.seo.profilePic,
+      url: `https://www.victorsamuel.com/${this.seo.currentLocale}${this.router.url}`,
     });
     this.contactIcons.forEach((icon) => {
       this.matIconRegistry.addSvgIcon(icon.name, this.domSanitizer.bypassSecurityTrustResourceUrl(icon.resource));
