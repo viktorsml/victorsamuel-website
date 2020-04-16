@@ -25,7 +25,11 @@
       <section class="project-spec project-stack">
         <h3 i18n="Project technologies|A title for the technologies used in a project@@projectTech">Stack</h3>
         <p>
-          <span *ngFor="let techName of project.specs.tech">{{ techName }}, </span>
+          <span *ngFor="let techName of project.specs.tech; let i = index">
+            <span>{{ techName }}</span>
+            <span *ngIf="i + 1 < project.specs.tech.length">, </span>
+            <span *ngIf="i === project.specs.tech.length - 1">.</span>
+          </span>
         </p>
       </section>
     </aside>
