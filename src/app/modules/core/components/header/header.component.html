@@ -40,6 +40,6 @@
     (click)="switchLanguage()"
   ></div>
   <div class="social-icons-wrapper" [class.isVisible]="isSocialBarVisible">
-    <app-social-icons class="header" [tabindexValue]="isSocialBarVisible ? '0' : '-1'"></app-social-icons>
+    <app-social-icons *ngIf="this.isBrowser" class="header" [tabindexValue]="isSocialBarVisible ? '0' : '-1'"></app-social-icons>
   </div>
 </div>

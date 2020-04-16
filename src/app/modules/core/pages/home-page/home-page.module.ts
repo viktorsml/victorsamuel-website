@@ -8,7 +8,7 @@ import { HomePageRoutingModule } from './home-page.routing';
 
 @NgModule({
   declarations: [HomePageComponent],
-  imports: [CommonModule, HomePageRoutingModule, SocialIconsModule, SmartPictureModule],
-  providers: [{ provide: 'VanillaTilt', useValue: window['VanillaTilt'] }]
+  imports: [CommonModule, HomePageRoutingModule, SocialIconsModule, SmartPictureModule]
+  // providers: [{ provide: 'VanillaTilt', useValue: window['VanillaTilt'] }]
 })
 export class HomePageModule {}

@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app.routing';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAnalyticsModule,
     AppRoutingModule,
