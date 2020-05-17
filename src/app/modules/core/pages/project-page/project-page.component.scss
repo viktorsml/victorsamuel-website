@@ -6,6 +6,10 @@ $first-break: 790px;
   }
 }
 
+main {
+  padding-bottom: var(--section-spacing);
+}
+
 .spinner-wrapper {
   display: flex;
   justify-content: center;
