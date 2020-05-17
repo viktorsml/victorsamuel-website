@@ -4,75 +4,124 @@
     <body>
       <trans-unit id="aboutNav" datatype="html">
         <source>
-      About me
-    </source>
+        About me
+      </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">12</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <note priority="1" from="description">A text for the link to the about page in navigation bar</note>
         <note priority="1" from="meaning">About page link</note>
       </trans-unit>
       <trans-unit id="portfolioNav" datatype="html">
         <source>
-      Projects
-    </source>
+        Projects
+      </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">22</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <note priority="1" from="description">A text for the link to the portfolio page in navigation bar</note>
         <note priority="1" from="meaning">Portfolio page link</note>
       </trans-unit>
       <trans-unit id="contactNav" datatype="html">
         <source>
-      Contact
-    </source>
+        Contact
+      </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">32</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">29</context>
         </context-group>
         <note priority="1" from="description">A text for the link to the contact page in navigation bar</note>
         <note priority="1" from="meaning">Contact page link</note>
       </trans-unit>
-      <trans-unit id="switchLanguage" datatype="html">
-        <source>Cambiar a Español</source>
+      <trans-unit id="contactFooTitle" datatype="html">
+        <source>Contact Information</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/header/header.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">56</context>
         </context-group>
-        <note priority="1" from="description">Text for language switcher tooltip</note>
-        <note priority="1" from="meaning">Tooltip for language switcher</note>
+        <note priority="1" from="description">Title for footer contact section</note>
+        <note priority="1" from="meaning">Contact footer title</note>
       </trans-unit>
-      <trans-unit id="backToTop" datatype="html">
-        <source>Back to top</source>
+      <trans-unit id="contactFooDesc" datatype="html">
+        <source>Feel free to reach out to me any time.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/footer/footer.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">57</context>
         </context-group>
-        <note priority="1" from="description">A text for the back to top button</note>
-        <note priority="1" from="meaning">Back to top button</note>
+        <note priority="1" from="description">Description for footer contact section</note>
+        <note priority="1" from="meaning">Contact footer description</note>
+      </trans-unit>
+      <trans-unit id="anywhere" datatype="html">
+        <source>anywhere</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <note priority="1" from="description">Meaning everywhere</note>
+        <note priority="1" from="meaning">Anywhere</note>
+      </trans-unit>
+      <trans-unit id="availFooTitle" datatype="html">
+        <source>Current Availability</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <note priority="1" from="description">Title for footer availability section</note>
+        <note priority="1" from="meaning">Availability footer title</note>
+      </trans-unit>
+      <trans-unit id="availFooDesc" datatype="html">
+        <source>
+        I usually work on several projects but I’ll be happy to discuss new opportunities. Let’s get in touch!
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+        <note priority="1" from="description">Description for footer availability section</note>
+        <note priority="1" from="meaning">Availability footer description</note>
+      </trans-unit>
+      <trans-unit id="availFooFollow" datatype="html">
+        <source>Follow me on</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <note priority="1" from="description">Follow me title for footer availability section</note>
+        <note priority="1" from="meaning">Follow me footer title</note>
       </trans-unit>
       <trans-unit id="footerText" datatype="html">
         <source>Handcrafted with ❤️ and ☕ by me.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/components/footer/footer.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">92</context>
         </context-group>
         <note priority="1" from="description">A text for footer section</note>
         <note priority="1" from="meaning">Footer text</note>
+      </trans-unit>
+      <trans-unit id="backToTop" datatype="html">
+        <source>
+    Back to top
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/core.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <note priority="1" from="description">A text for the back to top button</note>
+        <note priority="1" from="meaning">Back to top button</note>
       </trans-unit>
       <trans-unit id="whoAmITitle" datatype="html">
         <source>
@@ -87,7 +136,8 @@
       </trans-unit>
       <trans-unit id="whoAmIDescription" datatype="html">
         <source>
-      I create beautiful web applications with the latest technologies available and with a user-centered design
+      I create beautiful user-centered web applications using the latest technologies. I&apos;m comfortable throughout the stack, but my passion
+      lies in the front end, at the intersection of code and design.
     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/home-page/home-page.component.html</context>
@@ -95,6 +145,32 @@
         </context-group>
         <note priority="1" from="description">Text that shows what i do</note>
         <note priority="1" from="meaning">Welcome Description</note>
+      </trans-unit>
+      <trans-unit id="contactBigQuestion" datatype="html">
+        <source>Need a developer?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/pages/home-page/home-page.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/pages/portfolio-page/portfolio-page.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+        <note priority="1" from="description">Just ask if need a developer</note>
+        <note priority="1" from="meaning">Contact question title</note>
+      </trans-unit>
+      <trans-unit id="contactBigProposal" datatype="html">
+        <source>Let&apos;s work together</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/pages/home-page/home-page.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/pages/portfolio-page/portfolio-page.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">Popose to work together</note>
+        <note priority="1" from="meaning">Contact proposal</note>
       </trans-unit>
       <trans-unit id="specificationsTitle" datatype="html">
         <source>Specifications</source>
@@ -123,15 +199,6 @@
         <note priority="1" from="description">A title for my role in a project</note>
         <note priority="1" from="meaning">My role title</note>
       </trans-unit>
-      <trans-unit id="projectDuration" datatype="html">
-        <source>Duration</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/core/pages/project-page/project-page.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-        <note priority="1" from="description">A title for the project duration</note>
-        <note priority="1" from="meaning">Project duration</note>
-      </trans-unit>
       <trans-unit id="projectTech" datatype="html">
         <source>Stack</source>
         <context-group purpose="location">
@@ -145,7 +212,7 @@
         <source>About the project</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/project-page/project-page.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <note priority="1" from="description">A title for the about the project section</note>
         <note priority="1" from="meaning">About project title</note>
@@ -156,7 +223,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/project-page/project-page.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">49</context>
         </context-group>
         <note priority="1" from="description">Text for the see project website button</note>
         <note priority="1" from="meaning">See project website button</note>
@@ -167,11 +234,11 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/project-page/project-page.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/portfolio-page/portfolio-page.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">92</context>
         </context-group>
         <note priority="1" from="description">Text for the see code button</note>
         <note priority="1" from="meaning">See code button</note>
@@ -180,7 +247,7 @@
         <source>The challenges</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/project-page/project-page.component.html</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">66</context>
         </context-group>
         <note priority="1" from="description">A title for the challenges of the project section</note>
         <note priority="1" from="meaning">Challenges of the project title</note>
@@ -189,7 +256,7 @@
         <source>The final product</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/project-page/project-page.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">70</context>
         </context-group>
         <note priority="1" from="description">A title for the project results section</note>
         <note priority="1" from="meaning">Project results title</note>
@@ -216,11 +283,11 @@
       </trans-unit>
       <trans-unit id="seeMoreButton" datatype="html">
         <source>
-          More information
-        </source>
+              More information
+            </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/core/pages/portfolio-page/portfolio-page.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">81</context>
         </context-group>
         <note priority="1" from="description">Text for the see more button</note>
         <note priority="1" from="meaning">See more button</note>
@@ -244,6 +311,17 @@
         </context-group>
         <note priority="1" from="description">A description for the contact page to say where can they contact me</note>
         <note priority="1" from="meaning">Contact description</note>
+      </trans-unit>
+      <trans-unit id="sendPrivateVia" datatype="html">
+        <source>
+    Send private message via
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/core/pages/contact-page/contact-page.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Title for sending private message on contact page</note>
+        <note priority="1" from="meaning">Private message title</note>
       </trans-unit>
       <trans-unit id="notFoundTitle" datatype="html">
         <source>Hmm, we couldn&apos;t find what you&apos;re looking for.</source>

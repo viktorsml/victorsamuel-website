@@ -8,7 +8,9 @@
   <section class="email-big responsive">
     <h2><a href="https://go.victorsamuel.com/send-email" target="_blank" rel="noopener noreferrer">hola@victorsamuel.com</a></h2>
   </section>
-  <h2 class="contact-icons-title">Send private message via</h2>
+  <h2 class="contact-icons-title" i18n="Private message title|Title for sending private message on contact page@@sendPrivateVia">
+    Send private message via
+  </h2>
   <section *ngIf="core.isBrowser" class="contact-icons responsive">
     <a *ngFor="let icon of contactIcons" class="contact-link" [href]="icon.url" target="_blank" rel="noopener noreferrer">
       <mat-icon [svgIcon]="icon.name"></mat-icon>
