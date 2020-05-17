@@ -1,10 +1,12 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
-import { SeoService } from '../../../../shared/services/seo.service';
+import { AppState } from '../../../../app.state';
+import * as LoadingScreenActions from '../../../../state/actions/loading-screen.actions';
+import { CoreService } from '../../core.service';
 
 interface SocialIcon {
   title: string;
@@ -19,64 +21,62 @@ interface SocialIcon {
   styleUrls: ['./contact-page.component.scss'],
 })
 export class ContactPageComponent implements OnInit {
-  public contactIcons: SocialIcon[];
-  public isBrowser: boolean;
+  public readonly contactIcons: SocialIcon[] = [
+    {
+      title: 'LinkedIn',
+      name: 'linkedin',
+      url: 'https://go.victorsamuel.com/contact-via-linkedin',
+      resource: '/assets/svg/logo-colored-linkedin.svg',
+    },
+    {
+      title: 'Twitter',
+      name: 'twitter',
+      url: 'https://go.victorsamuel.com/contact-via-twitter',
+      resource: '/assets/svg/logo-colored-twitter.svg',
+    },
+    {
+      title: 'Telegram',
+      name: 'telegram',
+      url: 'https://go.victorsamuel.com/contact-via-telegram',
+      resource: '/assets/svg/logo-colored-telegram.svg',
+    },
+    {
+      title: 'Messenger',
+      name: 'messenger',
+      url: 'https://go.victorsamuel.com/contact-via-messenger',
+      resource: '/assets/svg/logo-colored-messenger.svg',
+    },
+    {
+      title: 'WhatsApp',
+      name: 'whatsapp',
+      url: 'https://go.victorsamuel.com/contact-via-whatsapp',
+      resource: '/assets/svg/logo-colored-whatsapp.svg',
+    },
+  ];
 
   constructor(
-    @Inject(PLATFORM_ID) private readonly platformId: object,
+    public readonly core: CoreService,
+    private readonly store: Store<AppState>,
     private readonly matIconRegistry: MatIconRegistry,
     private readonly domSanitizer: DomSanitizer,
-    private readonly router: Router,
-    private readonly seo: SeoService
+    private readonly router: Router
   ) {
-    this.contactIcons = [
-      {
-        title: 'LinkedIn',
-        name: 'linkedin',
-        url: 'https://go.victorsamuel.com/contact-via-linkedin',
-        resource: '/assets/svg/logo-colored-linkedin.svg',
-      },
-      {
-        title: 'Twitter',
-        name: 'twitter',
-        url: 'https://go.victorsamuel.com/contact-via-twitter',
-        resource: '/assets/svg/logo-colored-twitter.svg',
-      },
-      {
-        title: 'Telegram',
-        name: 'telegram',
-        url: 'https://go.victorsamuel.com/contact-via-telegram',
-        resource: '/assets/svg/logo-colored-telegram.svg',
-      },
-      {
-        title: 'Messenger',
-        name: 'messenger',
-        url: 'https://go.victorsamuel.com/contact-via-messenger',
-        resource: '/assets/svg/logo-colored-messenger.svg',
-      },
-      {
-        title: 'WhatsApp',
-        name: 'whatsapp',
-        url: 'https://go.victorsamuel.com/contact-via-whatsapp',
-        resource: '/assets/svg/logo-colored-whatsapp.svg',
-      },
-    ];
+    store.dispatch(new LoadingScreenActions.ShowLoadingScreen(false));
   }
 
   public ngOnInit(): void {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-    this.seo.setMetaTags({
+    this.core.setMetaTags({
       title: {
         en: 'Victor Samuel | Contact',
         es: 'Victor Samuel | Contacto',
       },
       description: {
-        en: `Full-stack web developer currently in the ${this.seo.currentLocation.city} area.`,
-        es: `Desarrollador web full-stack actualmente en el área de ${this.seo.currentLocation.city}.`,
+        en: `Full-stack web developer currently in the ${this.core.currentLocation.city} area.`,
+        es: `Desarrollador web full-stack actualmente en el área de ${this.core.currentLocation.city}.`,
       },
       type: 'profile',
-      image: this.seo.profilePic,
-      url: `https://www.victorsamuel.com/${this.seo.currentLocale}${this.router.url}`,
+      image: this.core.profilePic,
+      url: `https://www.victorsamuel.com/${this.core.currentLocale}${this.router.url}`,
     });
     this.contactIcons.forEach((icon) => {
       this.matIconRegistry.addSvgIcon(icon.name, this.domSanitizer.bypassSecurityTrustResourceUrl(icon.resource));

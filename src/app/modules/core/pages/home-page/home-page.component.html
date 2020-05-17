@@ -5,23 +5,14 @@
       Full-stack web developer currently in the Puerto Vallarta area
     </h1>
     <p i18n="Welcome Description|Text that shows what i do@@whoAmIDescription">
-      I create beautiful web applications with the latest technologies available and with a user-centered design
+      I create beautiful user-centered web applications using the latest technologies. I'm comfortable throughout the stack, but my passion
+      lies in the front end, at the intersection of code and design.
     </p>
-    <app-social-icons *ngIf="this.isBrowser"></app-social-icons>
+    <app-social-icons *ngIf="core.isBrowser"></app-social-icons>
     <app-smart-picture class="developer-picture" [settings]="developerImage"></app-smart-picture>
   </section>
 </main>
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "@type": "Person",
-    "name": "Victor Samuel",
-    "jobTitle": "{{ seo.myTitle[seo.currentLocale] }}",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "{{ seo.currentLocation.city }}",
-      "addressRegion": "{{ seo.currentLocation.state }}",
-      "addressCountry": "{{ seo.currentLocation.country }}"
-    }
-  }
-</script>
+<div class="quick-contact">
+  <span class="top-title" i18n="Contact question title|Just ask if need a developer@@contactBigQuestion">Need a developer?</span>
+  <a routerLink="/contact" i18n="Contact proposal|Popose to work together@@contactBigProposal">Let's work together</a>
+</div>

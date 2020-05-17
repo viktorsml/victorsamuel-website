@@ -93,7 +93,8 @@
     "only-arrow-functions": false,
     "no-parameter-reassignment": true,
     "prefer-function-over-method": false,
-    "no-default-export": true
+    "no-default-export": true,
+    "max-classes-per-file": false
   },
   "extends": ["tslint:latest", "tslint-config-prettier"]
 }

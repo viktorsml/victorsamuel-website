@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, HostBinding, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 
@@ -7,7 +8,12 @@ import { SmartPictureService } from './smart-picture.service';
 @Component({
   selector: 'app-smart-picture',
   templateUrl: './smart-picture.component.html',
-  styleUrls: ['./smart-picture.component.scss']
+  styleUrls: ['./smart-picture.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [style({ opacity: '0' }), animate('.5s cubic-bezier(.17,.67,.83,.67)', style({ opacity: '1' }))]),
+    ]),
+  ],
 })
 export class SmartPictureComponent implements OnInit {
   public shouldPictureLoad: boolean;
@@ -25,12 +31,12 @@ export class SmartPictureComponent implements OnInit {
     this.shouldPictureLoad = false;
     this.defaultSettings = {
       source: {
-        main: { url: '', type: 'jpg' }
+        main: { url: '', type: 'jpg' },
       },
       isResponsive: false,
       size: 'initial',
       disableLazyLoad: false,
-      disablePlaceholder: false
+      disablePlaceholder: false,
     };
   }
 
@@ -56,7 +62,7 @@ export class SmartPictureComponent implements OnInit {
       }
       return;
     }
-    const observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(({ isIntersecting }) => {
         if (isIntersecting) {
           this.loadImage();

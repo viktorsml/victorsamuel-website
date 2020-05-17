@@ -32,7 +32,8 @@
     margin-right: auto;
   }
   @if $addPadding {
-    padding: 0 var(--website-padding);
+    padding-left: var(--website-padding);
+    padding-right: var(--website-padding);
   }
 }
 

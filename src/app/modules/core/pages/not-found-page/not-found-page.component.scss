@@ -1,5 +1,9 @@
 @import './../../../../../scss/mixins';
 
+.page-container {
+  margin-bottom: calc(var(--page-margin) * 2);
+}
+
 .not-found-message {
   display: flex;
   flex-direction: column;
@@ -14,6 +18,13 @@
   background-image: url('/assets/svg/not-found-robot.svg');
   width: 150px;
   height: 150px;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  opacity: 0;
+  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
 }
 
 h1,
@@ -21,6 +32,13 @@ p {
   text-align: center;
   width: 100%;
   max-width: 750px;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
 }
 
 h1 {
@@ -33,4 +51,5 @@ p {
   line-height: 1.5em;
   margin-top: 20px;
   margin-bottom: 0;
+  animation-delay: 0.25s;
 }
