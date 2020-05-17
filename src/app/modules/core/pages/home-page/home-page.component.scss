@@ -1,7 +1,9 @@
 @import './../../../../../scss/mixins';
 @import './../../../../../scss/staticVariables';
 
-:host {
+:host,
+main,
+.welcome-area {
   margin-top: 0;
 }
 
@@ -10,10 +12,10 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  height: calc(100vh - (var(--page-margin) + var(--page-section-margin) + var(--website-nav-height)));
-  min-height: 330px;
+  height: calc(100vh - var(--website-nav-height));
+  min-height: 450px;
   max-height: 720px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 
   @media screen and (max-width: $mobile-breakpoint) {
     justify-content: center;
@@ -28,6 +30,13 @@
   app-social-icons {
     margin-top: 0;
     margin-bottom: var(--website-padding);
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
   }
 
   h1,
@@ -43,6 +52,7 @@
   app-social-icons {
     --icon-size: 18px;
     --icon-padding: 9px;
+    animation-delay: 0.5s;
 
     @media screen and (max-width: $mobile-breakpoint) {
       margin-bottom: 0;
@@ -52,9 +62,18 @@
   .developer-icon {
     display: none;
     width: 200px;
+    margin-top: 50px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    opacity: 0;
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
 
     @media screen and (max-width: $mobile-breakpoint) {
       display: block;
@@ -62,12 +81,14 @@
   }
 
   h1 {
-    @include linearGradientText(#f7b42c, #fc575e, 135deg);
-    max-width: 60vw;
+    max-width: 1660px;
+    width: 60vw;
     font-size: 4vw;
+    line-height: 1.3em;
 
     @media screen and (max-width: $mobile-breakpoint) {
       max-width: 100%;
+      width: 100%;
       font-size: 2em;
     }
 
@@ -81,9 +102,9 @@
   }
 
   p {
-    color: rgb(var(--color-primary));
-    max-width: 45vw;
-    font-size: 1.3vw;
+    max-width: 50vw;
+    font-size: 1.4vw;
+    animation-delay: 0.25s;
 
     @media screen and (max-width: $mobile-breakpoint) {
       max-width: 100%;
@@ -101,20 +122,36 @@
   }
 
   .developer-picture {
-    --postion-bottom: calc((var(--page-section-margin) * -1) - 14vh);
+    --postion-bottom: -17vh;
     position: absolute;
     width: 100vw;
     max-width: calc(2000px + 15vw);
+    min-height: 580px;
     height: 117vh;
     max-height: calc(900px - var(--postion-bottom));
     right: -11vw;
     bottom: var(--postion-bottom);
     z-index: -1;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
+    animation-delay: 0.5s;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    opacity: 0;
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
 
     @media screen and (max-width: $mobile-breakpoint) {
       display: none;
     }
   }
+}
+
+html[data-theme='dark'] :host::ng-deep .welcome-area h1 {
+  @include linearGradientText(#f7b42c, #fc575e, 135deg);
+}
+
+html[data-theme='light'] :host::ng-deep .welcome-area h1 {
+  @include linearGradientText(#3d4ae6, #f96168, 135deg);
+  text-shadow: 0px 7px 15px rgba(var(--color-accent), 0.2), 3px 3px 4px rgba(var(--color-background), 0.15);
 }

@@ -1,5 +1,5 @@
 <div class="picture-holder" [class.animated-background]="!settings.disablePlaceholder">
-  <picture *ngIf="shouldPictureLoad">
+  <picture *ngIf="shouldPictureLoad" [@fadeIn]>
     <source [type]="reformatType(settings.source.main.type)" [srcset]="settings.source.main.url" />
     <source *ngIf="settings.source.fallback" [type]="reformatType(settings.source.fallback.type)" [srcset]="settings.source.fallback.url" />
     <img

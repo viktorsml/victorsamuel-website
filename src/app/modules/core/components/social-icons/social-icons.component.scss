@@ -6,88 +6,42 @@
   display: flex;
   width: fit-content;
   flex-direction: row;
-
-  a {
-    padding: var(--icon-padding);
-  }
-
-  mat-icon {
-    width: var(--icon-size);
-    height: var(--icon-size);
-    font-size: var(--icon-size);
-  }
+  position: relative;
 }
 
 a {
   --border-size: 1px;
-  color: rgb(var(--color-text));
+  padding: var(--icon-padding);
   position: relative;
   overflow: hidden;
   display: inline-block;
-  transition: ease-out 0.3s 0.3s;
+  border-bottom: none;
+  border-radius: 2px;
+  transition: background 0.3s;
 
   &:not(:last-child) {
     margin-right: 6px;
   }
 
-  // Top and Bottom lines inital status
-  span {
-    &::before,
-    &::after {
-      content: '';
-      width: 100%;
-      height: var(--border-size);
-      background-color: rgb(var(--color-text));
-      position: absolute;
-      transition: 0.3s;
-    }
-
-    &::before {
-      left: 0;
-      top: 0;
-      transform: translateX(-100%);
-    }
-
-    &::after {
-      right: 0;
-      bottom: 0;
-      transform: translateX(-100%);
-    }
+  &:hover {
+    background-color: rgba(var(--color-title), 0.069);
+    outline: none;
   }
+}
 
-  // Ends Top and Bottom lines inital status
+.hover-background {
+  --hover-background-size: calc(var(--icon-size) + (var(--icon-padding) * 2));
+  background-color: rgba(var(--color-title), 0.069);
+  width: var(--hover-background-size);
+  height: var(--hover-background-size);
+  position: absolute;
+  top: 0;
+}
 
-  // Left and Right lines inital status
-  &::before,
-  &::after {
-    content: '';
-    width: var(--border-size);
-    height: 100%;
-    background-color: rgb(var(--color-text));
-    position: absolute;
-    transition: 0.3s;
-  }
-
-  &::before {
-    left: 0;
-    top: 0;
-    transform: translateY(-100%);
-  }
-
-  &::after {
-    right: 0;
-    bottom: 0;
-    transform: translateY(100%);
-    transition: 0.3s;
-  }
-
-  // Ends Left and Right lines inital status
+html[data-theme='dark'] :host::ng-deep a {
+  color: rgba(var(--color-title), 0.69);
 
   &:hover {
-    color: rgb(var(--color-text));
-    background-color: rgb(216, 219, 226);
-    outline: none;
-
     &.twitter {
       color: #1da1f2;
     }
@@ -97,24 +51,30 @@ a {
     }
 
     &.github {
-      color: black;
+      color: white;
     }
 
     &.linkedin {
       color: #007bb5;
     }
+  }
+}
 
-    &::before,
-    &::after {
-      transform: translateX(0);
-    }
+html[data-theme='light'] :host::ng-deep a {
+  &.twitter {
+    color: #1da1f2;
+  }
 
-    span {
-      &::before,
-      &::after {
-        transform: translateX(0);
-      }
-    }
+  &.instagram {
+    color: #c32aa3;
+  }
+
+  &.github {
+    color: black;
+  }
+
+  &.linkedin {
+    color: #007bb5;
   }
 }
 
@@ -122,4 +82,7 @@ mat-icon {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  font-size: var(--icon-size);
 }

@@ -1,6 +1,11 @@
-<a matRipple *ngFor="let icon of socialIcons" [href]="icon.url" [attr.class]="icon.name" [attr.tabindex]="tabindexValue" target="_blank"
-  rel="noopener noreferrer">
-  <span>
-    <mat-icon [svgIcon]="icon.name"></mat-icon>
-  </span>
+<a
+  matRipple
+  target="_blank"
+  rel="noopener noreferrer"
+  *ngFor="let icon of socialIcons"
+  [href]="icon.url"
+  [attr.class]="icon.name"
+  [attr.tabindex]="tabindexValue"
+>
+  <mat-icon [svgIcon]="icon.name"></mat-icon>
 </a>

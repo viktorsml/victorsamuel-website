@@ -34,6 +34,14 @@ app-smart-picture {
 
 .header-picture {
   padding: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  animation-delay: 0.5s;
 }
 
 .project-details {

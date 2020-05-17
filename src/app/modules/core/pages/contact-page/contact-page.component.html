@@ -6,9 +6,10 @@
     </p>
   </app-page-title>
   <section class="email-big responsive">
-    <h2><a href="https://go.victorsamuel.com/send-email">hola@victorsamuel.com</a></h2>
+    <h2><a href="https://go.victorsamuel.com/send-email" target="_blank" rel="noopener noreferrer">hola@victorsamuel.com</a></h2>
   </section>
-  <section *ngIf="this.isBrowser" class="contact-icons responsive">
+  <h2 class="contact-icons-title">Send private message via</h2>
+  <section *ngIf="core.isBrowser" class="contact-icons responsive">
     <a *ngFor="let icon of contactIcons" class="contact-link" [href]="icon.url" target="_blank" rel="noopener noreferrer">
       <mat-icon [svgIcon]="icon.name"></mat-icon>
       <span>{{ icon.title }}</span>
