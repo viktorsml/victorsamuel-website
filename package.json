@@ -16,6 +16,10 @@
     "build:server:es": "ng run victorsamuel-website:server:production-es",
     "postbuild:server": "npm run build:functions",
     "build:functions": "cd functions/ && npm run build",
+    "build:render": "npm run build:render:en && npm run build:render:es",
+    "build:render:en": "ng run victorsamuel-website:prerender:production-en --routesFile src/static.paths.txt",
+    "build:render:es": "ng run victorsamuel-website:prerender:production-es --routesFile src/static.paths.txt",
+    "postbuild:render": "npm run resolve-assets && npm run resolve-lang-manager",
     "--------------------------------------------------": "",
     "serve": "npm run serve:aot:en",
     "serve:aot:en": "ng serve --configuration=development-en --port 4200",
@@ -37,8 +41,8 @@
     "e2e": "ng e2e",
     "------------------------------------------------------": "",
     "i18n:extract": "ng xi18n --output-path locale",
-    "prerender": "ng run victorsamuel-website:prerender",
     "resolve-assets": "cp -r dist/browser/en/assets/ dist/browser/ && rm -r dist/browser/en/assets/",
+    "resolve-lang-manager": "cp src/index.lang.html dist/browser/index.html",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "importSort": {

@@ -55,14 +55,21 @@
 .email-big,
 .contact-icons,
 .contact-icons-title {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
   opacity: 0;
-  animation-name: fadeIn;
-  -webkit-animation-name: fadeIn;
-  animation-delay: 0.5s;
+}
+
+body.allow-animations :host::ng-deep {
+  .email-big,
+  .contact-icons,
+  .contact-icons-title {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-delay: 0.5s;
+  }
 }
 
 html[data-theme='dark'] :host::ng-deep .email-big a {

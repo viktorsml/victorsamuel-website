@@ -1,7 +1,8 @@
 import { Observable, Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 import { animate, style, transition, trigger } from '@angular/animations';
-import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -27,12 +28,20 @@ export class CoreComponent implements OnInit, OnDestroy {
   private readonly initialPage: string = '/about';
 
   public isLoading: Observable<boolean>;
+  private isLoadingSubscription: Subscription;
 
   constructor(private readonly store: Store<AppState>, private readonly router: Router, public core: CoreService) {}
 
   public ngOnInit(): void {
     this.isSocialBarVisible = !(this.router.url === this.initialPage);
     this.isLoading = this.store.select('isLoading');
+    this.isLoadingSubscription = this.isLoading.pipe(take(2)).subscribe((isLoading) => {
+      if (this.core.isBrowser && !isLoading) {
+        document.body.classList.add('allow-animations');
+        document.getElementById('initial-loading-screen').classList.add('is-hidden');
+        console.log('Inital loading screen hidden. Enjoy!');
+      }
+    });
     this.watchNavigation(
       (eventOnSuccess) => this.doOnNavigationStart(eventOnSuccess),
       (eventOnEnd) => this.doOnNavigationEnd(eventOnEnd)
