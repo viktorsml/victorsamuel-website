@@ -82,6 +82,65 @@
               "i18nMissingTranslation": "warning",
               "assets": ["src/manifest.json"]
             },
+            "prerender-en": {
+              "baseHref": "/en/",
+              "deployUrl": "/en/",
+              "outputPath": "dist/browser/en/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "prerender-es": {
+              "baseHref": "/es/",
+              "deployUrl": "/es/",
+              "outputPath": "dist/browser/es/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nFile": "src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "i18nMissingTranslation": "warning",
+              "assets": ["src/manifest.json"]
+            },
             "development-en": {
               "outputPath": "dist/browser/en/"
             },
@@ -212,12 +271,19 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "victorsamuel-website:build:production-en",
+            "browserTarget": "victorsamuel-website:build:prerender-en",
             "serverTarget": "victorsamuel-website:server:production-en",
             "routes": ["/"]
           },
           "configurations": {
-            "production": {}
+            "production-en": {
+              "browserTarget": "victorsamuel-website:build:prerender-en",
+              "serverTarget": "victorsamuel-website:server:production-en"
+            },
+            "production-es": {
+              "browserTarget": "victorsamuel-website:build:prerender-es",
+              "serverTarget": "victorsamuel-website:server:production-es"
+            }
           }
         }
       }
