@@ -30,7 +30,7 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
     size: 'cover',
     isResponsive: false,
   };
-  public projects: Project[];
+  public projects: Project[] = [];
   private storedProjects: Subscription;
   public placeholdeImage: SmartPictureSettings = {
     source: {
@@ -43,10 +43,10 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
 
   constructor(
     @Inject(LOCALE_ID) public locale: string,
+    public readonly core: CoreService,
     private readonly store: Store<AppState>,
     private readonly angularFirestore: AngularFirestore,
     private readonly router: Router,
-    private readonly core: CoreService,
     private readonly renderer: Renderer2
   ) {
     store.dispatch(new LoadingScreenActions.ShowLoadingScreen(false));

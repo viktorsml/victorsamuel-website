@@ -6,11 +6,14 @@
     </p>
   </app-page-title>
 
-  <section *ngIf="!projects" class="loading-projects">
-    <app-spinner></app-spinner>
+  <section *ngIf="projects.length <= 0" class="loading-projects">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
   </section>
 
-  <section *ngIf="projects" class="projects-container">
+  <section *ngIf="projects && core.isBrowser" class="projects-container">
     <!-- <article
       class="project"
       [@fadeInUp]

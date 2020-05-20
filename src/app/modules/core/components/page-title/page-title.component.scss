@@ -9,18 +9,23 @@
 }
 
 // TODO: Change this approach due to upcoming deprecation
+body.allow-animations :host::ng-deep {
+  h1,
+  p {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+  }
+}
 :host::ng-deep h1,
 :host::ng-deep p {
   text-align: center;
   max-width: 560px;
   margin: 0;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-fill-mode: both;
   opacity: 0;
-  animation-name: fadeInUp;
-  -webkit-animation-name: fadeInUp;
 }
 
 :host::ng-deep h1 {

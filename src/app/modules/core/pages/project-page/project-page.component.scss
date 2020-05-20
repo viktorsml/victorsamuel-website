@@ -38,14 +38,7 @@ app-smart-picture {
 
 .header-picture {
   padding: 0;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-fill-mode: both;
   opacity: 0;
-  animation-name: fadeInUp;
-  -webkit-animation-name: fadeInUp;
-  animation-delay: 0.5s;
 }
 
 .project-details {
@@ -137,5 +130,17 @@ app-smart-picture {
 
   h2 {
     margin-top: 0;
+  }
+}
+
+body.allow-animations :host::ng-deep {
+  .header-picture {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+    animation-delay: 0.5s;
   }
 }

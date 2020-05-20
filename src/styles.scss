@@ -44,8 +44,11 @@ body {
 }
 
 body {
-  overflow-y: auto;
   overflow-x: hidden;
+}
+
+body.allow-animations {
+  overflow-y: auto;
 }
 
 h1,

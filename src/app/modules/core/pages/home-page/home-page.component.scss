@@ -30,13 +30,7 @@ main,
   app-social-icons {
     margin-top: 0;
     margin-bottom: var(--website-padding);
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
     opacity: 0;
-    animation-name: fadeInUp;
-    -webkit-animation-name: fadeInUp;
   }
 
   h1,
@@ -66,14 +60,7 @@ main,
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    animation-delay: 0.5s;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
     opacity: 0;
-    animation-name: fadeIn;
-    -webkit-animation-name: fadeIn;
 
     @media screen and (max-width: $mobile-breakpoint) {
       display: block;
@@ -132,18 +119,44 @@ main,
     right: -11vw;
     bottom: var(--postion-bottom);
     z-index: -1;
+    opacity: 0;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      display: none;
+    }
+  }
+}
+
+body.allow-animations :host::ng-deep .welcome-area {
+  .developer-picture {
     animation-delay: 0.5s;
     animation-duration: 3s;
     animation-fill-mode: both;
     -webkit-animation-duration: 3s;
     -webkit-animation-fill-mode: both;
-    opacity: 0;
     animation-name: fadeIn;
     -webkit-animation-name: fadeIn;
+  }
 
-    @media screen and (max-width: $mobile-breakpoint) {
-      display: none;
-    }
+  .developer-icon {
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+  }
+
+  h1,
+  p,
+  app-social-icons {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
   }
 }
 
