@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "npm run serve",
     "-------------------------------------------------": "",
-    "build": "npm run build:ssr",
+    "build": "npm run build:render",
     "build:ssr": "npm run build:aot && npm run build:server",
     "build:aot": "npm run build:aot:en && npm run build:aot:es",
     "build:aot:en": "ng build --configuration=production-en --base-href=/en/ --deploy-url=/en/",
