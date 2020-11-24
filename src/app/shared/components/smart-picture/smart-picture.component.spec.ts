@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SmartPictureComponent } from './smart-picture.component';
 
@@ -6,7 +6,7 @@ describe('SmartPictureComponent', () => {
   let component: SmartPictureComponent;
   let fixture: ComponentFixture<SmartPictureComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SmartPictureComponent]
     }).compileComponents();

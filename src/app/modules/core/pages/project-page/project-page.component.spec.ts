@@ -1,6 +1,6 @@
 import { BehaviorSubject, of } from 'rxjs';
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
@@ -24,7 +24,7 @@ describe('ProjectPageComponent', () => {
   let component: ProjectPageComponent;
   let fixture: ComponentFixture<ProjectPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ProjectPageComponent],
       providers: [
