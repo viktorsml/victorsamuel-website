@@ -38,7 +38,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -63,7 +62,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -80,7 +78,9 @@
               "i18nFormat": "xlf",
               "i18nLocale": "es",
               "i18nMissingTranslation": "warning",
-              "assets": ["src/manifest.json"]
+              "assets": [
+                "src/manifest.json"
+              ]
             },
             "prerender-en": {
               "baseHref": "/en/",
@@ -95,7 +95,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -122,7 +121,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -139,7 +137,9 @@
               "i18nFormat": "xlf",
               "i18nLocale": "es",
               "i18nMissingTranslation": "warning",
-              "assets": ["src/manifest.json"]
+              "assets": [
+                "src/manifest.json"
+              ]
             },
             "development-en": {
               "outputPath": "dist/browser/en/"
