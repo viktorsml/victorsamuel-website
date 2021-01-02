@@ -45,7 +45,6 @@
     "no-submodule-imports": false,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
@@ -93,7 +92,8 @@
     "only-arrow-functions": false,
     "no-parameter-reassignment": true,
     "prefer-function-over-method": false,
-    "no-default-export": true
+    "no-default-export": true,
+    "max-classes-per-file": false
   },
   "extends": ["tslint:latest", "tslint-config-prettier"]
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
@@ -11,7 +11,7 @@ describe('SocialIconsComponent', () => {
   let component: SocialIconsComponent;
   let fixture: ComponentFixture<SocialIconsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [SocialIconsComponent],
       imports: [CommonModule, MatIconModule, MatRippleModule, HttpClientModule]

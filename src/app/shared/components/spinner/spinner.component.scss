@@ -1,4 +1,5 @@
 :host {
+  --spinner-color: white;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -13,12 +14,6 @@
   position: relative;
   -webkit-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
-
-  &.isLight {
-    .sk-cube:before {
-      background-color: white !important;
-    }
-  }
 
   .sk-cube {
     float: left;
@@ -37,7 +32,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-dark);
+    background-color: rgb(var(--color-background-opposite));
     -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
     animation: sk-foldCubeAngle 2.4s infinite linear both;
     -webkit-transform-origin: 100% 100%;

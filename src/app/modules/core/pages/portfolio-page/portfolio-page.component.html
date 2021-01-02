@@ -5,40 +5,106 @@
       Here is a selection of some projects that use design as a gateway to translate problems into opportunities
     </p>
   </app-page-title>
-  <section *ngIf="!projects" class="spinner-wrapper">
-    <app-spinner></app-spinner>
-  </section>
-  <section *ngIf="projects" class="projects-gallery responsive">
-    <div *ngFor="let project of projects" class="project">
-      <a tabindex="-1" class="project-link" [routerLink]="['/project', project.propertyId]">
-        <app-smart-picture [settings]="bindPicture(project.coverImage)"></app-smart-picture>
-        <h2 class="project-title">{{ project.title }}</h2>
-        <p class="project-description">{{ project.description }}</p>
-      </a>
-      <p class="project-tags">
-        <span *ngFor="let tag of project.specs.tech">{{ tag }}</span>
-      </p>
-      <div class="project-buttons">
-        <a
-          mat-stroked-button
-          color="primary"
-          [routerLink]="['/project', project.propertyId]"
-          i18n="See more button|Text for the see more button@@seeMoreButton"
-        >
-          More information
-        </a>
-        <a
-          mat-stroked-button
-          color="primary"
-          *ngIf="project.code"
-          [href]="project.code"
-          target="_blank"
-          rel="noopener noreferrer"
-          i18n="See code button|Text for the see code button@@seeCodeButton"
-        >
-          See code
-        </a>
-      </div>
+
+  <section *ngIf="projects.length <= 0" class="loading-projects">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
     </div>
   </section>
+
+  <section *ngIf="projects && core.isBrowser" class="projects-container">
+    <!-- <article
+      class="project"
+      [@fadeInUp]
+      *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      inViewport
+      [inViewportOptions]="{ rootMargin: '150px 0px 150px 0px', partial: false, threshold: [1, 0] }"
+      (inViewportAction)="onIntersection($event)"
+    >
+      <div class="project-content">
+        <div class="project-info">
+          <h1>Project title {{ i }}</h1>
+          <ul>
+            <li>Angular</li>
+            <li>MongoDB</li>
+            <li>GraphQL</li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, nisi harum eius ad, officia veritatis quisquam, provident
+            consectetur quos cum sit soluta consequuntur possimus aut libero facere. Officiis, voluptas praesentium.
+          </p>
+          <div class="buttons">
+            <a
+              mat-stroked-button
+              color="primary"
+              [routerLink]="['/project', 'test-id']"
+              i18n="See more button|Text for the see more button@@seeMoreButton"
+            >
+              More information
+            </a>
+            <a
+              mat-stroked-button
+              color="primary"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              i18n="See code button|Text for the see code button@@seeCodeButton"
+            >
+              See code
+            </a>
+          </div>
+        </div>
+        <div class="picture-wapper">
+          <app-smart-picture [settings]="bindPicture(placeholdeImage)"></app-smart-picture>
+        </div>
+      </div>
+    </article> -->
+    <article
+      class="project"
+      [@fadeInUp]
+      *ngFor="let project of projects"
+      inViewport
+      [inViewportOptions]="{ rootMargin: '150px 0px 150px 0px', partial: false, threshold: [1, 0] }"
+      (inViewportAction)="onIntersection($event)"
+    >
+      <div class="project-content">
+        <div class="project-info">
+          <h1>{{ project.title }}</h1>
+          <ul>
+            <li *ngFor="let tag of project.specs.tech">{{ tag }}</li>
+          </ul>
+          <p>{{ project.description }}</p>
+          <div class="buttons">
+            <a
+              mat-stroked-button
+              color="primary"
+              [routerLink]="['/project', project.propertyId]"
+              i18n="See more button|Text for the see more button@@seeMoreButton"
+            >
+              More information
+            </a>
+            <a
+              mat-stroked-button
+              color="primary"
+              *ngIf="project.code"
+              [href]="project.code"
+              target="_blank"
+              rel="noopener noreferrer"
+              i18n="See code button|Text for the see code button@@seeCodeButton"
+            >
+              See code
+            </a>
+          </div>
+        </div>
+        <div class="picture-wapper">
+          <app-smart-picture [settings]="bindPicture(project.coverImage)"></app-smart-picture>
+        </div>
+      </div>
+    </article>
+  </section>
 </main>
+<div class="quick-contact">
+  <span class="top-title" i18n="Contact question title|Just ask if need a developer@@contactBigQuestion">Need a developer?</span>
+  <a routerLink="/contact" i18n="Contact proposal|Popose to work together@@contactBigProposal">Let's work together</a>
+</div>

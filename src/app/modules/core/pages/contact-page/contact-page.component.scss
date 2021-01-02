@@ -1,13 +1,8 @@
 @import './../../../../../scss/mixins';
 @import './../../../../../scss/staticVariables';
 
-app-page-title {
-  --font-default: 'JetBrains Mono', var(--font-fallback);
-  --font-title: 'JetBrains Mono', var(--font-default);
-  --font-title-wight: 600;
-  --font-title-transform: uppercase;
-  --font-default-line-height: 1.8em;
-  font-size: 90%;
+.page-container {
+  margin-bottom: calc(var(--page-margin) * 2);
 }
 
 .contact-icons,
@@ -21,6 +16,15 @@ app-page-title {
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 0;
+}
+
+.contact-icons-title {
+  font-size: 0.7em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: rgba(var(--color-text), 0.5);
+  letter-spacing: 0.2em;
 }
 
 .contact-link {
@@ -46,8 +50,32 @@ app-page-title {
   margin-bottom: 40px;
   font-size: 0.5rem;
   letter-spacing: 0.04em;
+}
 
-  a {
-    @include linearGradientText(#f7b42c, #fc575e, 135deg);
+.email-big,
+.contact-icons,
+.contact-icons-title {
+  opacity: 0;
+}
+
+body.allow-animations :host::ng-deep {
+  .email-big,
+  .contact-icons,
+  .contact-icons-title {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-delay: 0.5s;
   }
+}
+
+html[data-theme='dark'] :host::ng-deep .email-big a {
+  @include linearGradientText(#f7b42c, #fc575e, 135deg);
+}
+
+html[data-theme='light'] :host::ng-deep .email-big a {
+  @include linearGradientText(#3d4ae6, #f96168, 135deg);
 }

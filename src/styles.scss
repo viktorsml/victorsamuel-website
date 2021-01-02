@@ -1,4 +1,4 @@
-@import 'scss/fonts';
+@import 'scss/covenFont';
 @import 'scss/normalize';
 @import 'scss/materialTheme';
 @import 'scss/staticVariables';
@@ -35,6 +35,8 @@ html,
 body {
   @include coverParent;
   font-family: var(--font-default);
+  font-weight: var(--font-default-weight);
+  font-feature-settings: 'ss01', 'ss02';
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-text));
   -webkit-font-smoothing: antialiased;
@@ -42,8 +44,11 @@ body {
 }
 
 body {
-  overflow-y: auto;
   overflow-x: hidden;
+}
+
+body.allow-animations {
+  overflow-y: auto;
 }
 
 h1,
@@ -58,6 +63,7 @@ h6 {
   font-feature-settings: 'ss01', 'ss02';
   font-weight: var(--font-title-wight);
   font-size: 3em;
+  letter-spacing: 0.03em;
   margin-bottom: 0.85em;
 }
 
@@ -67,6 +73,7 @@ h4,
 h5,
 h6 {
   margin-top: 1.5em;
+  letter-spacing: 0.05em;
 }
 
 h1 {
@@ -102,21 +109,30 @@ h6 {
 
 p {
   font-family: var(--font-default);
+  font-weight: var(--font-default-weight);
   color: rgb(var(--color-text));
   line-height: var(--font-default-line-height);
   font-size: 1.1em;
-  font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
 a {
-  color: rgb(var(--color-primary));
+  color: rgb(var(--color-accent));
   text-decoration: none;
   border-bottom: solid 1px;
   border-color: transparent;
 
   &:not(.noBorder):hover {
-    border-color: rgb(var(--color-primary));
+    border-color: rgb(var(--color-accent));
   }
+}
+
+html[data-theme='dark'] a:hover {
+  @include linearGradientText(#f7b42c, #fc575e, 135deg);
+}
+
+html[data-theme='light'] a:hover {
+  @include linearGradientText(#3d4ae6, #f96168, 135deg);
 }
 
 input:-webkit-autofill,
@@ -149,12 +165,12 @@ mat-form-field {
 }
 
 .logo {
-  @include hideText;
-  flex-shrink: 0;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url('/assets/svg/vs-logo-dark.svg');
+  font-family: 'Coven', var(--font-fallback);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgb(var(--color-title));
+  white-space: nowrap;
+  flex-wrap: nowrap;
 }
 
 .page-container {
@@ -177,4 +193,89 @@ mat-form-field {
 
 .hidden {
   display: none;
+}
+
+.top-title {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.23em;
+  font-weight: 400;
+}
+
+.quick-contact {
+  @include responsiveContainer($addPadding: false);
+  padding: 14em var(--website-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  a,
+  span {
+    text-align: center;
+  }
+
+  a {
+    margin-top: 0.3em;
+    margin-bottom: 0;
+    font-size: 4em;
+    color: rgb(var(--color-title));
+    font-weight: 600;
+    line-height: 1.6em;
+    border-bottom: solid 5px;
+    border-color: transparent;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      font-size: 2.6em;
+    }
+  }
+
+  .arrow-icon {
+    width: 50px;
+    height: 50px;
+    background-image: url('/assets/svg/forward.svg');
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }

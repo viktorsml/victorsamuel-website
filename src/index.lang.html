@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Victor Samuel</title>
+    <script>
+      function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) return match[2];
+      }
+      function parseLang(rawLang) {
+        return rawLang.length > 2 ? rawLang.substr(0, 2) : rawLang;
+      }
+      var defaultLang = 'es';
+      var supportedLangs = ['en', 'es'];
+      var userLang = parseLang(navigator.language || navigator.userLanguage);
+      var storedLang = getCookie('lang') ? parseLang(getCookie('lang')) : null;
+      var isUserLangSupported = supportedLangs.includes(userLang);
+      var isStoredLangSupported = supportedLangs.includes(storedLang);
+      var requestedUrl = window.location.pathname.length > 1 ? window.location.pathname : '/about';
+      if (isStoredLangSupported) {
+        window.location.replace(window.location.origin + '/' + storedLang + requestedUrl);
+      }
+      if (isUserLangSupported) {
+        window.location.replace(window.location.origin + '/' + userLang + requestedUrl);
+      }
+      window.location.replace(window.location.origin + '/' + defaultLang + requestedUrl);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -14,17 +14,17 @@ const routes: Routes = [
     path: '',
     component: CoreComponent,
     children: [
-      { path: 'about', loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule) },
-      { path: 'project', loadChildren: () => import('./pages/project-page/project-page.module').then(m => m.ProyectPageModule) },
-      { path: 'projects', loadChildren: () => import('./pages/portfolio-page/portfolio-page.module').then(m => m.PortfolioPageModule) },
-      { path: 'contact', loadChildren: () => import('./pages/contact-page/contact-page.module').then(m => m.ContactPageModule) },
-      { path: '**', loadChildren: () => import('./pages/not-found-page/not-found-page.module').then(m => m.NotFoundPageModule) }
-    ]
-  }
+      { path: 'about', loadChildren: () => import('./pages/home-page/home-page.module').then((m) => m.HomePageModule) },
+      { path: 'project', loadChildren: () => import('./pages/project-page/project-page.module').then((m) => m.ProyectPageModule) },
+      { path: 'projects', loadChildren: () => import('./pages/portfolio-page/portfolio-page.module').then((m) => m.PortfolioPageModule) },
+      { path: 'contact', loadChildren: () => import('./pages/contact-page/contact-page.module').then((m) => m.ContactPageModule) },
+      { path: '**', loadChildren: () => import('./pages/not-found-page/not-found-page.module').then((m) => m.NotFoundPageModule) },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class CoreRoutingModule {}

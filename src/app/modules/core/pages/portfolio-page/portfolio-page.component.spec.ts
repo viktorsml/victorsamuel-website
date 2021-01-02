@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,7 +22,7 @@ describe('PortfolioPageComponent', () => {
   let component: PortfolioPageComponent;
   let fixture: ComponentFixture<PortfolioPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [PortfolioPageComponent],
       providers: [{ provide: AngularFirestore, useValue: FirestoreStub }],

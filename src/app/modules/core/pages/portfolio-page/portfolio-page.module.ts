@@ -1,3 +1,5 @@
+import { InViewportModule } from 'ng-in-viewport';
+
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -17,12 +19,13 @@ import { PortfolioPageRoutingModule } from './portfolio-page.routing';
     CommonModule,
     RouterModule,
     AngularFirestoreModule,
+    InViewportModule,
     SpinnerModule,
     PortfolioPageRoutingModule,
     PageTitleModule,
     SmartPictureModule,
     MatButtonModule,
-    MatIconModule
-  ]
+    MatIconModule,
+  ],
 })
 export class PortfolioPageModule {}
