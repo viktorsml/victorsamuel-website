@@ -78,9 +78,7 @@
               "i18nFormat": "xlf",
               "i18nLocale": "es",
               "i18nMissingTranslation": "warning",
-              "assets": [
-                "src/manifest.json"
-              ]
+              "assets": ["src/manifest.json"]
             },
             "prerender-en": {
               "baseHref": "/en/",
@@ -137,9 +135,7 @@
               "i18nFormat": "xlf",
               "i18nLocale": "es",
               "i18nMissingTranslation": "warning",
-              "assets": [
-                "src/manifest.json"
-              ]
+              "assets": ["src/manifest.json"]
             },
             "development-en": {
               "outputPath": "dist/browser/en/"
@@ -196,7 +192,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "externalDependencies": ["@firebase/firestore"]
+            "externalDependencies": ["@firebase/app", "@firebase/firestore"]
           },
           "configurations": {
             "production-en": {
