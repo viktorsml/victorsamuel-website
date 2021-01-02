@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NotFoundPageComponent } from './not-found-page.component';
 import { NotFoundPageRoutingModule } from './not-found-page.routing';
@@ -7,7 +7,7 @@ describe('NotFoundPageComponent', () => {
   let component: NotFoundPageComponent;
   let fixture: ComponentFixture<NotFoundPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [NotFoundPageComponent],
       imports: [NotFoundPageRoutingModule]

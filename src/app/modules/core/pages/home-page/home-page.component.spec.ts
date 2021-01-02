@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SmartPictureModule } from '../../../../shared/components/smart-picture/smart-picture.module';
 import { SocialIconsModule } from '../../components/social-icons/social-icons.module';
@@ -9,7 +9,7 @@ describe('HomePageComponent', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [HomePageComponent],
       imports: [HomePageRoutingModule, SocialIconsModule, SmartPictureModule],
