@@ -1,0 +1,14 @@
+<div class="LanguageSwitcher">
+  <ng-container *ngFor="let language of languageService.availableLanguages">
+    <button
+      class="LanguageSwitcher__LanguageButton Link--DisableHoverBorder"
+      [class.LanguageSwitcher__LanguageButton--ShowAsCode]="shouldDisplayAsLanguageCode"
+      [class.LanguageSwitcher__LanguageButton--Active]="language.code === currentLanguage"
+      [tabIndex]="language.code === currentLanguage ? -1 : 0"
+      [matTooltip]="language.switchText"
+      (click)="onLanguageButtonClick(language.code)"
+    >
+      <span>{{ shouldDisplayAsLanguageCode ? language.code : language.name }}</span>
+    </button>
+  </ng-container>
+</div>

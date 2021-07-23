@@ -1,0 +1,118 @@
+@use './placeholders';
+
+@mixin box-sizing($type) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+  -ms-box-sizing: $type;
+  box-sizing: $type;
+}
+
+@mixin rectangle($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin circle($size) {
+  @include rectangle($width: $size, $height: $size);
+  border-radius: 100%;
+}
+
+@mixin coverParent {
+  @include rectangle($width: 100%, $height: 100%);
+}
+
+@mixin mat-icon-size($size) {
+  @include rectangle($width: $size, $height: $size);
+  @extend %CustomSizedMatIcon;
+  font-size: $size;
+}
+
+@mixin linear-gradient-dual($topColor, $bottomColor, $angle: 135deg) {
+  background: $bottomColor;
+  background: -moz-linear-gradient($angle, $topColor 0%, $bottomColor 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, $topColor), color-stop(100%, $bottomColor));
+  background: -webkit-linear-gradient($angle, $topColor 0%, $bottomColor 100%);
+  background: -o-linear-gradient($angle, $topColor 0%, $bottomColor 100%);
+  background: -ms-linear-gradient($angle, $topColor 0%, $bottomColor 100%);
+  background: linear-gradient($angle, $topColor 0%, $bottomColor 100%);
+}
+
+@mixin linear-gradient($color, $darkenPercentage: 10%, $angle: 135deg) {
+  @include linear-gradient-dual($color, darken($color, $darkenPercentage), $angle);
+}
+
+@mixin linear-gradient-background($color, $secondColor, $angle: 135deg) {
+  @include linear-gradient-dual($color, $secondColor, $angle);
+}
+
+@mixin linear-gradient-text($topColor, $bottomColor, $angle: 135deg, $animation: false) {
+  @include linear-gradient-dual($topColor, $bottomColor, $angle);
+  color: transparent;
+  background-clip: text;
+  @if $animation {
+    background-size: 150% 150%;
+    animation: subtle-gradient 15s ease infinite;
+  }
+}
+
+@mixin responsiveContainer($hasCustomPadding: false, $hasCustomMargin: false) {
+  position: relative;
+  max-width: var(--app-max-width);
+  width: 100%;
+
+  @if $hasCustomMargin == false {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @if $hasCustomPadding == false {
+    padding-left: var(--app-base-padding);
+    padding-right: var(--app-base-padding);
+  }
+}
+
+@mixin glass-backdrop($blur: 3em) {
+  -webkit-backdrop-filter: saturate(50%) blur($blur);
+  backdrop-filter: saturate(50%) blur($blur);
+}
+
+@mixin animation-name($animation-name, $animation-fill-mode: both) {
+  -webkit-animation-timing-function: var(--ease-in-out-expo);
+  -mox-animation-timing-function: var(--ease-in-out-expo);
+  -o-animation-timing-function: var(--ease-in-out-expo);
+  animation-timing-function: var(--ease-in-out-expo);
+  -webkit-animation-fill-mode: $animation-fill-mode;
+  -moz-animation-fill-mode: $animation-fill-mode;
+  -o-animation-fill-mode: $animation-fill-mode;
+  animation-fill-mode: $animation-fill-mode;
+  -webkit-animation-name: $animation-name;
+  -mox-animation-name: $animation-name;
+  -o-animation-name: $animation-name;
+  animation-name: $animation-name;
+}
+
+@mixin animation-delay($value) {
+  -webkit-animation-delay: $value;
+  -moz-animation-delay: $value;
+  -o-animation-delay: $value;
+  animation-delay: $value;
+}
+
+@mixin animation-duration($value) {
+  -webkit-animation-duration: $value;
+  -moz-animation-duration: $value;
+  -o-animation-duration: $value;
+  animation-duration: $value;
+}
+
+@mixin max-width-breakpoint($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin min-width-breakpoint($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}

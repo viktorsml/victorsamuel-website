@@ -1,0 +1,16 @@
+<ng-container *ngFor="let icon of socialIcons">
+  <a
+    matRipple
+    class="SocialProfileLink SocialIcon Link--WithCustomHoverColor CustomIcon--ColorizeOnHover"
+    rel="noopener noreferrer"
+    [matTooltip]="icon.platformName + ' profile'"
+    [attr.data-platform-key]="icon.platformKey"
+    [target]="icon.platformKey"
+    [href]="icon.brandedUrl"
+    [ngClass]="icon.platformKey"
+    [attr.tabindex]="tabindex"
+  >
+    <mat-icon class="SocialIcon__Shape" [svgIcon]="icon.platformKey"></mat-icon>
+    <span class="Element--OnlyScreenReaders">Go to Victor Samuel {{ icon.platformName }} profile</span>
+  </a>
+</ng-container>

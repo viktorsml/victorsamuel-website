@@ -1,0 +1,55 @@
+@use './abstracts/sass-variables' as var;
+@use './abstracts/mixins';
+
+.WelcomeArea {
+  --welcome-area--pading-top-bottom: clamp(10em, calc((100vh / 2) - 20%), 15em);
+  @include mixins.responsiveContainer();
+  text-align: center;
+  padding-top: var(--welcome-area--pading-top-bottom);
+  padding-bottom: var(--welcome-area--pading-top-bottom);
+  height: calc(var(--app-page-height) - 25%);
+
+  @include mixins.max-width-breakpoint(var.$size-1-breakpoint) {
+    --welcome-area--pading-top-bottom: 8em;
+    font-size: 90%;
+  }
+
+  @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
+    --welcome-area--pading-top-bottom: 1em;
+    font-size: 85%;
+  }
+
+  &__Image {
+    max-width: 12em;
+  }
+
+  &__Title,
+  &__Extract {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__Title {
+    @include mixins.linear-gradient-text(rgb(var(--color-jonquil-yellow)), rgb(var(--color-tart-orange)), $animation: true);
+    // @include mixins.animation-delay(0.75s);
+    // @include mixins.animation-duration(0.75s);
+    font-size: 3.9em;
+    font-weight: 700;
+    margin-bottom: 0.3em;
+    max-width: 20em;
+    background-size: 150% 150%;
+    // animation: subtle-gradient 15s ease infinite;
+    animation: subtle-gradient 15s var(--ease-in-out-quad) infinite, fadeInUp 0.75s var(--ease-in-out-quad);
+  }
+
+  &__Extract {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+    max-width: 42em;
+  }
+
+  &__SocialMediaButtons {
+    --icon-size: 1.13em;
+    --icon-padding: 0.7em;
+  }
+}

@@ -1,0 +1,79 @@
+// Normalize across browsers
+@use '~reseter.css/src/scss/reseter';
+
+// Custom normalization
+@use './../abstracts/sass-variables' as var;
+@use './../abstracts/mixins';
+
+html {
+  @include mixins.box-sizing(border-box);
+
+  @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
+    --app-max-width: 100%;
+  }
+
+  @include mixins.max-width-breakpoint(125em) {
+    --app-max-width: 125em;
+  }
+}
+
+*,
+*:before,
+*:after {
+  @include mixins.box-sizing(inherit);
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-moz-selection {
+  background-color: rgba(var(--color-highlight), 0.2);
+  color: white;
+}
+
+::selection {
+  background-color: rgba(var(--color-highlight), 0.2);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7a7a7a;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 15px;
+}
+
+html,
+body {
+  @include mixins.coverParent;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(var(--color-text));
+  transition: background-color 5000s ease-in-out 0s;
+}

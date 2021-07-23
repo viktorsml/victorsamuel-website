@@ -1,0 +1,51 @@
+@use './abstracts/sass-variables' as var;
+@use './abstracts/mixins';
+
+.ErrorMessage {
+  @include mixins.responsiveContainer;
+
+  &__Content {
+    display: flex;
+    width: fit-content;
+    border-radius: 0.5em;
+    margin: auto;
+    padding: var(--app-base-padding);
+    border: solid 1px rgb(var(--color-border));
+    background: rgb(var(--color-background--l2));
+
+    @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  app-smart-picture {
+    width: 9em;
+    margin: auto;
+    flex-shrink: 0;
+  }
+
+  &__InformationContainer {
+    margin: auto auto auto var(--app-base-padding);
+
+    @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
+      margin: var(--app-base-padding) auto auto auto;
+    }
+  }
+
+  &__Title,
+  &__Description {
+    width: 100%;
+    max-width: 50em;
+  }
+
+  &__Title {
+    font-size: 1.7em;
+    margin-bottom: 0.6em;
+  }
+
+  &__Description {
+    line-height: 1.5em;
+    margin-bottom: 0;
+  }
+}

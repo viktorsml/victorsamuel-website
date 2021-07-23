@@ -1,6 +1,49 @@
-@import './../scss/mixins';
+// fluorescent-blue: #00F5ED;
+// azure-blue: #007CF0;
+// french-violet: #7928CA;
+// flickr-pink: #F5007A;
+// tart-orange: #FF4D4D;
+// jonquil-yellow: #F9CB28;
 
-:host {
-  @include coverParent;
-  display: block;
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgb(var(--color-accent)), 0 0 0 0.42rem rgba(var(--color-accent), 0.3);
+  border-bottom-color: transparent;
+  transition: box-shadow 150ms ease-in-out;
+}
+
+.App {
+  &--IsUsingMouse :focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  &--ThemeDark {
+    --color-primary: var(--color-jeans-blue);
+    --color-accent: var(--color-jonquil-yellow);
+    --color-highlight: 0, 129, 213;
+    --color-title: 246, 246, 246;
+    --color-text: 193, 194, 198;
+    --color-background: 23, 24, 27;
+    --color-background--l2: 28, 29, 32;
+    --color-background-opposite: 255, 255, 255;
+    --color-background-extreme: 0, 0, 0;
+    --color-grey: #2a2e37;
+    --color-border: 34, 34, 34;
+    --color-shadow-prominent: black;
+  }
+
+  &--ThemeLight {
+    --color-primary: var(--color-azure-blue);
+    --color-accent: var(--color-tart-orange);
+    --color-highlight: 112, 1, 255;
+    --color-title: 15, 20, 30;
+    --color-text: 74, 74, 74;
+    --color-background: 239, 239, 239;
+    --color-background-opposite: 32, 33, 37;
+    --color-background-extreme: 255, 255, 255;
+    --color-grey: #2a2e37;
+    --color-border: 231, 232, 233;
+    --color-shadow-prominent: rgba(0, 0, 0, 0.2);
+  }
 }

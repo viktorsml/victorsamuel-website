@@ -1,0 +1,74 @@
+<header class="Header A--W2 A--D3 A--FadeInDown" [ngClass]="{ 'Header--DisableMouseInput': isLoadingRoute$ | async }">
+  <div class="Header__ContentWrapper">
+    <a class="Logo Link--WithCustomHoverColor Link--DisableHoverBorder" routerLink="./about" data-content="Victor Samuel">Victor Samuel</a>
+    <nav class="Navigation">
+      <ng-container *ngFor="let item of navigationItems">
+        <a class="Navigation__Item Link--DisableHoverBorder" routerLinkActive="Navigation__Item--Active" [routerLink]="[item.routerLink]">
+          <span class="Navigation__ItemText" [attr.data-hover]="item.label">{{ item.label }}</span>
+        </a>
+      </ng-container>
+    </nav>
+    <div class="Header__SocialIcons" [ngClass]="{ 'Header__SocialIcons--Visible': !(isInHomePage$ | async) }">
+      <app-social-media-buttons [tabindex]="(isInHomePage$ | async) ? -1 : 0"></app-social-media-buttons>
+    </div>
+    <!-- <app-language-switcher class="Header__Item--WithLeftSpacer" displayMode="LanguageCode"></app-language-switcher> -->
+  </div>
+</header>
+
+<ng-container *ngIf="isLoadingRoute$ | async">
+  <div class="LoadingRouteScreen" [@inOutAnimation]>
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+</ng-container>
+
+<div #RouterOutletContainer>
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="Footer A--W1 A--D3 A--FadeInUp">
+  <div class="Footer__Navigation">
+    <!--  -->
+    <div class="Footer__NavigationArea Footer__NavigationArea--Contact">
+      <h3 class="Footer__Title"><span>Contact Information</span>&nbsp;&mdash;</h3>
+      <p class="Footer__Description">Feel free to reach out to me any time.</p>
+      <ul class="Footer__List">
+        <li class="Footer__ListItem">
+          <span>📧</span>&nbsp;
+          <a class="EmailLink" [href]="composeNewEmailUrl" target="_blank" rel="noopener noreferrer" data-ga-link-name="Footer">{{ contactEmail }}</a>
+        </li>
+        <li class="Footer__ListItem">
+          <span>@</span><em>viktorsml</em>&nbsp;
+          <span>anywhere</span>
+        </li>
+      </ul>
+    </div>
+    <!--  -->
+    <div class="Footer__NavigationArea Footer__NavigationArea--CurrentAvailability">
+      <h3 class="Footer__Title"><span>Current Availability</span>&nbsp;&mdash;</h3>
+      <p class="Footer__Description">I usually work on several projects but I’ll be happy to discuss new opportunities. Let’s get in touch!</p>
+    </div>
+    <!--  -->
+    <div class="Footer__NavigationArea Footer__NavigationArea--FollowMe">
+      <h3 class="Footer__Title"><span>Follow me on</span>&nbsp;&mdash;</h3>
+      <ul class="Footer__List">
+        <ng-container *ngFor="let profileLink of socialMediaProfileLinks">
+          <li class="Footer__ListItem">
+            <a class="SocialProfileLink" [href]="profileLink.brandedUrl" [target]="profileLink.platformKey" rel="noopener noreferrer">
+              {{ profileLink.platformName }}
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  <!--  -->
+  <p class="Footer__Handcrafted">Handcrafted with ❤️ and ☕ by me.</p>
+  <button
+    mat-stroked-button
+    class="Footer__BackToTopButton"
+    [ngClass]="{ 'Footer__BackToTopButton--Visible': (isVerticalScrollbarVisible$ | async) }"
+    (click)="navigationService.scrollToTop()"
+  >
+    Back to top
+  </button>
+</footer>
