@@ -1,6 +1,6 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
+import { EnvironmentService } from '@services/environment';
 
 import { INavigationWatcher } from './navigation.service.models';
 
@@ -8,11 +8,7 @@ import { INavigationWatcher } from './navigation.service.models';
   providedIn: 'root',
 })
 export class NavigationService {
-  private _isBrowserEnvironment: boolean;
-
-  constructor(@Inject(PLATFORM_ID) private readonly _platformId: object, private _router: Router) {
-    this._isBrowserEnvironment = isPlatformBrowser(_platformId);
-  }
+  constructor(private readonly _environmentService: EnvironmentService, private _router: Router) {}
 
   public watchNavigation({ onNavigationStart, onNavigationCancel, onNavigationEnd, onNavigationError, onNavigationComplete }: INavigationWatcher) {
     return this._router.events.subscribe((event) => {
@@ -26,7 +22,7 @@ export class NavigationService {
   }
 
   public scrollToTop(): void {
-    if (this._isBrowserEnvironment) {
+    if (this._environmentService.isBrowserEnvironment) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }

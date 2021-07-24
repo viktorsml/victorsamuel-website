@@ -2,16 +2,17 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { GOOGLE_TAG_MANAGER_CONTAINER_ID, PRODUCTION_DOMAIN } from './environment.common';
 import { IEnvironment } from './environment.model';
 
 export const environment: IEnvironment = {
   production: false,
+  websiteBaseUrl: PRODUCTION_DOMAIN,
+  googleTagManagerContainerId: GOOGLE_TAG_MANAGER_CONTAINER_ID,
   contactEmail: 'hello@example.com',
   composeNewEmailUrl: 'https://example.com/send-email',
-  websiteBaseUrl: 'https://victorsamuel.com',
   brandedBaseUrl: 'https://example.com',
   backendEndpoint: 'http://127.0.0.1:8787/api',
-  googleTagManagerContainerId: 'GTM-XXXXXXX',
 };
 
 /*

@@ -1,9 +1,7 @@
-import { BehaviorSubject, from, fromEvent, interval, Observable, Subscription } from 'rxjs';
-import { take, throttle } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 import { animate, style, transition, trigger } from '@angular/animations';
-import { isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 import { environment } from '@environment';
 import { getSocialMediaDefinitions, SocialMediaPlatform } from '@mocks/social-media';
@@ -46,18 +44,15 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private _navigationWatcherSubscription!: Subscription;
   private _routerOutletContainerHeightObserver: any;
-  public isBrowserEnvironment: boolean;
   public isLoadingRoute$: Observable<boolean>;
   public isInHomePage$: Observable<boolean>;
 
   constructor(
-    @Inject(PLATFORM_ID) private readonly _platformId: object,
     private readonly _store: Store<IAppState>,
     private readonly _seoService: SeoService,
     private readonly _activatedRoute: ActivatedRoute,
     public readonly navigationService: NavigationService
   ) {
-    this.isBrowserEnvironment = isPlatformBrowser(_platformId);
     this.isLoadingRoute$ = this._store.select(getLoadingState);
     this.isInHomePage$ = this._store.select(getIsInHomePageState);
   }

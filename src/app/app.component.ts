@@ -1,13 +1,13 @@
 import { GoogleTagManagerService } from 'angular-google-tag-manager';
 import { Subscription } from 'rxjs';
 
-import { isPlatformBrowser } from '@angular/common';
-import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationStart } from '@angular/router';
-import { environment } from '@environment';
 import { getSocialMediaIconDefinitions } from '@mocks/social-media';
+import { EnvironmentService } from '@services/environment';
+import { Environment } from '@services/environment/environment.service.models';
 
 import { ColorTheme } from './app.component.models';
 import { NavigationService } from './services/navigation/navigation.service';
@@ -21,25 +21,25 @@ import { NavigationService } from './services/navigation/navigation.service';
 export class AppComponent implements OnInit, OnDestroy {
   private _colorTheme: ColorTheme = ColorTheme.Dark;
 
-  private _isBrowserEnvironment: boolean;
   private _isAbleToDetectSystemPreferences: boolean;
   private _navigationWatcherSubscription!: Subscription;
 
   constructor(
-    @Inject(PLATFORM_ID) private readonly _platformId: object,
-    private readonly matIconRegistry: MatIconRegistry,
-    private readonly domSanitzer: DomSanitizer,
+    private readonly _environmentService: EnvironmentService,
+    private readonly _matIconRegistry: MatIconRegistry,
+    private readonly _domSanitzer: DomSanitizer,
     private readonly _renderer: Renderer2,
     private readonly _googleTagManagerService: GoogleTagManagerService,
     private readonly _navigationService: NavigationService
   ) {
-    this._isBrowserEnvironment = isPlatformBrowser(_platformId);
-    this._isAbleToDetectSystemPreferences = this._isBrowserEnvironment && window && window.matchMedia('(prefers-color-scheme)').media !== 'not all';
+    this._isAbleToDetectSystemPreferences =
+      this._environmentService.isBrowserEnvironment && window && window.matchMedia('(prefers-color-scheme)').media !== 'not all';
   }
 
   //#region Lifecycle
   public ngOnInit() {
-    if (this._isBrowserEnvironment) {
+    console.debug('Aplication running in environment:', this._environmentService.environment);
+    if (this._environmentService.isBrowserEnvironment) {
       this._enableGoogleTagManagerTracking();
       this._registerCustomIcons();
       this._watchNavigation();
@@ -54,9 +54,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private _enableGoogleTagManagerTracking() {
-    if (environment.production) {
-      this._googleTagManagerService.addGtmToDom();
-    }
+    this._googleTagManagerService.addGtmToDom();
+    this._googleTagManagerService.pushTag({
+      event: 'Google Analytics Measurement Id Initialization',
+      measurementId: this._environmentService.getGoogleAnalyticsMeasurementId(),
+    });
   }
 
   private _watchNavigation() {
@@ -109,7 +111,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private _registerCustomIcons() {
     const customIcons = getSocialMediaIconDefinitions();
     for (const { iconKey, svgResourcePath } of customIcons) {
-      this.matIconRegistry.addSvgIcon(iconKey, this.domSanitzer.bypassSecurityTrustResourceUrl(svgResourcePath));
+      this._matIconRegistry.addSvgIcon(iconKey, this._domSanitzer.bypassSecurityTrustResourceUrl(svgResourcePath));
     }
   }
   // #endregion Icon Registration

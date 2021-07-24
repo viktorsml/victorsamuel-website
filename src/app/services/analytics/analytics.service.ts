@@ -14,9 +14,7 @@ export class AnalyticsService {
   }
 
   public dispatchEvent<PayloadType extends Object>(eventName: string, eventPayload?: PayloadType) {
-    if (environment.production) {
-      const eventTag = eventPayload ? { event: eventName, ...eventPayload } : { event: eventName };
-      this._googleTagManagerService.pushTag(eventTag);
-    }
+    const eventTag = eventPayload ? { event: eventName, ...eventPayload } : { event: eventName };
+    this._googleTagManagerService.pushTag(eventTag);
   }
 }
