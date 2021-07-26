@@ -14,18 +14,7 @@ export const websiteStateReducer = createReducer(
   initialWebsiteState,
   on(SetLoadingPageStateAction, (state, { isLoading }) => ({ ...state, isLoading })),
   on(SetGlobalSocialIconsStateAction, (state, { isInHomePage }) => ({ ...state, isInHomePage })),
-
   on(SetProjectListAction, (state, payload) =>
     persistState(StateKey.Website, () => ({ ...state, projectList: { ...state.projectList, ...payload.projectList } }))()
   )
-
-  // on(SetProjectListAction, persistState(StateKey.Website, (state, payload) => ({ ...state, projectList: { ...state.projectList, ...payload.projectList } }))()),
-
-  // on(
-  //   SetProjectListAction,
-  //   persistState(StateKey.Website, (state: IWebsiteState, { projectList }: ISetProjectListActionData) => ({
-  //     ...state,
-  //     projectList: { ...state.projectList, ...projectList },
-  //   }))
-  // )
 );

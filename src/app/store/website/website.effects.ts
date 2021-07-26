@@ -1,5 +1,5 @@
 import { formatISO } from 'date-fns/esm';
-import { catchError, map, mergeMap, startWith } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';

@@ -27,7 +27,6 @@ export const loadStateFromLocalStorage = <StateType>(key: StateKey, defaultState
 export const saveStateToLocalStorage = <StateType>(key: StateKey, state: StateType, stateOverwrites?: any) => {
   try {
     const mergedState = stateOverwrites ? merge({}, state, stateOverwrites) : state;
-    console.debug('Persisting state', mergedState);
     localStorage.setItem(key, JSON.stringify(mergedState));
   } catch (error) {
     console.warn('Unable to persist state', error);

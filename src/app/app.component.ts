@@ -7,7 +7,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationStart } from '@angular/router';
 import { getSocialMediaIconDefinitions } from '@mocks/social-media';
 import { EnvironmentService } from '@services/environment';
-import { Environment } from '@services/environment/environment.service.models';
 
 import { ColorTheme } from './app.component.models';
 import { NavigationService } from './services/navigation/navigation.service';
