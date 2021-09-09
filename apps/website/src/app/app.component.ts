@@ -6,6 +6,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationStart } from '@angular/router';
 import { getSocialMediaIconDefinitions } from '@mocks/social-media';
+import { AnalyticsService } from '@services/analytics';
 import { EnvironmentService } from '@services/environment';
 
 import { ColorTheme } from './app.component.models';
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private readonly _matIconRegistry: MatIconRegistry,
     private readonly _domSanitzer: DomSanitizer,
     private readonly _renderer: Renderer2,
-    private readonly _googleTagManagerService: GoogleTagManagerService,
+    private readonly _analyticsService: AnalyticsService,
     private readonly _navigationService: NavigationService
   ) {
     this._isAbleToDetectSystemPreferences =
@@ -39,7 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     console.debug('Aplication running in environment:', this._environmentService.environment);
     if (this._environmentService.isBrowserEnvironment) {
-      this._enableGoogleTagManagerTracking();
+      this._analyticsService.initializeGoogleTagManager();
       this._registerCustomIcons();
       this._watchNavigation();
       // TODO: Create a propper light theme.
@@ -50,14 +51,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     this._navigationWatcherSubscription.unsubscribe();
-  }
-
-  private _enableGoogleTagManagerTracking() {
-    this._googleTagManagerService.addGtmToDom();
-    this._googleTagManagerService.pushTag({
-      event: 'Google Analytics Measurement Id Initialization',
-      measurementId: this._environmentService.getGoogleAnalyticsMeasurementId(),
-    });
   }
 
   private _watchNavigation() {

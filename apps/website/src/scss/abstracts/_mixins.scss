@@ -71,11 +71,6 @@
   }
 }
 
-@mixin glass-backdrop($blur: 3em) {
-  -webkit-backdrop-filter: saturate(50%) blur($blur);
-  backdrop-filter: saturate(50%) blur($blur);
-}
-
 @mixin animation-name($animation-name, $animation-fill-mode: both) {
   -webkit-animation-timing-function: var(--ease-in-out-expo);
   -mox-animation-timing-function: var(--ease-in-out-expo);
