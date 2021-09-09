@@ -384,6 +384,11 @@
       "packageName": "@viktorsml/website",
       "projectFolder": "apps/website",
       "reviewCategory": "production"
+    },
+    {
+      "packageName": "@viktorsml/api",
+      "projectFolder": "apps/api",
+      "reviewCategory": "production"
     }
     // {
     //   /**
