@@ -1,7 +1,7 @@
 <main class="ProjectsPage">
   <div class="PageTitleArea">
-    <h1>Projects</h1>
-    <p>Here is a selection of some projects that use design as a gateway to translate problems into opportunities</p>
+    <h1 i18n>Projects</h1>
+    <p i18n>Here is a selection of some projects that use design as a gateway to translate problems into opportunities</p>
   </div>
 </main>
 
@@ -27,7 +27,7 @@
             class="ProjectCard"
             inViewport
             [inViewportOptions]="{ rootMargin: '150px 0px 150px 0px', partial: false, threshold: [1, 0] }"
-            (inViewportAction)="onIntersection($event)"
+            (inViewportAction)="onProjectCardVisibleOnViewport($event)"
           >
             <div class="ProjectCard__Wrapper">
               <div class="ProjectCard__InformationWrapper">
@@ -42,9 +42,9 @@
                   assumenda incidunt earum praesentium in illo, eaque ut suscipit est?
                 </p>
                 <div class="ProjectCard__ButtonsContainer">
-                  <a mat-stroked-button class="ProjectCard__LearnMoreButton" [routerLink]="['..', 'project', project.id]">Learn More</a>
+                  <a mat-stroked-button class="ProjectCard__LearnMoreButton" [routerLink]="['..', 'project', project.id]" i18n>Learn More</a>
                   <ng-container *ngIf="project?.urls?.repository">
-                    <a mat-stroked-button class="ProjectCard__CodeButton" [href]="project.urls.repository" [target]="project?.id">See Code</a>
+                    <a mat-stroked-button class="ProjectCard__CodeButton" [href]="project.urls.repository" [target]="project?.id" i18n>See Code</a>
                   </ng-container>
                 </div>
               </div>
@@ -68,6 +68,6 @@
 </ng-container>
 
 <section class="QuickContact">
-  <h2 class="A--FadeIn A--D6">Need a developer?</h2>
-  <a mat-button class="TitleFont Link--WithCustomHoverColor A--FadeInUp A--D3" routerLink="../contact">Let's work together</a>
+  <h2 class="A--FadeIn A--D6" i18n>Need a developer?</h2>
+  <a mat-button class="TitleFont Link--WithCustomHoverColor A--FadeInUp A--D3" routerLink="../contact" i18n>Let's work together</a>
 </section>

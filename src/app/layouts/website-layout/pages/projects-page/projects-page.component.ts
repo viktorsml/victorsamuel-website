@@ -1,11 +1,9 @@
 import { formatDuration, intervalToDuration, subMinutes } from 'date-fns';
 import { isWithinInterval, parseISO } from 'date-fns/esm';
-import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { IProjectItem } from '@services/backend-api';
 import { IAppState } from '@store/models';
 import { ApiCallStatus, getProjectListDataState, LoadProjectListAction } from '@store/website';
 
@@ -21,7 +19,10 @@ export class ProjectsPageComponent implements OnInit {
   constructor(private readonly _store: Store<IAppState>, private readonly _renderer: Renderer2) {}
 
   public ngOnInit(): void {
-    this.projectListData$.pipe(take(1)).subscribe(({ updatedDate, status }) => this._updateProjectListIfOutdated(parseISO(updatedDate ?? ''), status));
+    this.projectListData$.pipe(take(1)).subscribe(({ updatedDate: updatedDateAsIsoString, status }) => {
+      const updatedDate = parseISO(updatedDateAsIsoString ?? '');
+      return this._updateProjectListIfOutdated(updatedDate, status);
+    });
   }
 
   private _updateProjectListIfOutdated(updatedDate: Date, status?: ApiCallStatus) {
@@ -37,7 +38,7 @@ export class ProjectsPageComponent implements OnInit {
     }
   }
 
-  public onIntersection({ target, visible }: { target: Element; visible: boolean }): void {
+  public onProjectCardVisibleOnViewport({ target, visible }: { target: Element; visible: boolean }): void {
     const activeClass = 'ProjectCard--InViewport';
     const inactiveClass = 'ProjectCard--OutsideViewport';
     this._renderer.addClass(target, visible ? activeClass : inactiveClass);

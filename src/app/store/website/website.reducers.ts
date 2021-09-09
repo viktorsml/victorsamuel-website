@@ -1,12 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadStateFromLocalStorage, persistState, presistStateWrapper } from '@store/local-storage';
+import { loadStateFromLocalStorage, persistState } from '@store/local-storage';
 import { StateKey } from '@store/models';
 
 import { SetGlobalSocialIconsStateAction, SetLoadingPageStateAction, SetProjectListAction } from './website.actions';
 import { defaultWebsiteState } from './website.mocks';
-import {
-  IProjectListData, ISetGlobalSocialIconsActionData, ISetLoadingPageActionData, ISetProjectListActionData, IWebsiteState
-} from './website.models';
 
 const initialWebsiteState = loadStateFromLocalStorage(StateKey.Website, defaultWebsiteState);
 

@@ -31,9 +31,9 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
   public composeNewEmailUrl = environment.composeNewEmailUrl;
   public isVerticalScrollbarVisible$ = new BehaviorSubject<boolean>(false);
   public navigationItems: INavigationItem[] = [
-    { label: 'About Me', routerLink: 'about' },
-    { label: 'Projects', routerLink: 'projects' },
-    { label: 'Contact', routerLink: 'contact' },
+    { label: $localize`About Me`, routerLink: 'about' },
+    { label: $localize`Projects`, routerLink: 'projects' },
+    { label: $localize`Contact`, routerLink: 'contact' },
   ];
   public socialMediaProfileLinks = getSocialMediaDefinitions([
     SocialMediaPlatform.Twitter,
@@ -59,11 +59,7 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
 
   public ngOnInit(): void {
     this._setSeoMetaInformationBasedOnRouteData();
-    this._navigationWatcherSubscription = this.navigationService.watchNavigation({
-      onNavigationStart: (event) => this._onNavigationStart(event),
-      onNavigationEnd: (event) => this._onNavigationEnd(event),
-      onNavigationComplete: () => this._onNavigationComplete(),
-    });
+    this._watchNavigation();
   }
 
   public ngAfterViewInit(): void {
@@ -77,11 +73,20 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
     this._routerOutletContainerHeightObserver.unobserve(this._routerOutletContainer.nativeElement);
   }
 
+  private _watchNavigation() {
+    this._navigationWatcherSubscription = this.navigationService.watchNavigation({
+      onNavigationStart: (event) => this._onNavigationStart(event),
+      onNavigationEnd: (event) => this._onNavigationEnd(event),
+      onNavigationComplete: () => this._onNavigationComplete(),
+    });
+  }
+
   private _onNavigationStart(event: NavigationStart) {
     this._store.dispatch(SetLoadingPageStateAction({ isLoading: true }));
   }
 
   private _onNavigationEnd(event: NavigationEnd): void {
+    console.log(event);
     this._setSeoMetaInformationBasedOnRouteData();
   }
 
@@ -98,4 +103,6 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
   private _setSeoMetaInformationBasedOnRouteData() {
     this._seoService.setMetaInformation(this._activatedRoute.snapshot.firstChild?.data as SEOMetaInformation);
   }
+
+  private _watchLanguageChangeInUrl() {}
 }
