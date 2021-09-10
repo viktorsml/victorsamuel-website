@@ -1,7 +1,23 @@
 @use '../abstracts/mixins';
 @use './keyframes';
 
-.A {
+body.App--PrepareForAnimations {
+  .A {
+    &--FadeIn,
+    &--FadeInUp,
+    &--FadeInDown {
+      opacity: 0 !important;
+    }
+  }
+
+  .PageTitleArea > h1,
+  .PageTitleArea > p,
+  .WelcomeArea__Title {
+    opacity: 0 !important;
+  }
+}
+
+.App--AllowAnimations .A {
   $animation-stop: 0.3;
 
   @for $step from 0 through 10 {

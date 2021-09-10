@@ -41,6 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
     console.debug('Aplication running in environment:', this._environmentService.environment);
     if (this._environmentService.isBrowserEnvironment) {
       this._analyticsService.initializeGoogleTagManager();
+      this._playAnimationsOnBrowserLoad();
       this._registerCustomIcons();
       this._watchNavigation();
       // TODO: Create a propper light theme.
@@ -98,6 +99,13 @@ export class AppComponent implements OnInit, OnDestroy {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({ matches: doesUserPreferDarkTheme }: MediaQueryListEvent) => {
       this._setColorTheme(doesUserPreferDarkTheme ? ColorTheme.Dark : ColorTheme.Light);
     });
+  }
+
+  private _playAnimationsOnBrowserLoad() {
+    if (this._environmentService.isBrowserEnvironment) {
+      this._renderer.removeClass(document.body, 'App--PrepareForAnimations');
+      this._renderer.addClass(document.body, 'App--AllowAnimations');
+    }
   }
   // #endregion
 
