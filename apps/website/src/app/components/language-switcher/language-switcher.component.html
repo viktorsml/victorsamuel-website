@@ -6,7 +6,7 @@
       [class.LanguageSwitcher__LanguageButton--Active]="language.code === environmentService.currentLanguage"
       [tabIndex]="language.code === environmentService.currentLanguage ? -1 : 0"
       [matTooltip]="language.help"
-      (click)="onLanguageButtonClick(language.code)"
+      (click)="onLanguageChange(language.code)"
     >
       <span>{{ shouldDisplayAsLanguageCode ? language.code : language.label }}</span>
     </button>

@@ -1,10 +1,8 @@
-import { Subscription } from 'rxjs';
-
-import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { EnvironmentService } from '@services/environment';
 import { SupportedLanguage } from '@services/environment/environment.service.models';
 
+import { setCookie } from './language-switcher.component.helpers';
 import { DisplayMode } from './language-switcher.component.models';
 
 @Component({
@@ -25,7 +23,8 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {}
 
-  public onLanguageButtonClick(language: SupportedLanguage) {
+  public onLanguageChange(language: SupportedLanguage) {
+    setCookie({ name: 'lang', value: language });
     window.location.href = window.location.href.replace(/(\/[a-zA-Z]{2}\/)/, `/${language}/`);
   }
 }

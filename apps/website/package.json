@@ -12,7 +12,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "i18n": "ng extract-i18n --output-path src/locale",
-    "prerender": "ng run victorsamuel-website:prerender"
+    "prerender": "ng run victorsamuel-website:prerender && npm run fix:assets && npm run fix:language-redirect",
+    "fix:assets": "move-cli ./dist/victorsamuel-website/browser/en/assets/ ./dist/victorsamuel-website/browser/assets && rimraf ./dist/victorsamuel-website/browser/es/assets",
+    "fix:language-redirect": "cpx ./src/redirect/index.html dist/victorsamuel-website/browser",
+    "serve:prerender": "npx http-server ./dist/victorsamuel-website/browser/ -g -b -p 4200 --proxy http://localhost:4200? -c 31556952000"
   },
   "private": true,
   "dependencies": {
@@ -62,6 +65,8 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "~4.2.3",
-    "cpx": "~1.5.0"
+    "cpx": "~1.5.0",
+    "move-cli": "~1.2.1",
+    "rimraf": "~3.0.2"
   }
 }

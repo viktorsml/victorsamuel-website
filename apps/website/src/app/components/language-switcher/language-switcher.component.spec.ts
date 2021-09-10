@@ -8,9 +8,8 @@ describe('LanguageSwitcherComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LanguageSwitcherComponent ]
-    })
-    .compileComponents();
+      declarations: [LanguageSwitcherComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
