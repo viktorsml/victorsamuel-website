@@ -10,7 +10,9 @@
     [ngClass]="icon.platformKey"
     [attr.tabindex]="tabindex"
   >
-    <mat-icon class="SocialIcon__Shape" [svgIcon]="icon.platformKey"></mat-icon>
+    <ng-container *ngIf="environmentService.isBrowserEnvironment">
+      <mat-icon class="SocialIcon__Shape" [svgIcon]="icon.platformKey"></mat-icon>
+    </ng-container>
     <span class="Element--OnlyScreenReaders">Go to Victor Samuel {{ icon.platformName }} profile</span>
   </a>
 </ng-container>

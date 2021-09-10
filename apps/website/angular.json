@@ -26,9 +26,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/victorsamuel-website",
+            "outputPath": "dist/victorsamuel-website/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "localize": true,
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -102,6 +103,67 @@
             "styles": ["src/styles.scss"],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/victorsamuel-website/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/scss"]
+            },
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "localize": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "victorsamuel-website:build:development",
+              "serverTarget": "victorsamuel-website:server:development"
+            },
+            "production": {
+              "browserTarget": "victorsamuel-website:build:production",
+              "serverTarget": "victorsamuel-website:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "victorsamuel-website:build:production",
+              "serverTarget": "victorsamuel-website:server:production"
+            },
+            "development": {
+              "browserTarget": "victorsamuel-website:build:development",
+              "serverTarget": "victorsamuel-website:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

@@ -6,6 +6,7 @@ import { ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router'
 import { environment } from '@environment';
 import { getSocialMediaDefinitions, SocialMediaPlatform } from '@mocks/social-media';
 import { Store } from '@ngrx/store';
+import { EnvironmentService } from '@services/environment';
 import { NavigationService } from '@services/navigation';
 import { SEOMetaInformation, SeoService } from '@services/seo';
 import { IAppState } from '@store/models';
@@ -51,6 +52,7 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
     private readonly _store: Store<IAppState>,
     private readonly _seoService: SeoService,
     private readonly _activatedRoute: ActivatedRoute,
+    private readonly _environmentService: EnvironmentService,
     public readonly navigationService: NavigationService
   ) {
     this.isLoadingRoute$ = this._store.select(getLoadingState);
@@ -63,14 +65,18 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   public ngAfterViewInit(): void {
-    this._routerOutletContainerHeightObserver = this._watchRouterOutletContainerHeight((routerOutletContainerHeight) => {
-      this.isVerticalScrollbarVisible$.next(routerOutletContainerHeight > window.innerHeight);
-    });
+    if (this._environmentService.isBrowserEnvironment) {
+      this._routerOutletContainerHeightObserver = this._watchRouterOutletContainerHeight((routerOutletContainerHeight) => {
+        this.isVerticalScrollbarVisible$.next(routerOutletContainerHeight > window.innerHeight);
+      });
+    }
   }
 
   public ngOnDestroy() {
     this._navigationWatcherSubscription.unsubscribe();
-    this._routerOutletContainerHeightObserver.unobserve(this._routerOutletContainer.nativeElement);
+    if (this._environmentService.isBrowserEnvironment) {
+      this._routerOutletContainerHeightObserver.unobserve(this._routerOutletContainer.nativeElement);
+    }
   }
 
   private _watchNavigation() {

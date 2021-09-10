@@ -50,7 +50,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this._navigationWatcherSubscription.unsubscribe();
+    if (this._environmentService.isBrowserEnvironment) {
+      this._navigationWatcherSubscription.unsubscribe();
+    }
   }
 
   private _watchNavigation() {

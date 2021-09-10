@@ -1,10 +1,11 @@
 import { Subscription } from 'rxjs';
-import { LanguageCode, LanguageServiceService } from 'src/app/shared/services/language-service.service';
 
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { EnvironmentService } from '@services/environment';
+import { SupportedLanguage } from '@services/environment/environment.service.models';
 
-type DisplayMode = 'LanguageCode' | 'LanguageName';
+import { DisplayMode } from './language-switcher.component.models';
 
 @Component({
   selector: 'app-language-switcher',
@@ -12,32 +13,19 @@ type DisplayMode = 'LanguageCode' | 'LanguageName';
   styleUrls: ['./language-switcher.component.scss'],
 })
 export class LanguageSwitcherComponent implements OnInit, OnDestroy {
-  /**
-   * Defines which property is going to be used to display as text. Can be 'LanguageCode' or 'LanguageName'.
-   */
-  @Input() displayMode: DisplayMode = 'LanguageName';
+  @Input() 'display-mode': DisplayMode = 'Label';
 
-  private _isBrowserEnvironment: boolean;
-  private _currentLanguageSubscription: Subscription;
-  public currentLanguage: LanguageCode;
-  public shouldDisplayAsLanguageCode: boolean;
+  public shouldDisplayAsLanguageCode: boolean = false;
 
-  constructor(@Inject(PLATFORM_ID) private readonly _platformId: object, public languageService: LanguageServiceService) {
-    this._isBrowserEnvironment = isPlatformBrowser(_platformId);
-  }
+  constructor(public readonly environmentService: EnvironmentService) {}
 
   public ngOnInit() {
-    this.shouldDisplayAsLanguageCode = this.displayMode === 'LanguageCode';
-    this._currentLanguageSubscription = this.languageService.currentLanguage.subscribe((updatedLanguageCode) => {
-      this.currentLanguage = updatedLanguageCode;
-    });
+    this.shouldDisplayAsLanguageCode = this['display-mode'] === 'Code';
   }
 
-  public ngOnDestroy() {
-    this._currentLanguageSubscription.unsubscribe();
-  }
+  public ngOnDestroy() {}
 
-  public onLanguageButtonClick(requestedLanguageCode: LanguageCode): void {
-    this.languageService.setCurrentLanguage(requestedLanguageCode);
+  public onLanguageButtonClick(language: SupportedLanguage) {
+    window.location.href = window.location.href.replace(/(\/[a-zA-Z]{2}\/)/, `/${language}/`);
   }
 }

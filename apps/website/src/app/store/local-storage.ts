@@ -19,7 +19,8 @@ export const loadStateFromLocalStorage = <StateType>(key: StateKey, defaultState
       return defaultState;
     }
     return JSON.parse(serializedState);
-  } catch (err) {
+  } catch (error) {
+    console.log(`⚠ Unable to load state from localStorage (${(error as any)?.message})`);
     return defaultState;
   }
 };
@@ -29,7 +30,7 @@ export const saveStateToLocalStorage = <StateType>(key: StateKey, state: StateTy
     const mergedState = stateOverwrites ? merge({}, state, stateOverwrites) : state;
     localStorage.setItem(key, JSON.stringify(mergedState));
   } catch (error) {
-    console.warn('Unable to persist state', error);
+    console.log(`⚠ Unable to save state to localStorage (${(error as any)?.message})`);
   }
 };
 

@@ -11,7 +11,7 @@
     <div class="Header__SocialIcons" [ngClass]="{ 'Header__SocialIcons--Visible': !(isInHomePage$ | async) }">
       <app-social-media-buttons [tabindex]="(isInHomePage$ | async) ? -1 : 0"></app-social-media-buttons>
     </div>
-    <!-- <app-language-switcher class="Header__Item--WithLeftSpacer" displayMode="LanguageCode"></app-language-switcher> -->
+    <app-language-switcher class="Header__Item" display-mode="Label"></app-language-switcher>
   </div>
 </header>
 

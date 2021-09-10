@@ -1,21 +1,27 @@
 import { PRODUCTION_DOMAIN, PRODUCTION_GOOGLE_ANALYTICS_ID, TESTING_GOOGLE_ANALYTICS_ID } from 'src/environments/environment.common';
 
-import { isPlatformBrowser } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { Inject, Injectable, LOCALE_ID, PLATFORM_ID } from '@angular/core';
 
-import { Environment } from './environment.service.models';
+import { Environment, ISupportedLanguageDefinition, SupportedLanguage } from './environment.service.models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EnvironmentService {
   private _isBrowserEnvironment: boolean;
+  private _isServerEnvironment: boolean;
   private _environment: Environment;
 
   private _localDomains: string[] = ['localhost:4200'];
+  private _supportedLanguages: ISupportedLanguageDefinition[] = [
+    { code: SupportedLanguage.English, label: 'English', help: 'Switch language to English' },
+    { code: SupportedLanguage.Spanish, label: 'Español', help: 'Cambiar idioma al Español' },
+  ];
 
-  constructor(@Inject(PLATFORM_ID) private readonly _platformId: object) {
+  constructor(@Inject(PLATFORM_ID) private readonly _platformId: object, @Inject(LOCALE_ID) private readonly _locale: string) {
     this._isBrowserEnvironment = isPlatformBrowser(_platformId);
+    this._isServerEnvironment = isPlatformServer(_platformId);
     this._environment = this._determineEnvironment();
   }
 
@@ -24,8 +30,20 @@ export class EnvironmentService {
     return this._isBrowserEnvironment;
   }
 
+  public get isServerEnvironment(): boolean {
+    return this._isServerEnvironment;
+  }
+
   public get environment(): Environment {
     return this._environment;
+  }
+
+  public get supportedLanguages(): ISupportedLanguageDefinition[] {
+    return this._supportedLanguages;
+  }
+
+  public get currentLanguage(): SupportedLanguage {
+    return this._locale.substring(0, 2) as SupportedLanguage;
   }
   // #endregion Getters And Setters
 

@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { environment } from '@environment';
 import { getSocialMediaDefinitions, SocialMediaLinkType, SocialMediaPlatform, SVGResourceType } from '@mocks/social-media';
 import { AnalyticsService } from '@services/analytics';
+import { EnvironmentService } from '@services/environment';
 
 @Component({
   selector: 'app-contact-page',
@@ -18,7 +19,11 @@ export class ContactPageComponent {
     { sVGResourceType: SVGResourceType.Colored, socialMediaLinkType: SocialMediaLinkType.Contact }
   );
 
-  constructor(private readonly _clipboardService: ClipboardService, private readonly _analyticsService: AnalyticsService) {}
+  constructor(
+    public readonly environmentService: EnvironmentService,
+    private readonly _clipboardService: ClipboardService,
+    private readonly _analyticsService: AnalyticsService
+  ) {}
 
   public copyEmailToClipboard() {
     this._clipboardService.copy(this.contactEmail);

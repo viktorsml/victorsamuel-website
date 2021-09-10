@@ -47,7 +47,9 @@
           [attr.data-ga-private-message-medium]="icon.platformName"
         >
           <div class="ContactIcon__Wrapper">
-            <mat-icon class="ContactIcon__Shape CustomIcon--Colorized" [attr.data-platform-key]="icon.platformKey" [svgIcon]="icon.platformKey"></mat-icon>
+            <ng-container *ngIf="environmentService.isBrowserEnvironment">
+              <mat-icon class="ContactIcon__Shape CustomIcon--Colorized" [attr.data-platform-key]="icon.platformKey" [svgIcon]="icon.platformKey"></mat-icon>
+            </ng-container>
             <span class="ContactIcon__PlatformName">{{ icon.platformName }}</span>
           </div>
         </a>

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { getSocialMediaDefinitions, SocialMediaPlatform } from '@mocks/social-media';
+import { EnvironmentService } from '@services/environment';
 
 @Component({
   selector: 'app-social-media-buttons',
@@ -8,11 +9,12 @@ import { getSocialMediaDefinitions, SocialMediaPlatform } from '@mocks/social-me
 })
 export class SocialMediaButtonsComponent {
   @Input() public tabindex: number = 0;
-
   public socialIcons = getSocialMediaDefinitions([
     SocialMediaPlatform.Twitter,
     SocialMediaPlatform.Instagram,
     SocialMediaPlatform.LinkedIn,
     SocialMediaPlatform.GitHub,
   ]);
+
+  constructor(public readonly environmentService: EnvironmentService) {}
 }
