@@ -71,14 +71,14 @@ export class AppComponent implements OnInit, OnDestroy {
   @HostListener('mousedown', ['$event'])
   private _onMouseDown(): void {
     if (this._environmentService.isBrowserEnvironment) {
-      this._renderer.addClass(document.body, 'App--IsUsingMouse');
+      this._renderer.addClass(this._environmentService.document.body, 'App--IsUsingMouse');
     }
   }
 
   @HostListener('keyup', ['$event'])
   private _onKeyDown({ key: pressedKey }: KeyboardEvent): void {
     if (pressedKey === 'Tab' && this._environmentService.isBrowserEnvironment) {
-      this._renderer.removeClass(document.body, 'App--IsUsingMouse');
+      this._renderer.removeClass(this._environmentService.document.body, 'App--IsUsingMouse');
     }
   }
   // #endregion
@@ -87,8 +87,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private _setColorTheme(updatedColorTheme: ColorTheme): void {
     const opositeColorTheme = updatedColorTheme === ColorTheme.Dark ? ColorTheme.Light : ColorTheme.Dark;
     this._colorTheme = updatedColorTheme;
-    this._renderer.removeClass(document.body, opositeColorTheme);
-    this._renderer.addClass(document.body, updatedColorTheme);
+    this._renderer.removeClass(this._environmentService.document.body, opositeColorTheme);
+    this._renderer.addClass(this._environmentService.document.body, updatedColorTheme);
   }
 
   private _watchSystemColorThemeChange() {
@@ -105,8 +105,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private _playAnimationsOnBrowserLoad() {
     if (this._environmentService.isBrowserEnvironment) {
-      this._renderer.removeClass(document.body, 'App--PrepareForAnimations');
-      this._renderer.addClass(document.body, 'App--AllowAnimations');
+      this._renderer.removeClass(this._environmentService.document.body, 'App--PrepareForAnimations');
+      this._renderer.addClass(this._environmentService.document.body, 'App--AllowAnimations');
     }
   }
   // #endregion

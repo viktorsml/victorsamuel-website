@@ -6,7 +6,7 @@ module.exports = {
     new PurgeCSSPlugin({
       paths: glob.sync('./src/**/*.html', { nodir: true }),
       safelist: {
-        greedy: [/App--AllowAnimations/, /App--PrepareForAnimations/, /mat-button-focus-overlay/, /mat-ripple/, /tooltip$/],
+        greedy: [/App--IsUsingMouse/, /App--AllowAnimations/, /App--PrepareForAnimations/, /mat-button-focus-overlay/, /mat-ripple/, /tooltip$/, /\:focus$/],
       },
     }),
   ],

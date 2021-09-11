@@ -1,6 +1,6 @@
 import { PRODUCTION_DOMAIN, PRODUCTION_GOOGLE_ANALYTICS_ID, TESTING_GOOGLE_ANALYTICS_ID } from 'src/environments/environment.common';
 
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Inject, Injectable, LOCALE_ID, PLATFORM_ID } from '@angular/core';
 
 import { Environment, ISetCookieSettings, ISupportedLanguageDefinition, SupportedLanguage } from './environment.service.models';
@@ -19,7 +19,11 @@ export class EnvironmentService {
     { code: SupportedLanguage.Spanish, label: 'Español', help: 'Cambiar idioma al Español' },
   ];
 
-  constructor(@Inject(PLATFORM_ID) private readonly _platformId: object, @Inject(LOCALE_ID) private readonly _locale: string) {
+  constructor(
+    @Inject(PLATFORM_ID) private readonly _platformId: object,
+    @Inject(LOCALE_ID) private readonly _locale: string,
+    @Inject(DOCUMENT) private readonly _document: Document
+  ) {
     this._isBrowserEnvironment = isPlatformBrowser(_platformId);
     this._isServerEnvironment = isPlatformServer(_platformId);
     this._environment = this._determineEnvironment();
@@ -44,6 +48,10 @@ export class EnvironmentService {
 
   public get currentLanguage(): SupportedLanguage {
     return this._locale.substring(0, 2) as SupportedLanguage;
+  }
+
+  public get document(): Document {
+    return this._document;
   }
   // #endregion Getters And Setters
 
@@ -75,7 +83,7 @@ export class EnvironmentService {
   }
 
   public getCookie(cookieName: string): string | undefined {
-    var match = document.cookie.match(new RegExp('(^| )' + cookieName + '=([^;]+)'));
+    var match = this._document.cookie.match(new RegExp('(^| )' + cookieName + '=([^;]+)'));
     if (!match) {
       return undefined;
     }
@@ -94,7 +102,7 @@ export class EnvironmentService {
         return '; expires=' + date.toUTCString();
       };
 
-      document.cookie = `${key}=${value || ''}${generateExpiration()}; path=${path}`;
+      this._document.cookie = `${key}=${value || ''}${generateExpiration()}; path=${path}`;
       const wasAddedCorrectly = !!this.getCookie(key);
 
       if (wasAddedCorrectly) {
