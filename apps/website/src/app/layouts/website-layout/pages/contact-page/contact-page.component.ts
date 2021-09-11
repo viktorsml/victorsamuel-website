@@ -15,7 +15,7 @@ export class ContactPageComponent {
   public contactEmail = environment.contactEmail;
   public composeNewEmailUrl = environment.composeNewEmailUrl;
   public contactIcons = getSocialMediaDefinitions(
-    [SocialMediaPlatform.LinkedIn, SocialMediaPlatform.Twitter, SocialMediaPlatform.Telegram, SocialMediaPlatform.Messenger, SocialMediaPlatform.WhatsApp],
+    [SocialMediaPlatform.LinkedIn, SocialMediaPlatform.Twitter, SocialMediaPlatform.Telegram, SocialMediaPlatform.WhatsApp],
     { sVGResourceType: SVGResourceType.Colored, socialMediaLinkType: SocialMediaLinkType.Contact }
   );
 

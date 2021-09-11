@@ -16,7 +16,6 @@ export enum SocialMediaPlatform {
   LinkedIn = 'linkedin',
   GitHub = 'github',
   Telegram = 'telegram',
-  Messenger = 'messenger',
   WhatsApp = 'whatsapp',
 }
 
@@ -26,7 +25,6 @@ const platformNames = new Map([
   [SocialMediaPlatform.LinkedIn, 'LinkedIn'],
   [SocialMediaPlatform.GitHub, 'GitHub'],
   [SocialMediaPlatform.Telegram, 'Telegram'],
-  [SocialMediaPlatform.Messenger, 'Messenger'],
   [SocialMediaPlatform.WhatsApp, 'WhatsApp'],
 ]);
 
