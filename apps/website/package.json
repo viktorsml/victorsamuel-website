@@ -48,7 +48,8 @@
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4",
     "cross-env": "~7.0.3",
-    "lodash.merge": "~4.6.2"
+    "lodash.merge": "~4.6.2",
+    "ng2-tooltip-directive": "~2.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.5",
@@ -70,6 +71,8 @@
     "cpx": "~1.5.0",
     "move-cli": "~1.2.1",
     "rimraf": "~3.0.2",
-    "@types/lodash.merge": "~4.6.6"
+    "@types/lodash.merge": "~4.6.6",
+    "@angular-builders/custom-webpack": "~12.1.2",
+    "purgecss-webpack-plugin": "~4.0.3"
   }
 }

@@ -24,7 +24,7 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/victorsamuel-website/browser",
             "index": "src/index.html",
@@ -38,7 +38,10 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/scss"]
             },
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "webpack.config.js"
+            }
           },
           "configurations": {
             "production": {

@@ -3,7 +3,8 @@
     matRipple
     class="SocialProfileLink SocialIcon Link--WithCustomHoverColor CustomIcon--ColorizeOnHover"
     rel="noopener noreferrer"
-    [matTooltip]="icon.platformName + ' profile'"
+    placement="bottom"
+    [tooltip]="icon.platformName + ' profile'"
     [attr.data-platform-key]="icon.platformKey"
     [target]="icon.platformKey"
     [href]="icon.brandedUrl"

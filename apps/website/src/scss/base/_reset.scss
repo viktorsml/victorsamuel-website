@@ -77,3 +77,9 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: rgb(var(--color-text));
   transition: background-color 5000s ease-in-out 0s;
 }
+
+.tooltip {
+  font-size: 0.9em;
+  padding: 0.7em 1em !important;
+  line-height: 1.5em;
+}
