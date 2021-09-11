@@ -53,12 +53,9 @@
 
   & > h1,
   & > p {
-    @include mixins.animation-duration(0.5s);
-    @include mixins.animation-name(fadeInUp);
     text-align: center;
     max-width: 30em;
     margin: 0;
-    opacity: 0;
   }
 
   & > h1 {
@@ -68,7 +65,18 @@
   & > p {
     margin-top: 2em;
     font-size: 1em;
+  }
+}
+
+.App--AllowAnimations .PageTitleArea {
+  & > p {
     animation-delay: 0.25s;
+  }
+
+  & > h1,
+  & > p {
+    @include mixins.animation-duration(0.5s);
+    @include mixins.animation-name(fadeInUp);
   }
 }
 

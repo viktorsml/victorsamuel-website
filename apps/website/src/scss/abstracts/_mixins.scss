@@ -100,6 +100,13 @@
   animation-duration: $value;
 }
 
+@mixin animation($value...) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -o-animation: $value;
+  animation: $value;
+}
+
 @mixin max-width-breakpoint($breakpoint) {
   @media screen and (max-width: $breakpoint) {
     @content;

@@ -109,6 +109,4 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
   private _setSeoMetaInformationBasedOnRouteData() {
     this._seoService.setMetaInformation(this._activatedRoute.snapshot.firstChild?.data as SEOMetaInformation);
   }
-
-  private _watchLanguageChangeInUrl() {}
 }

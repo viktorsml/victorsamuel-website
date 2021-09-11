@@ -30,13 +30,12 @@
   }
 
   &__Title {
-    @include mixins.linear-gradient-text(rgb(var(--color-jonquil-yellow)), rgb(var(--color-tart-orange)), $animation: true);
+    @include mixins.linear-gradient-text(rgb(var(--color-jonquil-yellow)), rgb(var(--color-tart-orange)), $animation: false);
     font-size: 3.9em;
     font-weight: 700;
     margin-bottom: 0.3em;
     max-width: 20em;
     background-size: 150% 150%;
-    animation: subtle-gradient 15s var(--ease-in-out-quad) infinite, fadeInUp 0.75s var(--ease-in-out-quad);
   }
 
   &__Extract {

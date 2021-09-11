@@ -5,14 +5,14 @@ body.App--PrepareForAnimations {
   .A {
     &--FadeIn,
     &--FadeInUp,
-    &--FadeInDown {
+    &--FadeInDown,
+    &--FadeInUpAndSbuttleGlow {
       opacity: 0 !important;
     }
   }
 
   .PageTitleArea > h1,
-  .PageTitleArea > p,
-  .WelcomeArea__Title {
+  .PageTitleArea > p {
     opacity: 0 !important;
   }
 }
@@ -42,5 +42,9 @@ body.App--PrepareForAnimations {
 
   &--FadeInDown {
     @include mixins.animation-name(fadeInDown);
+  }
+
+  &--FadeInUpAndSbuttleGlow {
+    @include mixins.animation(subtle-gradient 15s var(--ease-in-out-quad) infinite, fadeInUp 0.75s var(--ease-in-out-quad));
   }
 }
