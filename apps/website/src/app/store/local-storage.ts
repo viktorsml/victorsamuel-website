@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 
 import { StateKey } from './models';
 import { overwritesWebsiteState } from './website';

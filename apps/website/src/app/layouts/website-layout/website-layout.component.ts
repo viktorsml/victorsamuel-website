@@ -18,12 +18,6 @@ import { INavigationItem } from './website-layout.component.models';
   selector: 'app-website-layout',
   templateUrl: './website-layout.component.html',
   styleUrls: ['./website-layout.component.scss'],
-  animations: [
-    trigger('inOutAnimation', [
-      transition(':enter', [style({ opacity: 0 }), animate('0.3s cubic-bezier(0.75, 0.18, 0.48, 0.98)', style({ opacity: 1 }))]),
-      transition(':leave', [style({ opacity: 1 }), animate('0.3s cubic-bezier(0.75, 0.18, 0.48, 0.98)', style({ opacity: 0 }))]),
-    ]),
-  ],
 })
 export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('RouterOutletContainer') private _routerOutletContainer!: ElementRef;

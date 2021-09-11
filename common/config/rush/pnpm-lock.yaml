@@ -17,7 +17,6 @@ specifiers:
   '@angular/platform-browser-dynamic': ~12.2.5
   '@angular/platform-server': ~12.2.5
   '@angular/router': ~12.2.5
-  '@babel/core': ~7.15.5
   '@cloudflare/workers-types': ^2.2.2
   '@ngrx/effects': ^12.2.0
   '@ngrx/store': ^12.1.0
@@ -37,7 +36,6 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^4.16.1
   '@typescript-eslint/parser': ^4.16.1
   angular-google-tag-manager: ^1.4.2
-  babelify: ~10.0.0
   cpx: ~1.5.0
   cross-env: ~7.0.3
   date-fns: ^2.22.1
@@ -54,6 +52,7 @@ specifiers:
   karma-jasmine: ~4.0.0
   karma-jasmine-html-reporter: ^1.5.0
   lodash: ^4.17.21
+  lodash.merge: ~4.6.2
   move-cli: ~1.2.1
   ng-in-viewport: ^6.1.5
   ngx-clipboard: ^14.0.1
@@ -66,7 +65,6 @@ specifiers:
   ts-loader: ^9.2.2
   tsconfig-paths-webpack-plugin: ^3.5.1
   tslib: ^2.1.0
-  uglifyify: ~5.0.2
   webpack: ^5.38.1
   webpack-cli: ^4.7.0
   zone.js: ~0.11.4
@@ -88,7 +86,6 @@ dependencies:
   '@angular/platform-browser-dynamic': 12.2.5_f2303d20151cf4b3390188f3a3027acd
   '@angular/platform-server': 12.2.5_e9254e62c2a79b98a2be68fec4e233be
   '@angular/router': 12.2.5_415910e21aa908f435e87fb8acb59956
-  '@babel/core': 7.15.5
   '@cloudflare/workers-types': 2.2.2
   '@ngrx/effects': 12.4.0_15e51470ec18e17cf78eb1ed8366a023
   '@ngrx/store': 12.4.0_@angular+core@12.2.5+rxjs@6.6.7
@@ -96,7 +93,7 @@ dependencies:
   '@nguniversal/builders': 12.1.0_aa5cfec2d011b023514769b0b288a09d
   '@nguniversal/express-engine': 12.1.0_10d6aa3575fcf4a4282988ab61aac716
   '@notionhq/client': 0.2.4
-  '@rush-temp/api': file:projects/api.tgz_@babel+core@7.15.5
+  '@rush-temp/api': file:projects/api.tgz
   '@rush-temp/website': file:projects/website.tgz_webpack-cli@4.8.0
   '@schematics/angular': 12.2.5
   '@types/express': 4.17.13
@@ -108,7 +105,6 @@ dependencies:
   '@typescript-eslint/eslint-plugin': 4.31.0_ae4feb1ae2dfa3376bbbfb89e137cd6b
   '@typescript-eslint/parser': 4.31.0_eslint@7.32.0
   angular-google-tag-manager: 1.4.2_84bbe4ed21a0ec2db5b55cecc323e7e6
-  babelify: 10.0.0_@babel+core@7.15.5
   cpx: 1.5.0
   cross-env: 7.0.3
   date-fns: 2.23.0
@@ -125,6 +121,7 @@ dependencies:
   karma-jasmine: 4.0.1_karma@6.3.4
   karma-jasmine-html-reporter: 1.7.0_d3d9a1d04661e1ed0dd13239e59ff6ed
   lodash: 4.17.21
+  lodash.merge: 4.6.2
   move-cli: 1.2.1
   ng-in-viewport: 6.1.5_a5a438fe4cbb8d9ad8d7a69ba2d01492
   ngx-clipboard: 14.0.1_84bbe4ed21a0ec2db5b55cecc323e7e6
@@ -133,11 +130,10 @@ dependencies:
   rimraf: 3.0.2
   rxjs: 6.6.7
   service-worker-mock: 2.0.5
-  ts-jest: 27.0.5_c80133b094338a1653fb2ab00976c679
+  ts-jest: 27.0.5_@types+jest@26.0.24+jest@27.1.1
   ts-loader: 9.2.5_webpack@5.39.1
   tsconfig-paths-webpack-plugin: 3.5.1
   tslib: 2.3.1
-  uglifyify: 5.0.2
   webpack: 5.39.1_webpack-cli@4.8.0
   webpack-cli: 4.8.0_webpack@5.39.1
   zone.js: 0.11.4
@@ -2693,13 +2689,13 @@ packages:
     resolution: {integrity: sha512-SCFeogqiptms4Fg29WpOTk5nHIzfpKCemSN63ksBQYKTcXoJEmJagV+DhVmbapZzY4/5YaOV1nZwrsU79fFm1g==}
     dependencies:
       '@types/eslint': 7.28.0
-      '@types/estree': 0.0.47
+      '@types/estree': 0.0.50
     dev: false
 
   /@types/eslint/7.28.0:
     resolution: {integrity: sha512-07XlgzX0YJUn4iG1ocY4IX9DzKSmMGUs6ESKlxWhZRaa0fatIWaHWUVapcuGa8r5HFnTqzj+4OCjd5f7EZ/i/A==}
     dependencies:
-      '@types/estree': 0.0.47
+      '@types/estree': 0.0.50
       '@types/json-schema': 7.0.9
     dev: false
 
@@ -2780,6 +2776,12 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
+    dev: false
+
+  /@types/lodash.merge/4.6.6:
+    resolution: {integrity: sha512-IB90krzMf7YpfgP3u/EvZEdXVvm4e3gJbUvh5ieuI+o+XqiNEt6fCzqNRaiLlPVScLI59RxIGZMQ3+Ko/DJ8vQ==}
+    dependencies:
+      '@types/lodash': 4.14.172
     dev: false
 
   /@types/lodash/4.14.172:
@@ -12795,7 +12797,7 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /ts-jest/27.0.5_1eb11153ed2318ac1973b9f84c114539:
+  /ts-jest/27.0.5_@types+jest@26.0.24+jest@27.1.1:
     resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
@@ -12813,7 +12815,36 @@ packages:
       babel-jest:
         optional: true
     dependencies:
-      '@babel/core': 7.15.5
+      '@types/jest': 26.0.24
+      bs-logger: 0.2.6
+      fast-json-stable-stringify: 2.1.0
+      jest: 27.1.1
+      jest-util: 27.1.1
+      json5: 2.2.0
+      lodash: 4.17.21
+      make-error: 1.3.6
+      semver: 7.3.5
+      yargs-parser: 20.2.9
+    dev: false
+
+  /ts-jest/27.0.5_b0de3831a3508d250bf516b99371e877:
+    resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    hasBin: true
+    peerDependencies:
+      '@babel/core': '>=7.0.0-beta.0 <8'
+      '@types/jest': ^27.0.0
+      babel-jest: '>=27.0.0 <28'
+      jest: ^27.0.0
+      typescript: '>=3.8 <5.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/jest':
+        optional: true
+      babel-jest:
+        optional: true
+    dependencies:
       '@types/jest': 26.0.24
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
@@ -12824,37 +12855,6 @@ packages:
       make-error: 1.3.6
       semver: 7.3.5
       typescript: 4.4.2
-      yargs-parser: 20.2.9
-    dev: false
-
-  /ts-jest/27.0.5_c80133b094338a1653fb2ab00976c679:
-    resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
-    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
-    hasBin: true
-    peerDependencies:
-      '@babel/core': '>=7.0.0-beta.0 <8'
-      '@types/jest': ^27.0.0
-      babel-jest: '>=27.0.0 <28'
-      jest: ^27.0.0
-      typescript: '>=3.8 <5.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/jest':
-        optional: true
-      babel-jest:
-        optional: true
-    dependencies:
-      '@babel/core': 7.15.5
-      '@types/jest': 26.0.24
-      bs-logger: 0.2.6
-      fast-json-stable-stringify: 2.1.0
-      jest: 27.1.1
-      jest-util: 27.1.1
-      json5: 2.2.0
-      lodash: 4.17.21
-      make-error: 1.3.6
-      semver: 7.3.5
       yargs-parser: 20.2.9
     dev: false
 
@@ -13879,9 +13879,8 @@ packages:
       tslib: 2.3.1
     dev: false
 
-  file:projects/api.tgz_@babel+core@7.15.5:
+  file:projects/api.tgz:
     resolution: {integrity: sha512-uMHXW5NumSF5Ec6tThholhdgqL52m+mh/71TFs/jq73xu19G8PPD9d3zc2clrR3KQ3fx6zhCXBrhAEPjzPLUng==, tarball: file:projects/api.tgz}
-    id: file:projects/api.tgz
     name: '@rush-temp/api'
     version: 0.0.0
     dependencies:
@@ -13898,7 +13897,7 @@ packages:
       jest: 27.1.1
       prettier: 2.3.2
       service-worker-mock: 2.0.5
-      ts-jest: 27.0.5_1eb11153ed2318ac1973b9f84c114539
+      ts-jest: 27.0.5_b0de3831a3508d250bf516b99371e877
       ts-loader: 9.2.5_typescript@4.4.2+webpack@5.50.0
       tsconfig-paths-webpack-plugin: 3.5.1
       typescript: 4.4.2
@@ -13920,7 +13919,7 @@ packages:
     dev: false
 
   file:projects/website.tgz_webpack-cli@4.8.0:
-    resolution: {integrity: sha512-9PknavKhWy/k69+X/pT0aowmJf7qfWCTHIVayX6bWq7afuqdx+mWHX2M/ci8hELz1L3EBolKVQrgehUPHshMSA==, tarball: file:projects/website.tgz}
+    resolution: {integrity: sha512-s+tsd3wio8NKQbu4du6DsPUg6L24qPQkdZjcY//RfWvpgQCaRtslcycPyj4K4QbOnCj6W7zm73+9XOHoq0s5RA==, tarball: file:projects/website.tgz}
     id: file:projects/website.tgz
     name: '@rush-temp/website'
     version: 0.0.0
@@ -13951,6 +13950,7 @@ packages:
       '@types/express': 4.17.13
       '@types/jasmine': 3.6.11
       '@types/lodash': 4.14.172
+      '@types/lodash.merge': 4.6.6
       '@types/node': 12.20.24
       angular-google-tag-manager: 1.4.2_84bbe4ed21a0ec2db5b55cecc323e7e6
       babelify: 10.0.0_@babel+core@7.15.5
@@ -13966,6 +13966,7 @@ packages:
       karma-jasmine: 4.0.1_karma@6.3.4
       karma-jasmine-html-reporter: 1.7.0_d3d9a1d04661e1ed0dd13239e59ff6ed
       lodash: 4.17.21
+      lodash.merge: 4.6.2
       move-cli: 1.2.1
       ng-in-viewport: 6.1.5_a5a438fe4cbb8d9ad8d7a69ba2d01492
       ngx-clipboard: 14.0.1_84bbe4ed21a0ec2db5b55cecc323e7e6

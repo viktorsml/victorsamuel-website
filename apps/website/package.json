@@ -47,7 +47,8 @@
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4",
-    "cross-env": "~7.0.3"
+    "cross-env": "~7.0.3",
+    "lodash.merge": "~4.6.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.5",
@@ -68,6 +69,7 @@
     "typescript": "~4.2.3",
     "cpx": "~1.5.0",
     "move-cli": "~1.2.1",
-    "rimraf": "~3.0.2"
+    "rimraf": "~3.0.2",
+    "@types/lodash.merge": "~4.6.6"
   }
 }
