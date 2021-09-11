@@ -52,7 +52,7 @@
       var isStoredLanguageSupported = supportedLangs.includes(storedLanguage);
       (function () {
         if (isStoredLanguageSupported) {
-          return makeRedirect('Redirecting stored language...', userLanguage);
+          return makeRedirect('Redirecting stored language...', storedLanguage);
         }
         if (isUserLanguageSupported) {
           return makeRedirect('Redirecting browser language language...', userLanguage);
