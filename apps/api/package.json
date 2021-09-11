@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@notionhq/client": "^0.2.0",
-    "itty-router": "^2.3.10"
+    "itty-router": "^2.3.10",
+    "@viktorsml/logic-core": "~1.0.0"
   }
 }

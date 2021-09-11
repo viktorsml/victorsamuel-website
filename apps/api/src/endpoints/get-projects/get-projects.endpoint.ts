@@ -1,16 +1,17 @@
+import { extractPlainText } from '@helpers/data-manipulation';
 import { Page } from '@notionhq/client/build/src/api-types';
 import {
-  checkboxPropertyAccessor, datePropertyAccessor, lastEditedTimePropertyAccessor, multiSelectPropertyAccessor, notion,
+  datePropertyAccessor, lastEditedTimePropertyAccessor, multiSelectPropertyAccessor, notion, richTextPropertyAccessor,
   selectPropertyAccessor, titlePropertyAccessor, urlPropertyAccessor
 } from '@services/notion';
 import { settings } from '@settings/environment';
-
-import { IProjectItem } from './get-projects.models';
+import { IProjectItem } from '@shared/models/project';
 
 export const convertPageToProjectDefinition = (page: Page): IProjectItem => {
   return {
     id: page.id,
-    projectName: titlePropertyAccessor('Project Name', page.properties)?.title[0].plain_text,
+    urlSlug: extractPlainText(richTextPropertyAccessor('URL Slug', page.properties)?.rich_text),
+    projectName: extractPlainText(titlePropertyAccessor('Project Name', page.properties)?.title),
     date: {
       published: datePropertyAccessor('Published', page.properties)?.date.start,
       updated: lastEditedTimePropertyAccessor('Updated', page.properties)?.last_edited_time,
@@ -21,15 +22,31 @@ export const convertPageToProjectDefinition = (page: Page): IProjectItem => {
       repository: urlPropertyAccessor('Repository', page.properties)?.url,
       landingPage: urlPropertyAccessor('Project Landing Page', page.properties)?.url,
     },
+    shortDescription: extractPlainText(richTextPropertyAccessor('Short Description', page.properties)?.rich_text),
+    gridImageUrl: urlPropertyAccessor('Grid Image URL', page.properties)?.url,
   }
 }
 
 export const getProjects = async (): Promise<IProjectItem[]> => {
-  const storedProjects = await notion.databases.query({ database_id: settings.databaseId })
+  const storedProjects = await notion.databases.query({
+    database_id: settings.databaseId,
+    filter: {
+      property: 'Is Public',
+      checkbox: {
+        equals: true,
+      },
+    },
+    sorts: [
+      {
+        property: 'Published',
+        direction: 'descending',
+      },
+    ],
+  })
 
   if (storedProjects.object !== 'list') {
     return []
   }
 
-  return storedProjects.results.filter((page) => checkboxPropertyAccessor('Is Public', page.properties)).map(convertPageToProjectDefinition)
+  return storedProjects.results.map(convertPageToProjectDefinition)
 }

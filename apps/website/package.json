@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run dev:ssr",
     "build": "npm run prerender",
     "build:server": "ng run victorsamuel-website:server && cpx proxy-server.js dist/victorsamuel-website",
     "build:ssr": "ng build && npm run build:server",
@@ -49,7 +49,8 @@
     "zone.js": "~0.11.4",
     "cross-env": "~7.0.3",
     "lodash.merge": "~4.6.2",
-    "ng2-tooltip-directive": "~2.10.3"
+    "ng2-tooltip-directive": "~2.10.3",
+    "@viktorsml/logic-core": "~1.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.5",

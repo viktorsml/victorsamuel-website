@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "module": "commonjs",
+    "module": "ES6",
     "target": "esnext",
     "lib": ["esnext", "webworker"],
     "alwaysStrict": true,
@@ -11,12 +11,13 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "types": ["@cloudflare/workers-types", "@types/jest", "@types/service-worker-mock"],
-    "baseUrl": "./src/",
+    "baseUrl": "./",
     "paths": {
-      "@endpoints/*": ["endpoints/*"],
-      "@helpers/*": ["helpers/*"],
-      "@services/*": ["services/*"],
-      "@settings/*": ["settings/*"]
+      "@endpoints/*": ["src/endpoints/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@services/*": ["src/services/*"],
+      "@settings/*": ["src/settings/*"],
+      "@shared/*": ["node_modules/@viktorsml/logic-core/src/*"],
     }
   },
   "include": ["src"],

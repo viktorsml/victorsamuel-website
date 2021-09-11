@@ -1,4 +1,4 @@
-import { IProjectItem } from '@services/backend-api';
+import { IProjectItem } from '@shared/models/project';
 
 export interface IWebsiteState {
   readonly isLoading: boolean;

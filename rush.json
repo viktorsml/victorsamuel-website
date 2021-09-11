@@ -389,6 +389,10 @@
       "packageName": "@viktorsml/api",
       "projectFolder": "apps/api",
       "reviewCategory": "production"
+    },
+    {
+      "packageName": "@viktorsml/logic-core",
+      "projectFolder": "libraries/logic-core"
     }
     // {
     //   /**

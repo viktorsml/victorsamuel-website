@@ -26,7 +26,8 @@
       "@services/*": ["./src/app/services/*"],
       "@mocks/*": ["./src/app/mocks/*"],
       "@pipes/*": ["./src/app/pipes/*"],
-      "@directives/*": ["./src/app/directives/*"]
+      "@directives/*": ["./src/app/directives/*"],
+      "@shared/*": ["node_modules/@viktorsml/logic-core/src/*"],
     }
   },
   "angularCompilerOptions": {

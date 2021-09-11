@@ -4,6 +4,7 @@ import { take } from 'rxjs/operators';
 
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { EnvironmentService } from '@services/environment';
 import { IAppState } from '@store/models';
 import { ApiCallStatus, getProjectListDataState, LoadProjectListAction } from '@store/website';
 
@@ -16,7 +17,7 @@ export class ProjectsPageComponent implements OnInit {
   public projectListData$ = this._store.select(getProjectListDataState);
   private _projectListUpdateThresholdInMinutes = 60;
 
-  constructor(private readonly _store: Store<IAppState>, private readonly _renderer: Renderer2) {}
+  constructor(private readonly _store: Store<IAppState>, private readonly _renderer: Renderer2, public readonly environmentService: EnvironmentService) {}
 
   public ngOnInit(): void {
     this.projectListData$.pipe(take(1)).subscribe(({ updatedDate: updatedDateAsIsoString, status }) => {
@@ -43,5 +44,12 @@ export class ProjectsPageComponent implements OnInit {
     const inactiveClass = 'ProjectCard--OutsideViewport';
     this._renderer.addClass(target, visible ? activeClass : inactiveClass);
     this._renderer.removeClass(target, visible ? inactiveClass : activeClass);
+  }
+
+  public toKebabCase(str: string) {
+    return str
+      .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+      ?.map((x) => x.toLowerCase())
+      .join('-');
   }
 }

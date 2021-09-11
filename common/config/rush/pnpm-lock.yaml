@@ -26,6 +26,7 @@ specifiers:
   '@nguniversal/express-engine': ^12.1.0
   '@notionhq/client': ^0.2.0
   '@rush-temp/api': file:./projects/api.tgz
+  '@rush-temp/logic-core': file:./projects/logic-core.tgz
   '@rush-temp/website': file:./projects/website.tgz
   '@schematics/angular': ^12.2.5
   '@types/express': ^4.17.0
@@ -57,6 +58,7 @@ specifiers:
   lodash.merge: ~4.6.2
   move-cli: ~1.2.1
   ng-in-viewport: ^6.1.5
+  ng2-tooltip-directive: ~2.10.3
   ngx-clipboard: ^14.0.1
   prettier: ^2.3.0
   purgecss-webpack-plugin: ~4.0.3
@@ -98,6 +100,7 @@ dependencies:
   '@nguniversal/express-engine': 12.1.0_10d6aa3575fcf4a4282988ab61aac716
   '@notionhq/client': 0.2.4
   '@rush-temp/api': file:projects/api.tgz
+  '@rush-temp/logic-core': file:projects/logic-core.tgz
   '@rush-temp/website': file:projects/website.tgz_webpack-cli@4.8.0
   '@schematics/angular': 12.2.5
   '@types/express': 4.17.13
@@ -129,6 +132,7 @@ dependencies:
   lodash.merge: 4.6.2
   move-cli: 1.2.1
   ng-in-viewport: 6.1.5_a5a438fe4cbb8d9ad8d7a69ba2d01492
+  ng2-tooltip-directive: 2.10.3_84bbe4ed21a0ec2db5b55cecc323e7e6
   ngx-clipboard: 14.0.1_84bbe4ed21a0ec2db5b55cecc323e7e6
   prettier: 2.3.2
   purgecss-webpack-plugin: 4.0.3_webpack-cli@4.8.0
@@ -14140,6 +14144,12 @@ packages:
       - utf-8-validate
       - webpack-bundle-analyzer
       - webpack-dev-server
+    dev: false
+
+  file:projects/logic-core.tgz:
+    resolution: {integrity: sha512-i02kApjOFAGMWLZvLf3rstLlH16paDI3VlQrccLXBJn/7W814s54YmOjHpB1wiCgzQrvFGT1+wVwqGUgsLlI2A==, tarball: file:projects/logic-core.tgz}
+    name: '@rush-temp/logic-core'
+    version: 0.0.0
     dev: false
 
   file:projects/website.tgz_webpack-cli@4.8.0:

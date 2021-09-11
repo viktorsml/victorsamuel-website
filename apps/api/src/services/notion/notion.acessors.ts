@@ -1,13 +1,8 @@
-import { PropertyValueMap } from '@notionhq/client/build/src/api-endpoints'
+import { PropertyValueMap } from '@notionhq/client/build/src/api-endpoints';
 import {
-  CheckboxPropertyValue,
-  DatePropertyValue,
-  LastEditedTimePropertyValue,
-  MultiSelectPropertyValue,
-  SelectPropertyValue,
-  TitlePropertyValue,
-  URLPropertyValue,
-} from '@notionhq/client/build/src/api-types'
+  CheckboxPropertyValue, DatePropertyValue, LastEditedTimePropertyValue, MultiSelectPropertyValue, RichTextPropertyValue,
+  SelectPropertyValue, TitlePropertyValue, URLPropertyValue
+} from '@notionhq/client/build/src/api-types';
 
 export const notionPropertyAccessor = <T>(propertyName: string, properties: PropertyValueMap, type: string): T | null => {
   const block = properties[propertyName]
@@ -17,7 +12,7 @@ export const notionPropertyAccessor = <T>(propertyName: string, properties: Prop
   }
 
   if (block.type !== type) {
-    throw new Error(`Date '${type}' was expected, instead got a block with type of '${block.type}'`)
+    throw new Error(`Type '${type}' was expected, instead got a block with type of '${block.type}'`)
   }
   return block as unknown as T
 }
@@ -48,4 +43,8 @@ export const urlPropertyAccessor = (propertyName: string, properties: PropertyVa
 
 export const checkboxPropertyAccessor = (propertyName: string, properties: PropertyValueMap): boolean => {
   return notionPropertyAccessor<CheckboxPropertyValue>(propertyName, properties, 'checkbox')?.checkbox === true
+}
+
+export const richTextPropertyAccessor = (propertyName: string, properties: PropertyValueMap): RichTextPropertyValue | null => {
+  return notionPropertyAccessor<RichTextPropertyValue>(propertyName, properties, 'rich_text')
 }
