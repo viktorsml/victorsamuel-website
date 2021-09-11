@@ -8,7 +8,9 @@ if (environment.production) {
   enableProdMode();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+const documentRef = document ? document : { addEventListener: (...args: any[]) => undefined };
+
+documentRef.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .catch((err) => console.error(err));
