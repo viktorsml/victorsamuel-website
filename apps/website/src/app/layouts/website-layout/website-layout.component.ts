@@ -92,7 +92,6 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   private _onNavigationEnd(event: NavigationEnd): void {
-    console.log(event);
     this._setSeoMetaInformationBasedOnRouteData();
   }
 

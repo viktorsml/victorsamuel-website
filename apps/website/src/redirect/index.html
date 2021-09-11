@@ -5,27 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Victor Samuel</title>
     <script>
-      function getCookie(name) {
-        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-        if (match) return match[2];
-      }
-      function parseLang(rawLang) {
-        return rawLang.length > 2 ? rawLang.substr(0, 2) : rawLang;
-      }
-      var defaultLang = 'en';
-      var supportedLangs = ['en', 'es'];
-      var userLang = parseLang(navigator.language || navigator.userLanguage);
-      var storedLang = getCookie('lang') ? parseLang(getCookie('lang')) : null;
-      var isUserLangSupported = supportedLangs.includes(userLang);
-      var isStoredLangSupported = supportedLangs.includes(storedLang);
-      var requestedUrl = window.location.pathname.length > 1 ? window.location.pathname : '/about';
-      if (isStoredLangSupported) {
-        window.location.replace(window.location.origin + '/' + storedLang + requestedUrl);
-      }
-      if (isUserLangSupported) {
-        window.location.replace(window.location.origin + '/' + userLang + requestedUrl);
-      }
-      window.location.replace(window.location.origin + '/' + defaultLang + requestedUrl);
+      (function () {
+        var defaultLang = 'en';
+        var supportedLangs = ['en', 'es'];
+        function getCookie(name) {
+          var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+          if (match) return match[2];
+        }
+        function parseLang(rawLang) {
+          return rawLang.length > 2 ? rawLang.substr(0, 2) : rawLang;
+        }
+        function getRedirectUrl(language) {
+          var languageDetectRegex = /^(\/[a-zA-Z]{2}\/)/;
+          var originalPath = window.location.pathname;
+          var requestedPath = originalPath !== '/' && !originalPath.match(/^(\/[a-zA-Z]{2}\/?)$/) ? originalPath : '/xx/about';
+          if (requestedPath.match(languageDetectRegex)) {
+            return window.location.origin + requestedPath.replace(languageDetectRegex, '/' + language + '/');
+          }
+          return window.location.origin + '/' + language + requestedPath;
+        }
+        var userLanguage = parseLang(navigator.language || navigator.userLanguage);
+        var storedLanguage = getCookie('lang') ? parseLang(getCookie('lang')) : null;
+        var isUserLanguageSupported = supportedLangs.includes(userLanguage);
+        var isStoredLanguageSupported = supportedLangs.includes(storedLanguage);
+        if (isStoredLanguageSupported) {
+          console.debug('Redirecting stored language...', getRedirectUrl(userLanguage));
+          return (window.location.href = getRedirectUrl(storedLanguage));
+        }
+        if (isUserLanguageSupported) {
+          console.debug('Redirecting browser language language...', getRedirectUrl(userLanguage));
+          return (window.location.href = getRedirectUrl(userLanguage));
+        }
+        console.debug('Redirecting using default application language...', getRedirectUrl(defaultLang));
+        return (window.location.href = getRedirectUrl(defaultLang));
+      })();
     </script>
   </head>
   <body></body>
