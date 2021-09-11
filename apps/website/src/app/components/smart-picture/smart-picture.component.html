@@ -5,5 +5,7 @@
       <source *ngIf="definition.resourcePath" [srcset]="definition.resourcePath" [type]="'image/' + definition.imageType" />
     </ng-container>
   </ng-container>
-  <img [style.width]="bindIsResponsive ? '100%' : 'inherit'" [style.height]="bindIsResponsive ? '100%' : 'inherit'" [alt]="settings.alt" />
+  <ng-container *ngVar="bindIsResponsive ? '100%' : 'inherit'; let size">
+    <img [style.width]="size" [style.height]="size" [width]="size" [height]="size" [alt]="settings.alt" />
+  </ng-container>
 </picture>
