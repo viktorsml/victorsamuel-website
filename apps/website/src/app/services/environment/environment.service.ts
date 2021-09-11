@@ -3,7 +3,7 @@ import { PRODUCTION_DOMAIN, PRODUCTION_GOOGLE_ANALYTICS_ID, TESTING_GOOGLE_ANALY
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Inject, Injectable, LOCALE_ID, PLATFORM_ID } from '@angular/core';
 
-import { Environment, ISupportedLanguageDefinition, SupportedLanguage } from './environment.service.models';
+import { Environment, ISetCookieSettings, ISupportedLanguageDefinition, SupportedLanguage } from './environment.service.models';
 
 @Injectable({
   providedIn: 'root',
@@ -72,5 +72,40 @@ export class EnvironmentService {
       default:
         return TESTING_GOOGLE_ANALYTICS_ID;
     }
+  }
+
+  public getCookie(cookieName: string): string | undefined {
+    var match = document.cookie.match(new RegExp('(^| )' + cookieName + '=([^;]+)'));
+    if (!match) {
+      return undefined;
+    }
+    return match[2];
+  }
+
+  public setCookie({ key, value, days = 10, path = '/' }: ISetCookieSettings): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      const generateExpiration = () => {
+        if (!days) {
+          return '';
+        }
+
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        return '; expires=' + date.toUTCString();
+      };
+
+      document.cookie = `${key}=${value || ''}${generateExpiration()}; path=${path}`;
+      const wasAddedCorrectly = !!this.getCookie(key);
+
+      if (wasAddedCorrectly) {
+        resolve(wasAddedCorrectly);
+      } else {
+        reject(wasAddedCorrectly);
+      }
+    });
+  }
+
+  public removeCookie(cookieName: string): Promise<boolean> {
+    return this.setCookie({ key: cookieName, value: '', days: -99 });
   }
 }

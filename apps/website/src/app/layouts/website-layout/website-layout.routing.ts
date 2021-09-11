@@ -29,6 +29,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/contact-page').then((m) => m.ContactPageModule),
       },
       {
+        path: 'not-found',
+        data: <SEOMetaInformation>{ pageTitle: 'Victor Samuel | Not Found' },
+        loadChildren: () => import('./pages/not-found-page').then((m) => m.NotFoundPageModule),
+      },
+      {
         path: '**',
         data: <SEOMetaInformation>{ pageTitle: 'Victor Samuel | Not Found' },
         loadChildren: () => import('./pages/not-found-page').then((m) => m.NotFoundPageModule),

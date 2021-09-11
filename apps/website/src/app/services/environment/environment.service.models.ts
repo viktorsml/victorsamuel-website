@@ -17,3 +17,10 @@ export interface ISupportedLanguageDefinition {
   label: string;
   help: string;
 }
+
+export interface ISetCookieSettings {
+  key: string;
+  value: string;
+  days?: number;
+  path?: string;
+}
