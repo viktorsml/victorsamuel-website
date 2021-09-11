@@ -2,7 +2,6 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { EnvironmentService } from '@services/environment';
 import { SupportedLanguage } from '@services/environment/environment.service.models';
 
-import { setCookie } from './language-switcher.component.helpers';
 import { DisplayMode } from './language-switcher.component.models';
 
 @Component({
@@ -23,8 +22,10 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {}
 
-  public onLanguageChange(language: SupportedLanguage) {
-    setCookie({ name: 'lang', value: language });
-    window.location.href = window.location.href.replace(/(\/[a-zA-Z]{2}\/)/, `/${language}/`);
+  public async onLanguageChange(language: SupportedLanguage) {
+    if (this.environmentService.isBrowserEnvironment) {
+      await this.environmentService.setCookie({ key: 'lang', value: language });
+      window.location.href = window.location.href.replace(/(\/[a-zA-Z]{2}\/)/, `/${language}/`);
+    }
   }
 }

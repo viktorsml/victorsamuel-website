@@ -70,12 +70,14 @@ export class AppComponent implements OnInit, OnDestroy {
   // #region Accessibility
   @HostListener('mousedown', ['$event'])
   private _onMouseDown(): void {
-    this._renderer.addClass(document.body, 'App--IsUsingMouse');
+    if (this._environmentService.isBrowserEnvironment) {
+      this._renderer.addClass(document.body, 'App--IsUsingMouse');
+    }
   }
 
   @HostListener('keyup', ['$event'])
   private _onKeyDown({ key: pressedKey }: KeyboardEvent): void {
-    if (pressedKey === 'Tab') {
+    if (pressedKey === 'Tab' && this._environmentService.isBrowserEnvironment) {
       this._renderer.removeClass(document.body, 'App--IsUsingMouse');
     }
   }
