@@ -18,6 +18,7 @@ specifiers:
   '@angular/platform-browser-dynamic': ~12.2.5
   '@angular/platform-server': ~12.2.5
   '@angular/router': ~12.2.5
+  '@angular/service-worker': ~12.2.5
   '@cloudflare/workers-types': ^2.2.2
   '@ngrx/effects': ^12.2.0
   '@ngrx/store': ^12.1.0
@@ -75,8 +76,8 @@ specifiers:
   zone.js: ~0.11.4
 
 dependencies:
-  '@angular-builders/custom-webpack': 12.1.2_83d8e31a5716be76de03ac95f1cd2261
-  '@angular-devkit/build-angular': 12.2.5_d1eef1127fda15c1fdf17051a01011c2
+  '@angular-builders/custom-webpack': 12.1.2_e4384b2b99416ffc9799c9d2a2c6f129
+  '@angular-devkit/build-angular': 12.2.5_7497372e033d12713a4c5aa451fc4b79
   '@angular-devkit/schematics': 12.2.5
   '@angular/animations': 12.2.5_@angular+core@12.2.5
   '@angular/cdk': 12.2.5_a5a438fe4cbb8d9ad8d7a69ba2d01492
@@ -92,6 +93,7 @@ dependencies:
   '@angular/platform-browser-dynamic': 12.2.5_f2303d20151cf4b3390188f3a3027acd
   '@angular/platform-server': 12.2.5_e9254e62c2a79b98a2be68fec4e233be
   '@angular/router': 12.2.5_415910e21aa908f435e87fb8acb59956
+  '@angular/service-worker': 12.2.5_84bbe4ed21a0ec2db5b55cecc323e7e6
   '@cloudflare/workers-types': 2.2.2
   '@ngrx/effects': 12.4.0_15e51470ec18e17cf78eb1ed8366a023
   '@ngrx/store': 12.4.0_@angular+core@12.2.5+rxjs@6.6.7
@@ -158,15 +160,15 @@ packages:
       sourcemap-codec: 1.4.8
     dev: false
 
-  /@angular-builders/custom-webpack/12.1.2_83d8e31a5716be76de03ac95f1cd2261:
+  /@angular-builders/custom-webpack/12.1.2_07d16529d5d837a1321c52e7117e7fb1:
     resolution: {integrity: sha512-rvHFiZkHCnVAh3nd/mGpJxjbs5LKXvhTRhec7ozkGMyqt0wZK44BsLKcH5VOiIwHQnjrkjtMc0Blaq5JhccwWw==}
     engines: {node: '>=12.14.1'}
     dependencies:
       '@angular-devkit/architect': 0.1202.5
-      '@angular-devkit/build-angular': 12.2.5_d1eef1127fda15c1fdf17051a01011c2
+      '@angular-devkit/build-angular': 12.2.5_c8acce58ec31339ebbec4bdaa3c7e694
       '@angular-devkit/core': 12.2.5
       lodash: 4.17.21
-      ts-node: 10.2.1_@types+node@12.20.24
+      ts-node: 10.2.1_75e14d22e8599d6a99e9b2b090c8e6eb
       tsconfig-paths: 3.11.0
       webpack-merge: 5.8.0
     transitivePeerDependencies:
@@ -193,15 +195,15 @@ packages:
       - webpack-cli
     dev: false
 
-  /@angular-builders/custom-webpack/12.1.2_8b1e2ac207817586d9cc75c70a0f3483:
+  /@angular-builders/custom-webpack/12.1.2_e4384b2b99416ffc9799c9d2a2c6f129:
     resolution: {integrity: sha512-rvHFiZkHCnVAh3nd/mGpJxjbs5LKXvhTRhec7ozkGMyqt0wZK44BsLKcH5VOiIwHQnjrkjtMc0Blaq5JhccwWw==}
     engines: {node: '>=12.14.1'}
     dependencies:
       '@angular-devkit/architect': 0.1202.5
-      '@angular-devkit/build-angular': 12.2.5_ff1ad8a65f58d0d4fbfb9ba891dfad27
+      '@angular-devkit/build-angular': 12.2.5_7497372e033d12713a4c5aa451fc4b79
       '@angular-devkit/core': 12.2.5
       lodash: 4.17.21
-      ts-node: 10.2.1_75e14d22e8599d6a99e9b2b090c8e6eb
+      ts-node: 10.2.1_@types+node@12.20.24
       tsconfig-paths: 3.11.0
       webpack-merge: 5.8.0
     transitivePeerDependencies:
@@ -244,7 +246,7 @@ packages:
       rxjs: 6.6.7
     dev: false
 
-  /@angular-devkit/build-angular/12.2.5_d1eef1127fda15c1fdf17051a01011c2:
+  /@angular-devkit/build-angular/12.2.5_7497372e033d12713a4c5aa451fc4b79:
     resolution: {integrity: sha512-v44FAFMGSXJLKx25REXdoTdW/WzNXV3BDJam9ZKHFOrdtwJek4D/tEdtNHiQP4HberOHzmVjvKffa5VYXzZ40g==}
     engines: {node: ^12.14.1 || >=14.0.0, npm: ^6.11.0 || ^7.5.6, yarn: '>= 1.13.0'}
     peerDependencies:
@@ -280,6 +282,7 @@ packages:
       '@angular-devkit/core': 12.2.5
       '@angular/compiler-cli': 12.2.5_@angular+compiler@12.2.5
       '@angular/localize': 12.2.5_7d6d1113172f1bef2de4f98ca421226d
+      '@angular/service-worker': 12.2.5_84bbe4ed21a0ec2db5b55cecc323e7e6
       '@babel/core': 7.14.8
       '@babel/generator': 7.14.8
       '@babel/helper-annotate-as-pure': 7.14.5
@@ -357,7 +360,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@angular-devkit/build-angular/12.2.5_ff1ad8a65f58d0d4fbfb9ba891dfad27:
+  /@angular-devkit/build-angular/12.2.5_c8acce58ec31339ebbec4bdaa3c7e694:
     resolution: {integrity: sha512-v44FAFMGSXJLKx25REXdoTdW/WzNXV3BDJam9ZKHFOrdtwJek4D/tEdtNHiQP4HberOHzmVjvKffa5VYXzZ40g==}
     engines: {node: ^12.14.1 || >=14.0.0, npm: ^6.11.0 || ^7.5.6, yarn: '>= 1.13.0'}
     peerDependencies:
@@ -393,6 +396,7 @@ packages:
       '@angular-devkit/core': 12.2.5
       '@angular/compiler-cli': 12.2.5_f14f45783cfb7cdb9a5b93360299381e
       '@angular/localize': 12.2.5_7d6d1113172f1bef2de4f98ca421226d
+      '@angular/service-worker': 12.2.5_84bbe4ed21a0ec2db5b55cecc323e7e6
       '@babel/core': 7.14.8
       '@babel/generator': 7.14.8
       '@babel/helper-annotate-as-pure': 7.14.5
@@ -793,6 +797,19 @@ packages:
       '@angular/core': 12.2.5_rxjs@6.6.7+zone.js@0.11.4
       '@angular/platform-browser': 12.2.5_967a007887fb883e837a6cf6c802658b
       rxjs: 6.6.7
+      tslib: 2.3.1
+    dev: false
+
+  /@angular/service-worker/12.2.5_84bbe4ed21a0ec2db5b55cecc323e7e6:
+    resolution: {integrity: sha512-7tzteIgXpAffP0XWfb8lYGbTUdnP36mTxYgxYjG2ebAvCaTfwD5ENvfo3USOGDCun4Vwo64Rg7O5RyeVegyP/g==}
+    engines: {node: ^12.14.1 || >=14.0.0}
+    hasBin: true
+    peerDependencies:
+      '@angular/common': 12.2.5
+      '@angular/core': 12.2.5
+    dependencies:
+      '@angular/common': 12.2.5_@angular+core@12.2.5+rxjs@6.6.7
+      '@angular/core': 12.2.5_rxjs@6.6.7+zone.js@0.11.4
       tslib: 2.3.1
     dev: false
 
@@ -2496,7 +2513,7 @@ packages:
       '@angular-devkit/build-angular': ^12.1.0
     dependencies:
       '@angular-devkit/architect': 0.1201.4
-      '@angular-devkit/build-angular': 12.2.5_ff1ad8a65f58d0d4fbfb9ba891dfad27
+      '@angular-devkit/build-angular': 12.2.5_c8acce58ec31339ebbec4bdaa3c7e694
       '@angular-devkit/core': 12.2.5
       '@nguniversal/common': 12.1.0_84bbe4ed21a0ec2db5b55cecc323e7e6
       browser-sync: 2.27.5
@@ -2525,7 +2542,7 @@ packages:
       '@angular-devkit/build-angular': ^12.1.0
     dependencies:
       '@angular-devkit/architect': 0.1201.4
-      '@angular-devkit/build-angular': 12.2.5_d1eef1127fda15c1fdf17051a01011c2
+      '@angular-devkit/build-angular': 12.2.5_7497372e033d12713a4c5aa451fc4b79
       '@angular-devkit/core': 12.2.5
       '@nguniversal/common': 12.1.0_84bbe4ed21a0ec2db5b55cecc323e7e6
       browser-sync: 2.27.5
@@ -10755,6 +10772,7 @@ packages:
   /reseter.css/2.0.0:
     resolution: {integrity: sha512-u98r3v0drXwxwRFhBywZOk+9LWoNVMy+tSClR6wJG+XXbrR/fpuuzbWQ8N5Uxczp3xMUX86E4PCWzitzsZ5GOg==}
     dev: false
+    bundledDependencies: []
 
   /resolve-cwd/2.0.0:
     resolution: {integrity: sha1-AKn3OHVW4nA46uIyyqNypqWbZlo=}
@@ -13111,13 +13129,13 @@ packages:
     dev: false
 
   file:projects/website.tgz_webpack-cli@4.8.0:
-    resolution: {integrity: sha512-KYfLU7usGi1JbC7Gh3yd8edj/Smn0ESFWRdgDmAXwyEvk+j/h94d3Uoy4tmO8Ue6OCpXiB1o1CK5oEcRfz/UEA==, tarball: file:projects/website.tgz}
+    resolution: {integrity: sha512-D6T/NNZMgGXJDxgToIvXVquxcajsJuincJz4KGFnuzwydnxiZCHB4NUT00sQFCRaq/b0v5S5coK/R5LNznkFBw==, tarball: file:projects/website.tgz}
     id: file:projects/website.tgz
     name: '@rush-temp/website'
     version: 0.0.0
     dependencies:
-      '@angular-builders/custom-webpack': 12.1.2_8b1e2ac207817586d9cc75c70a0f3483
-      '@angular-devkit/build-angular': 12.2.5_ff1ad8a65f58d0d4fbfb9ba891dfad27
+      '@angular-builders/custom-webpack': 12.1.2_07d16529d5d837a1321c52e7117e7fb1
+      '@angular-devkit/build-angular': 12.2.5_c8acce58ec31339ebbec4bdaa3c7e694
       '@angular-devkit/schematics': 12.2.5
       '@angular/animations': 12.2.5_@angular+core@12.2.5
       '@angular/cdk': 12.2.5_a5a438fe4cbb8d9ad8d7a69ba2d01492
@@ -13133,6 +13151,7 @@ packages:
       '@angular/platform-browser-dynamic': 12.2.5_f2303d20151cf4b3390188f3a3027acd
       '@angular/platform-server': 12.2.5_e9254e62c2a79b98a2be68fec4e233be
       '@angular/router': 12.2.5_415910e21aa908f435e87fb8acb59956
+      '@angular/service-worker': 12.2.5_84bbe4ed21a0ec2db5b55cecc323e7e6
       '@ngrx/effects': 12.4.0_15e51470ec18e17cf78eb1ed8366a023
       '@ngrx/store': 12.4.0_@angular+core@12.2.5+rxjs@6.6.7
       '@ngrx/store-devtools': 12.4.0_@ngrx+store@12.4.0+rxjs@6.6.7
@@ -13169,7 +13188,6 @@ packages:
       typescript: 4.2.4
       zone.js: 0.11.4
     transitivePeerDependencies:
-      - '@angular/service-worker'
       - '@swc/core'
       - '@swc/wasm'
       - bufferutil
