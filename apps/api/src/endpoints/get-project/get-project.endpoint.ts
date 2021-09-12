@@ -1,24 +1,20 @@
-// import { notion } from "@services/notion";
-// import { settings } from "@settings/environment";
-// import { IProject } from "./get-project.models";
+import { normalResponse, notFoundResponse } from '@helpers/response';
+import { BlocksChildrenListResponse } from '@notionhq/client/build/src/api-endpoints';
+import { notion } from '@services/notion';
 
-// export const convertPageToProjectDefinition = (page: Page): IProjectItem => {
-//   return {
-//     id: page.id,
-//     projectName: titlePropertyAccessor('Project Name', page.properties)?.title[0].plain_text,
-//     date: {
-//       published: datePropertyAccessor('Published', page.properties)?.date.start,
-//       updated: lastEditedTimePropertyAccessor('Updated', page.properties)?.last_edited_time,
-//     },
-//     role: selectPropertyAccessor('Role', page.properties)?.select.name,
-//     stack: multiSelectPropertyAccessor('Stack', page.properties)?.multi_select.map(({ name }) => name),
-//     urls: {
-//       repository: urlPropertyAccessor('Repository', page.properties)?.url,
-//       landingPage: urlPropertyAccessor('Project Landing Page', page.properties)?.url,
-//     },
-//   }
-// }
+const getProject = async (projectId: string | null): Promise<BlocksChildrenListResponse | undefined> => {
+  if (!projectId) return undefined
+  return notion.blocks.children.list({ block_id: projectId, page_size: 50 })
+}
 
-// export const getProject = async (): Promise<IProject> => {
-//   const projectPage = await notion.databases.query({ database_id: settings.databaseId })
-// }
+export const GetSingleProjectEndpoint = async (request: Request): Promise<Response> => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const projectId = (request as any)?.params['projectId']
+  const projectContent = await getProject(projectId)
+
+  if (!projectContent) {
+    return notFoundResponse({ reason: `Project not found with id of: '${projectId}'` })
+  }
+
+  return normalResponse(projectContent)
+}

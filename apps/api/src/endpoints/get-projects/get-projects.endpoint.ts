@@ -1,4 +1,5 @@
 import { extractPlainText } from '@helpers/data-manipulation';
+import { normalResponse } from '@helpers/response';
 import { Page } from '@notionhq/client/build/src/api-types';
 import {
   datePropertyAccessor, lastEditedTimePropertyAccessor, multiSelectPropertyAccessor, notion, richTextPropertyAccessor,
@@ -7,7 +8,7 @@ import {
 import { settings } from '@settings/environment';
 import { IProjectItem } from '@shared/models/project';
 
-export const convertPageToProjectDefinition = (page: Page): IProjectItem => {
+const convertPageToProjectDefinition = (page: Page): IProjectItem => {
   return {
     id: page.id,
     urlSlug: extractPlainText(richTextPropertyAccessor('URL Slug', page.properties)?.rich_text),
@@ -27,21 +28,11 @@ export const convertPageToProjectDefinition = (page: Page): IProjectItem => {
   }
 }
 
-export const getProjects = async (): Promise<IProjectItem[]> => {
+const getProjects = async (): Promise<IProjectItem[]> => {
   const storedProjects = await notion.databases.query({
     database_id: settings.databaseId,
-    filter: {
-      property: 'Is Public',
-      checkbox: {
-        equals: true,
-      },
-    },
-    sorts: [
-      {
-        property: 'Published',
-        direction: 'descending',
-      },
-    ],
+    filter: { property: 'Is Public', checkbox: { equals: true } },
+    sorts: [{ property: 'Published', direction: 'descending' }],
   })
 
   if (storedProjects.object !== 'list') {
@@ -49,4 +40,8 @@ export const getProjects = async (): Promise<IProjectItem[]> => {
   }
 
   return storedProjects.results.map(convertPageToProjectDefinition)
+}
+
+export const GetProjectListEndpoint = async (): Promise<Response> => {
+  return normalResponse(await getProjects())
 }

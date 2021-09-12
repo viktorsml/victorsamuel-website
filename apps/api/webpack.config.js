@@ -2,7 +2,7 @@ const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/api-handler.ts',
   output: {
     filename: 'worker.js',
     path: path.join(__dirname, 'dist'),

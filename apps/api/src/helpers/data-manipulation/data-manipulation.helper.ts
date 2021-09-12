@@ -1,6 +1,6 @@
 import { RichText } from '@notionhq/client/build/src/api-types';
 
-export const returnJson = <T>(payload: T): string => {
+export const convertToJson = <T>(payload: T): string => {
   return JSON.stringify(payload, null, 2)
 }
 
