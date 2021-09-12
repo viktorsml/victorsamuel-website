@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AnalyticsService } from '@services/analytics';
 import { EnvironmentService } from '@services/environment';
 import { SupportedLanguage } from '@services/environment/environment.service.models';
 
@@ -14,7 +15,7 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
 
   public shouldDisplayAsLanguageCode: boolean = false;
 
-  constructor(public readonly environmentService: EnvironmentService) {}
+  constructor(private readonly _analyticsService: AnalyticsService, public readonly environmentService: EnvironmentService) {}
 
   public ngOnInit() {
     this.shouldDisplayAsLanguageCode = this['display-mode'] === 'Code';
@@ -24,6 +25,7 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
 
   public async onLanguageChange(language: SupportedLanguage) {
     if (this.environmentService.isBrowserEnvironment) {
+      this._analyticsService.dispatchEvent('Language Change', { selectedLanguage: language });
       await this.environmentService.setCookie({ key: 'lang', value: language });
       window.location.href = window.location.href.replace(/(\/[a-zA-Z]{2}\/)/, `/${language}/`);
     }
