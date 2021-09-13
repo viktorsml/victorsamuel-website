@@ -28,7 +28,7 @@ const convertPageToProjectDefinition = (page: Page): IProjectItem => {
   }
 }
 
-const getProjects = async (): Promise<IProjectItem[]> => {
+export const getProjects = async (): Promise<IProjectItem[]> => {
   const storedProjects = await notion.databases.query({
     database_id: settings.databaseId,
     filter: { property: 'Is Public', checkbox: { equals: true } },
