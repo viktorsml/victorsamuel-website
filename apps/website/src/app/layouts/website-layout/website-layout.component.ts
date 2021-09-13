@@ -1,8 +1,7 @@
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
-import { animate, style, transition, trigger } from '@angular/animations';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { environment } from '@environment';
 import { getSocialMediaDefinitions, SocialMediaPlatform } from '@mocks/social-media';
 import { Store } from '@ngrx/store';
@@ -12,7 +11,7 @@ import { SEOMetaInformation, SeoService } from '@services/seo';
 import { IAppState } from '@store/models';
 import { getIsInHomePageState, getLoadingState, SetLoadingPageStateAction } from '@store/website';
 
-import { INavigationItem } from './website-layout.component.models';
+import { INavigationItem, IRouteData } from './website-layout.component.models';
 
 @Component({
   selector: 'app-website-layout',
@@ -42,6 +41,10 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
   public isLoadingRoute$: Observable<boolean>;
   public isInHomePage$: Observable<boolean>;
 
+  private get _routeData(): IRouteData | undefined {
+    return this._activatedRoute.snapshot.firstChild?.data;
+  }
+
   constructor(
     private readonly _store: Store<IAppState>,
     private readonly _seoService: SeoService,
@@ -54,8 +57,8 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   public ngOnInit(): void {
-    this._setSeoMetaInformationBasedOnRouteData();
     this._watchNavigation();
+    this._setSeoMetaInformationBasedOnRouteData();
   }
 
   public ngAfterViewInit(): void {
@@ -75,22 +78,29 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private _watchNavigation() {
     this._navigationWatcherSubscription = this.navigationService.watchNavigation({
-      onNavigationStart: (event) => this._onNavigationStart(event),
-      onNavigationEnd: (event) => this._onNavigationEnd(event),
+      onNavigationStart: () => this._onNavigationStart(),
+      onNavigationEnd: () => this._onNavigationEnd(),
       onNavigationComplete: () => this._onNavigationComplete(),
     });
+    setTimeout(() => {
+      this._onNavigationStart();
+      this._onNavigationEnd();
+      this._onNavigationComplete();
+    }, 0);
   }
 
-  private _onNavigationStart(event: NavigationStart) {
+  private _onNavigationStart() {
     this._store.dispatch(SetLoadingPageStateAction({ isLoading: true }));
   }
 
-  private _onNavigationEnd(event: NavigationEnd): void {
-    this._setSeoMetaInformationBasedOnRouteData();
+  private _onNavigationEnd(): void {
+    this._setSeoMetaInformationBasedOnRouteData(this._routeData?.seoInformation);
   }
 
   private _onNavigationComplete() {
-    this._store.dispatch(SetLoadingPageStateAction({ isLoading: false }));
+    if (!this._routeData?.requiresExtraLoadingTime) {
+      this._store.dispatch(SetLoadingPageStateAction({ isLoading: false }));
+    }
   }
 
   private _watchRouterOutletContainerHeight(callback: (routerOutletContainerHeight: number) => void) {
@@ -99,7 +109,7 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
     return resizeObserver;
   }
 
-  private _setSeoMetaInformationBasedOnRouteData() {
-    this._seoService.setMetaInformation(this._activatedRoute.snapshot.firstChild?.data as SEOMetaInformation);
+  private _setSeoMetaInformationBasedOnRouteData(seoInformation?: SEOMetaInformation) {
+    this._seoService.setMetaInformation(seoInformation || {});
   }
 }

@@ -51,7 +51,8 @@
     "cross-env": "~7.0.3",
     "lodash.merge": "~4.6.2",
     "ng2-tooltip-directive": "~2.10.3",
-    "@viktorsml/logic-core": "~1.0.0"
+    "@viktorsml/logic-core": "~1.0.0",
+    "@notionhq/client": "~0.3.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.5",

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SEOMetaInformation } from '@services/seo';
 
 import { WebsiteLayoutComponent } from './website-layout.component';
+import { IRouteData } from './website-layout.component.models';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -16,26 +16,27 @@ const routes: Routes = [
       },
       {
         path: 'projects',
-        data: <SEOMetaInformation>{ pageTitle: 'Victor Samuel | Projects' },
+        data: <IRouteData>{ seoInformation: { pageTitle: $localize`Victor Samuel | Projects` } },
         loadChildren: () => import('./pages/projects-page').then((m) => m.ProjectsPageModule),
       },
       {
         path: 'project',
+        data: <IRouteData>{ requiresExtraLoadingTime: true },
         loadChildren: () => import('./pages/single-project-page').then((m) => m.SingleProjectPageModule),
       },
       {
         path: 'contact',
-        data: <SEOMetaInformation>{ pageTitle: 'Victor Samuel | Contact' },
+        data: <IRouteData>{ seoInformation: { pageTitle: $localize`Victor Samuel | Contact` } },
         loadChildren: () => import('./pages/contact-page').then((m) => m.ContactPageModule),
       },
       {
         path: 'not-found',
-        data: <SEOMetaInformation>{ pageTitle: 'Victor Samuel | Not Found' },
+        data: <IRouteData>{ seoInformation: { pageTitle: $localize`Victor Samuel | Not Found` } },
         loadChildren: () => import('./pages/not-found-page').then((m) => m.NotFoundPageModule),
       },
       {
         path: '**',
-        data: <SEOMetaInformation>{ pageTitle: 'Victor Samuel | Not Found' },
+        data: <IRouteData>{ seoInformation: { pageTitle: $localize`Victor Samuel | Not Found` } },
         loadChildren: () => import('./pages/not-found-page').then((m) => m.NotFoundPageModule),
       },
     ],

@@ -23,7 +23,6 @@ export class NotFoundPageComponent implements OnInit {
     if (!this._environmentService.isBrowserEnvironment) return;
     const failureUrlCookieName = 'LastKnownUrl';
     const failureUrl = this._environmentService.getCookie(failureUrlCookieName);
-    console.log('failureUrl', failureUrl);
     if (!failureUrl) return;
     try {
       window.history.replaceState(null, '', failureUrl);

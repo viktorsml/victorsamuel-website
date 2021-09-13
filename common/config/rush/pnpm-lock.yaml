@@ -2634,6 +2634,14 @@ packages:
       node-fetch: 2.6.2
     dev: false
 
+  /@notionhq/client/0.3.2:
+    resolution: {integrity: sha512-CSYk88/+gwRff9ftz8G+7EKHgE8/3TWDdQVmIoesXhHZp+FmV8L82Y+dn2dRuWrDf1XZiVYv0A0DPLwlh94fzw==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@types/node-fetch': 2.5.12
+      node-fetch: 2.6.2
+    dev: false
+
   /@npmcli/fs/1.0.0:
     resolution: {integrity: sha512-8ltnOpRR/oJbOp8vaGUnipOi3bqkcW+sLHFlyXIr08OGHmVJLB1Hn7QtGXbYcpVtH1gAYZTlmDXtE4YV0+AMMQ==}
     dependencies:
@@ -13129,7 +13137,7 @@ packages:
     dev: false
 
   file:projects/website.tgz_webpack-cli@4.8.0:
-    resolution: {integrity: sha512-D6T/NNZMgGXJDxgToIvXVquxcajsJuincJz4KGFnuzwydnxiZCHB4NUT00sQFCRaq/b0v5S5coK/R5LNznkFBw==, tarball: file:projects/website.tgz}
+    resolution: {integrity: sha512-LmZqlX5Ilv1yit7uxIZ2crfMk3P6fb50N7QetdjcJMGx72poLbB6EqXIRS3gYwFIyUu0jiXpmMoBdpCLZo4c9w==, tarball: file:projects/website.tgz}
     id: file:projects/website.tgz
     name: '@rush-temp/website'
     version: 0.0.0
@@ -13157,6 +13165,7 @@ packages:
       '@ngrx/store-devtools': 12.4.0_@ngrx+store@12.4.0+rxjs@6.6.7
       '@nguniversal/builders': 12.1.0_3e9bee1f74022327d4d0eda3cb157e62
       '@nguniversal/express-engine': 12.1.0_10d6aa3575fcf4a4282988ab61aac716
+      '@notionhq/client': 0.3.2
       '@schematics/angular': 12.2.5
       '@types/express': 4.17.13
       '@types/jasmine': 3.6.11
