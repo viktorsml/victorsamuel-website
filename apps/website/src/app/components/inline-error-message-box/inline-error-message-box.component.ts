@@ -16,10 +16,6 @@ export class InlineErrorMessageBoxComponent implements OnInit {
   constructor() {}
 
   public ngOnInit(): void {
-    this.errorMessage = this._getErrorMessage();
-  }
-
-  private _getErrorMessage() {
-    return errorMessagesMap.get(this['error-message'] as ErrorMessage);
+    this.errorMessage = errorMessagesMap.get(this['error-message'] as ErrorMessage);
   }
 }

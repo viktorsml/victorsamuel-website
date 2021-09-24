@@ -4,12 +4,12 @@
     class="SocialProfileLink SocialIcon Link--WithCustomHoverColor CustomIcon--ColorizeOnHover"
     rel="noopener noreferrer"
     placement="bottom"
-    [tooltip]="icon.platformName + ' profile'"
-    [attr.data-platform-key]="icon.platformKey"
-    [target]="icon.platformKey"
-    [href]="icon.brandedUrl"
     [ngClass]="icon.platformKey"
+    [href]="icon.brandedUrl"
+    [target]="icon.platformKey"
+    [tooltip]="icon.platformName + ' profile'"
     [attr.tabindex]="tabindex"
+    [attr.data-platform-key]="icon.platformKey"
   >
     <ng-container *ngIf="environmentService.isBrowserEnvironment">
       <mat-icon class="SocialIcon__Shape" [svgIcon]="icon.platformKey"></mat-icon>
