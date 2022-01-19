@@ -1,0 +1,8 @@
+@use './abstracts/sass-variables' as var;
+@use './abstracts/mixins';
+@use './abstracts/placeholders';
+
+.SingleProjectPage {
+  @extend %PageContainer;
+  @include mixins.responsiveContainer;
+}

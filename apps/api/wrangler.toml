@@ -1,0 +1,11 @@
+name = "victorsamuel-website-backend"
+type = "javascript"
+zone_id = ""
+account_id = "31a5c7dec6875ea31bd1ebb8378311eb"
+route = ""
+workers_dev = true
+
+[build]
+command = "rushx build"
+[build.upload]
+format = "service-worker"

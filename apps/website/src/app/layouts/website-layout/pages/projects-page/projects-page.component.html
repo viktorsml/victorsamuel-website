@@ -1,0 +1,73 @@
+<main class="ProjectsPage">
+  <div class="PageTitleArea">
+    <h1 i18n>Projects</h1>
+    <p i18n>Here is a selection of some projects that use design as a gateway to translate problems into opportunities</p>
+  </div>
+</main>
+
+<ng-container *ngIf="environmentService.isBrowserEnvironment">
+  <ng-container *ngVar="projectListData$ | async; let projectListData">
+    <ng-container [ngSwitch]="projectListData?.status">
+      <ng-container *ngSwitchCase="'FailedToFetch'">
+        <ng-container *ngIf="projectListData?.data | doesArrayHaveValues; then ProjectList; else UnableToFetchProjects"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'Successful'">
+        <ng-container *ngIf="projectListData?.data | doesArrayHaveValues; then ProjectList; else NoProjects"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchDefault>
+        <div class="ProjectList__LoadingSpinnerContainer A--FadeIn A--D6 A--W1">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-template #ProjectList>
+      <section class="ProjectList">
+        <ng-container *ngFor="let project of projectListData?.data; let i = index">
+          <div class="ProjectCardAnimation  A--FadeInUp A--D8 A--W{{ i + 1 }}">
+            <article
+              class="ProjectCard"
+              inViewport
+              [inViewportOptions]="{ rootMargin: '150px 0px 150px 0px', partial: false, threshold: [1, 0] }"
+              (inViewportAction)="onProjectCardVisibleOnViewport($event)"
+            >
+              <div class="ProjectCard__Wrapper">
+                <div class="ProjectCard__InformationWrapper">
+                  <h2 class="ProjectCard__Title">{{ project?.projectName || 'Untitled Project' }}</h2>
+                  <ul class="ProjectCard__TagsContainer">
+                    <ng-container *ngFor="let tag of project?.stack">
+                      <li class="ProjectCard__Tag">{{ tag }}</li>
+                    </ng-container>
+                  </ul>
+                  <p class="ProjectCard__Description">{{ project?.shortDescription }}</p>
+                  <div class="ProjectCard__ButtonsContainer">
+                    <!-- TODO: Enable learn more section for projects. -->
+                    <!-- <a mat-stroked-button class="ProjectCard__LearnMoreButton" [routerLink]="['..', 'project', project.id]" i18n> Learn More </a> -->
+                    <ng-container *ngIf="project?.urls?.repository">
+                      <a mat-stroked-button class="ProjectCard__CodeButton" [href]="project.urls.repository" [target]="project?.id" i18n>See Code</a>
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="ProjectCard__PictureWrapper">
+                  <app-smart-picture [width-ratio]="4" [height-ratio]="3" object-fit="cover">
+                    <source [srcset]="project?.gridImageUrl" type="image/jpg" />
+                  </app-smart-picture>
+                </div>
+              </div>
+            </article>
+          </div>
+        </ng-container>
+      </section>
+    </ng-template>
+    <ng-template #NoProjects>
+      <app-inline-error-message-box error-message="NoProjectsAvaliable"></app-inline-error-message-box>
+    </ng-template>
+    <ng-template #UnableToFetchProjects>
+      <app-inline-error-message-box error-message="UnableToFetchProjects"></app-inline-error-message-box>
+    </ng-template>
+  </ng-container>
+</ng-container>
+
+<section class="QuickContact">
+  <h2 class="A--FadeIn A--D6" i18n>Need a developer?</h2>
+  <a mat-button class="TitleFont Link--WithCustomHoverColor A--FadeInUp A--D3" routerLink="../contact" i18n>Let's work together</a>
+</section>

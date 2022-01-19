@@ -1,0 +1,37 @@
+:host {
+  display: inline-table;
+  position: relative;
+  overflow: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+picture {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  display: block;
+  object-fit: var(--object-fit);
+  object-position: var(--object-position);
+}
+
+:host.isResponsive {
+  width: 100%;
+
+  picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: var(--aspect-ratio);
+  }
+}
