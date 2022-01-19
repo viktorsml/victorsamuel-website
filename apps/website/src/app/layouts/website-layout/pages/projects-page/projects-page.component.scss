@@ -1,0 +1,242 @@
+@use './abstracts/sass-variables' as var;
+@use './abstracts/mixins';
+@use './abstracts/placeholders';
+
+$project-list--breakpoint-one: 1540px;
+$project-list--breakpoint-two: 1400px;
+$project-list--breakpoint-tree: 1180px;
+$project-list--breakpoint-four: 920px;
+$project-list--breakpoint-five: 780px;
+$project-list--breakpoint-six: 520px;
+
+$first-break: 960px;
+$second-break: 630px;
+$third-break: 530px;
+
+.ProjectsPage {
+  @extend %PageContainer;
+  @include mixins.responsiveContainer;
+}
+
+.ProjectList {
+  --project-list--space-between-items: 2em;
+
+  &__LoadingSpinnerContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: calc(var(--app-base-margin) * 2) 0;
+  }
+
+  @include mixins.max-width-breakpoint($project-list--breakpoint-tree) {
+    --project-list--space-between-items: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: var(--project-list--space-between-items);
+    padding-right: var(--project-list--space-between-items);
+  }
+
+  @include mixins.max-width-breakpoint($project-list--breakpoint-five) {
+    grid-template-columns: 1fr;
+  }
+
+  @include mixins.max-width-breakpoint($project-list--breakpoint-six) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.ProjectCardAnimation {
+  $this: &;
+
+  @include mixins.min-width-breakpoint($project-list--breakpoint-tree) {
+    margin-top: var(--project-list--space-between-items);
+  }
+
+  @include mixins.max-width-breakpoint($project-list--breakpoint-tree) {
+    margin: var(--project-list--space-between-items);
+    max-width: 100%;
+  }
+
+  @include mixins.max-width-breakpoint($project-list--breakpoint-six) {
+    margin: 0;
+  }
+
+  &:nth-child(even) {
+    .ProjectCard__PictureWrapper {
+      @include mixins.min-width-breakpoint($project-list--breakpoint-tree) {
+        clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+      }
+    }
+  }
+
+  &:nth-child(odd) {
+    .ProjectCard__PictureWrapper {
+      @include mixins.min-width-breakpoint($project-list--breakpoint-tree) {
+        clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+      }
+    }
+  }
+}
+
+.ProjectCard {
+  $this: &;
+  position: relative;
+  overflow: hidden;
+  background: rgba(var(--color-background-opposite), 0.03);
+  transition: opacity 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  border-top: solid 0.1em rgb(var(--color-border));
+  border-bottom: solid 0.1em rgb(var(--color-border));
+
+  @include mixins.max-width-breakpoint($project-list--breakpoint-tree) {
+    height: 100%;
+  }
+
+  &--InViewport {
+    opacity: 1;
+
+    @include mixins.min-width-breakpoint($project-list--breakpoint-tree) {
+      app-smart-picture {
+        transform: scale3d(1.1, 1.1, 1.1);
+      }
+
+      #{$this}__Title {
+        color: rgb(var(--color-title));
+        text-shadow: none;
+      }
+    }
+  }
+
+  &--OutsideViewport {
+    opacity: 0.4;
+  }
+
+  &__Wrapper {
+    @include mixins.responsiveContainer();
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    @include mixins.max-width-breakpoint($project-list--breakpoint-tree) {
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+      padding-top: var(--app-base-padding);
+      padding-bottom: var(--app-base-padding);
+    }
+  }
+
+  &__InformationWrapper,
+  &__PictureWrapper {
+    @include mixins.max-width-breakpoint($project-list--breakpoint-tree) {
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__InformationWrapper {
+    padding-top: 4em;
+    width: 100%;
+
+    @include mixins.min-width-breakpoint(var.$max-width-breakpoint) {
+      font-size: 120%;
+    }
+
+    @include mixins.min-width-breakpoint($project-list--breakpoint-tree) {
+      padding-bottom: 4em;
+    }
+
+    @include mixins.max-width-breakpoint($project-list--breakpoint-one) {
+      font-size: 90%;
+    }
+  }
+
+  &__PictureWrapper {
+    width: 40%;
+    height: 100%;
+    flex-shrink: 0;
+
+    @include mixins.max-width-breakpoint($project-list--breakpoint-four) {
+      --app-base-padding: 1.7em;
+    }
+
+    @include mixins.max-width-breakpoint($project-list--breakpoint-tree) {
+      display: contents;
+    }
+  }
+
+  app-smart-picture {
+    transition: transform 150ms cubic-bezier(0.42, 0, 0.58, 1);
+
+    @include mixins.max-width-breakpoint($project-list--breakpoint-two) {
+      --aspect-ratio: 90% !important;
+    }
+
+    @include mixins.max-width-breakpoint($project-list--breakpoint-tree) {
+      --aspect-ratio: 57% !important;
+    }
+  }
+
+  &__Title,
+  &__Description,
+  &__TagsContainer,
+  &__Tag {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__Title {
+    font-size: 2.7em;
+    color: rgb(var(--color-background));
+    text-shadow: -1px -1px rgb(var(--color-title)), 1px 1px rgb(var(--color-title)), -1px 1px rgb(var(--color-title)), 1px -1px rgb(var(--color-title));
+    transition: color 500ms cubic-bezier(0.42, 0, 0.58, 1), text-shadow 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    margin-bottom: 1em;
+
+    @include mixins.max-width-breakpoint($project-list--breakpoint-tree) {
+      font-size: 2em;
+      text-shadow: none;
+      color: rgb(var(--color-title));
+    }
+  }
+
+  &__TagsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+  }
+
+  &__Tag {
+    list-style: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.75em;
+    letter-spacing: 0.15em;
+    color: rgba(var(--color-text), 0.7);
+
+    &:not(:last-child)::after {
+      content: '|';
+      width: 3em;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  &__Description {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  &__ButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: auto;
+
+    *:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+}

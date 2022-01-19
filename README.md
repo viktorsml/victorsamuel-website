@@ -8,4 +8,4 @@ I'm comfortable throughout the stack, but my passion lies in the front end, at t
 
 ---
 
-This project was made using with [Angular](https://angular.io/) & [Firebase](https://firebase.google.com)
+This project was made using with [Angular](https://angular.io/) & [Notion](https://notion.so)

@@ -1,31 +1,18 @@
-dist: trusty
-sudo: false
-
 language: node_js
 node_js:
-  - '12.14.1'
-
-addons:
-  chrome: stable
-
-cache:
-  directories:
-    - ./node_modules
-
-before_script:
-  - npm install -g @angular/cli
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-
-install:
-  - npm install
-
+  - '8.9.4'
 script:
-  - ng test --watch false --browsers ChromeHeadless
-  - ng lint
-  - npm run build
+  - set -e
 
-deploy:
-  provider: firebase
-  skip_cleanup: true
-  token:
-    secure: 'QrWQ0F4VQh5OFjAiuziR6iHmbbU/yyhQb6p3rYr9pmJtUaYYZWwGLio9zE9RwzizRFsQ4CkXUfVeqYw/Q0foHEW0Av6Cu3EltoI4CzHx6NX58bSOgoaeRvAMfgCiEB3NnrR1pga0AwVmnVE5KtTEIXz8zd0l3K3V6AcFywxrdeqPBDM66O3k/8FfniGquyYNBi5FJMbYkgG/2w1bGAO9Kz9TDtU+gN5KEuF2E8PFFhJSIM3REzmdaC4lml824iP1uMbq9BcrL04RXubn+pikOLzOhQ/aTYd2Q/S/XK69Z4DTMD58IMdEj8kykh6w5xC8hpHCxo56TUkxUfU6WBv8aSKNdNUanBIoNQDVojCOBD/REQGbR1hpMeoS6YOjqYX8kX1TjgA+zzpddSUYBrh8TqdIdeBbmH7iuVXHp3MKAl2yEAuasPsoAup0ItPHBjrAPB95my3WeuWVD3NdrDmV2jmPq7vYla64ZjQaoUj1hSVBSFqEiCP5uZLDbQAQxCx9BfWjtdJNZs2M+oyJAMtNK7pFVEQJ2fdGP468YsktSv49ZAaTLi3EF8eYG8ONBtUjq5NtLlLKsGq4HVMiB8WXA95AaJf5rD1zOCafu+dW1XIqaDoyEvBUg6kD5EiHaxDt3+jjD0Xyx+ngxHTSLabTY9cxgW+vPysUXVw/Mc1SLKs='
+  - echo 'Checking for missing change logs...' && echo -en 'travis_fold:start:change\\r'
+  - git fetch origin master:refs/remotes/origin/master -a
+  - node common/scripts/install-run-rush.js change -v
+  - echo -en 'travis_fold:end:change\\r'
+
+  - echo 'Installing...' && echo -en 'travis_fold:start:install\\r'
+  - node common/scripts/install-run-rush.js install
+  - echo -en 'travis_fold:end:install\\r'
+
+  - echo 'Building...' && echo -en 'travis_fold:start:build\\r'
+  - node common/scripts/install-run-rush.js rebuild --verbose
+  - echo -en 'travis_fold:end:build\\r'

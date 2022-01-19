@@ -1,0 +1,96 @@
+@use './abstracts/mixins';
+@use './abstracts/placeholders';
+
+.ContactPage {
+  $this: &;
+  @extend %PageContainer;
+  @include mixins.responsiveContainer;
+
+  &__BigEmailSection {
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 4em;
+  }
+
+  &__BigEmailContainer {
+    display: grid;
+    grid-template-columns: 4.3em 1fr 4.3em;
+    grid-template-rows: 1fr;
+    gap: 0;
+    grid-auto-flow: row;
+    grid-template-areas: 'EmptyArea EmailArea CopyArea';
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover,
+    &:focus-within {
+      #{$this}__CopyEmailButton {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__CopyEmailButton {
+    grid-area: CopyArea;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &__BigEmail {
+    @include mixins.linear-gradient-text(rgb(var(--color-fluorescent-blue)), rgb(var(--color-azure-blue)));
+    grid-area: EmailArea;
+    font-weight: 700;
+    font-size: 1.8em;
+    letter-spacing: 0.04em;
+    padding: 0.5em 1.1em;
+  }
+
+  &__ContactIconsTitle {
+    @extend %SmallUppercasedTitle;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  &__ContactIconsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+.ContactIcon {
+  $this: &;
+  font-size: 1em;
+  margin-bottom: 1.5em;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
+
+  &__Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em 0.5em 0.3em 0.5em;
+  }
+
+  &:hover {
+    #{$this}__PlatformName {
+      color: rgb(var(--color-title));
+    }
+  }
+
+  &__Shape {
+    @include mixins.mat-icon-size(1.5em);
+  }
+
+  &__PlatformName {
+    margin-top: 1em;
+    font-size: 0.9em;
+    color: rgb(var(--color-text));
+    transition: color 150ms ease-in-out;
+  }
+}

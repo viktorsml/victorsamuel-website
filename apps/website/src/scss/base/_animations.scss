@@ -1,0 +1,50 @@
+@use '../abstracts/mixins';
+@use './keyframes';
+
+body.App--PrepareForAnimations {
+  .A {
+    &--FadeIn,
+    &--FadeInUp,
+    &--FadeInDown,
+    &--FadeInUpAndSbuttleGlow {
+      opacity: 0 !important;
+    }
+  }
+
+  .PageTitleArea > h1,
+  .PageTitleArea > p {
+    opacity: 0 !important;
+  }
+}
+
+.App--AllowAnimations .A {
+  $animation-stop: 0.3;
+
+  @for $step from 0 through 10 {
+    &--W#{$step} {
+      @include mixins.animation-delay(#{$step * $animation-stop}s);
+    }
+  }
+
+  @for $step from 0 through 10 {
+    &--D#{$step} {
+      @include mixins.animation-duration(#{$step * $animation-stop}s);
+    }
+  }
+
+  &--FadeIn {
+    @include mixins.animation-name(fadeIn);
+  }
+
+  &--FadeInUp {
+    @include mixins.animation-name(fadeInUp);
+  }
+
+  &--FadeInDown {
+    @include mixins.animation-name(fadeInDown);
+  }
+
+  &--FadeInUpAndSbuttleGlow {
+    @include mixins.animation(subtle-gradient 15s var(--ease-in-out-quad) infinite, fadeInUp 0.75s var(--ease-in-out-quad));
+  }
+}

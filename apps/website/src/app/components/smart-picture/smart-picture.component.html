@@ -1,0 +1,11 @@
+<picture *ngIf="canRenderImage | async">
+  <ng-content select="source"></ng-content>
+  <ng-container *ngIf="settings.definition.length > 0">
+    <ng-container *ngFor="let definition of settings.definition">
+      <source *ngIf="definition.resourcePath" [srcset]="definition.resourcePath" [type]="'image/' + definition.imageType" />
+    </ng-container>
+  </ng-container>
+  <ng-container *ngVar="bindIsResponsive ? '100%' : 'inherit'; let size">
+    <img [style.width]="size" [style.height]="size" [width]="size" [height]="size" [alt]="settings.alt" />
+  </ng-container>
+</picture>

@@ -1,0 +1,47 @@
+// #region CSS Variables
+:root {
+  // #region Fonts
+  --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-default: 'Coven', var(--font-fallback);
+  --font-default-weight: 300;
+  --font-default-line-height: 1.5em;
+  --font-default-letter-spacing: 0.05em;
+  --font-default-feature-settings: 'ss01', 'ss02';
+  --font-title: 'CFInter', var(--font-fallback);
+  --font-title-wight: 600;
+  --font-title-transform: none;
+  --font-title-feature-settings: normal;
+  // #endregion
+
+  // #region Sizes
+  --app-max-width: 125em;
+  --app-base-padding: 2.5em;
+  --app-base-padding--at-mobile-breakpoint: 1.25em;
+  --app-base-margin: 7em;
+  --app-navigation-height: 4.5em;
+  --app-navigation-height--at-mobile-breakpoint: 10em;
+  --app-page-height: calc(100vh - var(--app-navigation-height));
+  // #endregion
+
+  // #region Colors
+  // == Brand Colors
+  --color-fluorescent-blue: 0, 245, 237;
+  --color-jeans-blue: 49, 161, 255;
+  --color-azure-blue: 0, 124, 240;
+  --color-french-violet: 121, 40, 202;
+  --color-flickr-pink: 245, 0, 122;
+  --color-tart-orange: 255, 77, 77;
+  --color-jonquil-yellow: 249, 203, 40;
+  // Social Media Colors
+  --color-twitter: 29, 161, 242; // #1da1f2
+  --color-instagram: 195, 42, 163; // #c32aa3
+  --color-linkedin: 0, 123, 181; //007bb5
+  --color-github: 255, 255, 255; // #FFFFFF
+  // #endregion
+
+  // #region Animation Easings
+  --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-in-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  // #endregion Animation Easings
+}
+// #endregion

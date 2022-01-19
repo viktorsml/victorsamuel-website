@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Victor Samuel</title>
+    <script>
+      var defaultLang = 'en';
+      var supportedLangs = ['en', 'es'];
+      function setCookie(name, value, days) {
+        var expires = '';
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = '; expires=' + date.toUTCString();
+        }
+        document.cookie = name + '=' + (value || '') + expires + '; path=/';
+      }
+      function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) return match[2];
+      }
+      function parseLang(rawLang) {
+        return rawLang.length > 2 ? rawLang.substr(0, 2) : rawLang;
+      }
+      function getRedirectUrl(language) {
+        var builtUrl;
+        var languageDetectRegex = /^(\/[a-zA-Z]{2}\/)/;
+        var originalPath = window.location.pathname;
+        var requestedPath = originalPath !== '/' && !originalPath.match(/^(\/[a-zA-Z]{2}\/?)$/) ? originalPath : '/xx/about';
+        if (requestedPath.match(languageDetectRegex)) {
+          builtUrl = window.location.origin + requestedPath.replace(languageDetectRegex, '/' + language + '/');
+        } else {
+          builtUrl = window.location.origin + '/' + language + requestedPath;
+        }
+        var isAReirectLoop = window.location.href === getCookie('LastKnownUrl');
+        if (isAReirectLoop) {
+          return window.location.origin + '/' + language + '/not-found';
+        } else {
+          setCookie('LastKnownUrl', builtUrl, 1);
+          return builtUrl;
+        }
+      }
+      function makeRedirect(consoleMessage, selectedLanguage) {
+        var builtUrl = getRedirectUrl(selectedLanguage);
+        console.debug(consoleMessage, builtUrl);
+        return window.location.replace(builtUrl);
+      }
+      var userLanguage = parseLang(navigator.language || navigator.userLanguage);
+      var storedLanguage = getCookie('lang') ? parseLang(getCookie('lang')) : null;
+      var isUserLanguageSupported = supportedLangs.includes(userLanguage);
+      var isStoredLanguageSupported = supportedLangs.includes(storedLanguage);
+      (function () {
+        if (isStoredLanguageSupported) {
+          return makeRedirect('Redirecting stored language...', storedLanguage);
+        }
+        if (isUserLanguageSupported) {
+          return makeRedirect('Redirecting browser language language...', userLanguage);
+        }
+        return makeRedirect('Redirecting using default application language...', defaultLang);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

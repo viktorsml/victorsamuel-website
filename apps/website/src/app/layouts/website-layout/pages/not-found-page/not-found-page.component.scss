@@ -1,0 +1,44 @@
+@use './abstracts/mixins';
+@use './abstracts/placeholders';
+
+.NotFoundPage {
+  @extend %PageContainer;
+  @include mixins.responsiveContainer;
+  margin-bottom: var(--app-base-margin);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__Image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/assets/svg/not-found-robot.svg');
+    width: 10em;
+    height: 10em;
+  }
+
+  &__Title,
+  &__Description {
+    text-align: center;
+    width: 100%;
+    max-width: 50em;
+  }
+
+  &__Title {
+    font-size: 1.7em;
+    margin-top: 2.4em;
+    margin-bottom: 0;
+  }
+
+  &__Description {
+    line-height: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 4em;
+  }
+
+  &__BackButton {
+    margin-left: 1em;
+  }
+}
