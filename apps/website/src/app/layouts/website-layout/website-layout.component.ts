@@ -29,12 +29,7 @@ export class WebsiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy 
     { label: $localize`Projects`, routerLink: 'projects' },
     { label: $localize`Contact`, routerLink: 'contact' },
   ];
-  public socialMediaProfileLinks = getSocialMediaDefinitions([
-    SocialMediaPlatform.Twitter,
-    SocialMediaPlatform.Instagram,
-    SocialMediaPlatform.LinkedIn,
-    SocialMediaPlatform.GitHub,
-  ]);
+  public socialMediaProfileLinks = getSocialMediaDefinitions([SocialMediaPlatform.Twitter, SocialMediaPlatform.LinkedIn, SocialMediaPlatform.GitHub]);
 
   private _navigationWatcherSubscription!: Subscription;
   private _routerOutletContainerHeightObserver: any;

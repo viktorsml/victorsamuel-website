@@ -1,4 +1,3 @@
-import { GoogleTagManagerService } from 'angular-google-tag-manager';
 import { Subscription } from 'rxjs';
 
 import { Component, HostListener, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';

@@ -12,7 +12,6 @@ const svgAssetsPath = '/assets/svg';
 
 export enum SocialMediaPlatform {
   Twitter = 'twitter',
-  Instagram = 'instagram',
   LinkedIn = 'linkedin',
   GitHub = 'github',
   Telegram = 'telegram',
@@ -21,7 +20,6 @@ export enum SocialMediaPlatform {
 
 const platformNames = new Map([
   [SocialMediaPlatform.Twitter, 'Twitter'],
-  [SocialMediaPlatform.Instagram, 'Instagram'],
   [SocialMediaPlatform.LinkedIn, 'LinkedIn'],
   [SocialMediaPlatform.GitHub, 'GitHub'],
   [SocialMediaPlatform.Telegram, 'Telegram'],

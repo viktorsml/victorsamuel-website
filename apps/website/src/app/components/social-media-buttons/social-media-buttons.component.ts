@@ -9,12 +9,7 @@ import { EnvironmentService } from '@services/environment';
 })
 export class SocialMediaButtonsComponent {
   @Input() public tabindex: number = 0;
-  public socialIcons = getSocialMediaDefinitions([
-    SocialMediaPlatform.Twitter,
-    SocialMediaPlatform.Instagram,
-    SocialMediaPlatform.LinkedIn,
-    SocialMediaPlatform.GitHub,
-  ]);
+  public socialIcons = getSocialMediaDefinitions([SocialMediaPlatform.Twitter, SocialMediaPlatform.LinkedIn, SocialMediaPlatform.GitHub]);
 
   constructor(public readonly environmentService: EnvironmentService) {}
 }

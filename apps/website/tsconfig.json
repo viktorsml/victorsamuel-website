@@ -25,6 +25,7 @@
       "@store/*": ["./src/app/store/*"],
       "@services/*": ["./src/app/services/*"],
       "@mocks/*": ["./src/app/mocks/*"],
+      "@models/*": ["./src/app/models/*"],
       "@pipes/*": ["./src/app/pipes/*"],
       "@directives/*": ["./src/app/directives/*"],
       "@shared/*": ["node_modules/@viktorsml/logic-core/src/*"],

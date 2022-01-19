@@ -40,7 +40,8 @@
                   </ul>
                   <p class="ProjectCard__Description">{{ project?.shortDescription }}</p>
                   <div class="ProjectCard__ButtonsContainer">
-                    <a mat-stroked-button class="ProjectCard__LearnMoreButton" [routerLink]="['..', 'project', project.id]" i18n> Learn More </a>
+                    <!-- TODO: Enable learn more section for projects. -->
+                    <!-- <a mat-stroked-button class="ProjectCard__LearnMoreButton" [routerLink]="['..', 'project', project.id]" i18n> Learn More </a> -->
                     <ng-container *ngIf="project?.urls?.repository">
                       <a mat-stroked-button class="ProjectCard__CodeButton" [href]="project.urls.repository" [target]="project?.id" i18n>See Code</a>
                     </ng-container>
