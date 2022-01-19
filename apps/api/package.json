@@ -1,6 +1,6 @@
 {
   "name": "@viktorsml/api",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Personal website API built as a Cloudflare worker",
   "main": "dist/worker.js",
   "scripts": {
