@@ -7,26 +7,34 @@ import { AnalyticsService } from '@services/analytics';
 import { EnvironmentService } from '@services/environment';
 
 @Component({
-  selector: 'app-contact-page',
-  templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.scss'],
+    selector: 'app-contact-page',
+    templateUrl: './contact-page.component.html',
+    styleUrls: ['./contact-page.component.scss'],
 })
 export class ContactPageComponent {
-  public contactEmail = environment.contactEmail;
-  public composeNewEmailUrl = environment.composeNewEmailUrl;
-  public contactIcons = getSocialMediaDefinitions(
-    [SocialMediaPlatform.LinkedIn, SocialMediaPlatform.Twitter, SocialMediaPlatform.Telegram, SocialMediaPlatform.WhatsApp],
-    { sVGResourceType: SVGResourceType.Colored, socialMediaLinkType: SocialMediaLinkType.Contact }
-  );
+    public contactEmail = environment.contactEmail;
+    public composeNewEmailUrl = environment.composeNewEmailUrl;
+    public contactIcons = getSocialMediaDefinitions(
+        [SocialMediaPlatform.LinkedIn, SocialMediaPlatform.Twitter, SocialMediaPlatform.Telegram, SocialMediaPlatform.WhatsApp],
+        { sVGResourceType: SVGResourceType.Colored, socialMediaLinkType: SocialMediaLinkType.Contact }
+    );
 
-  constructor(
-    public readonly environmentService: EnvironmentService,
-    private readonly _clipboardService: ClipboardService,
-    private readonly _analyticsService: AnalyticsService
-  ) {}
+    constructor(
+        public readonly environmentService: EnvironmentService,
+        private readonly clipboard: ClipboardService,
+        private readonly analytics: AnalyticsService
+    ) {}
 
-  public copyEmailToClipboard() {
-    this._clipboardService.copy(this.contactEmail);
-    this._analyticsService.dispatchEvent('Email Copied to Clipboard');
-  }
+    public copyEmailToClipboard() {
+        this.clipboard.copy(this.contactEmail);
+        this.analytics.dispatchEvent('Email Copied to Clipboard');
+    }
+
+    public dispatchPublicEmailClicked() {
+        this.analytics.dispatchPublicEmailClicked();
+    }
+
+    public dispatchPrivateMessageContact(platform: string) {
+        this.analytics.dispatchEvent('Private Message Contact', { platform });
+    }
 }

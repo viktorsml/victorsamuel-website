@@ -1,4 +1,4 @@
-import { PRODUCTION_DOMAIN, PRODUCTION_GOOGLE_ANALYTICS_ID, TESTING_GOOGLE_ANALYTICS_ID } from 'src/environments/environment.common';
+import { PRODUCTION_DOMAIN } from 'src/environments/environment.common';
 
 import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Inject, Injectable, LOCALE_ID, PLATFORM_ID } from '@angular/core';
@@ -71,15 +71,6 @@ export class EnvironmentService {
     }
 
     return Environment.Development;
-  }
-
-  public getGoogleAnalyticsMeasurementId(): string {
-    switch (this._environment) {
-      case Environment.Production:
-        return PRODUCTION_GOOGLE_ANALYTICS_ID;
-      default:
-        return TESTING_GOOGLE_ANALYTICS_ID;
-    }
   }
 
   public getCookie(cookieName: string): string | undefined {

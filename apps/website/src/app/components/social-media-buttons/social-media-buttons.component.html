@@ -1,19 +1,20 @@
 <ng-container *ngFor="let icon of socialIcons">
-  <a
-    matRipple
-    class="SocialProfileLink SocialIcon Link--WithCustomHoverColor CustomIcon--ColorizeOnHover"
-    rel="noopener noreferrer"
-    placement="bottom"
-    [ngClass]="icon.platformKey"
-    [href]="icon.brandedUrl"
-    [target]="icon.platformKey"
-    [tooltip]="icon.platformName + ' profile'"
-    [attr.tabindex]="tabindex"
-    [attr.data-platform-key]="icon.platformKey"
-  >
-    <ng-container *ngIf="environmentService.isBrowserEnvironment">
-      <mat-icon class="SocialIcon__Shape" [svgIcon]="icon.platformKey"></mat-icon>
-    </ng-container>
-    <span class="Element--OnlyScreenReaders">Go to Victor Samuel {{ icon.platformName }} profile</span>
-  </a>
+    <a
+        matRipple
+        class="SocialProfileLink SocialIcon Link--WithCustomHoverColor CustomIcon--ColorizeOnHover"
+        rel="noopener noreferrer"
+        placement="bottom"
+        [ngClass]="icon.platformKey"
+        [href]="icon.brandedUrl"
+        [target]="icon.platformKey"
+        [tooltip]="icon.platformName + ' profile'"
+        [attr.tabindex]="tabindex"
+        [attr.data-platform-key]="icon.platformKey"
+        (click)="registerSocialMediaVisit(icon.platformName)"
+    >
+        <ng-container *ngIf="canShowIcon">
+            <mat-icon class="SocialIcon__Shape" [svgIcon]="icon.platformKey"></mat-icon>
+        </ng-container>
+        <span class="Element--OnlyScreenReaders">Go to Victor Samuel {{ icon.platformName }} profile</span>
+    </a>
 </ng-container>

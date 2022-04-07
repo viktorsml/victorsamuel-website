@@ -3,40 +3,47 @@ import { AnalyticsService } from '@services/analytics';
 import { EnvironmentService } from '@services/environment';
 
 @Component({
-  selector: 'app-not-found-page',
-  templateUrl: './not-found-page.component.html',
-  styleUrls: ['./not-found-page.component.scss'],
+    selector: 'app-not-found-page',
+    templateUrl: './not-found-page.component.html',
+    styleUrls: ['./not-found-page.component.scss'],
 })
 export class NotFoundPageComponent implements OnInit {
-  constructor(private _environmentService: EnvironmentService, private _analyticsService: AnalyticsService) {}
+    constructor(private environment: EnvironmentService, private analytics: AnalyticsService) {}
 
-  public async ngOnInit() {
-    await this._beautifyUrlIfUserComesFromARedirectLoop();
-    this._trackFailure();
-  }
-
-  public goBackInNavigationHistory() {
-    window.history.back();
-  }
-
-  private async _beautifyUrlIfUserComesFromARedirectLoop() {
-    if (!this._environmentService.isBrowserEnvironment) return;
-    const failureUrlCookieName = 'LastKnownUrl';
-    const failureUrl = this._environmentService.getCookie(failureUrlCookieName);
-    if (!failureUrl) return;
-    try {
-      window.history.replaceState(null, '', failureUrl);
-      await this._environmentService.removeCookie(failureUrlCookieName);
-    } catch (error) {
-      if (error) {
-        console.warn('A non critical error happened. You are okay but the URL in you browser may not be looking good.', error);
-      }
+    public async ngOnInit() {
+        await this.beautifyUrlIfUserComesFromARedirectLoop();
+        this.trackFailure();
     }
-  }
 
-  private _trackFailure() {
-    if (this._environmentService.isBrowserEnvironment) {
-      this._analyticsService.dispatchEvent('Page Not Found', { failureUrl: window.location.href });
+    public goBackInNavigationHistory() {
+        window.history.back();
     }
-  }
+
+    private async beautifyUrlIfUserComesFromARedirectLoop() {
+        if (!this.environment.isBrowserEnvironment) {
+            return;
+        }
+
+        const failureUrlCookieName = 'LastKnownUrl';
+        const failureUrl = this.environment.getCookie(failureUrlCookieName);
+
+        if (!failureUrl) {
+            return;
+        }
+
+        try {
+            window.history.replaceState(null, '', failureUrl);
+            await this.environment.removeCookie(failureUrlCookieName);
+        } catch (error) {
+            if (error) {
+                console.warn('A non critical error happened. You are okay but the URL in you browser may not be looking good.', error);
+            }
+        }
+    }
+
+    private trackFailure() {
+        if (this.environment.isBrowserEnvironment) {
+            this.analytics.dispatchEvent('Page Not Found', { failureUrl: window.location.href });
+        }
+    }
 }

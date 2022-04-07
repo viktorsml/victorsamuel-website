@@ -2,17 +2,18 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { GOOGLE_TAG_MANAGER_CONTAINER_ID, PRODUCTION_DOMAIN } from './environment.common';
+import { PRODUCTION_DOMAIN } from './environment.common';
 import { IEnvironment } from './environment.model';
 
 export const environment: IEnvironment = {
   production: false,
   websiteBaseUrl: PRODUCTION_DOMAIN,
-  googleTagManagerContainerId: GOOGLE_TAG_MANAGER_CONTAINER_ID,
+  postHogProjectApiKey: 'phc_Plmx9vKsSoPis5YC1ADsC8ia2m2gRm0G1UR2g9gplNH',
   contactEmail: 'hello@example.com',
   composeNewEmailUrl: 'https://example.com/send-email',
   brandedBaseUrl: 'https://example.com',
   backendEndpoint: 'http://127.0.0.1:8787/api',
+  analyticsServerUri: 'https://app.posthog.com',
 };
 
 /*
