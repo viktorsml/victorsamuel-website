@@ -8,8 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { SocialMediaButtonsComponent } from './social-media-buttons.component';
 
 @NgModule({
-  declarations: [SocialMediaButtonsComponent],
-  imports: [CommonModule, MatIconModule, MatRippleModule, TooltipModule],
-  exports: [SocialMediaButtonsComponent],
+    declarations: [SocialMediaButtonsComponent],
+    imports: [CommonModule, MatIconModule, MatRippleModule, TooltipModule],
+    exports: [SocialMediaButtonsComponent],
 })
 export class SocialMediaButtonsModule {}

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { IRouteData } from '@layouts/website-layout/website-layout.component.models';
 import { EnvironmentService } from '@services/environment';
 
 import { INavigationWatcher } from './navigation.service.models';
@@ -8,6 +7,7 @@ import { INavigationWatcher } from './navigation.service.models';
 @Injectable({
   providedIn: 'root',
 })
+/**@deprecated */
 export class NavigationService {
   constructor(private readonly _environmentService: EnvironmentService, private _router: Router, private readonly _activatedRoute: ActivatedRoute) {}
 

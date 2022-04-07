@@ -1,42 +1,42 @@
 @import './abstracts/mixins';
 
 :host {
-  --icon-size: 1em;
-  --icon-padding: 0.5em;
-  display: inline-flex;
-  width: fit-content;
-  flex-direction: row;
-  position: relative;
-  font-size: var(--icon-size);
+    --icon-size: 1em;
+    --icon-padding: 0.5em;
+    display: inline-flex;
+    width: fit-content;
+    flex-direction: row;
+    position: relative;
+    font-size: var(--icon-size);
 }
 
 .SocialIcon {
-  padding: var(--icon-padding);
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  border-bottom: none;
-  border-radius: 0.2em;
-  transition: background 0.3s;
-  flex-shrink: 0;
-  color: rgba(var(--color-title), 0.6);
+    padding: var(--icon-padding);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    border-bottom: none;
+    border-radius: 0.2em;
+    transition: background 0.3s;
+    flex-shrink: 0;
+    color: rgba(var(--color-title), 0.6);
 
-  &:not(:last-child) {
-    margin-right: 0.6em;
-  }
+    &:not(:last-child) {
+        margin-right: 0.6em;
+    }
 
-  &:hover {
-    background-color: rgba(var(--color-title), 0.069);
-    outline: none;
-  }
+    &:hover {
+        background-color: rgba(var(--color-title), 0.069);
+        outline: none;
+    }
 
-  &__Shape {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    width: var(--icon-size);
-    height: var(--icon-size);
-    font-size: var(--icon-size);
-  }
+    &__Shape {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        font-size: var(--icon-size);
+    }
 }

@@ -6,8 +6,8 @@ import { NgModule } from '@angular/core';
 import { LanguageSwitcherComponent } from './language-switcher.component';
 
 @NgModule({
-  declarations: [LanguageSwitcherComponent],
-  imports: [CommonModule, TooltipModule],
-  exports: [LanguageSwitcherComponent],
+    declarations: [LanguageSwitcherComponent],
+    imports: [CommonModule, TooltipModule],
+    exports: [LanguageSwitcherComponent],
 })
 export class LanguageSwitcherModule {}

@@ -5,5 +5,6 @@ export interface IEnvironment {
   websiteBaseUrl: string;
   brandedBaseUrl: string;
   backendEndpoint: string;
-  googleTagManagerContainerId: string;
+  postHogProjectApiKey: string;
+  analyticsServerUri: string;
 }

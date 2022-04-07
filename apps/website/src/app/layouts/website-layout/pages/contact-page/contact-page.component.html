@@ -1,60 +1,64 @@
 <main class="ContactPage">
-  <div class="PageTitleArea">
-    <h1 i18n>Contact</h1>
-    <p i18n>Get in touch through any of the following platforms or by sending me an email</p>
-  </div>
-
-  <section class="ContactPage__BigEmailSection">
-    <h2 class="Element--OnlyScreenReaders" i18n>Send email to:</h2>
-
-    <div class="ContactPage__BigEmailContainer A--W2 A--D2 A--FadeIn">
-      <a
-        mat-button
-        tooltip="Send email"
-        placement="top"
-        class="EmailLink ContactPage__BigEmail Link--WithCustomHoverColor Link--DisableHoverBorder"
-        [href]="composeNewEmailUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-ga-link-name="Contact Page"
-      >
-        {{ contactEmail }}
-      </a>
-      <button
-        mat-button
-        class="ContactPage__CopyEmailButton"
-        aria-label="Copy email to clipboard"
-        tooltip="Copy email to clipboard"
-        placement="top"
-        (click)="copyEmailToClipboard()"
-      >
-        <mat-icon>content_copy</mat-icon>
-      </button>
+    <div class="PageTitleArea">
+        <h1 i18n>Contact</h1>
+        <p i18n>Get in touch through any of the following platforms or by sending me an email</p>
     </div>
-  </section>
 
-  <section class="ContactPage__ContactIconsSection A--W2 A--D8 A--FadeIn">
-    <h2 class="ContactPage__ContactIconsTitle" i18n>Or Send private message via</h2>
-    <div class="ContactPage__ContactIconsContainer">
-      <ng-container *ngFor="let icon of contactIcons">
-        <a
-          mat-button
-          class="ContactIcon Link--DisableHoverBorder Link--WithCustomHoverColor"
-          rel="noopener noreferrer"
-          placement="bottom"
-          [tooltip]="'Contact via ' + icon.platformName"
-          [href]="icon.brandedUrl"
-          [target]="icon.platformKey"
-          [attr.data-ga-private-message-medium]="icon.platformName"
-        >
-          <div class="ContactIcon__Wrapper">
-            <ng-container *ngIf="environmentService.isBrowserEnvironment">
-              <mat-icon class="ContactIcon__Shape CustomIcon--Colorized" [attr.data-platform-key]="icon.platformKey" [svgIcon]="icon.platformKey"></mat-icon>
+    <section class="ContactPage__BigEmailSection">
+        <h2 class="Element--OnlyScreenReaders" i18n>Send email to:</h2>
+
+        <div class="ContactPage__BigEmailContainer A--W2 A--D2 A--FadeIn">
+            <a
+                mat-button
+                tooltip="Send email"
+                placement="top"
+                class="EmailLink ContactPage__BigEmail Link--WithCustomHoverColor Link--DisableHoverBorder"
+                [href]="composeNewEmailUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                (click)="dispatchPublicEmailClicked()"
+            >
+                {{ contactEmail }}
+            </a>
+            <button
+                mat-button
+                class="ContactPage__CopyEmailButton"
+                aria-label="Copy email to clipboard"
+                tooltip="Copy email to clipboard"
+                placement="top"
+                (click)="copyEmailToClipboard()"
+            >
+                <mat-icon>content_copy</mat-icon>
+            </button>
+        </div>
+    </section>
+
+    <section class="ContactPage__ContactIconsSection A--W2 A--D8 A--FadeIn">
+        <h2 class="ContactPage__ContactIconsTitle" i18n>Or Send private message via</h2>
+        <div class="ContactPage__ContactIconsContainer">
+            <ng-container *ngFor="let icon of contactIcons">
+                <a
+                    mat-button
+                    class="ContactIcon Link--DisableHoverBorder Link--WithCustomHoverColor"
+                    rel="noopener noreferrer"
+                    placement="bottom"
+                    [tooltip]="'Contact via ' + icon.platformName"
+                    [href]="icon.brandedUrl"
+                    [target]="icon.platformKey"
+                    (click)="dispatchPrivateMessageContact(icon.platformName)"
+                >
+                    <div class="ContactIcon__Wrapper">
+                        <ng-container *ngIf="environmentService.isBrowserEnvironment">
+                            <mat-icon
+                                class="ContactIcon__Shape CustomIcon--Colorized"
+                                [attr.data-platform-key]="icon.platformKey"
+                                [svgIcon]="icon.platformKey"
+                            ></mat-icon>
+                        </ng-container>
+                        <span class="ContactIcon__PlatformName">{{ icon.platformName }}</span>
+                    </div>
+                </a>
             </ng-container>
-            <span class="ContactIcon__PlatformName">{{ icon.platformName }}</span>
-          </div>
-        </a>
-      </ng-container>
-    </div>
-  </section>
+        </div>
+    </section>
 </main>
