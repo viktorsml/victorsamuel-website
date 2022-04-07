@@ -59,6 +59,10 @@ export class AnalyticsService implements OnDestroy {
     }
 
     private onAnalyticsInitialized() {
+        posthog.register_once({
+            ApplicationEnvironment: this.environment.environment,
+        });
+
         this.router.events
             .pipe(
                 takeUntil(this.destroyed$),
