@@ -28,6 +28,7 @@ export class AnalyticsService implements OnDestroy {
 
         posthog.init(environment.postHogProjectApiKey, {
             api_host: environment.analyticsServerUri,
+            persistence: 'localStorage',
             loaded: this.onAnalyticsInitialized.bind(this),
         });
     }
