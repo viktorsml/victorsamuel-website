@@ -11,9 +11,8 @@
     white-space: nowrap;
     flex-wrap: nowrap;
     border-radius: 0.2em;
-    font-family: var(--font-default), var(--font-fallback);
+    font-family: var(--font-title), var(--font-fallback);
     position: relative;
-    font-weight: 400;
 
     &,
     &::after {
@@ -22,7 +21,6 @@
     }
 
     &::after {
-        @include mixins.linear-gradient-text(rgb(var(--color-fluorescent-blue)), rgb(var(--color-azure-blue)));
         content: attr(data-content);
         opacity: 0;
         transition: opacity 300ms ease-in-out;
@@ -30,6 +28,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        color: rgb(var(--color-fluorescent-blue));
     }
 
     &:hover,
@@ -52,19 +51,21 @@
     width: 100%;
 
     & > h1,
+    & > h2,
     & > p {
         text-align: center;
         max-width: 30em;
         margin: 0;
     }
 
-    & > h1 {
+    & > h1,
+    & > h2 {
         margin-top: 0;
     }
 
     & > p {
         margin-top: 2em;
-        font-size: 1em;
+        font-size: 1.2em;
     }
 }
 
@@ -74,6 +75,7 @@
     }
 
     & > h1,
+    & > h2,
     & > p {
         @include mixins.animation-duration(0.5s);
         @include mixins.animation-name(fadeInUp);
@@ -119,6 +121,14 @@
             font-size: 2.6em;
         }
     }
+
+    span {
+        font-family: var(--font-title), var(--font-fallback);
+    }
+}
+
+.SmallLabel {
+    @extend %SmallUppercasedTitle;
 }
 
 .Element {

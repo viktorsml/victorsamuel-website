@@ -2,7 +2,7 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { PRODUCTION_DOMAIN } from './environment.common';
+import { BOOK_15_MIN_MEETING_ID, BOOK_30_MIN_MEETING_ID, BOOKING_SERVICE_USERNAME, PRODUCTION_DOMAIN } from './environment.common';
 import { IEnvironment } from './environment.model';
 
 export const environment: IEnvironment = {
@@ -14,6 +14,9 @@ export const environment: IEnvironment = {
     brandedBaseUrl: 'https://example.com',
     backendEndpoint: 'http://127.0.0.1:8787/api',
     analyticsServerUri: 'https://app.posthog.com',
+    bookingServiceUsername: BOOKING_SERVICE_USERNAME,
+    fifteenMinMeetingId: BOOK_15_MIN_MEETING_ID,
+    thirtyMinMeetingId: BOOK_30_MIN_MEETING_ID,
 };
 
 /*

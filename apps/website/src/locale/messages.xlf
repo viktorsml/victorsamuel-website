@@ -2,6 +2,56 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="1629888462254030117" datatype="html">
+        <source>Hmm, nothing here...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/inline-error-message-box/inline-error-message-box.component.mocks.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2537677770314617647" datatype="html">
+        <source>Sorry, but there are no projects available at this moment.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/inline-error-message-box/inline-error-message-box.component.mocks.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1710135158731187457" datatype="html">
+        <source>Hmm, something went wrong :(</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/inline-error-message-box/inline-error-message-box.component.mocks.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7312253941920589241" datatype="html">
+        <source>Sorry, but we couldn&apos;t retreive any project from the database at this moment.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/inline-error-message-box/inline-error-message-box.component.mocks.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7905551730992594610" datatype="html">
+        <source>Book a meeting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/book-a-meeting-page/book-a-meeting-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="996301204327690107" datatype="html">
+        <source>Here is a selection of some projects that use design as a gateway to translate problems into opportunities</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/book-a-meeting-page/book-a-meeting-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/single-project-page/single-project-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="7922989125096435449" datatype="html">
         <source>Contact</source>
         <context-group purpose="location">
@@ -10,7 +60,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.ts</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5822073323405287080" datatype="html">
@@ -34,47 +84,68 @@
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4191828418661080736" datatype="html">
-        <source>Full-Stack Developer Focused on UI/UX</source>
+      <trans-unit id="8747727531413813247" datatype="html">
+        <source>Hello there. My name is</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/home-page/home-page.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="22990649629785550" datatype="html">
-        <source> I create beautiful user-centered web applications using the latest technologies. I&apos;m comfortable throughout the stack, but my passion lies in the front-end, at the intersection of code and design. </source>
+      <trans-unit id="6977727850995598526" datatype="html">
+        <source>I build things for the web.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/home-page/home-page.component.html</context>
-          <context context-type="linenumber">8,10</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5592982772612281032" datatype="html">
+        <source> I&apos;m a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>full-stack developer<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> focused on <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>building accessible, human-centered products<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> using the latest technologies. I&apos;m comfortable throughout the stack, but my passion lies in the front-end, at the intersection of code and design. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/home-page/home-page.component.html</context>
+          <context context-type="linenumber">6,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3836120654588644262" datatype="html">
+        <source>Tech Stack</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/home-page/home-page.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3277497964652233505" datatype="html">
+        <source>Here you can see some languages, tools, technologies and frameworks I like to work with.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/home-page/home-page.component.html</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7923141730131811010" datatype="html">
         <source>Need a developer?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/home-page/home-page.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">43</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
-          <context context-type="linenumber">71</context>
+          <context context-type="linenumber">80,81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2414646104065203299" datatype="html">
         <source>Let&apos;s work together</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/home-page/home-page.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">44</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">81,82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8895791931509361611" datatype="html">
         <source>Hmm, we couldn&apos;t find what you&apos;re looking for.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/not-found-page/not-found-page.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">3,4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="564527388960297507" datatype="html">
@@ -88,50 +159,32 @@
         <source>Nah, take me to the home page</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/not-found-page/not-found-page.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">8,9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3396169364626101280" datatype="html">
         <source>Take me back</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/not-found-page/not-found-page.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">9,10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7091571651222742304" datatype="html">
         <source>Projects</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">3,4</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.ts</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="996301204327690107" datatype="html">
-        <source>Here is a selection of some projects that use design as a gateway to translate problems into opportunities</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layouts/website-layout/pages/single-project-page/single-project-page.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7002955679222677443" datatype="html">
-        <source>Learn More</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="920786881821772176" datatype="html">
         <source>See Code</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">54,55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5541197153958173177" datatype="html">
@@ -145,63 +198,116 @@
         <source>Contact Information</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5256310142496764927" datatype="html">
         <source>Feel free to reach out to me any time.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1911410784326771944" datatype="html">
         <source>anywhere</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">52,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8887525015402527068" datatype="html">
         <source>Current Availability</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4891965967974988800" datatype="html">
-        <source>I usually work on several projects but I’ll be happy to discuss new opportunities. Let’s get in touch!</source>
+      <trans-unit id="5398002730195449517" datatype="html">
+        <source> I usually work on several projects but I’ll be happy to discuss new opportunities. Let’s get in touch! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7520429327520283326" datatype="html">
         <source>Follow me on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8981421891830271164" datatype="html">
         <source>Handcrafted with ❤️ and ☕ by me.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">93</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3428204039932102164" datatype="html">
         <source>Back to top</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">101</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6018686961415145811" datatype="html">
         <source>About Me</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2277291828308615531" datatype="html">
+        <source>Victor Samuel | Projects</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.routing.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8674820846351444400" datatype="html">
+        <source>Victor Samuel | Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.routing.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1610865825911449043" datatype="html">
+        <source>Victor Samuel | Book a meeting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.routing.ts</context>
           <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7073153318676799163" datatype="html">
+        <source>Victor Samuel | Not Found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.routing.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.routing.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7813000971625481835" datatype="html">
+        <source>profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/seo/seo.service.mocks.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3648228273850347822" datatype="html">
+        <source>Victor Samuel | Full-Stack Web Developer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/seo/seo.service.mocks.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="13077318008680376" datatype="html">
+        <source>Full-Stack Developer Focused on UI/UX. I create beautiful user-centered web applications using the latest technologies.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/seo/seo.service.mocks.ts</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
     </body>

@@ -5,14 +5,14 @@ import { filter, skip, takeUntil } from 'rxjs/operators';
 import { Injectable, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { environment } from '@environment';
-import { EnvironmentService } from '@services/environment';
+import { Environment, EnvironmentService } from '@services/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AnalyticsService implements OnDestroy {
     private readonly destroyed$ = new Subject();
-    private readonly canSendAnalytics = this.environment.isBrowserEnvironment;
+    private readonly canSendAnalytics = this.environment.isBrowserEnvironment && this.environment.environment === Environment.Production;
 
     constructor(private readonly router: Router, private readonly environment: EnvironmentService) {}
 

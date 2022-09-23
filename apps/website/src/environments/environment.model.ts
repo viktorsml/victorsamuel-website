@@ -7,4 +7,7 @@ export interface IEnvironment {
     backendEndpoint: string;
     postHogProjectApiKey: string;
     analyticsServerUri: string;
+    bookingServiceUsername: string;
+    fifteenMinMeetingId: string;
+    thirtyMinMeetingId: string;
 }

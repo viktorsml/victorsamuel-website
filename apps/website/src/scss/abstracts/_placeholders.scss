@@ -13,9 +13,10 @@
 %SmallUppercasedTitle {
     text-transform: uppercase;
     font-size: 0.8em;
-    letter-spacing: 0.23em;
+    letter-spacing: 0.2em;
     font-weight: 400;
     color: rgb(var(--color-text));
+    font-family: var(--font-secondary), var(--font-fallback);
 }
 
 %CustomSizedMatIcon {

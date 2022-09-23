@@ -3,20 +3,24 @@
     // #region Fonts
     --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
         'Segoe UI Emoji', 'Segoe UI Symbol';
-    --font-default: 'Coven', var(--font-fallback);
+    --font-default: 'Calibre', var(--font-fallback);
     --font-default-weight: 300;
-    --font-default-line-height: 1.5em;
+    --font-default-line-height: 1.3em;
     --font-default-letter-spacing: 0.05em;
     --font-default-feature-settings: 'ss01', 'ss02';
-    --font-title: 'CFInter', var(--font-fallback);
+    --font-title: 'Inter', var(--font-fallback);
     --font-title-wight: 600;
     --font-title-transform: none;
     --font-title-feature-settings: normal;
+    --font-secondary: 'JetBrains Mono', var(--font-fallback); //TODO: Add fonts into assets.
+    --font-secondary-wight: 400;
+    --font-secondary-transform: none;
+    --font-secondary-feature-settings: normal;
     // #endregion
 
     // #region Sizes
-    --app-max-width: 125em;
-    --app-base-padding: 2.5em;
+    --app-max-width: 100em;
+    --app-base-padding: 3.5em;
     --app-base-padding--at-mobile-breakpoint: 1.25em;
     --app-base-margin: 7em;
     --app-navigation-height: 4.5em;

@@ -26,7 +26,7 @@
             function getRedirectUrl(language) {
                 var builtUrl;
                 var languageDetectRegex = /^(\/[a-zA-Z]{2}\/)/;
-                var originalPath = window.location.pathname;
+                var originalPath = window.location.href.replace(window.location.origin, '');
                 var requestedPath = originalPath !== '/' && !originalPath.match(/^(\/[a-zA-Z]{2}\/?)$/) ? originalPath : '/xx/about';
                 if (requestedPath.match(languageDetectRegex)) {
                     builtUrl = window.location.origin + requestedPath.replace(languageDetectRegex, '/' + language + '/');

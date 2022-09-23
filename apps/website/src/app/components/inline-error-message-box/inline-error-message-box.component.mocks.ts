@@ -14,16 +14,16 @@ export const errorMessagesMap = new Map<ErrorMessage, IErrorMessage>([
     ErrorMessage.NoProjectsAvaliable,
     {
       iconFilePath: `${iconPathFolder}/empty-box.svg`,
-      title: 'Hmm, nothing here...',
-      description: 'Sorry, but there are no projects available at this moment.',
+      title: $localize`Hmm, nothing here...`,
+      description: $localize`Sorry, but there are no projects available at this moment.`,
     },
   ],
   [
     ErrorMessage.UnableToFetchProjects,
     {
       iconFilePath: `${iconPathFolder}/window-error.svg`,
-      title: 'Hmm, something went wrong :(',
-      description: "Sorry, but we couldn't retreive any project from the database at this moment.",
+      title: $localize`Hmm, something went wrong :(`,
+      description: $localize`Sorry, but we couldn't retreive any project from the database at this moment.`,
     },
   ],
 ]);

@@ -20,7 +20,6 @@ export const loadStateFromLocalStorage = <StateType>(key: StateKey, defaultState
         }
         return JSON.parse(serializedState);
     } catch (error) {
-        console.log(`⚠ Unable to load state from localStorage (${(error as any)?.message})`);
         return defaultState;
     }
 };

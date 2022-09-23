@@ -1,0 +1,8 @@
+<ng-container *ngIf="meetingId">
+    <main
+        class="book-specific-meeting"
+        booking-layout-type="embed"
+        [meeting-booking]="meetingId"
+        (successful-booking)="successfulBookingHandler($event)"
+    ></main>
+</ng-container>

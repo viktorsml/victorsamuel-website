@@ -38,7 +38,7 @@
                         "stylePreprocessorOptions": {
                             "includePaths": ["src/scss"]
                         },
-                        "scripts": [],
+                        "scripts": ["src/app/scripts/cal.com.js"],
                         "customWebpackConfig": {
                             "path": "webpack.config.js"
                         },
