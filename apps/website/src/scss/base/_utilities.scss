@@ -3,156 +3,156 @@
 @use './../abstracts/placeholders';
 
 .Logo {
-  // @include mixins.linear-gradient-text(rgb(var(--color-jonquil-yellow)), rgb(var(--color-tart-orange)));
-  color: rgb(var(--color-text));
-  display: inline-block;
-  font-size: 1.5em;
-  font-weight: 500;
-  white-space: nowrap;
-  flex-wrap: nowrap;
-  border-radius: 0.2em;
-  font-family: var(--font-default), var(--font-fallback);
-  position: relative;
-  font-weight: 400;
-
-  &,
-  &::after {
-    padding: 0.3em 0.4em;
-    transition: all 100ms ease-in-out;
-  }
-
-  &::after {
-    @include mixins.linear-gradient-text(rgb(var(--color-fluorescent-blue)), rgb(var(--color-azure-blue)));
-    content: attr(data-content);
-    opacity: 0;
-    transition: opacity 300ms ease-in-out;
+    // @include mixins.linear-gradient-text(rgb(var(--color-jonquil-yellow)), rgb(var(--color-tart-orange)));
+    color: rgb(var(--color-text));
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    border-radius: 0.2em;
+    font-family: var(--font-default), var(--font-fallback);
+    position: relative;
     font-weight: 400;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
 
-  &:hover,
-  &:focus {
-    transform: scale(1.005);
+    &,
+    &::after {
+        padding: 0.3em 0.4em;
+        transition: all 100ms ease-in-out;
+    }
 
     &::after {
-      opacity: 1;
+        @include mixins.linear-gradient-text(rgb(var(--color-fluorescent-blue)), rgb(var(--color-azure-blue)));
+        content: attr(data-content);
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+        font-weight: 400;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
-  }
+
+    &:hover,
+    &:focus {
+        transform: scale(1.005);
+
+        &::after {
+            opacity: 1;
+        }
+    }
 }
 
 .PageTitleArea {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3em;
-  margin-bottom: 3em;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    width: 100%;
 
-  & > h1,
-  & > p {
-    text-align: center;
-    max-width: 30em;
-    margin: 0;
-  }
+    & > h1,
+    & > p {
+        text-align: center;
+        max-width: 30em;
+        margin: 0;
+    }
 
-  & > h1 {
-    margin-top: 0;
-  }
+    & > h1 {
+        margin-top: 0;
+    }
 
-  & > p {
-    margin-top: 2em;
-    font-size: 1em;
-  }
+    & > p {
+        margin-top: 2em;
+        font-size: 1em;
+    }
 }
 
 .App--AllowAnimations .PageTitleArea {
-  & > p {
-    animation-delay: 0.25s;
-  }
+    & > p {
+        animation-delay: 0.25s;
+    }
 
-  & > h1,
-  & > p {
-    @include mixins.animation-duration(0.5s);
-    @include mixins.animation-name(fadeInUp);
-  }
+    & > h1,
+    & > p {
+        @include mixins.animation-duration(0.5s);
+        @include mixins.animation-name(fadeInUp);
+    }
 }
 
 .QuickContact {
-  @include mixins.responsiveContainer($hasCustomPadding: true);
-  padding: 14em var(--app-base-padding);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    @include mixins.responsiveContainer($hasCustomPadding: true);
+    padding: 14em var(--app-base-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  a,
-  h2 {
-    text-align: center;
-  }
-
-  h2 {
-    @extend %SmallUppercasedTitle;
-  }
-
-  a {
-    @include mixins.linear-gradient-text(rgb(var(--color-fluorescent-blue)), rgb(var(--color-azure-blue)));
-    margin-top: 0.3em;
-    margin-bottom: 0;
-    font-size: 4em;
-    font-weight: 600;
-    line-height: 1.6em;
-    border-bottom: solid 0.05em;
-    border-color: transparent;
-    padding: 0 0.35em;
-    font-weight: 700;
-    border-left-width: 0;
-    border-right-width: 0;
-
-    &:focus {
-      border-radius: 0.2em;
+    a,
+    h2 {
+        text-align: center;
     }
 
-    @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
-      font-size: 2.6em;
+    h2 {
+        @extend %SmallUppercasedTitle;
     }
-  }
+
+    a {
+        @include mixins.linear-gradient-text(rgb(var(--color-fluorescent-blue)), rgb(var(--color-azure-blue)));
+        margin-top: 0.3em;
+        margin-bottom: 0;
+        font-size: 4em;
+        font-weight: 600;
+        line-height: 1.6em;
+        border-bottom: solid 0.05em;
+        border-color: transparent;
+        padding: 0 0.35em;
+        font-weight: 700;
+        border-left-width: 0;
+        border-right-width: 0;
+
+        &:focus {
+            border-radius: 0.2em;
+        }
+
+        @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
+            font-size: 2.6em;
+        }
+    }
 }
 
 .Element {
-  &--OnlyScreenReaders {
-    // Note: Use of pixels does not really matter here.
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-  }
+    &--OnlyScreenReaders {
+        // Note: Use of pixels does not really matter here.
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(50%);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+    }
 }
 
 .CustomIcon {
-  &--Colorized,
-  &--ColorizeOnHover:hover,
-  &--ColorizeOnHover:focus {
-    &[data-platform-key='flat-twitter'] {
-      @extend %PlatformTwitterColor;
-    }
+    &--Colorized,
+    &--ColorizeOnHover:hover,
+    &--ColorizeOnHover:focus {
+        &[data-platform-key='flat-twitter'] {
+            @extend %PlatformTwitterColor;
+        }
 
-    &[data-platform-key='flat-instagram'] {
-      @extend %PlatformInstagramColor;
-    }
+        &[data-platform-key='flat-instagram'] {
+            @extend %PlatformInstagramColor;
+        }
 
-    &[data-platform-key='flat-linkedin'] {
-      @extend %PlatformLinkedInColor;
-    }
+        &[data-platform-key='flat-linkedin'] {
+            @extend %PlatformLinkedInColor;
+        }
 
-    &[data-platform-key='flat-github'] {
-      @extend %PlatformGitHubColor;
+        &[data-platform-key='flat-github'] {
+            @extend %PlatformGitHubColor;
+        }
     }
-  }
 }

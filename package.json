@@ -1,19 +1,29 @@
 {
-  "name": "victorsamuel-website",
-  "version": "1.0.0",
-  "description": "[victorsamuel.com](https://www.victorsamuel.com)",
-  "main": "index.js",
-  "scripts": {
-    "vercel:build:website": "cd apps/website && npm install --save file:../../libraries/logic-core && npm install && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/viktorsml/victorsamuel-website.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/viktorsml/victorsamuel-website/issues"
-  },
-  "homepage": "https://github.com/viktorsml/victorsamuel-website#readme"
+    "name": "victorsamuel-website",
+    "version": "1.0.0",
+    "description": "[victorsamuel.com](https://www.victorsamuel.com)",
+    "main": "index.js",
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "build": "turbo run build",
+        "test": "turbo run test",
+        "lint": "turbo run lint",
+        "dev": "turbo run dev",
+        "vercel:build:website": "cd apps/website && npm install --save file:../../libraries/logic-core && npm install && npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/viktorsml/victorsamuel-website.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/viktorsml/victorsamuel-website/issues"
+    },
+    "homepage": "https://github.com/viktorsml/victorsamuel-website#readme",
+    "devDependencies": {
+        "turbo": "^1.5.1"
+    }
 }

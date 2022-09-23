@@ -1,9 +1,9 @@
 import { IWebsiteState } from './website';
 
 export enum StateKey {
-  Website = 'WebsitePersistedState',
+    Website = 'WebsitePersistedState',
 }
 
 export interface IAppState {
-  website: IWebsiteState;
+    website: IWebsiteState;
 }

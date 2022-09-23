@@ -1,7 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { AnalyticsService } from '@services/analytics';
-import { EnvironmentService } from '@services/environment';
-import { SupportedLanguage } from '@services/environment/environment.service.models';
+import { EnvironmentService, SupportedLanguage } from '@services/environment';
 
 import { DisplayMode } from './language-switcher.component.models';
 

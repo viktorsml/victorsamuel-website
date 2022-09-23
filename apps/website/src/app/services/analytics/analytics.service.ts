@@ -1,4 +1,4 @@
-import posthog from 'posthog-js';
+import posthog, { Properties } from 'posthog-js';
 import { Subject } from 'rxjs';
 import { filter, skip, takeUntil } from 'rxjs/operators';
 
@@ -42,7 +42,7 @@ export class AnalyticsService implements OnDestroy {
         posthog.capture('$pageview');
     }
 
-    public dispatchEvent(eventName: string, eventPayload?: posthog.Properties) {
+    public dispatchEvent(eventName: string, eventPayload?: Properties) {
         if (!this.canSendAnalytics) {
             return;
         }

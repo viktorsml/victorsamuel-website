@@ -6,63 +6,63 @@
 @use './../abstracts/mixins';
 
 html {
-  @include mixins.box-sizing(border-box);
+    @include mixins.box-sizing(border-box);
 
-  @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
-    --app-max-width: 100%;
-  }
+    @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
+        --app-max-width: 100%;
+    }
 
-  @include mixins.max-width-breakpoint(125em) {
-    --app-max-width: 125em;
-  }
+    @include mixins.max-width-breakpoint(125em) {
+        --app-max-width: 125em;
+    }
 }
 
 *,
 *:before,
 *:after {
-  @include mixins.box-sizing(inherit);
-  -webkit-tap-highlight-color: transparent;
+    @include mixins.box-sizing(inherit);
+    -webkit-tap-highlight-color: transparent;
 }
 
 ::-moz-selection {
-  background-color: rgba(var(--color-highlight), 0.2);
-  color: white;
+    background-color: rgba(var(--color-highlight), 0.2);
+    color: white;
 }
 
 ::selection {
-  background-color: rgba(var(--color-highlight), 0.2);
-  color: white;
+    background-color: rgba(var(--color-highlight), 0.2);
+    color: white;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7a7a7a;
-  border-radius: 15px;
+    background: #7a7a7a;
+    border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b0b0b0;
+    background: #b0b0b0;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 15px;
+    background: transparent;
+    border-radius: 15px;
 }
 
 html,
 body {
-  @include mixins.coverParent;
-  background-color: rgb(var(--color-background));
-  color: rgb(var(--color-text));
+    @include mixins.coverParent;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-text));
 }
 
 body {
-  overflow-x: hidden;
-  overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 input:-webkit-autofill,
@@ -74,12 +74,12 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: rgb(var(--color-text));
-  transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: rgb(var(--color-text));
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .tooltip {
-  font-size: 0.9em;
-  padding: 0.7em 1em !important;
-  line-height: 1.5em;
+    font-size: 0.9em;
+    padding: 0.7em 1em !important;
+    line-height: 1.5em;
 }
