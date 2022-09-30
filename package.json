@@ -4,7 +4,7 @@
   "description": "[victorsamuel.com](https://www.victorsamuel.com)",
   "main": "index.js",
   "scripts": {
-    "vercel:build:website": "cd apps/website && npm install --save file:../../libraries/logic-core && npm install && npm run build"
+    "build": "cd apps/website && npm install --save file:../../libraries/logic-core && npm install && npm run build"
   },
   "repository": {
     "type": "git",
