@@ -6,8 +6,8 @@ export const environment: IEnvironment = {
     websiteBaseUrl: PRODUCTION_DOMAIN,
     postHogProjectApiKey: 'phc_Plmx9vKsSoPis5YC1ADsC8ia2m2gRm0G1UR2g9gplNH',
     contactEmail: 'hola@victorsamuel.com',
-    composeNewEmailUrl: 'https://viktors.ml/send-email',
-    brandedBaseUrl: 'https://viktors.ml',
+  composeNewEmailUrl: 'https://viktorsml.dev/send-email',
+  brandedBaseUrl: 'https://viktorsml.dev',
     backendEndpoint: 'https://victorsamuel-website-backend.viktorsml.workers.dev/api',
     analyticsServerUri: 'https://app.posthog.com',
 };
