@@ -1,9 +1,15 @@
 <main class="BookAMeetingPage">
     <div class="PageTitleArea">
         <h1 i18n>Book a meeting</h1>
-        <p i18n>Here is a selection of some projects that use design as a gateway to translate problems into opportunities</p>
+        <p i18n>Want to meet? Feel free to schedule a meeting with me at any time it matches your schedule</p>
     </div>
 </main>
 
-<button [meeting-booking]="fifteenMinuteMeetingId">Book a 15 min meeting</button>
-<button [meeting-booking]="thirtyMinuteMeetingId">Book a 30 min meeting</button>
+<div class="Meetings">
+    <ng-container *ngFor="let meeting of meetings">
+        <button class="MeetingButton" [ngClass]="generateCssClass('MeetingButton--Color', meeting.colorModifier)" [meeting-booking]="meeting.id">
+            <img class="MeetingButton__Icon" [src]="meeting.icon" alt="1 on 1 meeting" />
+            <span class="MeetingButton__Label">{{ meeting.label }}</span>
+        </button>
+    </ng-container>
+</div>

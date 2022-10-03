@@ -37,19 +37,25 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="996301204327690107" datatype="html">
-        <source>Here is a selection of some projects that use design as a gateway to translate problems into opportunities</source>
+      <trans-unit id="8985811981597391674" datatype="html">
+        <source>Want to meet? Feel free to schedule a meeting with me at any time it matches your schedule</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/pages/book-a-meeting-page/book-a-meeting-page.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="2864747404799748773" datatype="html">
+        <source>Schedule a 15 min meeting</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
-          <context context-type="linenumber">4,5</context>
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/book-a-meeting-page/book-a-meeting-page.component.ts</context>
+          <context context-type="linenumber">15</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="255216263226196752" datatype="html">
+        <source>Schedule a 30 min meeting</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layouts/website-layout/pages/single-project-page/single-project-page.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/book-a-meeting-page/book-a-meeting-page.component.ts</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7922989125096435449" datatype="html">
@@ -178,6 +184,17 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layouts/website-layout/website-layout.component.ts</context>
           <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="996301204327690107" datatype="html">
+        <source>Here is a selection of some projects that use design as a gateway to translate problems into opportunities</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/projects-page/projects-page.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/website-layout/pages/single-project-page/single-project-page.component.html</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="920786881821772176" datatype="html">

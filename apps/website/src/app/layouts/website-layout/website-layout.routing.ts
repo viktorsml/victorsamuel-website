@@ -6,6 +6,8 @@ import { IRouteData } from './website-layout.component.models';
 
 const routes: Routes = [
     { path: '', redirectTo: 'about', pathMatch: 'full' },
+    { path: 'meet', redirectTo: 'schedule-a-meeting', pathMatch: 'full' },
+    { path: 'meeting', redirectTo: 'schedule-a-meeting', pathMatch: 'full' },
     {
         path: '',
         component: WebsiteLayoutComponent,
@@ -30,7 +32,7 @@ const routes: Routes = [
                 loadChildren: () => import('./pages/contact-page').then((m) => m.ContactPageModule),
             },
             {
-                path: 'meet',
+                path: 'schedule-a-meeting',
                 data: <IRouteData>{ seoInformation: { pageTitle: $localize`Victor Samuel | Book a meeting` } },
                 loadChildren: () => import('./pages/book-a-meeting-page').then((m) => m.BookAMeetingPageModule),
             },
