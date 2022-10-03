@@ -6,7 +6,8 @@ import {
   selectPropertyAccessor, titlePropertyAccessor, urlPropertyAccessor
 } from '@services/notion';
 import { settings } from '@settings/environment';
-import { IProjectItem } from '@shared/models/project';
+
+import { IProjectItem } from './get-projects.models';
 
 const convertPageToProjectDefinition = (page: Page): IProjectItem => {
   return {

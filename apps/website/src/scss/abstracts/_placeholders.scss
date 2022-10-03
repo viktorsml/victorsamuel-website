@@ -1,41 +1,42 @@
 @use 'sass-variables' as var;
 
 %PageContainer {
-  --page-section-margin: calc(var(--app-base-margin) / 3);
-  margin-top: var(--app-base-margin);
-  margin-bottom: var(--app-base-margin);
+    --page-section-margin: calc(var(--app-base-margin) / 3);
+    margin-top: var(--app-base-margin);
+    margin-bottom: var(--app-base-margin);
 
-  @media screen and (max-width: var.$mobile-breakpoint) {
-    --app-base-margin: 4em;
-  }
+    @media screen and (max-width: var.$mobile-breakpoint) {
+        --app-base-margin: 4em;
+    }
 }
 
 %SmallUppercasedTitle {
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 0.23em;
-  font-weight: 400;
-  color: rgb(var(--color-text));
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    color: rgb(var(--color-text));
+    font-family: var(--font-secondary), var(--font-fallback);
 }
 
 %CustomSizedMatIcon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 %PlatformTwitterColor {
-  color: rgb(var(--color-twitter));
+    color: rgb(var(--color-twitter));
 }
 
 %PlatformInstagramColor {
-  color: rgb(var(--color-instagram));
+    color: rgb(var(--color-instagram));
 }
 
 %PlatformLinkedInColor {
-  color: rgb(var(--color-linkedin));
+    color: rgb(var(--color-linkedin));
 }
 
 %PlatformGitHubColor {
-  color: rgb(var(--color-github));
+    color: rgb(var(--color-github));
 }

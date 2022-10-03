@@ -34,7 +34,6 @@ export class AppComponent implements OnInit, OnDestroy {
     ) {}
 
     public ngOnInit() {
-        console.debug('Aplication running in environment:', this.environmentService.environment);
         if (this.environmentService.isBrowserEnvironment) {
             this.playAnimationsOnBrowserLoad();
             this.registerCustomIcons();

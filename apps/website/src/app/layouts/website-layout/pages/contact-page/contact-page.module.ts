@@ -1,4 +1,3 @@
-import { TooltipModule } from 'ng2-tooltip-directive';
 import { ClipboardModule } from 'ngx-clipboard';
 
 import { CommonModule } from '@angular/common';
@@ -11,6 +10,6 @@ import { ContactPageRoutingModule } from './contact-page.routing';
 
 @NgModule({
   declarations: [ContactPageComponent],
-  imports: [CommonModule, ContactPageRoutingModule, ClipboardModule, MatIconModule, MatButtonModule, TooltipModule],
+  imports: [CommonModule, ContactPageRoutingModule, ClipboardModule, MatIconModule, MatButtonModule],
 })
 export class ContactPageModule {}

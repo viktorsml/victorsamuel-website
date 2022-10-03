@@ -10,17 +10,23 @@ import { ApiCallStatus } from './website.models';
 
 @Injectable()
 export class WebsiteEffects {
-  constructor(private _actions$: Actions, private _backendApiService: BackendApiService) {}
+    constructor(private _actions$: Actions, private _backendApiService: BackendApiService) {}
 
-  public loadProjects$ = createEffect(() => {
-    return this._actions$.pipe(
-      ofType(LoadProjectListAction),
-      mergeMap(() =>
-        this._backendApiService.getProjectList$().pipe(
-          map((projects) => SetProjectListAction({ projectList: { status: ApiCallStatus.Successful, updatedDate: formatISO(new Date()), data: projects } })),
-          catchError(async () => SetProjectListAction({ projectList: { status: ApiCallStatus.FailedToFetch, updatedDate: formatISO(new Date()) } }))
-        )
-      )
-    );
-  });
+    public loadProjects$ = createEffect(() => {
+        return this._actions$.pipe(
+            ofType(LoadProjectListAction),
+            mergeMap(() =>
+                this._backendApiService.getProjectList$().pipe(
+                    map((projects) =>
+                        SetProjectListAction({
+                            projectList: { status: ApiCallStatus.Successful, updatedDate: formatISO(new Date()), data: projects },
+                        })
+                    ),
+                    catchError(async () =>
+                        SetProjectListAction({ projectList: { status: ApiCallStatus.FailedToFetch, updatedDate: formatISO(new Date()) } })
+                    )
+                )
+            )
+        );
+    });
 }

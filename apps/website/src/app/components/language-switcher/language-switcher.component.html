@@ -5,8 +5,6 @@
             [class.LanguageSwitcher__LanguageButton--ShowAsCode]="shouldDisplayAsLanguageCode"
             [class.LanguageSwitcher__LanguageButton--Active]="language.code === environment.currentLanguage"
             [tabIndex]="language.code === environment.currentLanguage ? -1 : 0"
-            [tooltip]="language.help"
-            [options]="{ placement: 'bottom' }"
             (click)="onLanguageChange(language.code)"
         >
             <span>{{ shouldDisplayAsLanguageCode ? language.code : language.label }}</span>

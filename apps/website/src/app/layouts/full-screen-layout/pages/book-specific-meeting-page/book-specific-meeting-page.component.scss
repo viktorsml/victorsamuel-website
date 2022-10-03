@@ -1,0 +1,21 @@
+@use './abstracts/mixins';
+@use './abstracts/sass-variables' as var;
+
+:host {
+    background-color: #101010;
+    display: table;
+    height: 100%;
+    width: 100%;
+    padding: var(--app-base-padding);
+
+    @include mixins.max-width-breakpoint(var.$mobile-breakpoint) {
+        --app-base-padding: 0;
+    }
+}
+
+.book-specific-meeting {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+}

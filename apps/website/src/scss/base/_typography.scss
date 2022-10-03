@@ -1,44 +1,20 @@
 @use '../abstracts/mixins';
 
 // #region Font Imports
-@use '../../assets/fonts/inter';
-@font-face {
-  font-family: 'Coven';
-  src: url('/assets/fonts/coven/coven-light.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven/coven-light.woff') format('woff'),
-    url('/assets/fonts/coven/coven-light.ttf') format('truetype'), url('/assets/fonts/coven/coven-light.svg#coven-light') format('svg');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+@use '../../assets/fonts/calibre';
+@use '../../assets/fonts/proto-mono';
+@use '../../assets/fonts/messina-sans-mono';
 
-@font-face {
-  font-family: 'Coven';
-  src: url('/assets/fonts/coven/coven.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven/coven.otf') format('opentype'),
-    url('/assets/fonts/coven/coven.woff') format('woff'), url('/assets/fonts/coven/coven.ttf') format('truetype'),
-    url('/assets/fonts/coven/coven.svg#coven') format('svg');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Coven';
-  src: url('/assets/fonts/coven/coven-medium.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/coven/coven-medium.woff') format('woff'),
-    url('/assets/fonts/coven/coven-medium.ttf') format('truetype'), url('/assets/fonts/coven/coven-medium.svg#coven-medium') format('svg');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
 // #endregion Font Imports
 
 html,
 body {
-  font-family: var(--font-default);
-  font-weight: var(--font-default-weight);
-  letter-spacing: var(--font-default-letter-spacing);
-  font-feature-settings: var(--font-default-feature-settings);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-default);
+    font-weight: var(--font-default-weight);
+    letter-spacing: var(--font-default-letter-spacing);
+    font-feature-settings: var(--font-default-feature-settings);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -48,13 +24,13 @@ h4,
 h5,
 h6,
 .TitleFont {
-  font-family: var(--font-title);
-  text-transform: var(--font-title-transform);
-  color: rgb(var(--color-title));
-  font-feature-settings: var(--font-title-feature-settings);
-  font-weight: var(--font-title-wight);
-  letter-spacing: 0;
-  margin-top: 0;
+    font-family: var(--font-title);
+    text-transform: var(--font-title-transform);
+    color: rgb(var(--color-title));
+    font-feature-settings: var(--font-title-feature-settings);
+    font-weight: var(--font-title-wight);
+    letter-spacing: 0;
+    margin-top: 0;
 }
 
 h2,
@@ -62,75 +38,75 @@ h3,
 h4,
 h5,
 h6 {
-  // letter-spacing: 0.05em;
-  margin-bottom: 0.85em;
+    // letter-spacing: 0.05em;
+    margin-bottom: 0.85em;
 }
 
 h1 {
-  font-size: 2.8em;
-  line-height: 1.6em;
-  margin-top: 0.85em;
+    font-size: 2.8em;
+    line-height: 1.6em;
+    margin-top: 0.85em;
 }
 
 h2 {
-  font-size: 2.4em;
-  line-height: 1.5em;
+    font-size: 2.4em;
+    line-height: 1.5em;
 }
 
 h3 {
-  font-size: 2em;
-  line-height: 1.4em;
+    font-size: 2em;
+    line-height: 1.4em;
 }
 
 h4 {
-  font-size: 1.8em;
-  line-height: 1.3em;
+    font-size: 1.8em;
+    line-height: 1.3em;
 }
 
 h5 {
-  font-size: 1.6em;
-  line-height: 1.3em;
+    font-size: 1.6em;
+    line-height: 1.3em;
 }
 
 h6 {
-  font-size: 1.4em;
-  line-height: 1.3em;
+    font-size: 1.4em;
+    line-height: 1.3em;
 }
 
 p {
-  font-family: var(--font-default);
-  font-weight: var(--font-default-weight);
-  color: rgb(var(--color-text));
-  line-height: var(--font-default-line-height);
-  font-size: 1.1em;
-  letter-spacing: 0.04em;
-  font-weight: 300;
+    font-family: var(--font-default);
+    font-weight: var(--font-default-weight);
+    color: rgb(var(--color-text));
+    line-height: var(--font-default-line-height);
+    font-size: 1.1em;
+    letter-spacing: 0.04em;
+    font-weight: 300;
 }
 
 a {
-  --link--color: rgb(var(--color-primary));
-  color: var(--link--color);
-  text-decoration: none;
-  border-style: solid;
-  border-width: 0.1em;
-  border-color: transparent;
-
-  &:focus {
-    border-radius: 0.1em;
-  }
-
-  &:hover {
+    --link--color: rgb(var(--color-primary));
+    color: var(--link--color);
     text-decoration: none;
-  }
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: transparent;
 
-  &:not(.Link--DisableHoverBorder, a[mat-button], a[mat-stroked-button]):hover {
-    border-bottom-color: var(--link--color);
-  }
+    &:focus {
+        border-radius: 0.1em;
+    }
 
-  &:not(.Link--WithCustomHoverColor):hover,
-  &:not(.Link--WithCustomHoverColor):focus {
-    @include mixins.linear-gradient-text(rgb(var(--color-fluorescent-blue)), rgb(var(--color-azure-blue)));
-    // This !important allows us to override any a element that has a custom color.
-    color: transparent !important;
-  }
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:not(.Link--DisableHoverBorder, a[mat-button], a[mat-stroked-button]):hover {
+        border-bottom-color: var(--link--color);
+    }
+
+    &:not(.Link--WithCustomHoverColor):hover,
+    &:not(.Link--WithCustomHoverColor):focus {
+        @include mixins.linear-gradient-text(rgb(var(--color-fluorescent-blue)), rgb(var(--color-azure-blue)));
+        // This !important allows us to override any a element that has a custom color.
+        color: transparent !important;
+    }
 }

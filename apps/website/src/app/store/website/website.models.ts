@@ -1,31 +1,31 @@
-import { IProjectItem } from '@shared/models/project';
+import { IProjectItem } from '@services/backend-api';
 
 export interface IWebsiteState {
-  readonly isLoading: boolean;
-  readonly isInHomePage: boolean;
-  readonly projectList: IProjectListData;
+    readonly isLoading: boolean;
+    readonly isInHomePage: boolean;
+    readonly projectList: IProjectListData;
 }
 
 export enum ApiCallStatus {
-  Pending = 'Pending',
-  FailedToFetch = 'FailedToFetch',
-  Successful = 'Successful',
+    Pending = 'Pending',
+    FailedToFetch = 'FailedToFetch',
+    Successful = 'Successful',
 }
 
 export interface IProjectListData {
-  status?: ApiCallStatus;
-  updatedDate?: string;
-  data?: IProjectItem[];
+    status?: ApiCallStatus;
+    updatedDate?: string;
+    data?: IProjectItem[];
 }
 
 export interface ISetLoadingPageActionData {
-  isLoading: boolean;
+    isLoading: boolean;
 }
 
 export interface ISetGlobalSocialIconsActionData {
-  isInHomePage: boolean;
+    isInHomePage: boolean;
 }
 
 export interface ISetProjectListActionData {
-  projectList: IProjectListData;
+    projectList: IProjectListData;
 }

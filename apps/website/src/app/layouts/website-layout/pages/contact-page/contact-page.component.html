@@ -42,7 +42,6 @@
                     class="ContactIcon Link--DisableHoverBorder Link--WithCustomHoverColor"
                     rel="noopener noreferrer"
                     placement="bottom"
-                    [tooltip]="'Contact via ' + icon.platformName"
                     [href]="icon.brandedUrl"
                     [target]="icon.platformKey"
                     (click)="dispatchPrivateMessageContact(icon.platformName)"
