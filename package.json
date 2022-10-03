@@ -11,7 +11,7 @@
         "test": "turbo run test",
         "lint": "turbo run lint",
         "dev": "turbo run dev",
-        "vercel:build:website": "cd apps/website && npm install --save file:../../libraries/logic-core && npm install && npm run build"
+        "build:vercel": "turbo run build --filter @viktorsml/website --no-cache"
     },
     "repository": {
         "type": "git",
