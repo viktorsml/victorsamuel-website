@@ -88,8 +88,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     private playAnimationsOnBrowserLoad() {
         if (this.environmentService.isBrowserEnvironment) {
-            this.renderer.removeClass(this.environmentService.document.body, 'App--PrepareForAnimations');
-            this.renderer.addClass(this.environmentService.document.body, 'App--AllowAnimations');
+            // this.renderer.removeClass(this.environmentService.document.body, 'App--PrepareForAnimations');
+            // this.renderer.addClass(this.environmentService.document.body, 'App--AllowAnimations');
         }
     }
 

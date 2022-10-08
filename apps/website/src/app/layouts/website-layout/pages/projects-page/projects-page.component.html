@@ -17,7 +17,7 @@
                 <ng-container *ngIf="projectListData?.data | doesArrayHaveValues; then ProjectList; else NoProjects"></ng-container>
             </ng-container>
             <ng-container *ngSwitchDefault>
-                <div class="ProjectList__LoadingSpinnerContainer A--FadeIn A--D6 A--W1">
+                <div class="ProjectList__LoadingSpinnerContainer">
                     <app-loading-spinner></app-loading-spinner>
                 </div>
             </ng-container>
@@ -77,6 +77,6 @@
 </ng-container>
 
 <section class="QuickContact">
-    <h2 class="A--FadeIn A--D6" i18n>Need a developer?</h2>
-    <a mat-button class="TitleFont Link--WithCustomHoverColor A--FadeInUp A--D3" routerLink="../contact" i18n>Let's work together</a>
+    <h2 i18n>Need a developer?</h2>
+    <a mat-button class="TitleFont Link--WithCustomHoverColor" routerLink="../contact" i18n>Let's work together</a>
 </section>
