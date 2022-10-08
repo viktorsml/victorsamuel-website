@@ -1,12 +1,12 @@
 <ng-container *ngIf="errorMessage">
   <div class="ErrorMessage">
-    <div class="ErrorMessage__Content A--D5 A--FadeIn">
-      <app-smart-picture class="A--D5 A--FadeInUp" object-fit="contain" object-position="center">
+    <div class="ErrorMessage__Content">
+      <app-smart-picture object-fit="contain" object-position="center">
         <source [srcset]="errorMessage.iconFilePath" type="image/svg+xml" />
       </app-smart-picture>
       <div class="ErrorMessage__InformationContainer">
-        <h2 class="ErrorMessage__Title A--D5 A--FadeInUp">{{ errorMessage.title }}</h2>
-        <p class="ErrorMessage__Description A--D5 A--W1 A--FadeInUp">{{ errorMessage.description }}</p>
+        <h2 class="ErrorMessage__Title">{{ errorMessage.title }}</h2>
+        <p class="ErrorMessage__Description">{{ errorMessage.description }}</p>
       </div>
     </div>
   </div>
