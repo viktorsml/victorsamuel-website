@@ -69,18 +69,18 @@
     }
 }
 
-.App--AllowAnimations .PageTitleArea {
-    & > p {
-        animation-delay: 0.25s;
-    }
+// .App--AllowAnimations .PageTitleArea {
+    // & > p {
+    //     animation-delay: 0.25s;
+    // }
 
-    & > h1,
-    & > h2,
-    & > p {
-        @include mixins.animation-duration(0.5s);
-        @include mixins.animation-name(fadeInUp);
-    }
-}
+    // & > h1,
+    // & > h2,
+    // & > p {
+    //     @include mixins.animation-duration(0.5s);
+    //     @include mixins.animation-name(fadeInUp);
+    // }
+// }
 
 .QuickContact {
     @include mixins.responsiveContainer($hasCustomPadding: true);
