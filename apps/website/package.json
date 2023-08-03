@@ -49,7 +49,7 @@
     "lodash.merge": "~4.6.2",
     "ng-in-viewport": "^13.0.1",
     "ngx-clipboard": "^15.1.0",
-    "posthog-js": "~1.30.0",
+    "posthog-js": "~1.57.2",
     "reseter.css": "^2.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.4.0",
